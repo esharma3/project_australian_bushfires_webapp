@@ -21,6 +21,7 @@ jinja2 = "*"
 flask = "*"
 requests = "*"
 selenium = "*"
+tabula-py = "*"
 
 [requires]
 python_version = "3.7"
