@@ -20,6 +20,7 @@ nb-black = "*"
 jinja2 = "*"
 flask = "*"
 requests = "*"
+selenium = "*"
 
 [requires]
 python_version = "3.7"
