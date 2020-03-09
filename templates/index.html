@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+
+<!--  NOT TOUCHY TOUCH -->
+<head>
+  <meta charset="utf-8">
+  <title>Australian Bushfires Webapp</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- Our own CSS -->
+  <link rel="stylesheet" href="../static/css/style.css">
+  <!-- Bootstrap JS files -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+
+
+<!--  -->
+
+
+<body>
+<!-- This is the nav bar. Paste on every page at the top of the body-->
+<nav class="navbar fixed-top navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="index.html">HOME</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="fire-maps.html">Fire Maps</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="fire-count.html">Fire Count</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="impact.html">Impact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="climate-fields.html">Climate Fields</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="about.html">About</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- Hero Section, mainly for the homepage -->
+<section class="bgimage">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      	<h1 class="font-weight-light">AUS' BUSHFIRE CENTRAL</h1>
+      	<br/>
+        <p class="lead">Distillery austin food truck narwhal before they sold out venmo. Cornhole shabby chic echo park vice scenester.</p>
+        <p><a href="#main" class="btn btn-primary btn-large">Learn more »</a></p>
+      </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- This is a simple white section for just a headr and paragraphs-->
+<section class="basic-white">
+<br/>
+<div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1> Heading 1 </h1>
+        <hr/>
+        <p>Pitchfork ad iceland, proident ut seitan flannel ramps narwhal veniam bitters palo santo venmo chartreuse. Biodiesel consectetur nostrud in marfa typewriter crucifix brooklyn selvage humblebrag chambray irure vexillologist. Leggings vegan selfies, excepteur aliquip do cupidatat venmo twee tote bag cred farm-to-table sartorial coloring book nulla. You probably haven't heard of them green juice pabst yr cray. Nostrud flexitarian eiusmod edison bulb chartreuse godard small batch sed etsy quis vinyl officia proident. Man bun food truck wolf flannel aliqua pinterest VHS in aesthetic roof party next level 3 wolf moon elit single-origin coffee. Ut authentic williamsburg drinking vinegar, pinterest stumptown woke actually banjo pour-over.</p>
+
+        <p>Lorem sartorial adipisicing adaptogen cillum butcher thundercats portland. Humblebrag cardigan dolor ramps franzen paleo dolore meggings venmo chia salvia vape blue bottle. Elit iceland flannel meh tofu, farm-to-table id consequat celiac sustainable. Wayfarers kogi fashion axe disrupt tofu. Hot chicken twee edison bulb incididunt vinyl, helvetica nisi deserunt bespoke pabst gentrify mustache shaman tempor ramps. Sunt irony qui, mustache semiotics lyft ut neutra pabst narwhal truffaut. Shoreditch gluten-free normcore, meditation affogato drinking vinegar laborum est fam palo santo.<p>
+
+        <p>>Narwhal non vice retro, minim in fashion axe palo santo listicle in iPhone hoodie lumbersexual thundercats before they sold out. Everyday carry mlkshk butcher, aliquip in hot chicken man bun. Hammock aliqua chillwave non elit activated charcoal woke duis copper mug. Tbh tattooed aliqua ea, succulents nisi laboris occaecat culpa ugh. Small batch taiyaki post-ironic, activated charcoal echo park magna messenger bag tumblr twee. Ut four dollar toast gentrify ea before they sold out snackwave twee laborum blue bottle biodiesel pabst.</p>
+      </div> 
+    </div>
+  </div>
+</section>
+
+
+
+<!-- This is the section with cards for the homepage -->
+<section class="cards" id="main">
+<div class="container">
+  <div class="row">
+    <div class="col 12">
+      <br>
+      <h2> It's easy to navigate this site: </h2>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+    <div class="card-deck">
+
+        <div class="card mb-4">
+            <a href="fire-maps.html">
+              <img class="card-img-top img-fluid" src="../static/images/fire_maps_icon.svg" alt="Card image cap">
+            </a>
+            <div class="card-body">
+                <h4 class="card-title">Fire Maps</h4>
+                <p class="card-text">Nisi chicharrones next level, crucifix mustache lumbersexual blog direct trade artisan nostrud... <a href="fire-maps.html">read more</a></p>
+                <p class="card-text"><small class="text-muted">Last updated 5 mins ago</small></p>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+          <a href="fire-count.html">
+            <img class="card-img-top img-fluid" src="../static/images/fire_count_icon.svg" alt="Card image cap">
+          </a>
+            <div class="card-body">
+                <h4 class="card-title">Fire Count</h4>
+                <p class="card-text">Nisi chicharrones next level, crucifix mustache lumbersexual blog direct trade artisan nostrud... <a href="fire-count.html">read more</a></p>
+                <p class="card-text"><small class="text-muted">Last updated 4 mins ago</small></p>
+            </div>
+        </div>
+
+        <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
+        <div class="card mb-4">
+          <a href="impact.html">
+            <img class="card-img-top img-fluid" src="../static/images/impact_icon.svg" alt="Card image cap">
+          </a>
+            <div class="card-body">
+                <h4 class="card-title">Impact</h4>
+                <p class="card-text">Nisi chicharrones next level, crucifix mustache lumbersexual blog direct trade artisan nostrud... <a href="impact.html">read more</a></p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+
+        <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
+        <div class="card mb-4">
+          <a href="climate-fields.html">
+            <img class="card-img-top img-fluid" src="../static/images/climate_fields_icon.svg" alt="Card image cap">
+          </a>
+            <div class="card-body">
+                <h4 class="card-title">Climate Fields</h4>
+                <p class="card-text">Nisi chicharrones next level, crucifix mustache lumbersexual blog direct trade artisan nostrud... <a href="climate-fields.html">read more</a></p>
+                <p class="card-text"><small class="text-muted">Last updated 2 min ago</small></p>
+            </div>
+        </div>
+
+        <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
+        <div class="card mb-4">
+          <a href="about.html">
+            <img class="card-img-top img-fluid" src="../static/images/about_icon.svg" alt="Card image cap">
+          </a>
+            <div class="card-body">
+                <h4 class="card-title">About</h4>
+                <p class="card-text">Nisi chicharrones next level, crucifix mustache lumbersexual blog direct trade artisan nostrud... <a href="about.html">read more</a></p>
+                <p class="card-text"><small class="text-muted">Last updated 1 min ago</small></p>
+            </div>
+        </div>
+        
+    </div>
+  </div>
+</div>
+</section>
+
+
+
+<!-- This is a blank white section to serve a route item, w/ or w/o text-->
+<section class="route-white">
+<br/>
+<div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h2> Heading 2 </h2>
+        <p>Pitchfork ad iceland, proident ut seitan flannel ramps narwhal veniam bitters palo santo venmo chartreuse. Biodiesel consectetur nostrud in marfa typewriter crucifix brooklyn selvage humblebrag chambray irure vexillologist. Leggings vegan selfies, excepteur aliquip do cupidatat venmo twee tote bag cred farm-to-table sartorial coloring book nulla. You probably haven't heard of them green juice pabst yr cray. Nostrud flexitarian eiusmod edison bulb chartreuse godard small batch sed etsy quis vinyl officia proident. Man bun food truck wolf flannel aliqua pinterest VHS in aesthetic roof party next level 3 wolf moon elit single-origin coffee. Ut authentic williamsburg drinking vinegar, pinterest stumptown woke actually banjo pour-over.</p>
+
+        <p>Lorem sartorial adipisicing adaptogen cillum butcher thundercats portland. Humblebrag cardigan dolor ramps franzen paleo dolore meggings venmo chia salvia vape blue bottle. Elit iceland flannel meh tofu, farm-to-table id consequat celiac sustainable. Wayfarers kogi fashion axe disrupt tofu. Hot chicken twee edison bulb incididunt vinyl, helvetica nisi deserunt bespoke pabst gentrify mustache shaman tempor ramps. Sunt irony qui, mustache semiotics lyft ut neutra pabst narwhal truffaut. Shoreditch gluten-free normcore, meditation affogato drinking vinegar laborum est fam palo santo.<p>
+
+        <!-- Change tag to correct item, e.g. table, p, etc. Don't forget to add {{ <name>| safe }} to tables -->
+        <img src="{{ <ADD FLASK render_template NAME HERE. >}}">
+      </div> 
+    </div>
+  </div>
+</section>
+
+
+
+<!-- Another Hero section, mainly for the homepage -->
+<section class="bgimage">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <br/>
+        <blockquote class="blockquote text-center">
+          <h2><i>"Cold-pressed neutra tacos mollit aliquip kickstarter chillwave brooklyn subway tile etsy minim normcore thundercats echo park. Enim hell of pok pok, bitters aute hoodie et ut. Lyft church-key enim iceland pork belly cronut."</i></h2>
+          <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source</cite></footer>
+        </blockquote>
+      </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- This is a blank white with double paragraphs to serve a route item-->
+<section class="route-white">
+<br/>
+<div class="container">
+    <div class="row">
+
+      <div class="col-lg-6">
+        <h2> Heading 2 </h2>
+        <p>Pitchfork ad iceland, proident ut seitan flannel ramps narwhal veniam bitters palo santo venmo chartreuse. Biodiesel consectetur nostrud in marfa typewriter crucifix brooklyn selvage humblebrag chambray irure vexillologist. Leggings vegan selfies, excepteur aliquip do cupidatat venmo twee tote bag cred farm-to-table sartorial coloring book nulla. You probably haven't heard of them green juice pabst yr cray. Nostrud flexitarian eiusmod edison bulb chartreuse godard small batch sed etsy quis vinyl officia proident. Man bun food truck wolf flannel aliqua pinterest VHS in aesthetic roof party next level 3 wolf moon elit single-origin coffee. Ut authentic williamsburg drinking vinegar, pinterest stumptown woke actually banjo pour-over.</p>
+        <p>Lorem sartorial adipisicing adaptogen cillum butcher thundercats portland. Humblebrag cardigan dolor ramps franzen paleo dolore meggings venmo chia salvia vape blue bottle. Elit iceland flannel meh tofu, farm-to-table id consequat celiac sustainable. Wayfarers kogi fashion axe disrupt tofu. Hot chicken twee edison bulb incididunt vinyl, helvetica nisi deserunt bespoke pabst gentrify mustache shaman tempor ramps. Sunt irony qui, mustache semiotics lyft ut neutra pabst narwhal truffaut. Shoreditch gluten-free normcore, meditation affogato drinking vinegar laborum est fam palo santo.<p>
+      </div> 
+
+      <div class="col-lg-6">
+        <h3> Heading 3, You can just add a route item here </h3>
+        <!-- Change tag to correct item, e.g. table, p, etc. Don't forget to add {{ <name>| safe }} to tables -->
+        <p>{{ <"ADD FLASK render_template NAME HERE."> }}</p>
+      </div> 
+    </div>
+  </div> 
+</section>
+
+
+<script src="static/js/script.js"></script>
+</body>
+
+
+<!--  -->
+
+
+<footer class="page-footer font-small blue">
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="index.html">UT Data Bootcamp</a>
+  </div>
+</footer>
+
+</html>
