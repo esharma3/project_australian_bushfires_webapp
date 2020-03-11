@@ -10,11 +10,18 @@ PASSWORD = my_password
 HOST = "127.0.0.1"
 PORT = "3306"
 DATABASE = "bushfires_db"
-TABLENAME = "fire_archives"
+TABLENAME = "australia"
 
-df = pd.read_csv("fire_archives.csv")
+df = pd.read_csv("australia.csv", dtype = {"acq_time": "str"})
+# Extract, convert to hours and minutes
+hour_delta = df["acq_time"].apply(lambda s: pd.to_timedelta(int(s[0:-2]), unit="hours"))
+min_delta = df["acq_time"].apply(lambda s: pd.to_timedelta(int(s[-2:]), unit="minutes"))
+
+# Combine to datetime format and append to df
+df["acc_datetime"] = pd.to_datetime(df["acq_date"]) + hour_delta + min_delta
 
 engine = create_engine(f"mysql+pymysql://{USER}:{PASSWORD}@{HOST}:{PORT}")
+
 try:
     engine.execute(f"CREATE DATABASE {DATABASE}")
 except ProgrammingError:
@@ -22,8 +29,8 @@ except ProgrammingError:
         f"Could not create database {DATABASE}. Database {DATABASE} may already exist."
     )
     pass
-engine.execute(f"USE {DATABASE}")
-# engine.execute(f"DROP TABLE IF EXISTS {TABLENAME}")
 
-#Send above DataFrame to SQL
+engine.execute(f"USE {DATABASE}")
+
+# Send above DataFrame to SQL
 df.to_sql(name = TABLENAME, con = engine)
