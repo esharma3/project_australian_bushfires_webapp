@@ -12,7 +12,7 @@ PORT = "3306"
 DATABASE = "bushfires_db"
 TABLENAME = "australia"
 
-df = pd.read_csv("fire_archives.csv", dtype = {"acq_time": "str"})
+df = pd.read_csv("australia.csv", dtype = {"acq_time": "str"})
 # Extract, convert to hours and minutes
 hour_delta = df["acq_time"].apply(lambda s: pd.to_timedelta(int(s[0:-2]), unit="hours"))
 min_delta = df["acq_time"].apply(lambda s: pd.to_timedelta(int(s[-2:]), unit="minutes"))
