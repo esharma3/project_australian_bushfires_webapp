@@ -3,6 +3,7 @@ import pandas as pd
 from sqlalchemy import create_engine
 from sqlalchemy.exc import ProgrammingError
 import warnings
+import sqlalchemy
 from config import my_password
 
 USER = "root"
@@ -10,15 +11,6 @@ PASSWORD = my_password
 HOST = "127.0.0.1"
 PORT = "3306"
 DATABASE = "bushfires_db"
-TABLENAME = "australia"
-
-df = pd.read_csv("australia.csv", dtype = {"acq_time": "str"})
-# Extract, convert to hours and minutes
-hour_delta = df["acq_time"].apply(lambda s: pd.to_timedelta(int(s[0:-2]), unit="hours"))
-min_delta = df["acq_time"].apply(lambda s: pd.to_timedelta(int(s[-2:]), unit="minutes"))
-
-# Combine to datetime format and append to df
-df["acc_datetime"] = pd.to_datetime(df["acq_date"]) + hour_delta + min_delta
 
 engine = create_engine(f"mysql+pymysql://{USER}:{PASSWORD}@{HOST}:{PORT}")
 
@@ -32,5 +24,45 @@ except ProgrammingError:
 
 engine.execute(f"USE {DATABASE}")
 
-# Send above DataFrame to SQL
-df.to_sql(name = TABLENAME, con = engine)
+# The below script is for adding tables to the database. If a table already exists, it is dropped and re-added. 
+
+# Fire Count tables begin here --------------------------------------------------------------------------------
+# New South Wales 
+FIRE_COUNT_TABLENAME1 = "nsw_fire_counts" 
+engine.execute(f"DROP TABLE IF EXISTS {FIRE_COUNT_TABLENAME1}")
+
+df = pd.read_csv(
+    "fire_counts_data/Table_MODIS_fire_counts_2002_2019_NSW_per_fire_year.csv"
+).to_sql(
+    name=FIRE_COUNT_TABLENAME1,
+    con=engine,
+    index=False,
+    dtype=sqlalchemy.types.INTEGER(),
+)
+
+# Queensland 
+FIRE_COUNT_TABLENAME2 = "queensland_fire_counts"
+engine.execute(f"DROP TABLE IF EXISTS {FIRE_COUNT_TABLENAME2}")
+
+df = pd.read_csv(
+    "fire_counts_data/Table_MODIS_fire_counts_2002_2019_Queensland_per_fire_year.csv"
+).to_sql(
+    name=FIRE_COUNT_TABLENAME2,
+    con=engine,
+    index=False,
+    dtype=sqlalchemy.types.INTEGER(),
+)
+
+# Victoria 
+FIRE_COUNT_TABLENAME3 = "victoria_fire_counts" 
+engine.execute(f"DROP TABLE IF EXISTS {FIRE_COUNT_TABLENAME3}")
+
+df = pd.read_csv(
+    "fire_counts_data/Table_MODIS_fire_counts_2002_2019_Victoria_per_fire_year.csv"
+).to_sql(
+    name=FIRE_COUNT_TABLENAME3,
+    con=engine,
+    index=False,
+    dtype=sqlalchemy.types.INTEGER(),
+)
+# End of Fire Count tables
