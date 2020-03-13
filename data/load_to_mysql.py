@@ -66,3 +66,51 @@ df = pd.read_csv(
     dtype=sqlalchemy.types.INTEGER(),
 )
 # End of Fire Count tables
+
+
+############################################################
+### Protected species impact (David's) table begins here ###
+############################################################
+
+IMPACT_TABLENAME1 = "protected_species_impact_counts" 
+engine.execute(f"DROP TABLE IF EXISTS {IMPACT_TABLENAME1}")
+
+# Creating dict of dtypes for SQL alchemy
+schema = {"Scientific Name": sqlalchemy.types.String(length=300), 
+          "Common Name": sqlalchemy.types.String(length=300), 
+          "Afected Area": sqlalchemy.types.String(length=50), 
+          "Area Min": sqlalchemy.types.INTEGER,
+          "Area Max": sqlalchemy.types.INTEGER,
+          "Type": sqlalchemy.types.String(length=50),
+          "Protected Status": sqlalchemy.types.String(length=25),
+          "Migratory Status ": sqlalchemy.types.String(length=25),
+          "Location": sqlalchemy.types.String(length=50)
+}
+
+
+# Doing some data cleaning
+df = pd.read_csv("protected_species_impact.csv")\
+       .fillna('N/A')\
+       .rename(columns = {"Percentage of the species modelled likely and known distribution within fire affected areas": "Afected Area", 
+                          "EPBC Act listed Threatened Status": "Protected Status", 
+                          "EPBC Act listed Migratory Status": "Migratory Status", 
+                          "Range states and territories": "Location"})\
+       .replace({'Afected Area': '≥80%'}, '>80%')
+
+min_range = [df["Afected Area"][e][:3].strip("%|<|>| ") for e in df["Afected Area"].index]
+max_range = [df["Afected Area"][e][5:-1].strip("%|<|>| ").replace("", '0') for e in df["Afected Area"].index]
+
+df.insert(column='Area Min', value=min_range, loc=3)
+df.insert(column='Area Max', value=max_range, loc=4)
+
+
+# Sending to DB
+df.to_sql(name=IMPACT_TABLENAME1,
+             con=engine,
+             index=False,
+             dtype=schema
+             )
+
+### End of animal impact table ###
+
+
