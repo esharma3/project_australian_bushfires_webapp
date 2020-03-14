@@ -114,3 +114,26 @@ df.to_sql(name=IMPACT_TABLENAME1,
 ### End of animal impact table ###
 
 
+############################################################
+### Protected species impact (James') table begins here ###
+############################################################
+IMPACT_HISTORIC_FIRE_DATA = "protected_species_impact_counts" 
+engine.execute(f"DROP TABLE IF EXISTS {IMPACT_HISTORIC_FIRE_DATA}")
+
+# Creating dict of dtypes for SQL alchemy
+schema = {"Name": sqlalchemy.types.String(length=300), 
+          "State": sqlalchemy.types.String(length=300), 
+          "Hectacres Burned": sqlalchemy.types.String(length=50), 
+          "Other Damage": sqlalchemy.types.INTEGER,
+          "Year": sqlalchemy.types.INTEGER,
+          "Human Fatalities": sqlalchemy.types.String(length=50),
+          "Homes Destroyed": sqlalchemy.types.String(length=25),
+          "Other Structures Destroyed ": sqlalchemy.types.String(length=25)
+}
+df_hist_fires = pd.read_csv("df_hist_fires.csv")\
+    
+df_hist_fires.to_sql(name=IMPACT_HISTORIC_FIRE_DATA,
+             con=engine,
+             index=False,
+             dtype=schema
+             )
