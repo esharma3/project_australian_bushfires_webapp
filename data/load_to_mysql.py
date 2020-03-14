@@ -114,3 +114,34 @@ df.to_sql(name=IMPACT_TABLENAME1,
 ### End of animal impact table ###
 
 
+############################################################
+### Protected species impact (James') table begins here ###
+############################################################
+############################################################
+### Fire Impacts (James') table begins here ###
+############################################################
+IMPACT_HISTORIC_FIRES = "historic_fire_data" 
+engine.execute(f"DROP TABLE IF EXISTS {IMPACT_HISTORIC_FIRES}")
+
+df = pd.read_csv(
+    "df_hist_fires.csv"
+).to_sql(
+    name=IMPACT_HISTORIC_FIRES,
+    con=engine,
+    index=False,
+    dtype=sqlalchemy.types.INTEGER(),
+)
+IMPACT_2019_FIRES = "2019_fires" 
+engine.execute(f"DROP TABLE IF EXISTS {IMPACT_2019_FIRES}")
+
+df = pd.read_csv(
+    "df_2019_2020_fires.csv"
+).to_sql(
+    name=IMPACT_2019_FIRES,
+    con=engine,
+    index=False,
+    dtype=sqlalchemy.types.INTEGER(),
+)
+############################################################
+### Fire Impacts (James) table ends here
+############################################################
