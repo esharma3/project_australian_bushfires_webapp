@@ -117,23 +117,31 @@ df.to_sql(name=IMPACT_TABLENAME1,
 ############################################################
 ### Protected species impact (James') table begins here ###
 ############################################################
-IMPACT_HISTORIC_FIRE_DATA = "protected_species_impact_counts" 
-engine.execute(f"DROP TABLE IF EXISTS {IMPACT_HISTORIC_FIRE_DATA}")
+############################################################
+### Fire Impacts (James') table begins here ###
+############################################################
+IMPACT_HISTORIC_FIRES = "historic_fire_data" 
+engine.execute(f"DROP TABLE IF EXISTS {IMPACT_HISTORIC_FIRES}")
 
-# Creating dict of dtypes for SQL alchemy
-schema = {"Name": sqlalchemy.types.String(length=300), 
-          "State": sqlalchemy.types.String(length=300), 
-          "Hectacres Burned": sqlalchemy.types.String(length=50), 
-          "Other Damage": sqlalchemy.types.INTEGER,
-          "Year": sqlalchemy.types.INTEGER,
-          "Human Fatalities": sqlalchemy.types.String(length=50),
-          "Homes Destroyed": sqlalchemy.types.String(length=25),
-          "Other Structures Destroyed ": sqlalchemy.types.String(length=25)
-}
-df_hist_fires = pd.read_csv("df_hist_fires.csv")\
-    
-df_hist_fires.to_sql(name=IMPACT_HISTORIC_FIRE_DATA,
-             con=engine,
-             index=False,
-             dtype=schema
-             )
+df = pd.read_csv(
+    "df_hist_fires.csv"
+).to_sql(
+    name=IMPACT_HISTORIC_FIRES,
+    con=engine,
+    index=False,
+    dtype=sqlalchemy.types.INTEGER(),
+)
+IMPACT_2019_FIRES = "2019_fires" 
+engine.execute(f"DROP TABLE IF EXISTS {IMPACT_2019_FIRES}")
+
+df = pd.read_csv(
+    "df_2019_2020_fires.csv"
+).to_sql(
+    name=IMPACT_2019_FIRES,
+    con=engine,
+    index=False,
+    dtype=sqlalchemy.types.INTEGER(),
+)
+############################################################
+### Fire Impacts (James) table ends here
+############################################################
