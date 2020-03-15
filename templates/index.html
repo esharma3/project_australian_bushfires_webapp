@@ -26,7 +26,7 @@
 <body>
 <!-- This is the nav bar. Paste on every page at the top of the body-->
 <nav class="navbar fixed-top navbar-expand-lg navbar-light">
-  <a class="navbar-brand" href="index.html">HOME</a>
+  <a class="navbar-brand" href="/">HOME</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -34,19 +34,19 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="fire-maps.html">Fire Maps</a>
+        <a class="nav-link" href="fire-maps">Fire Maps</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="fire-count.html">Fire Count</a>
+        <a class="nav-link" href="fire-count">Fire Count</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="impact.html">Impact</a>
+        <a class="nav-link" href="impact">Impact</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="climate-fields.html">Climate Fields</a>
+        <a class="nav-link" href="climate-fails">Climate Fails</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="about">About</a>
       </li>
     </ul>
   </div>
@@ -138,12 +138,12 @@
 
         <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
         <div class="card mb-4">
-          <a href="climate-fields.html">
-            <img class="card-img-top img-fluid" src="../static/images/climate_fields_icon.svg" alt="Card image cap">
+          <a href="climate-fails.html">
+            <img class="card-img-top img-fluid" src="../static/images/climate_fails_icon.svg" alt="Card image cap">
           </a>
             <div class="card-body">
-                <h4 class="card-title">Climate Fields</h4>
-                <p class="card-text">Nisi chicharrones next level, crucifix mustache lumbersexual blog direct trade artisan nostrud... <a href="climate-fields.html">read more</a></p>
+                <h4 class="card-title">Climate Fails</h4>
+                <p class="card-text">Nisi chicharrones next level, crucifix mustache lumbersexual blog direct trade artisan nostrud... <a href="climate-fails.html">read more</a></p>
                 <p class="card-text"><small class="text-muted">Last updated 2 min ago</small></p>
             </div>
         </div>
@@ -223,7 +223,7 @@
 </section>
 
 
-<script src="{{ url_for('static', filename='script.js') }}"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 
 
