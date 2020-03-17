@@ -5,6 +5,7 @@ from sqlalchemy.exc import ProgrammingError
 import warnings
 import sqlalchemy
 from config import my_password
+import numpy as np
 
 USER = "root"
 PASSWORD = my_password
@@ -68,9 +69,9 @@ df = pd.read_csv(
 # End of Fire Count tables
 
 
-############################################################
-### Protected species impact (David's) table begins here ###
-############################################################
+##############################################
+# Protected species impact table begins here #
+##############################################
 
 IMPACT_TABLENAME1 = "protected_species_impact_counts" 
 engine.execute(f"DROP TABLE IF EXISTS {IMPACT_TABLENAME1}")
@@ -102,14 +103,15 @@ max_range = [df["Afected Area"][e][5:-1].strip("%|<|>| ").replace("", '0') for e
 
 df.insert(column='Area Min', value=min_range, loc=3)
 df.insert(column='Area Max', value=max_range, loc=4)
+df = df.replace(r'^\s*$', np.NaN, regex=True)
 
 
 # Sending to DB
 df.to_sql(name=IMPACT_TABLENAME1,
-             con=engine,
-             index=False,
-             dtype=schema
-             )
+          con=engine,
+          index=False,
+          dtype=schema
+          )
 
 ### End of animal impact table ###
 
