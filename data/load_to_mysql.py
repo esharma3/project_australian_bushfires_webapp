@@ -6,8 +6,6 @@ import warnings
 import sqlalchemy
 from config import my_password
 
-%load_ext nb_black
-
 ###################################################################
 #                 Database Connection to MySQL                    #
 ###################################################################
