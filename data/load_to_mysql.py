@@ -113,7 +113,11 @@ df.to_sql(name=IMPACT_TABLENAME1,
           dtype=schema
           )
 
+# Adding primary key to table
+engine.execute(f"ALTER TABLE {IMPACT_TABLENAME1} ADD PRIMARY KEY (`Scientific Name`)")
+
 ### End of animal impact table ###
+
 
 
 ############################################################
