@@ -7,8 +7,6 @@ import sqlalchemy
 from config import my_password
 import numpy as np
 
-%load_ext nb_black
-
 ###################################################################
 #                 Database Connection to MySQL                    #
 ###################################################################
