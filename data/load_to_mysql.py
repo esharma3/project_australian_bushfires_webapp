@@ -1,10 +1,16 @@
-import csv, os
+import csv
 import pandas as pd
 from sqlalchemy import create_engine
 from sqlalchemy.exc import ProgrammingError
 import warnings
 import sqlalchemy
 from config import my_password
+
+%load_ext nb_black
+
+###################################################################
+#                 Database Connection to MySQL                    #
+###################################################################
 
 USER = "root"
 PASSWORD = my_password
@@ -24,48 +30,234 @@ except ProgrammingError:
 
 engine.execute(f"USE {DATABASE}")
 
-# The below script is for adding tables to the database. If a table already exists, it is dropped and re-added. 
+#########################################################################################
+#  Adding Tables to MySQL DB.  If a table already exists, it is dropped and re-added.   #
+#########################################################################################
 
-# Fire Count tables begin here --------------------------------------------------------------------------------
-# New South Wales 
-FIRE_COUNT_TABLENAME1 = "nsw_fire_counts" 
+#####################################################################
+#                         Fire Count Tables                         #
+#####################################################################
+
+# New South Wales
+FIRE_COUNT_TABLENAME1 = "nsw_fire_counts"
 engine.execute(f"DROP TABLE IF EXISTS {FIRE_COUNT_TABLENAME1}")
 
 df = pd.read_csv(
-    "fire_counts_data/Table_MODIS_fire_counts_2002_2019_NSW_per_fire_year.csv"
+    "fire_counts_data/MODIS_fire_counts_2002_2019_NSW_per_fire_year.csv"
 ).to_sql(
     name=FIRE_COUNT_TABLENAME1,
     con=engine,
     index=False,
     dtype=sqlalchemy.types.INTEGER(),
 )
+engine.execute(f"ALTER TABLE {FIRE_COUNT_TABLENAME1} ADD PRIMARY KEY (`nsw_DOY`)")
 
-# Queensland 
-FIRE_COUNT_TABLENAME2 = "queensland_fire_counts"
+FIRE_COUNT_TABLENAME2 = "nsw_annual_total_fire_counts"
 engine.execute(f"DROP TABLE IF EXISTS {FIRE_COUNT_TABLENAME2}")
 
-df = pd.read_csv(
-    "fire_counts_data/Table_MODIS_fire_counts_2002_2019_Queensland_per_fire_year.csv"
-).to_sql(
+df = pd.read_csv("fire_counts_data/nsw_annual_total_fire_counts.csv").to_sql(
     name=FIRE_COUNT_TABLENAME2,
     con=engine,
     index=False,
-    dtype=sqlalchemy.types.INTEGER(),
+    dtype={
+        "nsw_fire_year": sqlalchemy.types.VARCHAR(length=15),
+        "nsw_total_fires": sqlalchemy.types.INTEGER(),
+    },
 )
+engine.execute(f"ALTER TABLE {FIRE_COUNT_TABLENAME2} ADD PRIMARY KEY (`nsw_fire_year`)")
 
-# Victoria 
-FIRE_COUNT_TABLENAME3 = "victoria_fire_counts" 
+# Queensland
+FIRE_COUNT_TABLENAME3 = "queensland_fire_counts"
 engine.execute(f"DROP TABLE IF EXISTS {FIRE_COUNT_TABLENAME3}")
 
 df = pd.read_csv(
-    "fire_counts_data/Table_MODIS_fire_counts_2002_2019_Victoria_per_fire_year.csv"
+    "fire_counts_data/MODIS_fire_counts_2002_2019_Queensland_per_fire_year.csv"
 ).to_sql(
     name=FIRE_COUNT_TABLENAME3,
     con=engine,
     index=False,
     dtype=sqlalchemy.types.INTEGER(),
 )
-# End of Fire Count tables
+engine.execute(
+    f"ALTER TABLE {FIRE_COUNT_TABLENAME3} ADD PRIMARY KEY (`queensland_DOY`)"
+)
+
+FIRE_COUNT_TABLENAME4 = "queensland_annual_total_fire_counts"
+engine.execute(f"DROP TABLE IF EXISTS {FIRE_COUNT_TABLENAME4}")
+
+df = pd.read_csv("fire_counts_data/queensland_annual_total_fire_counts.csv").to_sql(
+    name=FIRE_COUNT_TABLENAME4,
+    con=engine,
+    index=False,
+    dtype={
+        "queensland_fire_year": sqlalchemy.types.VARCHAR(length=15),
+        "queensland_total_fires": sqlalchemy.types.INTEGER(),
+    },
+)
+engine.execute(
+    f"ALTER TABLE {FIRE_COUNT_TABLENAME4} ADD PRIMARY KEY (`queensland_fire_year`)"
+)
+
+# Victoria
+FIRE_COUNT_TABLENAME5 = "victoria_fire_counts"
+engine.execute(f"DROP TABLE IF EXISTS {FIRE_COUNT_TABLENAME5}")
+
+df = pd.read_csv(
+    "fire_counts_data/MODIS_fire_counts_2002_2019_Victoria_per_fire_year.csv"
+).to_sql(
+    name=FIRE_COUNT_TABLENAME5,
+    con=engine,
+    index=False,
+    dtype=sqlalchemy.types.INTEGER(),
+)
+engine.execute(f"ALTER TABLE {FIRE_COUNT_TABLENAME5} ADD PRIMARY KEY (`victoria_DOY`)")
+
+FIRE_COUNT_TABLENAME6 = "victoria_annual_total_fire_counts"
+engine.execute(f"DROP TABLE IF EXISTS {FIRE_COUNT_TABLENAME6}")
+
+df = pd.read_csv("fire_counts_data/victoria_annual_total_fire_counts.csv").to_sql(
+    name=FIRE_COUNT_TABLENAME6,
+    con=engine,
+    index=False,
+    dtype={
+        "victoria_fire_year": sqlalchemy.types.VARCHAR(length=15),
+        "victoria_total_fires": sqlalchemy.types.INTEGER(),
+    },
+)
+engine.execute(
+    f"ALTER TABLE {FIRE_COUNT_TABLENAME6} ADD PRIMARY KEY (`victoria_fire_year`)"
+)
+
+#####################################################################
+#                Climate and Air Pollutant Tables                   #
+#####################################################################
+
+# Australia Max Temp Anomaly Table
+CLIMATE_TABLENAME1 = "aus_max_temp_anomaly_data"
+engine.execute(f"DROP TABLE IF EXISTS {CLIMATE_TABLENAME1}")
+
+df = pd.read_csv("climate_data/aus_max_temp_anomaly_data.csv").to_sql(
+    name=CLIMATE_TABLENAME1,
+    con=engine,
+    index=False,
+    dtype={
+        "max_temp_anomaly_year": sqlalchemy.types.INTEGER(),
+        "max_temp_anomaly_celcius": sqlalchemy.types.Float(precision=3, asdecimal=True),
+    },
+)
+engine.execute(
+    f"ALTER TABLE {CLIMATE_TABLENAME1} ADD PRIMARY KEY (`max_temp_anomaly_year`)"
+)
+
+# Australia Min Temp Anomaly Table
+CLIMATE_TABLENAME2 = "aus_min_temp_anomaly_data"
+engine.execute(f"DROP TABLE IF EXISTS {CLIMATE_TABLENAME2}")
+
+df = pd.read_csv("climate_data/aus_min_temp_anomaly_data.csv").to_sql(
+    name=CLIMATE_TABLENAME2,
+    con=engine,
+    index=False,
+    dtype={
+        "min_temp_anomaly_year": sqlalchemy.types.INTEGER(),
+        "min_temp_anomaly_celcius": sqlalchemy.types.Float(precision=3, asdecimal=True),
+    },
+)
+engine.execute(
+    f"ALTER TABLE {CLIMATE_TABLENAME2} ADD PRIMARY KEY (`min_temp_anomaly_year`)"
+)
+
+# Australia Mean Temp Anomaly Table
+CLIMATE_TABLENAME3 = "aus_mean_temp_anomaly_data"
+engine.execute(f"DROP TABLE IF EXISTS {CLIMATE_TABLENAME3}")
+
+df = pd.read_csv("climate_data/aus_mean_temp_anomaly_data.csv").to_sql(
+    name=CLIMATE_TABLENAME3,
+    con=engine,
+    index=False,
+    dtype={
+        "mean_temp_anomaly_year": sqlalchemy.types.INTEGER(),
+        "mean_temp_anomaly_celcius": sqlalchemy.types.Float(
+            precision=3, asdecimal=True
+        ),
+    },
+)
+engine.execute(
+    f"ALTER TABLE {CLIMATE_TABLENAME3} ADD PRIMARY KEY (`mean_temp_anomaly_year`)"
+)
+
+# Australia Annual Rainfall Table
+CLIMATE_TABLENAME4 = "aus_annual_rainfall_data"
+engine.execute(f"DROP TABLE IF EXISTS {CLIMATE_TABLENAME4}")
+
+df = pd.read_csv("climate_data/aus_annual_rainfall_data.csv").to_sql(
+    name=CLIMATE_TABLENAME4,
+    con=engine,
+    index=False,
+    dtype={
+        "annual_rainfall_year": sqlalchemy.types.INTEGER(),
+        "annual_rainfall_mm": sqlalchemy.types.Float(precision=3, asdecimal=True),
+    },
+)
+engine.execute(
+    f"ALTER TABLE {CLIMATE_TABLENAME4} ADD PRIMARY KEY (`annual_rainfall_year`)"
+)
+
+# Australia Annual Rainfall Anomaly Table
+CLIMATE_TABLENAME5 = "aus_annual_rainfall_anomaly_data"
+engine.execute(f"DROP TABLE IF EXISTS {CLIMATE_TABLENAME5}")
+
+df = pd.read_csv("climate_data/aus_annual_rainfall_anomaly_data.csv").to_sql(
+    name=CLIMATE_TABLENAME5,
+    con=engine,
+    index=False,
+    dtype={
+        "annual_rainfall_anomaly_year": sqlalchemy.types.INTEGER(),
+        "annual_rainfall_anomaly_mm": sqlalchemy.types.Float(
+            precision=3, asdecimal=True
+        ),
+    },
+)
+engine.execute(
+    f"ALTER TABLE {CLIMATE_TABLENAME5} ADD PRIMARY KEY (`annual_rainfall_anomaly_year`)"
+)
+
+# Australia Sea Surface Temperature Anomaly Table
+CLIMATE_TABLENAME6 = "aus_sea_surface_temp_anomaly_data"
+engine.execute(f"DROP TABLE IF EXISTS {CLIMATE_TABLENAME6}")
+
+df = pd.read_csv("climate_data/aus_sea_surface_temp_anomaly_data.csv").to_sql(
+    name=CLIMATE_TABLENAME6,
+    con=engine,
+    index=False,
+    dtype={
+        "sea_surface_temp_anomaly_year": sqlalchemy.types.INTEGER(),
+        "sea_surface_temp_anomaly_celcius": sqlalchemy.types.Float(
+            precision=3, asdecimal=True
+        ),
+    },
+)
+engine.execute(
+    f"ALTER TABLE {CLIMATE_TABLENAME6} ADD PRIMARY KEY (`sea_surface_temp_anomaly_year`)"
+)
+
+# Australia Air Pollutants Table
+CLIMATE_TABLENAME7 = "aus_air_pollutants_combined_data"
+engine.execute(f"DROP TABLE IF EXISTS {CLIMATE_TABLENAME7}")
+
+df = pd.read_csv("air_pollutant_data/aus_air_pollutants_combined_data.csv").to_sql(
+    name=CLIMATE_TABLENAME7,
+    con=engine,
+    index=False,
+    dtype={
+        "air_pollutant_year": sqlalchemy.types.INTEGER(),
+        "CO2_ppm": sqlalchemy.types.Float(precision=3, asdecimal=True),
+        "CH4_ppb": sqlalchemy.types.Float(precision=3, asdecimal=True),
+        "N2O_ppb": sqlalchemy.types.Float(precision=3, asdecimal=True),
+    },
+)
+engine.execute(
+    f"ALTER TABLE {CLIMATE_TABLENAME7} ADD PRIMARY KEY (`air_pollutant_year`)"
+)
 
 
 ############################################################
