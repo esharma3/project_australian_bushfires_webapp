@@ -342,9 +342,7 @@ df = pd.read_csv(
 ### Fire Impacts (James) table ends here
 ############################################################
 
-############################################################
-### Australia Fire Archives (Catherines) table begins here ###
-############################################################
+### Australia Fire Archives begin here ###
 
 AUS_FIRES = "aus_fire_history" 
 engine.execute(f"DROP TABLE IF EXISTS {AUS_FIRES}")
@@ -355,4 +353,4 @@ df = pd.read_csv("australia.csv").to_sql(
     dtype = {'acq_date': sqlalchemy.types.Date, 
     'acq_time': sqlalchemy.types.Time(4)})
 
-### Australia Fire Archives (Catherines) table ends here ###
+engine.execute(f"ALTER TABLE {AUS_FIRES} ADD id BIGINT IDENTITY; GO")
