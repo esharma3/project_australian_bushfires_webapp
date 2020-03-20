@@ -59,7 +59,7 @@ df = pd.read_csv("fire_counts_data/nsw_annual_total_fire_counts.csv").to_sql(
     con=engine,
     index=False,
     dtype={
-        "nsw_fire_year": sqlalchemy.types.VARCHAR(length=15),
+        "nsw_fire_year": sqlalchemy.types.String(length=15),
         "nsw_total_fires": sqlalchemy.types.INTEGER(),
     },
 )
@@ -89,7 +89,7 @@ df = pd.read_csv("fire_counts_data/queensland_annual_total_fire_counts.csv").to_
     con=engine,
     index=False,
     dtype={
-        "queensland_fire_year": sqlalchemy.types.VARCHAR(length=15),
+        "queensland_fire_year": sqlalchemy.types.String(length=15),
         "queensland_total_fires": sqlalchemy.types.INTEGER(),
     },
 )
@@ -119,7 +119,7 @@ df = pd.read_csv("fire_counts_data/victoria_annual_total_fire_counts.csv").to_sq
     con=engine,
     index=False,
     dtype={
-        "victoria_fire_year": sqlalchemy.types.VARCHAR(length=15),
+        "victoria_fire_year": sqlalchemy.types.String(length=15),
         "victoria_total_fires": sqlalchemy.types.INTEGER(),
     },
 )
@@ -342,7 +342,10 @@ df = pd.read_csv(
 ### Fire Impacts (James) table ends here
 ############################################################
 
-### Australia Fire Archives begin here ###
+
+############################################################
+###     Australia Fire Archives table begins here        ###
+############################################################
 
 AUS_FIRES = "aus_fire_history" 
 engine.execute(f"DROP TABLE IF EXISTS {AUS_FIRES}")
