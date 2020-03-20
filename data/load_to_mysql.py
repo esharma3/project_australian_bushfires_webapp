@@ -5,6 +5,7 @@ from sqlalchemy.exc import ProgrammingError
 import warnings
 import sqlalchemy
 from config import my_password
+import numpy as np
 
 ###################################################################
 #                 Database Connection to MySQL                    #
@@ -58,7 +59,7 @@ df = pd.read_csv("fire_counts_data/nsw_annual_total_fire_counts.csv").to_sql(
     con=engine,
     index=False,
     dtype={
-        "nsw_fire_year": sqlalchemy.types.VARCHAR(length=15),
+        "nsw_fire_year": sqlalchemy.types.String(length=15),
         "nsw_total_fires": sqlalchemy.types.INTEGER(),
     },
 )
@@ -88,7 +89,7 @@ df = pd.read_csv("fire_counts_data/queensland_annual_total_fire_counts.csv").to_
     con=engine,
     index=False,
     dtype={
-        "queensland_fire_year": sqlalchemy.types.VARCHAR(length=15),
+        "queensland_fire_year": sqlalchemy.types.String(length=15),
         "queensland_total_fires": sqlalchemy.types.INTEGER(),
     },
 )
@@ -118,7 +119,7 @@ df = pd.read_csv("fire_counts_data/victoria_annual_total_fire_counts.csv").to_sq
     con=engine,
     index=False,
     dtype={
-        "victoria_fire_year": sqlalchemy.types.VARCHAR(length=15),
+        "victoria_fire_year": sqlalchemy.types.String(length=15),
         "victoria_total_fires": sqlalchemy.types.INTEGER(),
     },
 )
@@ -258,9 +259,9 @@ engine.execute(
 )
 
 
-############################################################
-### Protected species impact (David's) table begins here ###
-############################################################
+##############################################
+# Protected species impact table begins here #
+##############################################
 
 IMPACT_TABLENAME1 = "protected_species_impact_counts" 
 engine.execute(f"DROP TABLE IF EXISTS {IMPACT_TABLENAME1}")
@@ -292,16 +293,21 @@ max_range = [df["Afected Area"][e][5:-1].strip("%|<|>| ").replace("", '0') for e
 
 df.insert(column='Area Min', value=min_range, loc=3)
 df.insert(column='Area Max', value=max_range, loc=4)
+df = df.replace(r'^\s*$', np.NaN, regex=True)
 
 
 # Sending to DB
 df.to_sql(name=IMPACT_TABLENAME1,
-             con=engine,
-             index=False,
-             dtype=schema
-             )
+          con=engine,
+          index=False,
+          dtype=schema
+          )
+
+# Adding primary key to table
+engine.execute(f"ALTER TABLE {IMPACT_TABLENAME1} ADD PRIMARY KEY (`Scientific Name`)")
 
 ### End of animal impact table ###
+
 
 
 ############################################################
@@ -335,3 +341,18 @@ df = pd.read_csv(
 ############################################################
 ### Fire Impacts (James) table ends here
 ############################################################
+
+############################################################
+### Australia Fire Archives (Catherines) table begins here ###
+############################################################
+
+AUS_FIRES = "aus_fire_history" 
+engine.execute(f"DROP TABLE IF EXISTS {AUS_FIRES}")
+
+df = pd.read_csv("australia.csv").to_sql(
+    name = AUS_FIRES,
+    con = engine,
+    dtype = {'acq_date': sqlalchemy.types.Date, 
+    'acq_time': sqlalchemy.types.Time(4)})
+
+### Australia Fire Archives (Catherines) table ends here ###
