@@ -177,6 +177,28 @@ class AUS_Air_Pollutants_Combined_Data(db.Model, DictMixIn):
     CH4_ppb=db.Column(db.Float())
     N2O_ppb=db.Column(db.Float())
 
+#####################################################################
+#         Classes for Australia Fire Archive Tables              #
+#####################################################################
+
+class AUS_Fire_Locations(db.Model, DictMixIn):
+    __tablename__ = "aus_fire_locations"
+
+    index = db.Column(db.Integer(), primary_key = True)
+    latitude = db.Column(db.Float())
+    longitude = db.Column(db.Float())
+    brightness_ch4 = db.Column(db.Float())
+    scan = db.Column(db.Float())
+    track = db.Column(db.Float())
+    date = db.Column(db.Date)
+    time = db.Column(db.Time(4))
+    satellite = db.Column(db.String())
+    instrument = db.Column(db.String())
+    confidence = db.Column(db.String())
+    version = db.Column(db.Integer())
+    brightness_ch5 = db.Column(db.Float())
+    frp = db.Column(db.Float())
+    ttype = db.Column(db.Integer())
 
  # ADD YOUR CLASSES HERE
 
