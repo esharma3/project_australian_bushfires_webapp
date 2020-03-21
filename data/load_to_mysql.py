@@ -308,13 +308,10 @@ engine.execute(f"ALTER TABLE {IMPACT_TABLENAME1} ADD PRIMARY KEY (`Scientific Na
 
 ### End of animal impact table ###
 
+impact_James
 
-
 ############################################################
-### Protected species impact (James') table begins here ###
-############################################################
-############################################################
-### Fire Impacts (James') table begins here ###
+### Fire Impacts table begins here ###
 ############################################################
 IMPACT_HISTORIC_FIRES = "historic_fire_data" 
 engine.execute(f"DROP TABLE IF EXISTS {IMPACT_HISTORIC_FIRES}")
@@ -338,9 +335,20 @@ df = pd.read_csv(
     index=False,
     dtype=sqlalchemy.types.INTEGER(),
 )
+
+df = pd.read_csv(
+    "df_aus_econs.csv"
+).to_sql(
+    name=IMPACT_2019_FIRES,
+    con=engine,
+    index=False,
+    dtype=sqlalchemy.types.INTEGER(),
+)
 ############################################################
-### Fire Impacts (James) table ends here
+impact_James
+### Fire Impacts table ends here ###
 ############################################################
+
 
 
 ############################################################
@@ -357,3 +365,4 @@ df = pd.read_csv("australia.csv").to_sql(
     'acq_time': sqlalchemy.types.Time(4)})
 
 engine.execute(f"ALTER TABLE {AUS_FIRES} ADD id BIGINT IDENTITY; GO")
+master
