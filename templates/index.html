@@ -1,14 +1,19 @@
 <!doctype html>
 <html lang="en">
 
-<!--  NOT TOUCHY TOUCH -->
+<!--  NOT TOUCHY TOUCH, just copy/paste -->
 <head>
   <meta charset="utf-8">
   <title>Australian Bushfires Webapp</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-  <!-- Our own CSS -->
-  <link rel="stylesheet" href="../static/css/style.css">
+
+  <!-- Jinja2 reference to our css file -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <!-- Only uncomment the following line if you need a reference to our css outside of flask -->
+  <!-- <link rel="stylesheet" href="../static/css/style.css"> -->
+
   <!-- Bootstrap JS files -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -18,11 +23,10 @@
 
 <!--  -->
 
-
 <body>
 <!-- This is the nav bar. Paste on every page at the top of the body-->
 <nav class="navbar fixed-top navbar-expand-lg navbar-light">
-  <a class="navbar-brand" href="index.html">HOME</a>
+  <a class="navbar-brand" href="/">HOME</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -30,19 +34,19 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="fire-maps.html">Fire Maps</a>
+        <a class="nav-link" href="fire-maps">Fire Maps</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="fire-count.html">Fire Count</a>
+        <a class="nav-link" href="/fire_count_page">Fire Count</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="impact.html">Impact</a>
+        <a class="nav-link" href="impact">Impact</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="climate-fields.html">Climate Fields</a>
+        <a class="nav-link" href="/climate_fails_page">Climate Fails</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="about.html">About</a>
+        <a class="nav-link" href="about">About</a>
       </li>
     </ul>
   </div>
@@ -54,19 +58,18 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      	<h1 class="font-weight-light">AUS' BUSHFIRE CENTRAL</h1>
-      	<br/>
+        <h1 class="font-weight-light">AUS' BUSHFIRE CENTRAL</h1>
+        <br/>
         <p class="lead">Distillery austin food truck narwhal before they sold out venmo. Cornhole shabby chic echo park vice scenester.</p>
         <p><a href="#main" class="btn btn-primary btn-large">Learn more »</a></p>
       </div>
         
       </div>
     </div>
-  </div>
 </section>
 
 
-<!-- This is a simple white section for just a headr and paragraphs-->
+<!-- This is a simple white section with just a header and paragraph(s)-->
 <section class="basic-white">
 <br/>
 <div class="container">
@@ -135,12 +138,12 @@
 
         <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
         <div class="card mb-4">
-          <a href="climate-fields.html">
-            <img class="card-img-top img-fluid" src="../static/images/climate_fields_icon.svg" alt="Card image cap">
+          <a href="climate-fails.html">
+            <img class="card-img-top img-fluid" src="../static/images/climate_fails_icon.svg" alt="Card image cap">
           </a>
             <div class="card-body">
-                <h4 class="card-title">Climate Fields</h4>
-                <p class="card-text">Nisi chicharrones next level, crucifix mustache lumbersexual blog direct trade artisan nostrud... <a href="climate-fields.html">read more</a></p>
+                <h4 class="card-title">Climate Fails</h4>
+                <p class="card-text">Nisi chicharrones next level, crucifix mustache lumbersexual blog direct trade artisan nostrud... <a href="climate-fails.html">read more</a></p>
                 <p class="card-text"><small class="text-muted">Last updated 2 min ago</small></p>
             </div>
         </div>
@@ -164,8 +167,8 @@
 
 
 
-<!-- This is a blank white section to serve a route item, w/ or w/o text-->
-<section class="route-white">
+<!-- This is a blank white section with text and some route item-->
+<section class="basic-white">
 <br/>
 <div class="container">
     <div class="row">
@@ -174,9 +177,6 @@
         <p>Pitchfork ad iceland, proident ut seitan flannel ramps narwhal veniam bitters palo santo venmo chartreuse. Biodiesel consectetur nostrud in marfa typewriter crucifix brooklyn selvage humblebrag chambray irure vexillologist. Leggings vegan selfies, excepteur aliquip do cupidatat venmo twee tote bag cred farm-to-table sartorial coloring book nulla. You probably haven't heard of them green juice pabst yr cray. Nostrud flexitarian eiusmod edison bulb chartreuse godard small batch sed etsy quis vinyl officia proident. Man bun food truck wolf flannel aliqua pinterest VHS in aesthetic roof party next level 3 wolf moon elit single-origin coffee. Ut authentic williamsburg drinking vinegar, pinterest stumptown woke actually banjo pour-over.</p>
 
         <p>Lorem sartorial adipisicing adaptogen cillum butcher thundercats portland. Humblebrag cardigan dolor ramps franzen paleo dolore meggings venmo chia salvia vape blue bottle. Elit iceland flannel meh tofu, farm-to-table id consequat celiac sustainable. Wayfarers kogi fashion axe disrupt tofu. Hot chicken twee edison bulb incididunt vinyl, helvetica nisi deserunt bespoke pabst gentrify mustache shaman tempor ramps. Sunt irony qui, mustache semiotics lyft ut neutra pabst narwhal truffaut. Shoreditch gluten-free normcore, meditation affogato drinking vinegar laborum est fam palo santo.<p>
-
-        <!-- Change tag to correct item, e.g. table, p, etc. Don't forget to add {{ <name>| safe }} to tables -->
-        <img src="{{ <ADD FLASK render_template NAME HERE. >}}">
       </div> 
     </div>
   </div>
@@ -198,11 +198,10 @@
         
       </div>
     </div>
-  </div>
 </section>
 
 
-<!-- This is a blank white with double paragraphs to serve a route item-->
+<!-- This is a blank white with double paragraphs and a route item-->
 <section class="route-white">
 <br/>
 <div class="container">
@@ -211,20 +210,20 @@
       <div class="col-lg-6">
         <h2> Heading 2 </h2>
         <p>Pitchfork ad iceland, proident ut seitan flannel ramps narwhal veniam bitters palo santo venmo chartreuse. Biodiesel consectetur nostrud in marfa typewriter crucifix brooklyn selvage humblebrag chambray irure vexillologist. Leggings vegan selfies, excepteur aliquip do cupidatat venmo twee tote bag cred farm-to-table sartorial coloring book nulla. You probably haven't heard of them green juice pabst yr cray. Nostrud flexitarian eiusmod edison bulb chartreuse godard small batch sed etsy quis vinyl officia proident. Man bun food truck wolf flannel aliqua pinterest VHS in aesthetic roof party next level 3 wolf moon elit single-origin coffee. Ut authentic williamsburg drinking vinegar, pinterest stumptown woke actually banjo pour-over.</p>
-        <p>Lorem sartorial adipisicing adaptogen cillum butcher thundercats portland. Humblebrag cardigan dolor ramps franzen paleo dolore meggings venmo chia salvia vape blue bottle. Elit iceland flannel meh tofu, farm-to-table id consequat celiac sustainable. Wayfarers kogi fashion axe disrupt tofu. Hot chicken twee edison bulb incididunt vinyl, helvetica nisi deserunt bespoke pabst gentrify mustache shaman tempor ramps. Sunt irony qui, mustache semiotics lyft ut neutra pabst narwhal truffaut. Shoreditch gluten-free normcore, meditation affogato drinking vinegar laborum est fam palo santo.<p>
+        <p>Lorem sartorial adipisicing adaptogen cillum butcher thundercats portland. Humblebrag cardigan dolor ramps franzen paleo dolore meggings venmo chia salvia vape blue bottle. Elit iceland flannel meh tofu, farm-to-table id consequat celiac sustainable. Wayfarers kogi fashion axe disrupt tofu. Hot chicken twee edison bulb incididunt vinyl, helvetica nisi deserunt bespoke pabst gentrify mustache shaman tempor ramps. Sunt irony qui, mustache semiotics lyft ut neutra pabst narwhal truffaut. Shoreditch gluten-free normcore, meditation affogato drinking vinegar laborum est fam palo santo.</p>
       </div> 
 
       <div class="col-lg-6">
-        <h3> Heading 3, You can just add a route item here </h3>
-        <!-- Change tag to correct item, e.g. table, p, etc. Don't forget to add {{ <name>| safe }} to tables -->
-        <p>{{ <"ADD FLASK render_template NAME HERE."> }}</p>
+        <h3> It's easy to add a jinja2 item here, e.g:</h3>
+          </br>
+        <h4> {{ x }} </h4>
       </div> 
     </div>
   </div> 
 </section>
 
 
-<script src="static/js/script.js"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 
 
