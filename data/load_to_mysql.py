@@ -302,8 +302,8 @@ df.insert(column='Thumbnail', value=thumbnail_url, loc=4)
 
 # Cleaning some data and rearranging columns
 df = df.replace(r'^\s*$', np.NaN, regex=True)
-df.columns = map(str.lower, df.columns.str.replace(" ", "_"))
 df = df[['taxon_id','Scientific Name','Common Name','Afected Area', 'Area Min', 'Area Max', 'Type', 'Protected Status', 'Migratory Status', 'Location', 'URL', 'Distribution Map', 'Thumbnail']]
+df.columns = map(str.lower, df.columns.str.replace(" ", "_"))
 
 # Creating schema for SQL table
 schema = {"taxon_id": sqlalchemy.types.INTEGER,
