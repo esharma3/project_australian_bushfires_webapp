@@ -269,7 +269,7 @@ engine.execute(
 #         Protected species impact table + scraper       #
 ##########################################################
 
-IMPACT_TABLENAME1 = "protected_species_impact_counts" 
+IMPACT_TABLENAME1 = "protected_species_impact" 
 engine.execute(f"DROP TABLE IF EXISTS {IMPACT_TABLENAME1}")
 
 # Initial csv loading > df
