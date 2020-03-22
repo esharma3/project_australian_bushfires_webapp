@@ -181,8 +181,8 @@ class AUS_Air_Pollutants_Combined_Data(db.Model, DictMixIn):
 #         Classes for Australia Fire Archive Tables              #
 #####################################################################
 
-class AUS_Fire_Locations(db.Model, DictMixIn):
-    __tablename__ = "aus_fire_locations"
+class aus_fire_history(db.Model, DictMixIn):
+    __tablename__ = "aus_fire_history"
 
     index = db.Column(db.Integer(), primary_key = True)
     latitude = db.Column(db.Float())
@@ -264,6 +264,13 @@ def annual_total_fire_counts():
 	return jsonify(combined_total_fire_list)
 
 
+#####################################################################
+#                 Australia Fire Locations  		        		#
+#####################################################################
+
+@app.route("/aus_fire_history.html")
+def climate_fails():
+	return render_template("aus_fire_history.html")
 
 #####################################################################
 #                 Climate Fails Page and Route		        		#
