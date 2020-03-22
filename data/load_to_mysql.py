@@ -302,22 +302,23 @@ df.insert(column='Thumbnail', value=thumbnail_url, loc=4)
 
 # Cleaning some data and rearranging columns
 df = df.replace(r'^\s*$', np.NaN, regex=True)
+df.columns = map(str.lower, df.columns.str.replace(" ", "_"))
 df = df[['taxon_id','Scientific Name','Common Name','Afected Area', 'Area Min', 'Area Max', 'Type', 'Protected Status', 'Migratory Status', 'Location', 'URL', 'Distribution Map', 'Thumbnail']]
 
 # Creating schema for SQL table
 schema = {"taxon_id": sqlalchemy.types.INTEGER,
-          "Scientific Name": sqlalchemy.types.String(length=300),
-          "Common Name": sqlalchemy.types.String(length=300),
-          "Afected Area": sqlalchemy.types.String(length=50),
-          "Area Min": sqlalchemy.types.INTEGER,
-          "Area Max": sqlalchemy.types.INTEGER,
-          "Type": sqlalchemy.types.String(length=50),
-          "Protected Status": sqlalchemy.types.String(length=25),
-          "Migratory Status ": sqlalchemy.types.String(length=25),
-          "Location": sqlalchemy.types.String(length=50),
-          "URL": sqlalchemy.types.String(length=150),
-          "Distribution Map": sqlalchemy.types.String(length=150),
-          "Thumbnail": sqlalchemy.types.String(length=150)
+          "scientific_name": sqlalchemy.types.String(length=300),
+          "common_name": sqlalchemy.types.String(length=300),
+          "afected_area": sqlalchemy.types.String(length=50),
+          "area_min": sqlalchemy.types.INTEGER,
+          "area_max": sqlalchemy.types.INTEGER,
+          "type": sqlalchemy.types.String(length=50),
+          "protected_status": sqlalchemy.types.String(length=25),
+          "migratory_status ": sqlalchemy.types.String(length=25),
+          "location": sqlalchemy.types.String(length=50),
+          "url": sqlalchemy.types.String(length=150),
+          "distribution_map": sqlalchemy.types.String(length=150),
+          "thumbnail": sqlalchemy.types.String(length=150)
 }
 
 # Sending to DB
