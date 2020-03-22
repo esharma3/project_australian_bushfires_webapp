@@ -269,8 +269,8 @@ def annual_total_fire_counts():
 #####################################################################
 
 @app.route("/aus_fire_history.html")
-def climate_fails():
-	return render_template("aus_fire_history.html")
+def australian_fire_locations():
+	return render_template("aus_fire_history.html", plot = aus_map)
 
 #####################################################################
 #                 Climate Fails Page and Route		        		#
