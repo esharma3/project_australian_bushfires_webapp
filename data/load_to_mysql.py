@@ -290,7 +290,9 @@ df = pd.read_csv("protected_species_impact.csv")\
 
 min_range = [df["Afected Area"][e][:3].strip("%|<|>| ") for e in df["Afected Area"].index]
 max_range = [df["Afected Area"][e][5:-1].strip("%|<|>| ").replace("", '0') for e in df["Afected Area"].index]
+URL = ['https://en.wikipedia.org/wiki/' + df["Scientific Name"][e].replace(" ", "_") for e in df["Scientific Name"].index]
 
+df.insert(column= 'URL', value=URL, loc=2)
 df.insert(column='Area Min', value=min_range, loc=3)
 df.insert(column='Area Max', value=max_range, loc=4)
 df = df.replace(r'^\s*$', np.NaN, regex=True)
