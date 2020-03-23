@@ -178,7 +178,7 @@ class AUS_Air_Pollutants_Combined_Data(db.Model, DictMixIn):
     N2O_ppb=db.Column(db.Float())
 
 #####################################################################
-#         Classes for Australia Fire Archive Tables              #
+#           Classes for Australia Fire Archive Tables               #
 #####################################################################
 
 class AUS_Fire_Locations(db.Model, DictMixIn):
@@ -200,11 +200,44 @@ class AUS_Fire_Locations(db.Model, DictMixIn):
     frp = db.Column(db.Float())
     ttype = db.Column(db.Integer())
 
- # ADD YOUR CLASSES HERE
+
+
+#####################################################################
+#           Classes for Protected Species Impact Table              #
+#####################################################################
+
+class ProtectedSpecies(db.Model, DictMixIn):
+    __tablename__ = "protected_species_impact"
+
+    taxon_id = db.Column(db.Integer(), primary_key=True)
+    scientific_name = db.Column(db.String())
+    common_name = db.Column(db.String())
+    afected_area = db.Column(db.String())
+    area_min = db.Column(db.Integer())
+    area_max = db.Column(db.Integer())
+    type = db.Column(db.String())
+    protected_status = db.Column(db.String())
+    migratory_status = db.Column(db.String())
+    location = db.Column(db.String())
+    url = db.Column(db.String())
+    distribution_map = db.Column(db.String())
+    thumbnail = db.Column(db.String())
 
 
 
+
+# TEAM: KEEP ADDING YOUR CLASSES HERE:
+
+
+
+# NO TOUCH
 db.session.commit()
+
+
+
+#####################################################################
+#                        __FLASK ROUTES__                           #
+#####################################################################
 
 
 #####################################################################
@@ -262,6 +295,20 @@ def annual_total_fire_counts():
 		combined_total_fire_list.append(result.to_dict())
 
 	return jsonify(combined_total_fire_list)
+
+
+#####################################################################
+#                          Impact Page                              #
+#####################################################################
+
+@app.route("/impact")
+def impact():
+
+    data = ProtectedSpecies.query.all()
+
+    impact_list = [e.to_dict() for e in data]
+
+    return render_template("impact.html", x=impact_list)
 
 
 
