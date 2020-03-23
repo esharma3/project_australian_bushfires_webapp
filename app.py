@@ -181,8 +181,8 @@ class AUS_Air_Pollutants_Combined_Data(db.Model, DictMixIn):
 #           Classes for Australia Fire Archive Tables               #
 #####################################################################
 
-class AUS_Fire_Locations(db.Model, DictMixIn):
-    __tablename__ = "aus_fire_locations"
+class aus_fire_history(db.Model, DictMixIn):
+    __tablename__ = "aus_fire_history"
 
     index = db.Column(db.Integer(), primary_key = True)
     latitude = db.Column(db.Float())
@@ -241,15 +241,25 @@ db.session.commit()
 
 
 #####################################################################
-#                          Home Page					    		#
+#                          Home Page					                  		#
 #####################################################################
 
 @app.route("/")
 def index():
     return render_template("index.html")
 
+
 #####################################################################
-#                    Fire Counts Page and Route 	           		#
+#                 Australia Fire Locations  		                		#
+#####################################################################
+
+@app.route("/aus_fire_history.html")
+def australian_fire_locations():
+	return render_template("aus_fire_history.html", plot = aus_map)
+
+  
+#####################################################################
+#                    Fire Counts Page and Route 	               		#
 #####################################################################
 
 @app.route("/fire_count_page")
@@ -311,9 +321,8 @@ def impact():
     return render_template("impact.html", x=impact_list)
 
 
-
 #####################################################################
-#                 Climate Fails Page and Route		        		#
+#                 Climate Fails Page and Route		              		#
 #####################################################################
 
 @app.route("/climate_fails_page")
