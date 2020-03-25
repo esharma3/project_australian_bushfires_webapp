@@ -1,0 +1,213 @@
+html {
+  scroll-behavior: smooth;
+}
+
+h1 {
+  padding-top: 40px;
+}
+
+nav {
+  background-color: rgba(255, 255, 255, 0.85)!important;
+  border-bottom: solid 1px rgba(0,0,0,.1);
+}
+
+/* General section styling*/
+section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-right: 25px;
+  padding-left: 25px;
+  min-height: 800px;
+}
+
+
+/* This is all that badass hero image section*/
+.bgimage {
+  width:100%;
+  height:600px;
+  padding: 50px 50px;
+  background: url('../images/koala-bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bgimage h1 {
+  color: white;
+  text-shadow: 1px 1px #333;
+  text-align: center;
+  font-weight: bold;
+  font-size: 60px;
+  
+}
+
+.bgimage h2 {
+  color: white;
+  text-shadow: 1px 1px #333;
+  text-align: center;
+  font-weight: bold;
+}
+
+.bgimage p {
+  color: white;
+  text-shadow: 1px 1px #333;
+  font-size: 18px;
+  text-align: center; 
+  top-margin: 50%;
+}
+
+.bgimage blockquote {
+  color: white;
+  text-shadow: 1px 1px #333;
+  font-size: 40px;
+  text-align: center; 
+  top-margin: 50%;
+}
+/* End of hero */
+
+
+/* Cards section */
+.cards {
+  background-color: rgba(102, 102, 102, 0.05);
+}
+
+.cards .card {
+  border-radius:.75rem!important
+}
+
+.cards .card-img-top {
+  width:80%;
+  height:80%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+  padding-bottom: 20;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+
+footer {
+  padding-top: 50px;
+}
+
+/*#####################################################################*/
+                /*Styling for fire count template                     #*/
+/*#####################################################################*/
+
+#fire_count {
+  padding: 60px;
+}
+
+#fire_count .col-md-4,
+#fire_count .col-md-5,
+#fire_count .col-md-7,
+ {
+  height: 100%;
+}
+
+#first_row {
+  text-align: center;
+  height: 100%;
+}
+
+#second_row {
+  align-content: center;
+  height: 100%;
+  padding-top: 30px;
+  text-align: center;
+}
+
+#third_row {
+  text-align: center;
+  height: 100%;
+  align-items: center;
+  padding-top: 30px;
+}
+
+#fire_count h6 {
+  font-weight: bold;
+}
+
+#fire_count_header {
+  height: 100px;
+  background: rgb(61, 61, 92);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#fire_count_header h1 {
+  padding-top: 10px;
+  color: white;
+}
+
+#fire_count_header h6 {
+  color: white;
+}
+
+#fire_count p {
+  padding-bottom: 30px;
+  text-align: justify;
+}
+
+/*#####################################################################*/
+                /*Styling for Climate Fails template                  #*/
+/*#####################################################################*/
+
+#climate_fails {
+  padding: 20px;
+  margin-top: 35px;
+}
+
+#climate_header {
+  height: 120px;
+  background: rgb(61, 61, 92);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#climate_header h1 {
+  padding-top: 10px;
+  color: white;
+}
+
+#climate_header h4 {
+  color: white;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+}
+
+.btn {
+  background-color: black;
+  width: 16%;
+  height: 50px;
+  color: white;
+  margin: 4px;
+}
+
+.btn:hover {
+    color: orange;
+  }
+
+.btn:focus{
+    background: rgb(92, 92, 138);
+}
+
+#buttons,
+#climate_first_row,
+#climate_second_row
+{
+  background: rgb(41, 41, 61);
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+
