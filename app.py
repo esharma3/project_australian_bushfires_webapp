@@ -187,18 +187,18 @@ class aus_fire_history(db.Model, DictMixIn):
     index = db.Column(db.Integer(), primary_key = True)
     latitude = db.Column(db.Float())
     longitude = db.Column(db.Float())
-    brightness_ch4 = db.Column(db.Float())
+    bright_ti4 = db.Column(db.Float())
     scan = db.Column(db.Float())
     track = db.Column(db.Float())
-    date = db.Column(db.Date)
-    time = db.Column(db.Time(4))
+    acq_date = db.Column(db.Date)
+    acq_time = db.Column(db.Time(4))
     satellite = db.Column(db.String())
     instrument = db.Column(db.String())
     confidence = db.Column(db.String())
     version = db.Column(db.Integer())
-    brightness_ch5 = db.Column(db.Float())
+    bright_ti5 = db.Column(db.Float())
     frp = db.Column(db.Float())
-    ttype = db.Column(db.Integer())
+    type = db.Column(db.Integer())
 
 
 

@@ -387,11 +387,14 @@ df = pd.read_csv(
 AUS_FIRES = "aus_fire_history" 
 engine.execute(f"DROP TABLE IF EXISTS {AUS_FIRES}")
 
-df = pd.read_csv("australia.csv").to_sql(
+schema = {
+'acq_date': sqlalchemy.types.Date, 
+'acq_time': sqlalchemy.types.Time(4)
+}
+
+df = pd.read_csv("aus_fire_locations/australia.csv").to_sql(
     name = AUS_FIRES,
     con = engine,
-    dtype = {'acq_date': sqlalchemy.types.Date, 
-    'acq_time': sqlalchemy.types.Time(4)})
+    dtype = schema)
 
-engine.execute(f"ALTER TABLE {AUS_FIRES} ADD id BIGINT IDENTITY; GO")
-master
+engine.execute(f"ALTER TABLE {AUS_FIRES} ADD PRIMARY KEY (`index`)")
