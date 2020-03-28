@@ -4,8 +4,9 @@ import sqlalchemy
 from sqlalchemy.orm import Session
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, Float, Date
-import datetime
+import datetime, time
 from config import password
+
 
 # Create an instance of Flask app
 app = Flask(__name__)
@@ -191,15 +192,9 @@ class aus_fire_history(db.Model, DictMixIn):
     scan = db.Column(db.Float())
     track = db.Column(db.Float())
     acq_date = db.Column(db.Date)
-    acq_time = db.Column(db.Time(4))
-    satellite = db.Column(db.String())
-    instrument = db.Column(db.String())
     confidence = db.Column(db.String())
-    version = db.Column(db.Integer())
     bright_ti5 = db.Column(db.Float())
     frp = db.Column(db.Float())
-    type = db.Column(db.Integer())
-
 
 
 #####################################################################
@@ -272,6 +267,7 @@ def load_aus_fire_locations_data():
 	combined_aus_fire_history = []	
 
 	fire_archives = aus_fire_history.query.all()
+
 	for result in fire_archives:
 		combined_aus_fire_history.append(result.to_dict())
 
