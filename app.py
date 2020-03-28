@@ -327,7 +327,7 @@ def annual_total_fire_counts():
 
 
 #####################################################################
-#                          Impact Page                              #
+#                          Impact Route                             #
 #####################################################################
 
 @app.route("/impact")
@@ -337,7 +337,8 @@ def impact():
 
     impact_list = [e.to_dict() for e in data]
 
-    return render_template("impact.html", x=impact_list)
+    return render_template("impact.html", data=impact_list)
+
 
 
 #####################################################################
