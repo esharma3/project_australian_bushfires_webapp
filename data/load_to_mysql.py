@@ -11,17 +11,13 @@ import numpy as np
 import requests
 from bs4 import BeautifulSoup
 
+DATABASE = "bushfires_db"
+
 ###################################################################
 #                 Database Connection to MySQL                    #
 ###################################################################
 
-USER = "root"
-PASSWORD = my_password
-HOST = "127.0.0.1"
-PORT = "3306"
-DATABASE = "bushfires_db"
-
-engine = create_engine(f"mysql+pymysql://{USER}:{PASSWORD}@{HOST}:{PORT}")
+engine = create_engine(os.getenv("DB_CONN"))
 
 try:
     engine.execute(f"CREATE DATABASE {DATABASE}")
