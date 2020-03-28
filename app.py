@@ -16,7 +16,6 @@ app = Flask(__name__)
 #                  Database Connection 					    		#
 #####################################################################
 
-print(os.getenv("DB_CONN"))
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DB_CONN")
 db = SQLAlchemy(app)
 
@@ -177,7 +176,6 @@ class AUS_Air_Pollutants_Combined_Data(db.Model, DictMixIn):
     CH4_ppb=db.Column(db.Float())
     N2O_ppb=db.Column(db.Float())
 
-<<<<<<< HEAD
 class AUS_Max_Temp_Area_Decile10(db.Model, DictMixIn):
     __tablename__ = "aus_max_temp_area_decile10"
 
@@ -190,7 +188,6 @@ class AUS_Annual_Rainfall_Area_Decile10(db.Model, DictMixIn):
     annual_rainfall_decile10_year=db.Column(db.Integer(), primary_key=True)
     rainfall_total_land_area_percentage=db.Column(db.Float())
 
-=======
 #####################################################################
 #           Classes for Australia Fire Archive Tables               #
 #####################################################################
@@ -208,8 +205,6 @@ class aus_fire_history(db.Model, DictMixIn):
     confidence = db.Column(db.String())
     bright_ti5 = db.Column(db.Float())
     frp = db.Column(db.Float())
->>>>>>> ba84f5e0b813d9b07c8c787b6e5b4b47a841377b
-
 
 #####################################################################
 #           Classes for Protected Species Impact Table              #
@@ -259,7 +254,7 @@ db.session.commit()
 
 
 #####################################################################
-#                          Home Page					                  		#
+#                          Home Page					       		#
 #####################################################################
 
 @app.route("/")
@@ -288,7 +283,7 @@ def load_aus_fire_locations_data():
 	return jsonify(combined_aus_fire_history)
   
 #####################################################################
-#                    Fire Counts Page and Route 	               		#
+#                    Fire Counts Page and Route 	              	#
 #####################################################################
 
 @app.route("/fire_count_page")
@@ -352,7 +347,7 @@ def impact():
 
 
 #####################################################################
-#                 Climate Fails Page and Route		              		#
+#                 Climate Fails Page and Route		                #
 #####################################################################
 
 @app.route("/climate_fails_page")
@@ -398,6 +393,7 @@ def climate_data():
 
     return jsonify(combined_climate_list)
 
+
 @app.route("/air_pollutant_data")
 def air_pollutant_data():
 
@@ -408,6 +404,7 @@ def air_pollutant_data():
         combined_air_pollutant_list.append(result.to_dict())
 
     return jsonify(combined_air_pollutant_list)
+
 
 
 
