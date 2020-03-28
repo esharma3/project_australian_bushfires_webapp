@@ -223,7 +223,16 @@ class ProtectedSpecies(db.Model, DictMixIn):
     distribution_map = db.Column(db.String())
     thumbnail = db.Column(db.String())
 
+#####################################################################
+#           Economic/Fire Impact Table              #
+#####################################################################
+class HistoricFires(db.Model, DictMixIn):
+    __tablename__ = "historic_fires_impact"
 
+    taxon_id = db.Column(db.Integer(), primary_key=True)
+    scientific_name = db.Column(db.String())
+    common_name = db.Column(db.String())
+    afected_area = db.Column(db.String())
 
 
 # TEAM: KEEP ADDING YOUR CLASSES HERE:
