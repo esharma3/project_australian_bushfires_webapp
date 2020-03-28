@@ -6,6 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, Float, Date
 import datetime, time
 from config import password
+import os
 
 
 # Create an instance of Flask app
@@ -15,13 +16,8 @@ app = Flask(__name__)
 #                  Database Connection 					    		#
 #####################################################################
 
-USER = "root"
-PASSWORD = password  
-HOST = "127.0.0.1"  
-PORT = "3306"  
-DATABASE = "bushfires_db" 
-
-app.config["SQLALCHEMY_DATABASE_URI"] = f"mysql+pymysql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
+print(os.getenv("DB_CONN"))
+app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DB_CONN")
 db = SQLAlchemy(app)
 
 
@@ -64,6 +60,7 @@ class NSW_Fire_Counts(db.Model, DictMixIn):
     nsw_2017_2018=db.Column(db.Integer())
     nsw_2018_2019=db.Column(db.Integer())
     nsw_2019_2020=db.Column(db.Integer())
+    nsw_month=db.Column(db.String())
 
 class Queensland_Fire_Counts(db.Model, DictMixIn):
     __tablename__ = "queensland_fire_counts"
@@ -87,6 +84,7 @@ class Queensland_Fire_Counts(db.Model, DictMixIn):
     queensland_2017_2018=db.Column(db.Integer())
     queensland_2018_2019=db.Column(db.Integer())
     queensland_2019_2020=db.Column(db.Integer())
+    queensland_month=db.Column(db.String())
 
 
 class Victoria_Fire_Counts(db.Model, DictMixIn):
@@ -111,6 +109,7 @@ class Victoria_Fire_Counts(db.Model, DictMixIn):
     victoria_2017_2018=db.Column(db.Integer())
     victoria_2018_2019=db.Column(db.Integer())
     victoria_2019_2020=db.Column(db.Integer())
+    victoria_month=db.Column(db.String())
 
 class NSW_Annual_Total_Fire_Counts(db.Model, DictMixIn):
 	__tablename__ = "nsw_annual_total_fire_counts"
@@ -131,7 +130,7 @@ class Victoria_Annual_Total_Fire_Counts(db.Model, DictMixIn):
 	victoria_total_fires=db.Column(db.Integer())  
 
 #####################################################################
-#         Classes for Climate and Air Pollutant Tables              #
+# Classes for Climate and Greenhouse Gases/Air Pollutant Tables     #
 #####################################################################
 
 class AUS_Max_Temp_Anomaly_Data(db.Model, DictMixIn):
@@ -178,6 +177,20 @@ class AUS_Air_Pollutants_Combined_Data(db.Model, DictMixIn):
     CH4_ppb=db.Column(db.Float())
     N2O_ppb=db.Column(db.Float())
 
+<<<<<<< HEAD
+class AUS_Max_Temp_Area_Decile10(db.Model, DictMixIn):
+    __tablename__ = "aus_max_temp_area_decile10"
+
+    max_temp_decile10_year=db.Column(db.Integer(), primary_key=True)
+    maxtemp_total_land_area_percentage=db.Column(db.Float())
+
+class AUS_Annual_Rainfall_Area_Decile10(db.Model, DictMixIn):
+    __tablename__ = "aus_annual_rainfall_area_decile10"
+
+    annual_rainfall_decile10_year=db.Column(db.Integer(), primary_key=True)
+    rainfall_total_land_area_percentage=db.Column(db.Float())
+
+=======
 #####################################################################
 #           Classes for Australia Fire Archive Tables               #
 #####################################################################
@@ -195,6 +208,7 @@ class aus_fire_history(db.Model, DictMixIn):
     confidence = db.Column(db.String())
     bright_ti5 = db.Column(db.Float())
     frp = db.Column(db.Float())
+>>>>>>> ba84f5e0b813d9b07c8c787b6e5b4b47a841377b
 
 
 #####################################################################
@@ -372,7 +386,15 @@ def climate_data():
 
     sst_anomaly_results = AUS_Sea_Surface_Temp_Anomaly_Data.query.all()
     for result in sst_anomaly_results:
-        combined_climate_list.append(result.to_dict())          
+        combined_climate_list.append(result.to_dict())    
+
+    max_temp_decile10_area_results = AUS_Max_Temp_Area_Decile10.query.all()
+    for result in max_temp_decile10_area_results:
+        combined_climate_list.append(result.to_dict())
+
+    annual_rainfall_area_decile10 = AUS_Annual_Rainfall_Area_Decile10.query.all()
+    for result in annual_rainfall_area_decile10:
+        combined_climate_list.append(result.to_dict())
 
     return jsonify(combined_climate_list)
 
