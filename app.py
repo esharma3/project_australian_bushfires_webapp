@@ -4,9 +4,10 @@ import sqlalchemy
 from sqlalchemy.orm import Session
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, Float, Date
-import datetime
+import datetime, time
 from config import password
 import os
+
 
 # Create an instance of Flask app
 app = Flask(__name__)
@@ -176,6 +177,7 @@ class AUS_Air_Pollutants_Combined_Data(db.Model, DictMixIn):
     CH4_ppb=db.Column(db.Float())
     N2O_ppb=db.Column(db.Float())
 
+<<<<<<< HEAD
 class AUS_Max_Temp_Area_Decile10(db.Model, DictMixIn):
     __tablename__ = "aus_max_temp_area_decile10"
 
@@ -188,24 +190,105 @@ class AUS_Annual_Rainfall_Area_Decile10(db.Model, DictMixIn):
     annual_rainfall_decile10_year=db.Column(db.Integer(), primary_key=True)
     rainfall_total_land_area_percentage=db.Column(db.Float())
 
+=======
+#####################################################################
+#           Classes for Australia Fire Archive Tables               #
+#####################################################################
 
- # ADD YOUR CLASSES HERE
+class aus_fire_history(db.Model, DictMixIn):
+    __tablename__ = "aus_fire_history"
 
-
-
-db.session.commit()
+    index = db.Column(db.Integer(), primary_key = True)
+    latitude = db.Column(db.Float())
+    longitude = db.Column(db.Float())
+    bright_ti4 = db.Column(db.Float())
+    scan = db.Column(db.Float())
+    track = db.Column(db.Float())
+    acq_date = db.Column(db.Date)
+    confidence = db.Column(db.String())
+    bright_ti5 = db.Column(db.Float())
+    frp = db.Column(db.Float())
+>>>>>>> ba84f5e0b813d9b07c8c787b6e5b4b47a841377b
 
 
 #####################################################################
-#                          Home Page					    		#
+#           Classes for Protected Species Impact Table              #
+#####################################################################
+
+class ProtectedSpecies(db.Model, DictMixIn):
+    __tablename__ = "protected_species_impact"
+
+    taxon_id = db.Column(db.Integer(), primary_key=True)
+    scientific_name = db.Column(db.String())
+    common_name = db.Column(db.String())
+    afected_area = db.Column(db.String())
+    area_min = db.Column(db.Integer())
+    area_max = db.Column(db.Integer())
+    type = db.Column(db.String())
+    protected_status = db.Column(db.String())
+    migratory_status = db.Column(db.String())
+    location = db.Column(db.String())
+    url = db.Column(db.String())
+    distribution_map = db.Column(db.String())
+    thumbnail = db.Column(db.String())
+
+#####################################################################
+#           Economic/Fire Impact Table              #
+#####################################################################
+class HistoricFires(db.Model, DictMixIn):
+    __tablename__ = "historic_fires_impact"
+
+    taxon_id = db.Column(db.Integer(), primary_key=True)
+    scientific_name = db.Column(db.String())
+    common_name = db.Column(db.String())
+    afected_area = db.Column(db.String())
+
+
+# TEAM: KEEP ADDING YOUR CLASSES HERE:
+
+
+
+# NO TOUCH
+db.session.commit()
+
+
+
+#####################################################################
+#                        __FLASK ROUTES__                           #
+#####################################################################
+
+
+#####################################################################
+#                          Home Page					                  		#
 #####################################################################
 
 @app.route("/")
 def index():
     return render_template("index.html")
 
+
 #####################################################################
-#                    Fire Counts Page and Route 	           		#
+#                 Australia Fire Locations  		                #
+#####################################################################
+
+@app.route("/aus_fire_history_page.html")
+def load_aus_fire_locations():
+    return render_template("aus_fire_history_page.html")
+
+@app.route("/aus_fire_history")
+def load_aus_fire_locations_data():
+
+	combined_aus_fire_history = []	
+
+	fire_archives = aus_fire_history.query.all()
+
+	for result in fire_archives:
+		combined_aus_fire_history.append(result.to_dict())
+
+	return jsonify(combined_aus_fire_history)
+  
+#####################################################################
+#                    Fire Counts Page and Route 	               		#
 #####################################################################
 
 @app.route("/fire_count_page")
@@ -253,9 +336,23 @@ def annual_total_fire_counts():
 	return jsonify(combined_total_fire_list)
 
 
+#####################################################################
+#                          Impact Route                             #
+#####################################################################
+
+@app.route("/impact")
+def impact():
+
+    data = ProtectedSpecies.query.all()
+
+    impact_list = [e.to_dict() for e in data]
+
+    return render_template("impact.html", data=impact_list)
+
+
 
 #####################################################################
-#                 Climate Fails Page and Route		        		#
+#                 Climate Fails Page and Route		              		#
 #####################################################################
 
 @app.route("/climate_fails_page")
