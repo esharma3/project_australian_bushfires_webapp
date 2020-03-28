@@ -7,6 +7,10 @@ import sqlalchemy
 from config import my_password
 import numpy as np
 
+# Importing dependencies for scraping
+import requests
+from bs4 import BeautifulSoup
+
 ###################################################################
 #                 Database Connection to MySQL                    #
 ###################################################################
@@ -259,42 +263,63 @@ engine.execute(
 )
 
 
-##############################################
-# Protected species impact table begins here #
-##############################################
 
-IMPACT_TABLENAME1 = "protected_species_impact_counts" 
+
+##########################################################
+#         Protected species impact table + scraper       #
+##########################################################
+
+IMPACT_TABLENAME1 = "protected_species_impact" 
 engine.execute(f"DROP TABLE IF EXISTS {IMPACT_TABLENAME1}")
 
-# Creating dict of dtypes for SQL alchemy
-schema = {"Scientific Name": sqlalchemy.types.String(length=300), 
-          "Common Name": sqlalchemy.types.String(length=300), 
-          "Afected Area": sqlalchemy.types.String(length=50), 
-          "Area Min": sqlalchemy.types.INTEGER,
-          "Area Max": sqlalchemy.types.INTEGER,
-          "Type": sqlalchemy.types.String(length=50),
-          "Protected Status": sqlalchemy.types.String(length=25),
-          "Migratory Status ": sqlalchemy.types.String(length=25),
-          "Location": sqlalchemy.types.String(length=50)
-}
-
-
-# Doing some data cleaning
+# Initial csv loading > df
 df = pd.read_csv("protected_species_impact.csv")\
        .fillna('N/A')\
        .rename(columns = {"Percentage of the species modelled likely and known distribution within fire affected areas": "Afected Area", 
                           "EPBC Act listed Threatened Status": "Protected Status", 
                           "EPBC Act listed Migratory Status": "Migratory Status", 
-                          "Range states and territories": "Location"})\
+                          "Range states and territories": "Location",
+                          "SPRAT ID": "taxon_id"})\
        .replace({'Afected Area': '≥80%'}, '>80%')
 
+# Breaking "Affected Area" by Min and Max ranges
 min_range = [df["Afected Area"][e][:3].strip("%|<|>| ") for e in df["Afected Area"].index]
-max_range = [df["Afected Area"][e][5:-1].strip("%|<|>| ").replace("", '0') for e in df["Afected Area"].index]
+max_range = [df["Afected Area"][e][5:-1].strip("%|<|>| ") for e in df["Afected Area"].index]
 
-df.insert(column='Area Min', value=min_range, loc=3)
-df.insert(column='Area Max', value=max_range, loc=4)
+# Adding coverage maps
+distro_map = ['http://www.environment.gov.au/webgis-framework/apps/species-discovery/sd.html?map_taxon_id=' + str(df["taxon_id"][e]) for e in df["taxon_id"].index]
+
+# Scraping thumbnails from the big G
+r = requests.get('http://images.google.com/images?hl=en&q=%22acacia+constablei%22').text
+soup = BeautifulSoup(r)
+thumbnail_url = soup.find_all('img')[5]['src']
+
+# Inserting all new columns
+df.insert(column='Area Min', value=min_range, loc=1)
+df.insert(column='Area Max', value=max_range, loc=2)
+df.insert(column='Distribution Map', value=distro_map, loc=3)
+df.insert(column='Thumbnail', value=thumbnail_url, loc=4)
+
+# Cleaning some data and rearranging columns
 df = df.replace(r'^\s*$', np.NaN, regex=True)
+df = df[['taxon_id','Scientific Name','Common Name','Afected Area', 'Area Min', 'Area Max', 'Type', 'Protected Status', 'Migratory Status', 'Location', 'URL', 'Distribution Map', 'Thumbnail']]
+df.columns = map(str.lower, df.columns.str.replace(" ", "_"))
 
+# Creating schema for SQL table
+schema = {"taxon_id": sqlalchemy.types.INTEGER,
+          "scientific_name": sqlalchemy.types.String(length=300),
+          "common_name": sqlalchemy.types.String(length=300),
+          "afected_area": sqlalchemy.types.String(length=50),
+          "area_min": sqlalchemy.types.INTEGER,
+          "area_max": sqlalchemy.types.INTEGER,
+          "type": sqlalchemy.types.String(length=50),
+          "protected_status": sqlalchemy.types.String(length=25),
+          "migratory_status ": sqlalchemy.types.String(length=25),
+          "location": sqlalchemy.types.String(length=50),
+          "url": sqlalchemy.types.String(length=150),
+          "distribution_map": sqlalchemy.types.String(length=150),
+          "thumbnail": sqlalchemy.types.String(length=150)
+}
 
 # Sending to DB
 df.to_sql(name=IMPACT_TABLENAME1,
@@ -304,43 +329,89 @@ df.to_sql(name=IMPACT_TABLENAME1,
           )
 
 # Adding primary key to table
-engine.execute(f"ALTER TABLE {IMPACT_TABLENAME1} ADD PRIMARY KEY (`Scientific Name`)")
+engine.execute(f"ALTER TABLE {IMPACT_TABLENAME1} ADD PRIMARY KEY (`taxon_id`)")
 
 ### End of animal impact table ###
 
 
 
-############################################################
-### Protected species impact (James') table begins here ###
-############################################################
-############################################################
-### Fire Impacts (James') table begins here ###
-############################################################
-IMPACT_HISTORIC_FIRES = "historic_fire_data" 
-engine.execute(f"DROP TABLE IF EXISTS {IMPACT_HISTORIC_FIRES}")
 
-df = pd.read_csv(
-    "df_hist_fires.csv"
-).to_sql(
-    name=IMPACT_HISTORIC_FIRES,
+
+# impact_James
+
+############################################################
+### Fire Impacts table begins here ###
+############################################################
+IMPACT_TABLENAME2 = "impact_historic_fires"
+engine.execute(f"DROP TABLE IF EXISTS {IMPACT_TABLENAME2}")
+
+df = pd.read_csv("df_hist_fires.csv").to_sql(
+    name=IMPACT_TABLENAME2,
     con=engine,
     index=False,
-    dtype=sqlalchemy.types.INTEGER(),
+    dtype={
+        "name": sqlalchemy.types.String(length=150),
+        "state": sqlalchemy.types.String(length=35),
+        "hectacres_burned": sqlalchemy.types.INTEGER,
+        "acres_burned": sqlalchemy.types.INTEGER,
+        "year": sqlalchemy.types.INTEGER,
+        "hectacres_burned": sqlalchemy.types.INTEGER,
+        "human_fatalities": sqlalchemy.types.INTEGER,
+        "homes_destroyed": sqlalchemy.types.INTEGER,
+        "other_structures_destroyed": sqlalchemy.types.INTEGER,
+     },
 )
-IMPACT_2019_FIRES = "2019_fires" 
-engine.execute(f"DROP TABLE IF EXISTS {IMPACT_2019_FIRES}")
+engine.execute(
+    f"ALTER TABLE {IMPACT_TABLENAME2} ADD PRIMARY KEY (`year`)"
+)
+IMPACT_TABLENAME3 = "2019_fires" 
+engine.execute(f"DROP TABLE IF EXISTS {IMPACT_TABLENAME3}")
 
-df = pd.read_csv(
-    "df_2019_2020_fires.csv"
-).to_sql(
-    name=IMPACT_2019_FIRES,
+df = pd.read_csv("df_2019_2020_fires.csv").to_sql(
+    name=IMPACT_TABLENAME3,
     con=engine,
     index=False,
-    dtype=sqlalchemy.types.INTEGER(),
+    dtype={
+        "name": sqlalchemy.types.String(length=150),
+        "state": sqlalchemy.types.String(length=35),
+        "human_fatalities": sqlalchemy.types.INTEGER,
+        "homes_destroyed": sqlalchemy.types.INTEGER,
+        "hectacres_burned": sqlalchemy.types.INTEGER,
+        "acres_burned": sqlalchemy.types.INTEGER,
+        "notes": sqlalchemy.types.INTEGER,
+     },
+)
+engine.execute(
+    f"ALTER TABLE {IMPACT_TABLENAME3} ADD PRIMARY KEY (`state`)"
+)
+
+IMPACT_TABLENAME4 = "aus_econ_yoy" 
+engine.execute(f"DROP TABLE IF EXISTS {IMPACT_TABLENAME4}")
+
+df = pd.read_csv("df_aus_econs.csv").to_sql(
+    name=IMPACT_TABLENAME4,
+    con=engine,
+    index=False
+        dtype={
+        "year": sqlalchemy.types.INTEGER,
+        "gdp_bn_usdollars": sqlalchemy.types.INTEGER,
+        "gdp_per_capita_usdollars": sqlalchemy.types.INTEGER,
+        "gdp_growth_per": sqlalchemy.types.INTEGER,
+        "inflation_rate_per": sqlalchemy.types.INTEGER,
+        "unemployment_per": sqlalchemy.types.INTEGER,
+        "gdp_growth_per": sqlalchemy.types.INTEGER,
+        "gov_debt_per": sqlalchemy.types.INTEGER,
+
+     },
+)
+engine.execute(
+    f"ALTER TABLE {IMPACT_TABLENAME4} ADD PRIMARY KEY (`state`)"
 )
 ############################################################
-### Fire Impacts (James) table ends here
+# impact_James
+### Fire Impacts table ends here ###
 ############################################################
+
 
 
 ############################################################
@@ -350,10 +421,9 @@ df = pd.read_csv(
 AUS_FIRES = "aus_fire_history" 
 engine.execute(f"DROP TABLE IF EXISTS {AUS_FIRES}")
 
-df = pd.read_csv("australia.csv").to_sql(
+df = pd.read_csv("aus_fire_locations/australia.csv").to_sql(
     name = AUS_FIRES,
     con = engine,
-    dtype = {'acq_date': sqlalchemy.types.Date, 
-    'acq_time': sqlalchemy.types.Time(4)})
+    dtype = {'acq_date' : sqlalchemy.types.Date})
 
-engine.execute(f"ALTER TABLE {AUS_FIRES} ADD id BIGINT IDENTITY; GO")
+engine.execute(f"ALTER TABLE {AUS_FIRES} ADD PRIMARY KEY (`index`)")
