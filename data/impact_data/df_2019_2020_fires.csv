@@ -1,0 +1,10 @@
+,year,state,human_fatalities,homes_destroyed,hectacres_burned ,acres_burned
+1,2019,Australian Capital Territory,1,0,56688,140080
+2,2019,New South Wales,25,2439,5400000,13300000
+3,2019,Northern Territory,0,5,6800000,16800000
+4,2019,Queensland,0,48,2500000,6180000
+5,2019,South Australia,3,151,490000,1210000
+6,2019,Tasmania,0,2,36000,89000
+7,2019,Victoria,5,396,1500000,3710000
+8,2019,Western Australia,0,1,2200000,5440000
+9,2019,Total,34,3500,18736070,46300000
