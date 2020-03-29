@@ -329,7 +329,26 @@ def impact():
 
     return render_template("impact.html", x=impact_list)
 
+@app.route("/impact")
+def impact():
+    human_econ_impact = [] 
 
+    impact_historic_fires = IMPACT_TABLENAME2.query.all()
+    for result in impact_historic_fires:
+        human_econ_impact_data.append(result.to_dict()) 
+    
+    impact_2019_fires = IMPACT_TABLENAME3.query.all()
+    for result in impact_2019_fires:
+        human_econ_impact_data.append(result.to_dict())
+    
+    impact_economic = IMPACT_TABLENAME4.query.all()
+    for result in impact_economic:
+        human_econ_impact_data.append(result.to_dict())
+    
+    impact_consumer = IMPACT_TABLENAME5.query.all()
+    for result in impact_economic:
+        human_econ_impact_data.append(result.to_dict())
+    return render_template("impact.html", x=impact_list)
 #####################################################################
 #                 Climate Fails Page and Route		              		#
 #####################################################################
@@ -341,7 +360,11 @@ def climate_fails():
 @app.route("/climate_data")
 def climate_data():
 
-    combined_climate_list = []   
+    combined_climate_list = []  
+
+    max_temp_results = AUS_Max_Temp_Anomaly_Data.query.all()
+    for result in max_temp_results:
+        combined_climate_list.append(result.to_dict()) 
 
     max_temp_results = AUS_Max_Temp_Anomaly_Data.query.all()
     for result in max_temp_results:
