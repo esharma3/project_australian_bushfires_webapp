@@ -348,7 +348,7 @@ def impact():
     impact_consumer = IMPACT_TABLENAME5.query.all()
     for result in impact_economic:
         human_econ_impact_data.append(result.to_dict())
-    return render_template("impact.html", x=impact_list)
+    return render_template("impact.html", x=human_econ_impact)
 #####################################################################
 #                 Climate Fails Page and Route		              		#
 #####################################################################
