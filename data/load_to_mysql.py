@@ -429,14 +429,8 @@ engine.execute(f"ALTER TABLE {IMPACT_TABLENAME1} ADD PRIMARY KEY (`taxon_id`)")
 
 ### End of animal impact table ###
 
-
-
-
-
-# impact_James
-
 ############################################################
-### Fire Impacts table begins here ###
+### Fire Human/Economic Impacts table begins here ###
 ############################################################
 IMPACT_TABLENAME2 = "impact_historic_fires"
 engine.execute(f"DROP TABLE IF EXISTS {IMPACT_TABLENAME2}")
@@ -446,21 +440,19 @@ df = pd.read_csv("df_hist_fires.csv").to_sql(
     con=engine,
     index=False,
     dtype={
+        "number": sqlalchemy.types.INTEGER(),
         "name": sqlalchemy.types.String(length=150),
         "state": sqlalchemy.types.String(length=35),
-        "hectacres_burned": sqlalchemy.types.INTEGER,
-        "acres_burned": sqlalchemy.types.INTEGER,
-        "year": sqlalchemy.types.INTEGER,
-        "hectacres_burned": sqlalchemy.types.INTEGER,
-        "human_fatalities": sqlalchemy.types.INTEGER,
-        "homes_destroyed": sqlalchemy.types.INTEGER,
-        "other_structures_destroyed": sqlalchemy.types.INTEGER,
-     },
-)
+        "hectacres_burned": sqlalchemy.types.BigInteger(),
+        "acres_burned": sqlalchemy.types.BigInteger(),
+        "year": sqlalchemy.types.INTEGER(),
+        "human_fatalities": sqlalchemy.types.INTEGER(),
+        "homes_destroyed": sqlalchemy.types.INTEGER(),},)
 engine.execute(
-    f"ALTER TABLE {IMPACT_TABLENAME2} ADD PRIMARY KEY (`year`)"
+    f"ALTER TABLE {IMPACT_TABLENAME2} ADD PRIMARY KEY ('number`)"
 )
-IMPACT_TABLENAME3 = "2019_fires" 
+
+IMPACT_TABLENAME3 = "impact_2019_2020_fires"
 engine.execute(f"DROP TABLE IF EXISTS {IMPACT_TABLENAME3}")
 
 df = pd.read_csv("df_2019_2020_fires.csv").to_sql(
@@ -468,43 +460,51 @@ df = pd.read_csv("df_2019_2020_fires.csv").to_sql(
     con=engine,
     index=False,
     dtype={
-        "name": sqlalchemy.types.String(length=150),
-        "state": sqlalchemy.types.String(length=35),
-        "human_fatalities": sqlalchemy.types.INTEGER,
-        "homes_destroyed": sqlalchemy.types.INTEGER,
-        "hectacres_burned": sqlalchemy.types.INTEGER,
-        "acres_burned": sqlalchemy.types.INTEGER,
-        "notes": sqlalchemy.types.INTEGER,
-     },
-)
+        "number": sqlalchemy.types.INTEGER(),
+        "year": sqlalchemy.types.INTEGER(),
+        "state": sqlalchemy.types.String(length=50),
+        "human_fatalities": sqlalchemy.types.INTEGER(),
+        "homes_destroyed": sqlalchemy.types.INTEGER(),
+        "hectacres_burned": sqlalchemy.types.BigInteger(),
+        "acres_burned": sqlalchemy.types.BigInteger(),},)
 engine.execute(
-    f"ALTER TABLE {IMPACT_TABLENAME3} ADD PRIMARY KEY (`state`)"
+    f"ALTER TABLE {IMPACT_TABLENAME3} ADD PRIMARY KEY ('state`)"
 )
-
-IMPACT_TABLENAME4 = "aus_econ_yoy" 
+IMPACT_TABLENAME4 = "impact_economic"
 engine.execute(f"DROP TABLE IF EXISTS {IMPACT_TABLENAME4}")
 
-df = pd.read_csv("df_aus_econs.csv").to_sql(
+df = pd.read_csv("aus_economic_data.csv").to_sql(
     name=IMPACT_TABLENAME4,
     con=engine,
-    index=False
-        dtype={
-        "year": sqlalchemy.types.INTEGER,
-        "gdp_bn_usdollars": sqlalchemy.types.INTEGER,
-        "gdp_per_capita_usdollars": sqlalchemy.types.INTEGER,
-        "gdp_growth_per": sqlalchemy.types.INTEGER,
-        "inflation_rate_per": sqlalchemy.types.INTEGER,
-        "unemployment_per": sqlalchemy.types.INTEGER,
-        "gdp_growth_per": sqlalchemy.types.INTEGER,
-        "gov_debt_per": sqlalchemy.types.INTEGER,
-
-     },
-)
+    index=False,
+    dtype={
+        "year": sqlalchemy.types.INTEGER(),
+        "gdp_current_us_dol": sqlalchemy.types.INTEGER(),
+        "gdp_per_growth_annual": sqlalchemy.types.INTEGER(),
+        "domestic_credit_financial_sector_per_gdp": sqlalchemy.types.INTEGER(),
+        "domestic_credit_private_sector_banks_per_gdp": sqlalchemy.types.INTEGER(),},)
 engine.execute(
-    f"ALTER TABLE {IMPACT_TABLENAME4} ADD PRIMARY KEY (`state`)"
+    f"ALTER TABLE {IMPACT_TABLENAME4} ADD PRIMARY KEY ('number`)"
 )
+IMPACT_TABLENAME5 = "impact_economic_cip"
+engine.execute(f"DROP TABLE IF EXISTS {IMPACT_TABLENAME5}")
+
+df = pd.read_csv("aus_cip_data.csv").to_sql(
+    name=IMPACT_TABLENAME5,
+    con=engine,
+    index=False,
+    dtype={
+         "number": sqlalchemy.types.INTEGER(),
+        "year": sqlalchemy.types.INTEGER(),
+        "gdp_current_us_dol": sqlalchemy.types.FLOAT(),
+        "gdp_per_growth_annual": sqlalchemy.types.FLOAT(),
+        "domestic_credit_financial_sector_per_gdp": sqlalchemy.types.FLOAT(),
+        "domestic_credit_private_sector_banks_per_gdp": sqlalchemy.types.FLOAT(),},)
+engine.execute(
+    f"ALTER TABLE {IMPACT_TABLENAME5} ADD PRIMARY KEY ('number`)"
+)
+   
 ############################################################
-# impact_James
 ### Fire Impacts table ends here ###
 ############################################################
 
