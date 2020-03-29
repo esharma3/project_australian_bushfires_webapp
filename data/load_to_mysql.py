@@ -4,8 +4,8 @@ from sqlalchemy import create_engine
 from sqlalchemy.exc import ProgrammingError
 import warnings
 import sqlalchemy
-from config import my_password
 import numpy as np
+import os
 
 # Importing dependencies for scraping
 import requests
