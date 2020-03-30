@@ -13,7 +13,7 @@ import os
 app = Flask(__name__)
 
 #####################################################################
-#                  Database Connection 					    		#
+#                      Database Connection 			        		    		#
 #####################################################################
 
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DB_CONN")
@@ -34,7 +34,7 @@ class DictMixIn:
         }
 
 #####################################################################
-#             Classes for Fire Count Tables  		          		#
+#             Classes for Fire Count Tables  		          	      	#
 #####################################################################
 
 class NSW_Fire_Counts(db.Model, DictMixIn):
@@ -228,7 +228,7 @@ class ProtectedSpecies(db.Model, DictMixIn):
     thumbnail = db.Column(db.String())
 
 #####################################################################
-#           Economic/Fire Impact Table              #
+#                 Economic/Fire Impact Table                        #
 #####################################################################
 class HistoricFires(db.Model, DictMixIn):
     __tablename__ = "historic_fires_impact"
@@ -254,7 +254,7 @@ db.session.commit()
 
 
 #####################################################################
-#                          Home Page					       		#
+#                             Home Page					         	        	#
 #####################################################################
 
 @app.route("/")
@@ -263,7 +263,7 @@ def index():
 
 
 #####################################################################
-#                 Australia Fire Locations  		                #
+#                 Australia Fire Locations  		                    #
 #####################################################################
 
 @app.route("/aus_fire_history_page.html")
@@ -283,7 +283,7 @@ def load_aus_fire_locations_data():
 	return jsonify(combined_aus_fire_history)
   
 #####################################################################
-#                    Fire Counts Page and Route 	              	#
+#                    Fire Counts Page and Route 	                	#
 #####################################################################
 
 @app.route("/fire_count_page")
@@ -433,8 +433,30 @@ def impact():
     return render_template("impact.html", data=impact_list)
 
 
+@app.route("/impact")
+def impact():
+    human_econ_impact = [] 
+
+    impact_historic_fires = IMPACT_TABLENAME2.query.all()
+    for result in impact_historic_fires:
+        human_econ_impact_data.append(result.to_dict()) 
+    
+    impact_2019_fires = IMPACT_TABLENAME3.query.all()
+    for result in impact_2019_fires:
+        human_econ_impact_data.append(result.to_dict())
+    
+    impact_economic = IMPACT_TABLENAME4.query.all()
+    for result in impact_economic:
+        human_econ_impact_data.append(result.to_dict())
+    
+    impact_consumer = IMPACT_TABLENAME5.query.all()
+    for result in impact_economic:
+        human_econ_impact_data.append(result.to_dict())
+    return render_template("impact.html", x=human_econ_impact)
+
+  
 #####################################################################
-#                 Climate Fails Page and Route		                #
+#                 Climate Fails Page and Route		                  #
 #####################################################################
 
 @app.route("/climate_fails_page")
@@ -444,7 +466,11 @@ def climate_fails():
 @app.route("/climate_data")
 def climate_data():
 
-    combined_climate_list = []   
+    combined_climate_list = []  
+
+    max_temp_results = AUS_Max_Temp_Anomaly_Data.query.all()
+    for result in max_temp_results:
+        combined_climate_list.append(result.to_dict()) 
 
     max_temp_results = AUS_Max_Temp_Anomaly_Data.query.all()
     for result in max_temp_results:
@@ -605,7 +631,7 @@ def climate_data_search_type():
 
 
 #####################################################################
-#                            Main		     			    		#
+#                            Main		     			                  		#
 #####################################################################
 
 if __name__ == "__main__":
