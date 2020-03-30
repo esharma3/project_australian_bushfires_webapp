@@ -13,7 +13,7 @@ import os
 app = Flask(__name__)
 
 #####################################################################
-#                      Database Connection 			           		#
+#                         Database Connection 			            		#
 #####################################################################
 
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DB_CONN")
@@ -36,7 +36,7 @@ class DictMixIn:
 
 
 #####################################################################
-#             Classes for Fire Count Tables  		       	      	#
+#                 Classes for Fire Count Tables  		       	      	#
 #####################################################################
 
 
@@ -274,7 +274,7 @@ db.session.commit()
 
 
 #####################################################################
-#                             Home Page				   	        	#
+#                               Home Page				   	              	#
 #####################################################################
 
 @app.route("/")
@@ -283,7 +283,7 @@ def index():
 
 
 #####################################################################
-#                 Australia Fire Locations  		                #
+#                     Australia Fire Locations  		                #
 #####################################################################
 
 @app.route("/aus_fire_history_page.html")
@@ -442,7 +442,7 @@ def impact():
 
 @app.route("/econ_impact")
 def econ_impact():
-
+  
     human_econ_impact = []
 
     impact_historic_fires = IMPACT_TABLENAME2.query.all()
@@ -465,7 +465,7 @@ def econ_impact():
 
 
 #####################################################################
-#                      Climate Fails Page 		                    #
+#                      Climate Fails Page 		                      #
 #####################################################################
 
 @app.route("/climate_fails_page")
@@ -587,7 +587,7 @@ def climate_data():
 
 
 #####################################################################
-#                            Main		     			       		#
+#                                 Main		     			            		#
 #####################################################################
 
 if __name__ == "__main__":
