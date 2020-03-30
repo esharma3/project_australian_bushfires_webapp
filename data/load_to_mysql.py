@@ -4,24 +4,20 @@ from sqlalchemy import create_engine
 from sqlalchemy.exc import ProgrammingError
 import warnings
 import sqlalchemy
-from config import my_password
 import numpy as np
+import os
 
 # Importing dependencies for scraping
 import requests
 from bs4 import BeautifulSoup
 
+DATABASE = "bushfires_db"
+
 ###################################################################
 #                 Database Connection to MySQL                    #
 ###################################################################
 
-USER = "root"
-PASSWORD = my_password
-HOST = "127.0.0.1"
-PORT = "3306"
-DATABASE = "bushfires_db"
-
-engine = create_engine(f"mysql+pymysql://{USER}:{PASSWORD}@{HOST}:{PORT}")
+engine = create_engine(os.getenv("DB_CONN"))
 
 try:
     engine.execute(f"CREATE DATABASE {DATABASE}")
@@ -51,7 +47,28 @@ df = pd.read_csv(
     name=FIRE_COUNT_TABLENAME1,
     con=engine,
     index=False,
-    dtype=sqlalchemy.types.INTEGER(),
+    dtype={
+        "nsw_month": sqlalchemy.types.String(length=15),
+        "nsw_DOY": sqlalchemy.types.INTEGER(),
+        "nsw_2002_2003": sqlalchemy.types.INTEGER(),
+        "nsw_2003_2004": sqlalchemy.types.INTEGER(),
+        "nsw_2004_2005": sqlalchemy.types.INTEGER(),
+        "nsw_2005_2006": sqlalchemy.types.INTEGER(),
+        "nsw_2006_2007": sqlalchemy.types.INTEGER(),
+        "nsw_2007_2008": sqlalchemy.types.INTEGER(),
+        "nsw_2008_2009": sqlalchemy.types.INTEGER(),
+        "nsw_2009_2010": sqlalchemy.types.INTEGER(),
+        "nsw_2010_2011": sqlalchemy.types.INTEGER(),
+        "nsw_2011_2012": sqlalchemy.types.INTEGER(),
+        "nsw_2012_2013": sqlalchemy.types.INTEGER(),
+        "nsw_2013_2014": sqlalchemy.types.INTEGER(),
+        "nsw_2014_2015": sqlalchemy.types.INTEGER(),
+        "nsw_2015_2016": sqlalchemy.types.INTEGER(),
+        "nsw_2016_2017": sqlalchemy.types.INTEGER(),
+        "nsw_2017_2018": sqlalchemy.types.INTEGER(),
+        "nsw_2018_2019": sqlalchemy.types.INTEGER(),
+        "nsw_2019_2020": sqlalchemy.types.INTEGER(),
+    },
 )
 engine.execute(f"ALTER TABLE {FIRE_COUNT_TABLENAME1} ADD PRIMARY KEY (`nsw_DOY`)")
 
@@ -79,7 +96,28 @@ df = pd.read_csv(
     name=FIRE_COUNT_TABLENAME3,
     con=engine,
     index=False,
-    dtype=sqlalchemy.types.INTEGER(),
+    dtype={
+        "queensland_month": sqlalchemy.types.String(length=15),
+        "queensland_DOY": sqlalchemy.types.INTEGER(),
+        "queensland_2002_2003": sqlalchemy.types.INTEGER(),
+        "queensland_2003_2004": sqlalchemy.types.INTEGER(),
+        "queensland_2004_2005": sqlalchemy.types.INTEGER(),
+        "queensland_2005_2006": sqlalchemy.types.INTEGER(),
+        "queensland_2006_2007": sqlalchemy.types.INTEGER(),
+        "queensland_2007_2008": sqlalchemy.types.INTEGER(),
+        "queensland_2008_2009": sqlalchemy.types.INTEGER(),
+        "queensland_2009_2010": sqlalchemy.types.INTEGER(),
+        "queensland_2010_2011": sqlalchemy.types.INTEGER(),
+        "queensland_2011_2012": sqlalchemy.types.INTEGER(),
+        "queensland_2012_2013": sqlalchemy.types.INTEGER(),
+        "queensland_2013_2014": sqlalchemy.types.INTEGER(),
+        "queensland_2014_2015": sqlalchemy.types.INTEGER(),
+        "queensland_2015_2016": sqlalchemy.types.INTEGER(),
+        "queensland_2016_2017": sqlalchemy.types.INTEGER(),
+        "queensland_2017_2018": sqlalchemy.types.INTEGER(),
+        "queensland_2018_2019": sqlalchemy.types.INTEGER(),
+        "queensland_2019_2020": sqlalchemy.types.INTEGER(),
+    },
 )
 engine.execute(
     f"ALTER TABLE {FIRE_COUNT_TABLENAME3} ADD PRIMARY KEY (`queensland_DOY`)"
@@ -111,7 +149,28 @@ df = pd.read_csv(
     name=FIRE_COUNT_TABLENAME5,
     con=engine,
     index=False,
-    dtype=sqlalchemy.types.INTEGER(),
+    dtype={
+        "victoria_month": sqlalchemy.types.String(length=15),
+        "victoria_DOY": sqlalchemy.types.INTEGER(),
+        "victoria_2002_2003": sqlalchemy.types.INTEGER(),
+        "victoria_2003_2004": sqlalchemy.types.INTEGER(),
+        "victoria_2004_2005": sqlalchemy.types.INTEGER(),
+        "victoria_2005_2006": sqlalchemy.types.INTEGER(),
+        "victoria_2006_2007": sqlalchemy.types.INTEGER(),
+        "victoria_2007_2008": sqlalchemy.types.INTEGER(),
+        "victoria_2008_2009": sqlalchemy.types.INTEGER(),
+        "victoria_2009_2010": sqlalchemy.types.INTEGER(),
+        "victoria_2010_2011": sqlalchemy.types.INTEGER(),
+        "victoria_2011_2012": sqlalchemy.types.INTEGER(),
+        "victoria_2012_2013": sqlalchemy.types.INTEGER(),
+        "victoria_2013_2014": sqlalchemy.types.INTEGER(),
+        "victoria_2014_2015": sqlalchemy.types.INTEGER(),
+        "victoria_2015_2016": sqlalchemy.types.INTEGER(),
+        "victoria_2016_2017": sqlalchemy.types.INTEGER(),
+        "victoria_2017_2018": sqlalchemy.types.INTEGER(),
+        "victoria_2018_2019": sqlalchemy.types.INTEGER(),
+        "victoria_2019_2020": sqlalchemy.types.INTEGER(),
+    },
 )
 engine.execute(f"ALTER TABLE {FIRE_COUNT_TABLENAME5} ADD PRIMARY KEY (`victoria_DOY`)")
 
@@ -262,6 +321,43 @@ engine.execute(
     f"ALTER TABLE {CLIMATE_TABLENAME7} ADD PRIMARY KEY (`air_pollutant_year`)"
 )
 
+# Annual max temp percentage area in decile 10
+CLIMATE_TABLENAME8 = "aus_max_temp_area_decile10"
+engine.execute(f"DROP TABLE IF EXISTS {CLIMATE_TABLENAME8}")
+
+df = pd.read_csv("climate_data/aus_max_temp_area_decile10.csv").to_sql(
+    name=CLIMATE_TABLENAME8,
+    con=engine,
+    index=False,
+    dtype={
+        "max_temp_decile10_year": sqlalchemy.types.INTEGER(),
+        "maxtemp_total_land_area_percentage": sqlalchemy.types.Float(
+            precision=3, asdecimal=True
+        ),
+    },
+)
+engine.execute(
+    f"ALTER TABLE {CLIMATE_TABLENAME8} ADD PRIMARY KEY (`max_temp_decile10_year`)"
+)
+
+# Annual rainfall percentage area in decile 10
+CLIMATE_TABLENAME9 = "aus_annual_rainfall_area_decile10"
+engine.execute(f"DROP TABLE IF EXISTS {CLIMATE_TABLENAME9}")
+
+df = pd.read_csv("climate_data/aus_annual_rainfall_area_decile10.csv").to_sql(
+    name=CLIMATE_TABLENAME9,
+    con=engine,
+    index=False,
+    dtype={
+        "annual_rainfall_decile10_year": sqlalchemy.types.INTEGER(),
+        "rainfall_total_land_area_percentage": sqlalchemy.types.Float(
+            precision=3, asdecimal=True
+        ),
+    },
+)
+engine.execute(
+    f"ALTER TABLE {CLIMATE_TABLENAME9} ADD PRIMARY KEY (`annual_rainfall_decile10_year`)"
+)
 
 
 
@@ -335,14 +431,8 @@ engine.execute(f"ALTER TABLE {IMPACT_TABLENAME1} ADD PRIMARY KEY (`taxon_id`)")
 
 ### End of animal impact table ###
 
-
-
-
-
-# impact_James
-
 ############################################################
-### Fire Impacts table begins here ###
+### Fire Human/Economic Impacts table begins here ###
 ############################################################
 IMPACT_TABLENAME2 = "impact_historic_fires"
 engine.execute(f"DROP TABLE IF EXISTS {IMPACT_TABLENAME2}")
@@ -352,21 +442,19 @@ df = pd.read_csv("df_hist_fires.csv").to_sql(
     con=engine,
     index=False,
     dtype={
+        "number": sqlalchemy.types.INTEGER(),
         "name": sqlalchemy.types.String(length=150),
         "state": sqlalchemy.types.String(length=35),
-        "hectacres_burned": sqlalchemy.types.INTEGER,
-        "acres_burned": sqlalchemy.types.INTEGER,
-        "year": sqlalchemy.types.INTEGER,
-        "hectacres_burned": sqlalchemy.types.INTEGER,
-        "human_fatalities": sqlalchemy.types.INTEGER,
-        "homes_destroyed": sqlalchemy.types.INTEGER,
-        "other_structures_destroyed": sqlalchemy.types.INTEGER,
-     },
-)
+        "hectacres_burned": sqlalchemy.types.BigInteger(),
+        "acres_burned": sqlalchemy.types.BigInteger(),
+        "year": sqlalchemy.types.INTEGER(),
+        "human_fatalities": sqlalchemy.types.INTEGER(),
+        "homes_destroyed": sqlalchemy.types.INTEGER(),},)
 engine.execute(
-    f"ALTER TABLE {IMPACT_TABLENAME2} ADD PRIMARY KEY (`year`)"
+    f"ALTER TABLE {IMPACT_TABLENAME2} ADD PRIMARY KEY ('number`)"
 )
-IMPACT_TABLENAME3 = "2019_fires" 
+
+IMPACT_TABLENAME3 = "impact_2019_2020_fires"
 engine.execute(f"DROP TABLE IF EXISTS {IMPACT_TABLENAME3}")
 
 df = pd.read_csv("df_2019_2020_fires.csv").to_sql(
@@ -374,43 +462,51 @@ df = pd.read_csv("df_2019_2020_fires.csv").to_sql(
     con=engine,
     index=False,
     dtype={
-        "name": sqlalchemy.types.String(length=150),
-        "state": sqlalchemy.types.String(length=35),
-        "human_fatalities": sqlalchemy.types.INTEGER,
-        "homes_destroyed": sqlalchemy.types.INTEGER,
-        "hectacres_burned": sqlalchemy.types.INTEGER,
-        "acres_burned": sqlalchemy.types.INTEGER,
-        "notes": sqlalchemy.types.INTEGER,
-     },
-)
+        "number": sqlalchemy.types.INTEGER(),
+        "year": sqlalchemy.types.INTEGER(),
+        "state": sqlalchemy.types.String(length=50),
+        "human_fatalities": sqlalchemy.types.INTEGER(),
+        "homes_destroyed": sqlalchemy.types.INTEGER(),
+        "hectacres_burned": sqlalchemy.types.BigInteger(),
+        "acres_burned": sqlalchemy.types.BigInteger(),},)
 engine.execute(
-    f"ALTER TABLE {IMPACT_TABLENAME3} ADD PRIMARY KEY (`state`)"
+    f"ALTER TABLE {IMPACT_TABLENAME3} ADD PRIMARY KEY ('state`)"
 )
-
-IMPACT_TABLENAME4 = "aus_econ_yoy" 
+IMPACT_TABLENAME4 = "impact_economic"
 engine.execute(f"DROP TABLE IF EXISTS {IMPACT_TABLENAME4}")
 
-df = pd.read_csv("df_aus_econs.csv").to_sql(
+df = pd.read_csv("aus_economic_data.csv").to_sql(
     name=IMPACT_TABLENAME4,
     con=engine,
-    index=False
-        dtype={
-        "year": sqlalchemy.types.INTEGER,
-        "gdp_bn_usdollars": sqlalchemy.types.INTEGER,
-        "gdp_per_capita_usdollars": sqlalchemy.types.INTEGER,
-        "gdp_growth_per": sqlalchemy.types.INTEGER,
-        "inflation_rate_per": sqlalchemy.types.INTEGER,
-        "unemployment_per": sqlalchemy.types.INTEGER,
-        "gdp_growth_per": sqlalchemy.types.INTEGER,
-        "gov_debt_per": sqlalchemy.types.INTEGER,
-
-     },
-)
+    index=False,
+    dtype={
+        "year": sqlalchemy.types.INTEGER(),
+        "gdp_current_us_dol": sqlalchemy.types.INTEGER(),
+        "gdp_per_growth_annual": sqlalchemy.types.INTEGER(),
+        "domestic_credit_financial_sector_per_gdp": sqlalchemy.types.INTEGER(),
+        "domestic_credit_private_sector_banks_per_gdp": sqlalchemy.types.INTEGER(),},)
 engine.execute(
-    f"ALTER TABLE {IMPACT_TABLENAME4} ADD PRIMARY KEY (`state`)"
+    f"ALTER TABLE {IMPACT_TABLENAME4} ADD PRIMARY KEY ('number`)"
 )
+IMPACT_TABLENAME5 = "impact_economic_cip"
+engine.execute(f"DROP TABLE IF EXISTS {IMPACT_TABLENAME5}")
+
+df = pd.read_csv("aus_cip_data.csv").to_sql(
+    name=IMPACT_TABLENAME5,
+    con=engine,
+    index=False,
+    dtype={
+         "number": sqlalchemy.types.INTEGER(),
+        "year": sqlalchemy.types.INTEGER(),
+        "gdp_current_us_dol": sqlalchemy.types.FLOAT(),
+        "gdp_per_growth_annual": sqlalchemy.types.FLOAT(),
+        "domestic_credit_financial_sector_per_gdp": sqlalchemy.types.FLOAT(),
+        "domestic_credit_private_sector_banks_per_gdp": sqlalchemy.types.FLOAT(),},)
+engine.execute(
+    f"ALTER TABLE {IMPACT_TABLENAME5} ADD PRIMARY KEY ('number`)"
+)
+   
 ############################################################
-# impact_James
 ### Fire Impacts table ends here ###
 ############################################################
 
@@ -423,14 +519,9 @@ engine.execute(
 AUS_FIRES = "aus_fire_history" 
 engine.execute(f"DROP TABLE IF EXISTS {AUS_FIRES}")
 
-schema = {
-'acq_date': sqlalchemy.types.Date, 
-'acq_time': sqlalchemy.types.Time(4)
-}
-
 df = pd.read_csv("aus_fire_locations/australia.csv").to_sql(
     name = AUS_FIRES,
     con = engine,
-    dtype = schema)
+    dtype = {'acq_date' : sqlalchemy.types.Date})
 
 engine.execute(f"ALTER TABLE {AUS_FIRES} ADD PRIMARY KEY (`index`)")

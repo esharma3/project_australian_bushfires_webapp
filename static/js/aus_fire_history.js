@@ -3,16 +3,18 @@ function buildAUSmap(totalData) {
 
 	let trace1 = {
 	    lat: totalData.map(e => e.latitude),
-	    lon: totalData.map(e => e.longitude),
-        text: "bright_ti4",
+        lon: totalData.map(e => e.longitude),
+        hovertemplate: 'Location: (%{lat},%{lon})' + '<br>' +
+        'Brightness: %{text}' + '<br>', 
 	    type: "scattermapbox",
-	   	marker: {color: "red", size: 4}
+	   	marker: {color: "red", size: 7}
 	};
-	
-	let plotData = [trace1]
+
+    let plotData = [trace1]
 
     let layout = {
-        dragmode: "zoom",
+        hovermode:'closest',
+        dragmode: "zoom",      
         mapbox: {
             style: "white-bg",
             layers: [
@@ -24,6 +26,11 @@ function buildAUSmap(totalData) {
             ],
             center: { lat: -24.2, lon: 135 },
             zoom: 3
+        },
+        hoverlabel: {
+            bgcolor: "black",
+            bordercolor: "black",
+            font: {color: 'white'}
         },
         margin: { r: 0, t: 0, b: 0, l: 0 }
     };
