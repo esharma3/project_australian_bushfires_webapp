@@ -289,10 +289,12 @@ max_range = [df["Afected Area"][e][5:-1].strip("%|<|>| ") for e in df["Afected A
 # Adding coverage maps
 distro_map = ['http://www.environment.gov.au/webgis-framework/apps/species-discovery/sd.html?map_taxon_id=' + str(df["taxon_id"][e]) for e in df["taxon_id"].index]
 
-# Scraping thumbnails from the big G
-r = requests.get('http://images.google.com/images?hl=en&q=%22acacia+constablei%22').text
-soup = BeautifulSoup(r)
-thumbnail_url = soup.find_all('img')[5]['src']
+# Scraping thumbnails from bing
+thumbnail_url = []
+for e in df["Common Name"].index:
+    r = requests.get(('https://www.bing.com/images/search?q={}').format(str(df["Common Name"][e])).replace(" ", "_")).text
+    item = BeautifulSoup(r).find_all('img')[1]['src']
+    thumbnail_url.append(item)
 
 # Inserting all new columns
 df.insert(column='Area Min', value=min_range, loc=1)
