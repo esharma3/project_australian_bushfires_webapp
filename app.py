@@ -335,7 +335,7 @@ def fire_count():
 
 ########################################################################################
 #                     API search string for total fire counts                          #
-#  Ex: http://127.0.0.1:5000/total_firecounts_search_type?state=nsw&year=2002/2003     #
+#      Ex: http://127.0.0.1:5000/annual_total_fire_counts?state=nsw&year=2002/2003     #
 ########################################################################################
 
 @app.route("/annual_total_fire_counts")
@@ -475,7 +475,7 @@ def climate_fails():
 
 ########################################################################################
 #            API search string for climate and greenhouse gases/air data               #
-#  Ex: http://127.0.0.1:5000/climate_data_search_type?weather-type=max-temp            #
+#             Ex: http://127.0.0.1:5000/climate_data?category=max-temp                 #
 ########################################################################################
 
 @app.route("/climate_data")
