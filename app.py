@@ -329,8 +329,8 @@ def impact():
 
     return render_template("impact.html", x=impact_list)
 
-@app.route("/impact")
-def impact():
+@app.route("/econ_impact")
+def econ_impact():
     human_econ_impact = [] 
 
     impact_historic_fires = IMPACT_TABLENAME2.query.all()
