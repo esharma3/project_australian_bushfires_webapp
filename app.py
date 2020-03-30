@@ -432,13 +432,18 @@ def annual_total_fire_counts():
 
 @app.route("/impact")
 def impact():
-
     data = ProtectedSpecies.query.all()
-
     impact_list = [e.to_dict() for e in data]
-
+    
     return render_template("impact.html", data=impact_list)
 
+@app.route("/impact-data")
+def impact_data():
+
+    data = ProtectedSpecies.query.all()
+    impact_list = [e.to_dict() for e in data]
+
+    return jsonify(impact_list)
 
 @app.route("/econ_impact")
 def econ_impact():
