@@ -24,7 +24,6 @@ function buildComparisonPlot(combinedData) {
 			}
 		}
 
-		// console.log("LOOK", totalData.map(e => e.queensland_total_fires).slice(18, 36))
 		let trace3 = {
 			x: xValue,
 			y: totalData.map(e => e.victoria_total_fires / 10000).slice(36, 55),
@@ -88,7 +87,7 @@ function buildComparisonPlot(combinedData) {
 	})
 }
 
-function buildPollutantPlot(airData) {
+function buildPollutantPlot(combinedData) {
 
 	d3.json("/annual_total_fire_counts").then((totalData) => {
 
@@ -123,11 +122,11 @@ function buildPollutantPlot(airData) {
 				color: "brown"
 			}
 		}
-		// console.log("MY", airData.map(e => e.air_pollutant_year).slice(19, 37))
+		
 		let trace4 = {
 
-			x: airData.map(e => e.air_pollutant_year).slice(19, 37),
-			y: airData.map(e => e.CO2_ppm / 10).slice(19, 37),
+			x: combinedData.map(e => e.air_pollutant_year).slice(939, 956),
+			y: combinedData.map(e => e.CO2_ppm / 10).slice(939, 956),
 			width: 0.7,
 			name: "CO2 (ppm) / 10 (scaled)",
 			type: 'scatter',
@@ -138,8 +137,8 @@ function buildPollutantPlot(airData) {
 
 		let trace5 = {
 
-			x: airData.map(e => e.air_pollutant_year).slice(19, 37),
-			y: airData.map(e => e.CH4_ppb / 100).slice(19, 37),
+			x: combinedData.map(e => e.air_pollutant_year).slice(939, 956),
+			y: combinedData.map(e => e.CH4_ppb / 100).slice(939, 956),
 			width: 0.7,
 			name: "CH4 (ppb)/100 (scaled)",
 			type: 'scatter',
@@ -150,8 +149,8 @@ function buildPollutantPlot(airData) {
 
 		let trace6 = {
 
-			x: airData.map(e => e.air_pollutant_year).slice(19, 37),
-			y: airData.map(e => e.N2O_ppb / 10).slice(19, 37),
+			x: combinedData.map(e => e.air_pollutant_year).slice(939, 956),
+			y: combinedData.map(e => e.N2O_ppb / 10).slice(939, 956),
 			width: 0.7,
 			name: "N2O (ppb)/10 (scaled)",
 			type: 'scatter',
@@ -199,7 +198,6 @@ function buildPollutantPlot(airData) {
 
 function buildMaxTempPlot(combinedData) {
 
-	console.log(combinedData)
 	let xValue = combinedData.map(e => e.max_temp_anomaly_year)
 	let yValue = combinedData.map(e => e.max_temp_anomaly_celcius)
 
@@ -248,7 +246,6 @@ function buildMaxTempPlot(combinedData) {
 
 function buildMinTempPlot(combinedData) {
 
-	console.log(combinedData)
 	let xValue = combinedData.map(e => e.min_temp_anomaly_year)
 	let yValue = combinedData.map(e => e.min_temp_anomaly_celcius)
 
@@ -298,7 +295,6 @@ function buildMinTempPlot(combinedData) {
 
 function buildMeanTempPlot(combinedData) {
 
-	console.log(combinedData)
 	let xValue = combinedData.map(e => e.mean_temp_anomaly_year)
 	let yValue = combinedData.map(e => e.mean_temp_anomaly_celcius)
 
@@ -339,7 +335,6 @@ function buildMeanTempPlot(combinedData) {
 
 function buildAnnualRainPlot(combinedData) {
 
-	console.log(combinedData)
 	let xValue = combinedData.map(e => e.annual_rainfall_year)
 	let yValue = combinedData.map(e => e.annual_rainfall_mm)
 
@@ -385,7 +380,6 @@ function buildAnnualRainPlot(combinedData) {
 
 function buildRainAnomalyPlot(combinedData) {
 
-	console.log(combinedData)
 	let xValue = combinedData.map(e => e.annual_rainfall_anomaly_year)
 	let yValue = combinedData.map(e => e.annual_rainfall_anomaly_mm)
 
@@ -433,7 +427,6 @@ function buildRainAnomalyPlot(combinedData) {
 
 function buildSSTPlot(combinedData) {
 
-	console.log(combinedData)
 	let xValue = combinedData.map(e => e.sea_surface_temp_anomaly_year)
 	let yValue = combinedData.map(e => e.sea_surface_temp_anomaly_celcius)
 
@@ -479,12 +472,12 @@ function buildSSTPlot(combinedData) {
 	d3.select("p").append("text").text(para)
 }
 
-function buildCO2Plot(airData) {
+function buildCO2Plot(combinedData) {
 
 	let trace1 = {
 
-		x: airData.map(e => e.air_pollutant_year),
-		y: airData.map(e => e.CO2_ppm),
+		x: combinedData.map(e => e.air_pollutant_year),
+		y: combinedData.map(e => e.CO2_ppm),
 		width: 0.7,
 		name: "2002/2003",
 		type: 'scatter',
@@ -522,12 +515,12 @@ function buildCO2Plot(airData) {
 	d3.select("p").append("text").text(para)
 }
 
-function buildCH4Plot(airData) {
+function buildCH4Plot(combinedData) {
 
 	let trace1 = {
 
-		x: airData.map(e => e.air_pollutant_year),
-		y: airData.map(e => e.CH4_ppb),
+		x: combinedData.map(e => e.air_pollutant_year),
+		y: combinedData.map(e => e.CH4_ppb),
 		width: 0.5,
 		name: "2002/2003",
 		type: 'scatter',
@@ -566,12 +559,12 @@ function buildCH4Plot(airData) {
 	d3.select("p").append("text").text(para)
 }
 
-function buildN2OPlot(airData) {
+function buildN2OPlot(combinedData) {
 
 	let trace1 = {
 
-		x: airData.map(e => e.air_pollutant_year),
-		y: airData.map(e => e.N2O_ppb),
+		x: combinedData.map(e => e.air_pollutant_year),
+		y: combinedData.map(e => e.N2O_ppb),
 		width: 0.7,
 		name: "2002/2003",
 		type: 'scatter',
@@ -706,27 +699,24 @@ function init() {
 			buildSSTPlot(combinedData)
 		})
 
-	})
-
-	d3.json("/air_pollutant_data").then((airData) => {
-
 		d3.select("#main3-btn").on("click", function () {
-			buildPollutantPlot(airData)
+			buildPollutantPlot(combinedData)
 		})
 
 		d3.select("#co2-btn").on("click", function () {
-			buildCO2Plot(airData)
+			buildCO2Plot(combinedData)
 		})
 
 		d3.select("#ch4-btn").on("click", function () {
-			buildCH4Plot(airData)
+			buildCH4Plot(combinedData)
 		})
 
 		d3.select("#n2o-btn").on("click", function () {
-			buildN2OPlot(airData)
+			buildN2OPlot(combinedData)
 		})
 
 	})
+
 }
 
 init();
