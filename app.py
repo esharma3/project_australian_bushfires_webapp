@@ -317,12 +317,12 @@ def load_aus_fire_locations_data():
 #                    Fire Counts Page and Route 	              	#
 #####################################################################
 
-@app.route("/fire_count_page")
+@app.route("/fire-count")
 def fire_count_page():
     return render_template("fire-count.html")
 
 
-@app.route("/fire_count")
+@app.route("/fire_count_data")
 def fire_count():
 
     combined_fire_count_list = []
@@ -482,7 +482,7 @@ def econ_impact():
 #                      Climate Fails Page 		                      #
 #####################################################################
 
-@app.route("/climate_fails_page")
+@app.route("/climate-fails")
 def climate_fails():
     return render_template("climate-fails.html")
 
