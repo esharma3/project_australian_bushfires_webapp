@@ -16,7 +16,16 @@ app = Flask(__name__)
 #                         Database Connection 			            		#
 #####################################################################
 
-app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DB_CONN")
+# app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DB_CONN")
+# db = SQLAlchemy(app)
+
+USER = "root"
+PASSWORD = password
+HOST = "127.0.0.1"
+PORT = "3306"
+DATABASE = "bushfires_db"
+
+app.config["SQLALCHEMY_DATABASE_URI"] = f"mysql+pymysql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
 db = SQLAlchemy(app)
 
 
