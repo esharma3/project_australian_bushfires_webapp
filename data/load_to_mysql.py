@@ -522,9 +522,9 @@ engine.execute(
 AUS_FIRES = "aus_fire_history" 
 engine.execute(f"DROP TABLE IF EXISTS {AUS_FIRES}")
 
-df = pd.read_csv("aus_fire_locations/australia.csv").to_sql(
+df = pd.read_csv("aus_fire_locations/australia_rounded.csv").to_sql(
     name = AUS_FIRES,
     con = engine,
-    dtype = {'acq_date' : sqlalchemy.types.Date})
+    dtype = {'year' : sqlalchemy.types.INTEGER(),'month': sqlalchemy.types.INTEGER()})
 
 engine.execute(f"ALTER TABLE {AUS_FIRES} ADD PRIMARY KEY (`index`)")

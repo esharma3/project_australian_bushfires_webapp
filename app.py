@@ -337,23 +337,17 @@ def index():
 #                     Australia Fire Locations  		                #
 #####################################################################
 
-@app.route("/aus_fire_history_page.html")
+@app.route("/fire-maps.html")
 def load_aus_fire_locations():
-    return render_template("aus_fire_history_page.html")
+    return render_template("fire-maps.html")
 
 
 @app.route("/aus_fire_history")
 def load_aus_fire_locations_data():
 
-    combined_aus_fire_history = []
-
     fire_archives = aus_fire_history.query.all()
-
-    for result in fire_archives:
-        combined_aus_fire_history.append(result.to_dict())
-
-    return jsonify(combined_aus_fire_history)
-
+    return jsonify([e.to_dict() for e in fire_archives])
+  
 
 #####################################################################
 #                    Fire Counts Page and Route 	              	#
