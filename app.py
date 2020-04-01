@@ -15,11 +15,14 @@ app = Flask(__name__)
 #                  Database Connection 					    		#
 #####################################################################
 
+# app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DB_CONN")
+# db = SQLAlchemy(app)
+
 USER = "root"
-PASSWORD = password  
-HOST = "127.0.0.1"  
-PORT = "3306"  
-DATABASE = "bushfires_db" 
+PASSWORD = password
+HOST = "127.0.0.1"
+PORT = "3306"
+DATABASE = "bushfires_db"
 
 app.config["SQLALCHEMY_DATABASE_URI"] = f"mysql+pymysql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
 db = SQLAlchemy(app)
@@ -248,21 +251,14 @@ def index():
 #                 Australia Fire Locations  		                #
 #####################################################################
 
-@app.route("/aus_fire_history_page.html")
+@app.route("/fire-maps.html")
 def load_aus_fire_locations():
-    return render_template("aus_fire_history_page.html")
+    return render_template("fire-maps.html")
 
 @app.route("/aus_fire_history")
 def load_aus_fire_locations_data():
-
-	combined_aus_fire_history = []	
-
-	fire_archives = aus_fire_history.query.all()
-
-	for result in fire_archives:
-		combined_aus_fire_history.append(result.to_dict())
-
-	return jsonify(combined_aus_fire_history)
+    fire_archives = aus_fire_history.query.all()
+    return jsonify([e.to_dict() for e in fire_archives])
   
 #####################################################################
 #                    Fire Counts Page and Route 	               		#
