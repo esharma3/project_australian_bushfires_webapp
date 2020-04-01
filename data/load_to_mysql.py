@@ -15,13 +15,7 @@ from bs4 import BeautifulSoup
 #                 Database Connection to MySQL                    #
 ###################################################################
 
-USER = "root"
-PASSWORD = my_password
-HOST = "127.0.0.1"
-PORT = "3306"
-DATABASE = "bushfires_db"
-
-engine = create_engine(f"mysql+pymysql://{USER}:{PASSWORD}@{HOST}:{PORT}")
+engine = create_engine(os.getenv("DB_CONN"))
 
 try:
     engine.execute(f"CREATE DATABASE {DATABASE}")
@@ -387,9 +381,9 @@ df = pd.read_csv(
 AUS_FIRES = "aus_fire_history" 
 engine.execute(f"DROP TABLE IF EXISTS {AUS_FIRES}")
 
-df = pd.read_csv("aus_fire_locations/australia.csv").to_sql(
+df = pd.read_csv("aus_fire_locations/australia_rounded.csv").to_sql(
     name = AUS_FIRES,
     con = engine,
-    dtype = {'acq_date' : sqlalchemy.types.Date})
+    dtype = {'year' : sqlalchemy.types.INTEGER(),'month': sqlalchemy.types.INTEGER()})
 
 engine.execute(f"ALTER TABLE {AUS_FIRES} ADD PRIMARY KEY (`index`)")
