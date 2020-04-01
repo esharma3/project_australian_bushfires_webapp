@@ -9,6 +9,7 @@ from config import password
 import os
 
 
+
 # Create an instance of Flask app
 app = Flask(__name__)
 
@@ -27,6 +28,8 @@ DATABASE = "bushfires_db"
 
 app.config["SQLALCHEMY_DATABASE_URI"] = f"mysql+pymysql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
 db = SQLAlchemy(app)
+
+
 
 
 #####################################################################
@@ -261,17 +264,56 @@ class ProtectedSpecies(db.Model, DictMixIn):
 #####################################################################
 #                 Economic/Fire Impact Table                        #
 #####################################################################
-class HistoricFires(db.Model, DictMixIn):
-    __tablename__ = "historic_fires_impact"
 
-    taxon_id = db.Column(db.Integer(), primary_key=True)
-    scientific_name = db.Column(db.String())
-    common_name = db.Column(db.String())
-    afected_area = db.Column(db.String())
+class IMPACT_TABLENAME2(db.Model, DictMixIn):
+    __tablename__ = "impact_historic_fires"
+
+    number = db.Column(db.Integer(), primary_key=True)
+    name = db.Column(db.Integer())
+    state = db.Column(db.String())
+    hectacres_burned = db.Column(db.BigInteger())
+    acres_burned = db.Column(db.BigInteger())
+    year = db.Column(db.Integer())
+    human_fatalities = db.Column(db.Integer())
+    homes_destroyed = db.Column(db.Integer())
+
+class IMPACT_TABLENAME3(db.Model, DictMixIn):
+    __tablename__ = "impact_2019_2020_fires"
+
+    number = db.Column(db.Integer(), primary_key=True)
+    year = db.Column(db.Integer())
+    state = db.Column(db.String())
+    human_fatalities = db.Column(db.Integer())
+    homes_destroyed = db.Column(db.Integer())
+    hectacres_burned = db.Column(db.BigInteger())
+    acres_burned = db.Column(db.BigInteger())
+
+class IMPACT_TABLENAME4(db.Model, DictMixIn):
+    __tablename__ = "impact_economic"
+
+    year = db.Column(db.Integer(), primary_key=True)
+    gdp_current_us_dol = db.Column(db.Integer())
+    gdp_per_growth_annual = db.Column(db.Integer())
+    domestic_credit_financial_sector_per_gdp = db.Column(db.Integer())
+    domestic_credit_private_sector_banks_per_gdp = db.Column(db.Integer())
+
+class IMPACT_TABLENAME5(db.Model, DictMixIn):
+    __tablename__ = "impact_economic_cip"
+
+    number = db.Column(db.Integer(), primary_key=True)
+    year = db.Column(db.Integer())
+    new_south_wales_cip = db.Column(db.Integer())
+    victoria_cpi = db.Column(db.Integer())
+    queensland_cpi = db.Column(db.Integer())
+    southern_australia_cpi = db.Column(db.Integer())
+    western_australia_cip = db.Column(db.Integer())
+    tasmania_cpi = db.Column(db.Integer())
+    nothern_territory_cpi = db.Column(db.Integer())
+    australian_capital_territory_cpi = db.Column(db.Integer())
+
 
 
 # TEAM: KEEP ADDING YOUR CLASSES HERE:
-
 
 # NO TOUCH
 db.session.commit()
@@ -357,6 +399,7 @@ def annual_total_fire_counts():
     combined_total_fire_list = []
     data = []
 
+
     try:
         nsw_results = NSW_Annual_Total_Fire_Counts.query.all()
         for result in nsw_results:
@@ -396,6 +439,49 @@ def annual_total_fire_counts():
                         data.append(row.to_dict())
             else:
                 return ""
+
+
+
+    try:
+        nsw_results = NSW_Annual_Total_Fire_Counts.query.all()
+        for result in nsw_results:
+            combined_total_fire_list.append(result.to_dict())
+
+        queensland_results = Queensland_Annual_Total_Fire_Counts.query.all()
+        for result in queensland_results:
+            combined_total_fire_list.append(result.to_dict())
+
+        victoria_results = Victoria_Annual_Total_Fire_Counts.query.all()
+        for result in victoria_results:
+            combined_total_fire_list.append(result.to_dict())
+
+        # if no search parameter is entered then return entire fire-count dataset
+        if (not request_state) and (not request_year):
+            return jsonify(combined_total_fire_list)
+
+        # if search parameter (endpoint) is entered then use the state and year filters to return the results
+        if request_state and request_year:
+
+            if (
+                request_state.lower() == "nsw"
+                or request_state.lower() == "new south wales"
+            ):
+                for row in nsw_results:
+                    if request_year == row.to_dict()["nsw_fire_year"]:
+                        data.append(row.to_dict())
+
+            elif request_state.lower() == "queensland":
+                for row in queensland_results:
+                    if request_year == row.to_dict()["queensland_fire_year"]:
+                        data.append(row.to_dict())
+
+            elif request_state.lower() == "victoria":
+                for row in victoria_results:
+                    if request_year == row.to_dict()["victoria_fire_year"]:
+                        data.append(row.to_dict())
+            else:
+                return ""
+
 
             return jsonify(data)
 
@@ -443,41 +529,28 @@ def annual_total_fire_counts():
 def impact():
     data = ProtectedSpecies.query.all()
     impact_list = [e.to_dict() for e in data]
-    
     return render_template("impact.html", data=impact_list)
-
 @app.route("/impact-data")
 def impact_data():
-
     data = ProtectedSpecies.query.all()
     impact_list = [e.to_dict() for e in data]
-
     return jsonify(impact_list)
-
-@app.route("/econ_impact")
+@app.route("/econ-impact")
 def econ_impact():
-  
     human_econ_impact = []
-
     impact_historic_fires = IMPACT_TABLENAME2.query.all()
     for result in impact_historic_fires:
-        human_econ_impact_data.append(result.to_dict())
-
+        human_econ_impact.append(result.to_dict())
     impact_2019_fires = IMPACT_TABLENAME3.query.all()
     for result in impact_2019_fires:
-        human_econ_impact_data.append(result.to_dict())
-
+        human_econ_impact.append(result.to_dict())
     impact_economic = IMPACT_TABLENAME4.query.all()
     for result in impact_economic:
-        human_econ_impact_data.append(result.to_dict())
-
+        human_econ_impact.append(result.to_dict())
     impact_consumer = IMPACT_TABLENAME5.query.all()
     for result in impact_economic:
-        human_econ_impact_data.append(result.to_dict())
-
-    return render_template("impact.html", x=human_econ_impact)
-
-
+        human_econ_impact.append(result.to_dict())
+    return jsonify(human_econ_impact)
 #####################################################################
 #                      Climate Fails Page 		                      #
 #####################################################################
