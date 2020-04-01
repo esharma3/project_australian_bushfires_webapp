@@ -229,13 +229,8 @@ class aus_fire_history(db.Model, DictMixIn):
     index = db.Column(db.Integer(), primary_key=True)
     latitude = db.Column(db.Float())
     longitude = db.Column(db.Float())
-    bright_ti4 = db.Column(db.Float())
-    scan = db.Column(db.Float())
-    track = db.Column(db.Float())
-    acq_date = db.Column(db.Date)
-    confidence = db.Column(db.String())
-    bright_ti5 = db.Column(db.Float())
-    frp = db.Column(db.Float())
+    month = db.Column(db.Integer())
+    year = db.Column(db.Integer())
 
 
 #####################################################################
@@ -672,4 +667,4 @@ def climate_data():
 #####################################################################
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug = True)
