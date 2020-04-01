@@ -7,21 +7,24 @@ from sqlalchemy import Column, Integer, String, Float, Date
 import datetime, time
 from config import password
 import os
-from sqlalchemy import PrimaryKeyConstraint
+
 
 
 # Create an instance of Flask app
 app = Flask(__name__)
 
 #####################################################################
-#                  Database Connection 					    		#
+#                         Database Connection 			            		#
 #####################################################################
 
+# app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DB_CONN")
+# db = SQLAlchemy(app)
+
 USER = "root"
-PASSWORD = password  
-HOST = "127.0.0.1"  
-PORT = "3306"  
-DATABASE = "bushfires_db" 
+PASSWORD = password
+HOST = "127.0.0.1"
+PORT = "3306"
+DATABASE = "bushfires_db"
 
 app.config["SQLALCHEMY_DATABASE_URI"] = f"mysql+pymysql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
 db = SQLAlchemy(app)
@@ -312,7 +315,6 @@ class IMPACT_TABLENAME5(db.Model, DictMixIn):
 
 # TEAM: KEEP ADDING YOUR CLASSES HERE:
 
-
 # NO TOUCH
 db.session.commit()
 
@@ -357,12 +359,12 @@ def load_aus_fire_locations_data():
 #                    Fire Counts Page and Route 	              	#
 #####################################################################
 
-@app.route("/fire_count_page")
+@app.route("/fire-count")
 def fire_count_page():
     return render_template("fire-count.html")
 
 
-@app.route("/fire_count")
+@app.route("/fire_count_data")
 def fire_count():
 
     combined_fire_count_list = []
@@ -396,6 +398,7 @@ def annual_total_fire_counts():
 
     combined_total_fire_list = []
     data = []
+
 
     try:
         nsw_results = NSW_Annual_Total_Fire_Counts.query.all()
@@ -436,6 +439,49 @@ def annual_total_fire_counts():
                         data.append(row.to_dict())
             else:
                 return ""
+
+
+
+    try:
+        nsw_results = NSW_Annual_Total_Fire_Counts.query.all()
+        for result in nsw_results:
+            combined_total_fire_list.append(result.to_dict())
+
+        queensland_results = Queensland_Annual_Total_Fire_Counts.query.all()
+        for result in queensland_results:
+            combined_total_fire_list.append(result.to_dict())
+
+        victoria_results = Victoria_Annual_Total_Fire_Counts.query.all()
+        for result in victoria_results:
+            combined_total_fire_list.append(result.to_dict())
+
+        # if no search parameter is entered then return entire fire-count dataset
+        if (not request_state) and (not request_year):
+            return jsonify(combined_total_fire_list)
+
+        # if search parameter (endpoint) is entered then use the state and year filters to return the results
+        if request_state and request_year:
+
+            if (
+                request_state.lower() == "nsw"
+                or request_state.lower() == "new south wales"
+            ):
+                for row in nsw_results:
+                    if request_year == row.to_dict()["nsw_fire_year"]:
+                        data.append(row.to_dict())
+
+            elif request_state.lower() == "queensland":
+                for row in queensland_results:
+                    if request_year == row.to_dict()["queensland_fire_year"]:
+                        data.append(row.to_dict())
+
+            elif request_state.lower() == "victoria":
+                for row in victoria_results:
+                    if request_year == row.to_dict()["victoria_fire_year"]:
+                        data.append(row.to_dict())
+            else:
+                return ""
+
 
             return jsonify(data)
 
@@ -481,14 +527,14 @@ def annual_total_fire_counts():
 
 @app.route("/impact")
 def impact():
-    return render_template("impact.html")
-    
+    data = ProtectedSpecies.query.all()
+    impact_list = [e.to_dict() for e in data]
+    return render_template("impact.html", data=impact_list)
 @app.route("/impact-data")
 def impact_data():
     data = ProtectedSpecies.query.all()
     impact_list = [e.to_dict() for e in data]
     return jsonify(impact_list)
-
 @app.route("/econ-impact")
 def econ_impact():
     human_econ_impact = []
@@ -505,13 +551,11 @@ def econ_impact():
     for result in impact_economic:
         human_econ_impact.append(result.to_dict())
     return jsonify(human_econ_impact)
-
-
 #####################################################################
 #                      Climate Fails Page 		                      #
 #####################################################################
 
-@app.route("/climate_fails_page")
+@app.route("/climate-fails")
 def climate_fails():
     return render_template("climate-fails.html")
 
