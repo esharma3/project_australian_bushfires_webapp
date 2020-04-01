@@ -6,7 +6,7 @@ import warnings
 import sqlalchemy
 from config import my_password
 import numpy as np
-
+from sqlalchemy import PrimaryKeyConstraint
 # Importing dependencies for scraping
 import requests
 from bs4 import BeautifulSoup
@@ -344,7 +344,7 @@ df = pd.read_csv("df_hist_fires.csv").to_sql(
     con=engine,
     index=False,
     dtype={
-        "number": sqlalchemy.types.INTEGER(),
+        "number": sqlalchemy.types.INTEGER,
         "name": sqlalchemy.types.String(length=150),
         "state": sqlalchemy.types.String(length=35),
         "hectacres_burned": sqlalchemy.types.BigInteger(),
@@ -352,8 +352,7 @@ df = pd.read_csv("df_hist_fires.csv").to_sql(
         "year": sqlalchemy.types.INTEGER(),
         "human_fatalities": sqlalchemy.types.INTEGER(),
         "homes_destroyed": sqlalchemy.types.INTEGER(),},)
-engine.execute(
-    f"ALTER TABLE {IMPACT_TABLENAME2} ADD PRIMARY KEY ('number`)"
+engine.execute(f"ALTER TABLE {IMPACT_TABLENAME2} ADD PRIMARY KEY (`number`)"
 )
 
 IMPACT_TABLENAME3 = "impact_2019_2020_fires"
@@ -364,7 +363,7 @@ df = pd.read_csv("df_2019_2020_fires.csv").to_sql(
     con=engine,
     index=False,
     dtype={
-        "number": sqlalchemy.types.INTEGER(),
+        "number": sqlalchemy.types.INTEGER,
         "year": sqlalchemy.types.INTEGER(),
         "state": sqlalchemy.types.String(length=50),
         "human_fatalities": sqlalchemy.types.INTEGER(),
@@ -372,8 +371,8 @@ df = pd.read_csv("df_2019_2020_fires.csv").to_sql(
         "hectacres_burned": sqlalchemy.types.BigInteger(),
         "acres_burned": sqlalchemy.types.BigInteger(),},)
 engine.execute(
-    f"ALTER TABLE {IMPACT_TABLENAME3} ADD PRIMARY KEY ('state`)"
-)
+    f"ALTER TABLE {IMPACT_TABLENAME3} ADD PRIMARY KEY (`number`)")
+
 IMPACT_TABLENAME4 = "impact_economic"
 engine.execute(f"DROP TABLE IF EXISTS {IMPACT_TABLENAME4}")
 
@@ -382,14 +381,15 @@ df = pd.read_csv("aus_economic_data.csv").to_sql(
     con=engine,
     index=False,
     dtype={
+        "number": sqlalchemy.types.INTEGER,
         "year": sqlalchemy.types.INTEGER(),
         "gdp_current_us_dol": sqlalchemy.types.INTEGER(),
         "gdp_per_growth_annual": sqlalchemy.types.INTEGER(),
         "domestic_credit_financial_sector_per_gdp": sqlalchemy.types.INTEGER(),
         "domestic_credit_private_sector_banks_per_gdp": sqlalchemy.types.INTEGER(),},)
 engine.execute(
-    f"ALTER TABLE {IMPACT_TABLENAME4} ADD PRIMARY KEY ('number`)"
-)
+    f"ALTER TABLE {IMPACT_TABLENAME4} ADD PRIMARY KEY (`number`)")
+
 IMPACT_TABLENAME5 = "impact_economic_cip"
 engine.execute(f"DROP TABLE IF EXISTS {IMPACT_TABLENAME5}")
 
@@ -398,15 +398,18 @@ df = pd.read_csv("aus_cip_data.csv").to_sql(
     con=engine,
     index=False,
     dtype={
-         "number": sqlalchemy.types.INTEGER(),
+        "number": sqlalchemy.types.INTEGER,
         "year": sqlalchemy.types.INTEGER(),
-        "gdp_current_us_dol": sqlalchemy.types.FLOAT(),
-        "gdp_per_growth_annual": sqlalchemy.types.FLOAT(),
-        "domestic_credit_financial_sector_per_gdp": sqlalchemy.types.FLOAT(),
-        "domestic_credit_private_sector_banks_per_gdp": sqlalchemy.types.FLOAT(),},)
+        "new_south_wales_cip": sqlalchemy.types.FLOAT(),
+        "victoria_cpi": sqlalchemy.types.FLOAT(),
+        "queensland_cpi": sqlalchemy.types.FLOAT(),
+        "southern_australia_cpi": sqlalchemy.types.FLOAT(),
+        "western_australia_cip": sqlalchemy.types.FLOAT(),
+        "tasmania_cpi": sqlalchemy.types.FLOAT(),
+        "nothern_territory_cpi": sqlalchemy.types.FLOAT(),
+        "australian_capital_territory_cpi": sqlalchemy.types.FLOAT(),},)
 engine.execute(
-    f"ALTER TABLE {IMPACT_TABLENAME5} ADD PRIMARY KEY ('number`)"
-)
+    f"ALTER TABLE {IMPACT_TABLENAME5} ADD PRIMARY KEY (`year`)")
    
 ############################################################
 ### Fire Impacts table ends here ###
