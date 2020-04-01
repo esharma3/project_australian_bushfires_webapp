@@ -1,0 +1,1603 @@
+[
+  {
+    "acres_burned": 12000000, 
+    "hectacres_burned": 5000000, 
+    "homes_destroyed": null, 
+    "human_fatalities": 12, 
+    "name": "Black Thursday bushfires ", 
+    "number": 1, 
+    "state": "Victoria ", 
+    "year": 1851
+  }, 
+  {
+    "acres_burned": 640000, 
+    "hectacres_burned": 260000, 
+    "homes_destroyed": null, 
+    "human_fatalities": 12, 
+    "name": "Red Tuesday bushfires ", 
+    "number": 2, 
+    "state": "Victoria ", 
+    "year": 1898
+  }, 
+  {
+    "acres_burned": 960000, 
+    "hectacres_burned": 390000, 
+    "homes_destroyed": 1000, 
+    "human_fatalities": 60, 
+    "name": "1926 bushfires ", 
+    "number": 3, 
+    "state": "Victoria ", 
+    "year": 1926
+  }, 
+  {
+    "acres_burned": 4900000, 
+    "hectacres_burned": 2000000, 
+    "homes_destroyed": 3700, 
+    "human_fatalities": 71, 
+    "name": "Black Friday bushfires ", 
+    "number": 4, 
+    "state": "Victoria ", 
+    "year": 1938
+  }, 
+  {
+    "acres_burned": 2500000, 
+    "hectacres_burned": 1000000, 
+    "homes_destroyed": 500, 
+    "human_fatalities": 15, 
+    "name": "1944 Victorian bushfires ", 
+    "number": 5, 
+    "state": "Victoria ", 
+    "year": 1944
+  }, 
+  {
+    "acres_burned": null, 
+    "hectacres_burned": null, 
+    "homes_destroyed": 40, 
+    "human_fatalities": null, 
+    "name": "1944 Blue Mountains bushfire ", 
+    "number": 6, 
+    "state": "New South Wales ", 
+    "year": 1944
+  }, 
+  {
+    "acres_burned": 9900000, 
+    "hectacres_burned": 4000000, 
+    "homes_destroyed": null, 
+    "human_fatalities": 11, 
+    "name": "195152 bushfires ", 
+    "number": 7, 
+    "state": "Victoria ", 
+    "year": 1951
+  }, 
+  {
+    "acres_burned": 395000, 
+    "hectacres_burned": 160000, 
+    "homes_destroyed": 40, 
+    "human_fatalities": 2, 
+    "name": "Black Sunday bushfires ", 
+    "number": 8, 
+    "state": "South Australia ", 
+    "year": 1955
+  }, 
+  {
+    "acres_burned": null, 
+    "hectacres_burned": null, 
+    "homes_destroyed": null, 
+    "human_fatalities": 4, 
+    "name": "1957 Grose Valley bushfire, Blue Mountains ", 
+    "number": 9, 
+    "state": "New South Wales ", 
+    "year": 1957
+  }, 
+  {
+    "acres_burned": null, 
+    "hectacres_burned": null, 
+    "homes_destroyed": 170, 
+    "human_fatalities": null, 
+    "name": "1957 Leura bushfire, Blue Mountains ", 
+    "number": 10, 
+    "state": "New South Wales ", 
+    "year": 1957
+  }, 
+  {
+    "acres_burned": 4400000, 
+    "hectacres_burned": 1800000, 
+    "homes_destroyed": 160, 
+    "human_fatalities": null, 
+    "name": "1961 Western Australian bushfires ", 
+    "number": 11, 
+    "state": "Western Australia ", 
+    "year": 1961
+  }, 
+  {
+    "acres_burned": null, 
+    "hectacres_burned": null, 
+    "homes_destroyed": 450, 
+    "human_fatalities": 32, 
+    "name": "1962 Victorian bushfires ", 
+    "number": 12, 
+    "state": "Victoria ", 
+    "year": 1962
+  }, 
+  {
+    "acres_burned": 780000, 
+    "hectacres_burned": 315000, 
+    "homes_destroyed": 20, 
+    "human_fatalities": null, 
+    "name": "1965 Gippsland bushfires ", 
+    "number": 13, 
+    "state": "Victoria ", 
+    "year": 1965
+  }, 
+  {
+    "acres_burned": 620000, 
+    "hectacres_burned": 251000, 
+    "homes_destroyed": 59, 
+    "human_fatalities": 3, 
+    "name": "Southern Highlands bushfires ", 
+    "number": 14, 
+    "state": "New South Wales ", 
+    "year": 1965
+  }, 
+  {
+    "acres_burned": 650000, 
+    "hectacres_burned": 264000, 
+    "homes_destroyed": 1293, 
+    "human_fatalities": 62, 
+    "name": "Black Tuesday bushfires ", 
+    "number": 15, 
+    "state": "Tasmania ", 
+    "year": 1967
+  }, 
+  {
+    "acres_burned": 99000000, 
+    "hectacres_burned": 40000000, 
+    "homes_destroyed": null, 
+    "human_fatalities": null, 
+    "name": "1968 69 Killarney Top Springs bushfires ", 
+    "number": 16, 
+    "state": "Northern Territory ", 
+    "year": 1968
+  }, 
+  {
+    "acres_burned": null, 
+    "hectacres_burned": null, 
+    "homes_destroyed": 120, 
+    "human_fatalities": 4, 
+    "name": "1968 Blue Mountains Bushfire ", 
+    "number": 17, 
+    "state": "New South Wales ", 
+    "year": 1968
+  }, 
+  {
+    "acres_burned": null, 
+    "hectacres_burned": null, 
+    "homes_destroyed": 230, 
+    "human_fatalities": 23, 
+    "name": "1969 bushfires ", 
+    "number": 18, 
+    "state": "Victoria ", 
+    "year": 1969
+  }, 
+  {
+    "acres_burned": 110000000, 
+    "hectacres_burned": 45000000, 
+    "homes_destroyed": null, 
+    "human_fatalities": null, 
+    "name": "1969 70 Dry River Victoria River fire ", 
+    "number": 19, 
+    "state": "Northern Territory ", 
+    "year": 1969
+  }, 
+  {
+    "acres_burned": 290000000, 
+    "hectacres_burned": 117000000, 
+    "homes_destroyed": null, 
+    "human_fatalities": 6, 
+    "name": "1974 75 Australian bushfire season[d] ", 
+    "number": 20, 
+    "state": "Nationwide", 
+    "year": 1974
+  }, 
+  {
+    "acres_burned": 250000, 
+    "hectacres_burned": 103000, 
+    "homes_destroyed": 116, 
+    "human_fatalities": 4, 
+    "name": "Western Districts bushfires ", 
+    "number": 21, 
+    "state": "Victoria ", 
+    "year": 1977
+  }, 
+  {
+    "acres_burned": 130000, 
+    "hectacres_burned": 54000, 
+    "homes_destroyed": 49, 
+    "human_fatalities": 2, 
+    "name": "Blue Mountains Fires 1977 ", 
+    "number": 22, 
+    "state": "New South Wales ", 
+    "year": 1977
+  }, 
+  {
+    "acres_burned": 280000, 
+    "hectacres_burned": 114000, 
+    "homes_destroyed": null, 
+    "human_fatalities": 2, 
+    "name": "1978 Western Australian bushfires ", 
+    "number": 23, 
+    "state": "Western Australia ", 
+    "year": 1978
+  }, 
+  {
+    "acres_burned": null, 
+    "hectacres_burned": null, 
+    "homes_destroyed": 28, 
+    "human_fatalities": 5, 
+    "name": "1979 Sydney bushfires ", 
+    "number": 24, 
+    "state": "New South Wales ", 
+    "year": 1979
+  }, 
+  {
+    "acres_burned": 2500000, 
+    "hectacres_burned": 1000000, 
+    "homes_destroyed": 14, 
+    "human_fatalities": 5, 
+    "name": "1980 Waterfall bushfire ", 
+    "number": 25, 
+    "state": "New South Wales ", 
+    "year": 1980
+  }, 
+  {
+    "acres_burned": null, 
+    "hectacres_burned": null, 
+    "homes_destroyed": null, 
+    "human_fatalities": 3, 
+    "name": "Grays Point bushfire ", 
+    "number": 26, 
+    "state": "New South Wales ", 
+    "year": 1983
+  }, 
+  {
+    "acres_burned": 1030000, 
+    "hectacres_burned": 418000, 
+    "homes_destroyed": 2400, 
+    "human_fatalities": 75, 
+    "name": "Ash Wednesday bushfires ", 
+    "number": 27, 
+    "state": " South Australia Victoria  ", 
+    "year": 1983
+  }, 
+  {
+    "acres_burned": 1200000, 
+    "hectacres_burned": 500000, 
+    "homes_destroyed": null, 
+    "human_fatalities": null, 
+    "name": "1984 Western New South Wales grasslands bushfires ", 
+    "number": 28, 
+    "state": "New South Wales ", 
+    "year": 1984
+  }, 
+  {
+    "acres_burned": 1280000, 
+    "hectacres_burned": 516000, 
+    "homes_destroyed": 23, 
+    "human_fatalities": null, 
+    "name": "1985 Cobar bushfire ", 
+    "number": 29, 
+    "state": "New South Wales ", 
+    "year": 1985
+  }, 
+  {
+    "acres_burned": 8600000, 
+    "hectacres_burned": 3500000, 
+    "homes_destroyed": 20, 
+    "human_fatalities": 5, 
+    "name": "1984   85 New South Wales bushfires ", 
+    "number": 30, 
+    "state": "New South Wales ", 
+    "year": 1984
+  }, 
+  {
+    "acres_burned": 126000, 
+    "hectacres_burned": 50800, 
+    "homes_destroyed": 180, 
+    "human_fatalities": 3, 
+    "name": "Central Victoria bushfires ", 
+    "number": 31, 
+    "state": "Victoria ", 
+    "year": 1985
+  }, 
+  {
+    "acres_burned": 990000, 
+    "hectacres_burned": 400000, 
+    "homes_destroyed": 225, 
+    "human_fatalities": 4, 
+    "name": "1994 Eastern seaboard fires ", 
+    "number": 32, 
+    "state": "New South Wales ", 
+    "year": 1993
+  }, 
+  {
+    "acres_burned": 26000, 
+    "hectacres_burned": 10500, 
+    "homes_destroyed": 16, 
+    "human_fatalities": null, 
+    "name": "Wooroloo bushfire ", 
+    "number": 33, 
+    "state": "Western Australia ", 
+    "year": 1997
+  }, 
+  {
+    "acres_burned": 990, 
+    "hectacres_burned": 400, 
+    "homes_destroyed": 41, 
+    "human_fatalities": 3, 
+    "name": "Dandenongs bushfire ", 
+    "number": 34, 
+    "state": "Victoria ", 
+    "year": 1997
+  }, 
+  {
+    "acres_burned": null, 
+    "hectacres_burned": null, 
+    "homes_destroyed": null, 
+    "human_fatalities": 2, 
+    "name": "Lithgow bushfire ", 
+    "number": 35, 
+    "state": "New South Wales ", 
+    "year": 1997
+  }, 
+  {
+    "acres_burned": null, 
+    "hectacres_burned": null, 
+    "homes_destroyed": 11, 
+    "human_fatalities": 1, 
+    "name": "Menai bushfire ", 
+    "number": 36, 
+    "state": "New South Wales ", 
+    "year": 1997
+  }, 
+  {
+    "acres_burned": 57000, 
+    "hectacres_burned": 23000, 
+    "homes_destroyed": 1, 
+    "human_fatalities": 2, 
+    "name": "Perth and South West Region bushfires ", 
+    "number": 37, 
+    "state": "Western Australia ", 
+    "year": 1997
+  }, 
+  {
+    "acres_burned": null, 
+    "hectacres_burned": null, 
+    "homes_destroyed": null, 
+    "human_fatalities": 5, 
+    "name": "Linton bushfire ", 
+    "number": 38, 
+    "state": "Victoria ", 
+    "year": 1998
+  }, 
+  {
+    "acres_burned": 1861480, 
+    "hectacres_burned": 753314, 
+    "homes_destroyed": 121, 
+    "human_fatalities": null, 
+    "name": "Black Christmas bushfires ", 
+    "number": 39, 
+    "state": "New South Wales ", 
+    "year": 2001
+  }, 
+  {
+    "acres_burned": 94000000, 
+    "hectacres_burned": 38000000, 
+    "homes_destroyed": null, 
+    "human_fatalities": null, 
+    "name": "2002 NT bushfires ", 
+    "number": 40, 
+    "state": "Northern Territory ", 
+    "year": 2002
+  }, 
+  {
+    "acres_burned": 400000, 
+    "hectacres_burned": 160000, 
+    "homes_destroyed": 500, 
+    "human_fatalities": 4, 
+    "name": "2003 Canberra bushfires ", 
+    "number": 41, 
+    "state": "Australian Capital Territory ", 
+    "year": 2003
+  }, 
+  {
+    "acres_burned": 3200000, 
+    "hectacres_burned": 1300000, 
+    "homes_destroyed": 41, 
+    "human_fatalities": null, 
+    "name": "2003 Eastern Victorian alpine bushfires ", 
+    "number": 42, 
+    "state": "Victoria ", 
+    "year": 2003
+  }, 
+  {
+    "acres_burned": 5200000, 
+    "hectacres_burned": 2110000, 
+    "homes_destroyed": null, 
+    "human_fatalities": 2, 
+    "name": "Tenterden ", 
+    "number": 43, 
+    "state": "Western Australia ", 
+    "year": 2003
+  }, 
+  {
+    "acres_burned": 192650, 
+    "hectacres_burned": 77964, 
+    "homes_destroyed": 93, 
+    "human_fatalities": 9, 
+    "name": "2005 Eyre Peninsula bushfire ", 
+    "number": 44, 
+    "state": "South Australia ", 
+    "year": 2005
+  }, 
+  {
+    "acres_burned": 74000, 
+    "hectacres_burned": 30000, 
+    "homes_destroyed": 7, 
+    "human_fatalities": null, 
+    "name": "Jail Break Inn Fire, Junee ", 
+    "number": 45, 
+    "state": "New South Wales ", 
+    "year": 2006
+  }, 
+  {
+    "acres_burned": 400000, 
+    "hectacres_burned": 160000, 
+    "homes_destroyed": 57, 
+    "human_fatalities": 4, 
+    "name": "2005 Victorian bushfires ", 
+    "number": 46, 
+    "state": "Victoria ", 
+    "year": 2005
+  }, 
+  {
+    "acres_burned": 450000, 
+    "hectacres_burned": 184000, 
+    "homes_destroyed": null, 
+    "human_fatalities": 2, 
+    "name": "Grampians bushfire ", 
+    "number": 47, 
+    "state": "Victoria ", 
+    "year": 2006
+  }, 
+  {
+    "acres_burned": 22000, 
+    "hectacres_burned": 9000, 
+    "homes_destroyed": null, 
+    "human_fatalities": null, 
+    "name": "Pulletop bushfire, Wagga Wagga ", 
+    "number": 48, 
+    "state": "New South Wales ", 
+    "year": 2006
+  }, 
+  {
+    "acres_burned": 2590000, 
+    "hectacres_burned": 1048000, 
+    "homes_destroyed": 51, 
+    "human_fatalities": 1, 
+    "name": "The Great Divides bushfire ", 
+    "number": 49, 
+    "state": "Victoria ", 
+    "year": 2006
+  }, 
+  {
+    "acres_burned": 3400000, 
+    "hectacres_burned": 1360000, 
+    "homes_destroyed": 83, 
+    "human_fatalities": 5, 
+    "name": "200607 Australian bushfire season ", 
+    "number": 50, 
+    "state": "Nationwide  ", 
+    "year": 2006
+  }, 
+  {
+    "acres_burned": 30000, 
+    "hectacres_burned": 12000, 
+    "homes_destroyed": 16, 
+    "human_fatalities": null, 
+    "name": "Dwellingup bushfire ", 
+    "number": 51, 
+    "state": "Western Australia ", 
+    "year": 2007
+  }, 
+  {
+    "acres_burned": 230000, 
+    "hectacres_burned": 95000, 
+    "homes_destroyed": null, 
+    "human_fatalities": 1, 
+    "name": "2007 Kangaroo Island bushfires ", 
+    "number": 52, 
+    "state": "South Australia ", 
+    "year": 2007
+  }, 
+  {
+    "acres_burned": 99000, 
+    "hectacres_burned": 40000, 
+    "homes_destroyed": null, 
+    "human_fatalities": 3, 
+    "name": "Boorabbin National Park ", 
+    "number": 53, 
+    "state": "Western Australia ", 
+    "year": 2007
+  }, 
+  {
+    "acres_burned": 1100000, 
+    "hectacres_burned": 450000, 
+    "homes_destroyed": 2029, 
+    "human_fatalities": 173, 
+    "name": "Black Saturday bushfires ", 
+    "number": 54, 
+    "state": "Victoria ", 
+    "year": 2009
+  }, 
+  {
+    "acres_burned": 49000, 
+    "hectacres_burned": 20000, 
+    "homes_destroyed": null, 
+    "human_fatalities": 1, 
+    "name": "Tasmanian bushfires ", 
+    "number": 55, 
+    "state": "Tasmania ", 
+    "year": 2013
+  }, 
+  {
+    "acres_burned": 130000, 
+    "hectacres_burned": 54000, 
+    "homes_destroyed": 53, 
+    "human_fatalities": null, 
+    "name": "Warrumbungle bushfire ", 
+    "number": 56, 
+    "state": "New South Wales ", 
+    "year": 2013
+  }, 
+  {
+    "acres_burned": 250000, 
+    "hectacres_burned": 100000, 
+    "homes_destroyed": 208, 
+    "human_fatalities": 1, 
+    "name": "2013 New South Wales bushfires ", 
+    "number": 57, 
+    "state": "New South Wales ", 
+    "year": 2013
+  }, 
+  {
+    "acres_burned": 2000000, 
+    "hectacres_burned": 800000, 
+    "homes_destroyed": null, 
+    "human_fatalities": null, 
+    "name": "Carnarvon bushfire complex ", 
+    "number": 58, 
+    "state": "Western Australia ", 
+    "year": 2011
+  }, 
+  {
+    "acres_burned": 49000, 
+    "hectacres_burned": 20000, 
+    "homes_destroyed": 27, 
+    "human_fatalities": null, 
+    "name": "2015 Sampson Flat bushfires ", 
+    "number": 59, 
+    "state": "South Australia ", 
+    "year": 2015
+  }, 
+  {
+    "acres_burned": 244440, 
+    "hectacres_burned": 98923, 
+    "homes_destroyed": 2, 
+    "human_fatalities": null, 
+    "name": "2015 O'Sullivan bushfire (Northcliffe  Windy Harbour) ", 
+    "number": 60, 
+    "state": "Western Australia ", 
+    "year": 2015
+  }, 
+  {
+    "acres_burned": 129420, 
+    "hectacres_burned": 52373, 
+    "homes_destroyed": 1, 
+    "human_fatalities": null, 
+    "name": "2015 Lower Hotham bushfire (Boddington) ", 
+    "number": 61, 
+    "state": "Western Australia ", 
+    "year": 2015
+  }, 
+  {
+    "acres_burned": 490000, 
+    "hectacres_burned": 200000, 
+    "homes_destroyed": 10, 
+    "human_fatalities": 4, 
+    "name": "2015 Esperance bushfires ", 
+    "number": 62, 
+    "state": "Western Australia ", 
+    "year": 2015
+  }, 
+  {
+    "acres_burned": 24750, 
+    "hectacres_burned": 10016, 
+    "homes_destroyed": null, 
+    "human_fatalities": null, 
+    "name": "Perth Hills bushfire complex  Solus Group ", 
+    "number": 63, 
+    "state": "Western Australia ", 
+    "year": 2015
+  }, 
+  {
+    "acres_burned": 210000, 
+    "hectacres_burned": 85000, 
+    "homes_destroyed": 91, 
+    "human_fatalities": 2, 
+    "name": "2015 Pinery bushfire ", 
+    "number": 64, 
+    "state": "South Australia ", 
+    "year": 2015
+  }, 
+  {
+    "acres_burned": 170910, 
+    "hectacres_burned": 69165, 
+    "homes_destroyed": 181, 
+    "human_fatalities": 2, 
+    "name": "2016 Murray Road bushfire (Waroona and Harvey) ", 
+    "number": 65, 
+    "state": "Western Australia ", 
+    "year": 2016
+  }, 
+  {
+    "acres_burned": 130000, 
+    "hectacres_burned": 52000, 
+    "homes_destroyed": 35, 
+    "human_fatalities": null, 
+    "name": "2017 New South Wales bushfires ", 
+    "number": 66, 
+    "state": "New South Wales ", 
+    "year": 2017
+  }, 
+  {
+    "acres_burned": 57870, 
+    "hectacres_burned": 23419, 
+    "homes_destroyed": 19, 
+    "human_fatalities": null, 
+    "name": "Tingha bushfire ", 
+    "number": 67, 
+    "state": "New South Wales ", 
+    "year": 2019
+  }, 
+  {
+    "acres_burned": 46030000, 
+    "hectacres_burned": 18626000, 
+    "homes_destroyed": 2600, 
+    "human_fatalities": 34, 
+    "name": "2019-2020 Australian bushfire season ", 
+    "number": 68, 
+    "state": "Nationwide ", 
+    "year": 2019
+  }, 
+  {
+    "acres_burned": 140080, 
+    "hectacres_burned": 56688, 
+    "homes_destroyed": null, 
+    "human_fatalities": 1, 
+    "number": 1, 
+    "state": "Australian Capital Territory", 
+    "year": 2019
+  }, 
+  {
+    "acres_burned": 13300000, 
+    "hectacres_burned": 5400000, 
+    "homes_destroyed": 2439, 
+    "human_fatalities": 25, 
+    "number": 2, 
+    "state": "New South Wales", 
+    "year": 2019
+  }, 
+  {
+    "acres_burned": 16800000, 
+    "hectacres_burned": 6800000, 
+    "homes_destroyed": 5, 
+    "human_fatalities": null, 
+    "number": 3, 
+    "state": "Northern Territory", 
+    "year": 2019
+  }, 
+  {
+    "acres_burned": 6180000, 
+    "hectacres_burned": 2500000, 
+    "homes_destroyed": 48, 
+    "human_fatalities": null, 
+    "number": 4, 
+    "state": "Queensland", 
+    "year": 2019
+  }, 
+  {
+    "acres_burned": 1210000, 
+    "hectacres_burned": 490000, 
+    "homes_destroyed": 151, 
+    "human_fatalities": 3, 
+    "number": 5, 
+    "state": "South Australia", 
+    "year": 2019
+  }, 
+  {
+    "acres_burned": 89000, 
+    "hectacres_burned": 36000, 
+    "homes_destroyed": 2, 
+    "human_fatalities": null, 
+    "number": 6, 
+    "state": "Tasmania", 
+    "year": 2019
+  }, 
+  {
+    "acres_burned": 3710000, 
+    "hectacres_burned": 1500000, 
+    "homes_destroyed": 396, 
+    "human_fatalities": 5, 
+    "number": 7, 
+    "state": "Victoria", 
+    "year": 2019
+  }, 
+  {
+    "acres_burned": 5440000, 
+    "hectacres_burned": 2200000, 
+    "homes_destroyed": 1, 
+    "human_fatalities": null, 
+    "number": 8, 
+    "state": "Western Australia", 
+    "year": 2019
+  }, 
+  {
+    "acres_burned": 46300000, 
+    "hectacres_burned": 18736070, 
+    "homes_destroyed": 3500, 
+    "human_fatalities": 34, 
+    "number": 9, 
+    "state": "Total", 
+    "year": 2019
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 42, 
+    "domestic_credit_private_sector_banks_per_gdp": 19, 
+    "gdp_current_us_dol": 19, 
+    "gdp_per_growth_annual": null, 
+    "year": 1960
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 41, 
+    "domestic_credit_private_sector_banks_per_gdp": 17, 
+    "gdp_current_us_dol": 20, 
+    "gdp_per_growth_annual": 2, 
+    "year": 1961
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 43, 
+    "domestic_credit_private_sector_banks_per_gdp": 19, 
+    "gdp_current_us_dol": 20, 
+    "gdp_per_growth_annual": 1, 
+    "year": 1962
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 43, 
+    "domestic_credit_private_sector_banks_per_gdp": 19, 
+    "gdp_current_us_dol": 22, 
+    "gdp_per_growth_annual": 6, 
+    "year": 1963
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 44, 
+    "domestic_credit_private_sector_banks_per_gdp": 20, 
+    "gdp_current_us_dol": 24, 
+    "gdp_per_growth_annual": 7, 
+    "year": 1964
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 44, 
+    "domestic_credit_private_sector_banks_per_gdp": 21, 
+    "gdp_current_us_dol": 26, 
+    "gdp_per_growth_annual": 6, 
+    "year": 1965
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 45, 
+    "domestic_credit_private_sector_banks_per_gdp": 22, 
+    "gdp_current_us_dol": 27, 
+    "gdp_per_growth_annual": 2, 
+    "year": 1966
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 45, 
+    "domestic_credit_private_sector_banks_per_gdp": 22, 
+    "gdp_current_us_dol": 30, 
+    "gdp_per_growth_annual": 6, 
+    "year": 1967
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 45, 
+    "domestic_credit_private_sector_banks_per_gdp": 24, 
+    "gdp_current_us_dol": 33, 
+    "gdp_per_growth_annual": 5, 
+    "year": 1968
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 45, 
+    "domestic_credit_private_sector_banks_per_gdp": 24, 
+    "gdp_current_us_dol": 37, 
+    "gdp_per_growth_annual": 7, 
+    "year": 1969
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 42, 
+    "domestic_credit_private_sector_banks_per_gdp": 22, 
+    "gdp_current_us_dol": 41, 
+    "gdp_per_growth_annual": 7, 
+    "year": 1970
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 40, 
+    "domestic_credit_private_sector_banks_per_gdp": 23, 
+    "gdp_current_us_dol": 45, 
+    "gdp_per_growth_annual": 4, 
+    "year": 1971
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 42, 
+    "domestic_credit_private_sector_banks_per_gdp": 24, 
+    "gdp_current_us_dol": 52, 
+    "gdp_per_growth_annual": 4, 
+    "year": 1972
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 45, 
+    "domestic_credit_private_sector_banks_per_gdp": 28, 
+    "gdp_current_us_dol": 64, 
+    "gdp_per_growth_annual": 3, 
+    "year": 1973
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 43, 
+    "domestic_credit_private_sector_banks_per_gdp": 28, 
+    "gdp_current_us_dol": 89, 
+    "gdp_per_growth_annual": 4, 
+    "year": 1974
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 46, 
+    "domestic_credit_private_sector_banks_per_gdp": 27, 
+    "gdp_current_us_dol": 97, 
+    "gdp_per_growth_annual": 1, 
+    "year": 1975
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 46, 
+    "domestic_credit_private_sector_banks_per_gdp": 28, 
+    "gdp_current_us_dol": 105, 
+    "gdp_per_growth_annual": 3, 
+    "year": 1976
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 43, 
+    "domestic_credit_private_sector_banks_per_gdp": 27, 
+    "gdp_current_us_dol": 110, 
+    "gdp_per_growth_annual": 4, 
+    "year": 1977
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 43, 
+    "domestic_credit_private_sector_banks_per_gdp": 28, 
+    "gdp_current_us_dol": 118, 
+    "gdp_per_growth_annual": 1, 
+    "year": 1978
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 44, 
+    "domestic_credit_private_sector_banks_per_gdp": 29, 
+    "gdp_current_us_dol": 135, 
+    "gdp_per_growth_annual": 4, 
+    "year": 1979
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 44, 
+    "domestic_credit_private_sector_banks_per_gdp": 28, 
+    "gdp_current_us_dol": 150, 
+    "gdp_per_growth_annual": 3, 
+    "year": 1980
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 43, 
+    "domestic_credit_private_sector_banks_per_gdp": 28, 
+    "gdp_current_us_dol": 177, 
+    "gdp_per_growth_annual": 3, 
+    "year": 1981
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 39, 
+    "domestic_credit_private_sector_banks_per_gdp": 27, 
+    "gdp_current_us_dol": 194, 
+    "gdp_per_growth_annual": 3, 
+    "year": 1982
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 41, 
+    "domestic_credit_private_sector_banks_per_gdp": 29, 
+    "gdp_current_us_dol": 177, 
+    "gdp_per_growth_annual": -2, 
+    "year": 1983
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 42, 
+    "domestic_credit_private_sector_banks_per_gdp": 30, 
+    "gdp_current_us_dol": 193, 
+    "gdp_per_growth_annual": 5, 
+    "year": 1984
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 50, 
+    "domestic_credit_private_sector_banks_per_gdp": 37, 
+    "gdp_current_us_dol": 180, 
+    "gdp_per_growth_annual": 5, 
+    "year": 1985
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 53, 
+    "domestic_credit_private_sector_banks_per_gdp": 40, 
+    "gdp_current_us_dol": 182, 
+    "gdp_per_growth_annual": 4, 
+    "year": 1986
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 55, 
+    "domestic_credit_private_sector_banks_per_gdp": 43, 
+    "gdp_current_us_dol": 189, 
+    "gdp_per_growth_annual": 3, 
+    "year": 1987
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 57, 
+    "domestic_credit_private_sector_banks_per_gdp": 47, 
+    "gdp_current_us_dol": 236, 
+    "gdp_per_growth_annual": 6, 
+    "year": 1988
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 71, 
+    "domestic_credit_private_sector_banks_per_gdp": 59, 
+    "gdp_current_us_dol": 299, 
+    "gdp_per_growth_annual": 4, 
+    "year": 1989
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 70, 
+    "domestic_credit_private_sector_banks_per_gdp": 61, 
+    "gdp_current_us_dol": 311, 
+    "gdp_per_growth_annual": 4, 
+    "year": 1990
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 71, 
+    "domestic_credit_private_sector_banks_per_gdp": 60, 
+    "gdp_current_us_dol": 325, 
+    "gdp_per_growth_annual": 0, 
+    "year": 1991
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 75, 
+    "domestic_credit_private_sector_banks_per_gdp": 62, 
+    "gdp_current_us_dol": 325, 
+    "gdp_per_growth_annual": 0, 
+    "year": 1992
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 75, 
+    "domestic_credit_private_sector_banks_per_gdp": 63, 
+    "gdp_current_us_dol": 312, 
+    "gdp_per_growth_annual": 4, 
+    "year": 1993
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 78, 
+    "domestic_credit_private_sector_banks_per_gdp": 67, 
+    "gdp_current_us_dol": 322, 
+    "gdp_per_growth_annual": 4, 
+    "year": 1994
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 80, 
+    "domestic_credit_private_sector_banks_per_gdp": 70, 
+    "gdp_current_us_dol": 367, 
+    "gdp_per_growth_annual": 4, 
+    "year": 1995
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 84, 
+    "domestic_credit_private_sector_banks_per_gdp": 72, 
+    "gdp_current_us_dol": 400, 
+    "gdp_per_growth_annual": 4, 
+    "year": 1996
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 84, 
+    "domestic_credit_private_sector_banks_per_gdp": 76, 
+    "gdp_current_us_dol": 435, 
+    "gdp_per_growth_annual": 4, 
+    "year": 1997
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 88, 
+    "domestic_credit_private_sector_banks_per_gdp": 79, 
+    "gdp_current_us_dol": 399, 
+    "gdp_per_growth_annual": 5, 
+    "year": 1998
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 91, 
+    "domestic_credit_private_sector_banks_per_gdp": 84, 
+    "gdp_current_us_dol": 389, 
+    "gdp_per_growth_annual": 5, 
+    "year": 1999
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 93, 
+    "domestic_credit_private_sector_banks_per_gdp": 88, 
+    "gdp_current_us_dol": 415, 
+    "gdp_per_growth_annual": 4, 
+    "year": 2000
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 92, 
+    "domestic_credit_private_sector_banks_per_gdp": 89, 
+    "gdp_current_us_dol": 378, 
+    "gdp_per_growth_annual": 2, 
+    "year": 2001
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 99, 
+    "domestic_credit_private_sector_banks_per_gdp": 91, 
+    "gdp_current_us_dol": 395, 
+    "gdp_per_growth_annual": 4, 
+    "year": 2002
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 104, 
+    "domestic_credit_private_sector_banks_per_gdp": 99, 
+    "gdp_current_us_dol": 466, 
+    "gdp_per_growth_annual": 3, 
+    "year": 2003
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 108, 
+    "domestic_credit_private_sector_banks_per_gdp": 103, 
+    "gdp_current_us_dol": 612, 
+    "gdp_per_growth_annual": 4, 
+    "year": 2004
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 113, 
+    "domestic_credit_private_sector_banks_per_gdp": 109, 
+    "gdp_current_us_dol": 693, 
+    "gdp_per_growth_annual": 3, 
+    "year": 2005
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 118, 
+    "domestic_credit_private_sector_banks_per_gdp": 114, 
+    "gdp_current_us_dol": 746, 
+    "gdp_per_growth_annual": 3, 
+    "year": 2006
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 146, 
+    "domestic_credit_private_sector_banks_per_gdp": 121, 
+    "gdp_current_us_dol": 853, 
+    "gdp_per_growth_annual": 4, 
+    "year": 2007
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 159, 
+    "domestic_credit_private_sector_banks_per_gdp": 122, 
+    "gdp_current_us_dol": 1054, 
+    "gdp_per_growth_annual": 4, 
+    "year": 2008
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 151, 
+    "domestic_credit_private_sector_banks_per_gdp": 123, 
+    "gdp_current_us_dol": 928, 
+    "gdp_per_growth_annual": 2, 
+    "year": 2009
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 154, 
+    "domestic_credit_private_sector_banks_per_gdp": 126, 
+    "gdp_current_us_dol": 1146, 
+    "gdp_per_growth_annual": 2, 
+    "year": 2010
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 151, 
+    "domestic_credit_private_sector_banks_per_gdp": 122, 
+    "gdp_current_us_dol": 1397, 
+    "gdp_per_growth_annual": 2, 
+    "year": 2011
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 150, 
+    "domestic_credit_private_sector_banks_per_gdp": 121, 
+    "gdp_current_us_dol": 1546, 
+    "gdp_per_growth_annual": 4, 
+    "year": 2012
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 155, 
+    "domestic_credit_private_sector_banks_per_gdp": 125, 
+    "gdp_current_us_dol": 1576, 
+    "gdp_per_growth_annual": 3, 
+    "year": 2013
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 164, 
+    "domestic_credit_private_sector_banks_per_gdp": 129, 
+    "gdp_current_us_dol": 1467, 
+    "gdp_per_growth_annual": 3, 
+    "year": 2014
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 176, 
+    "domestic_credit_private_sector_banks_per_gdp": 136, 
+    "gdp_current_us_dol": 1352, 
+    "gdp_per_growth_annual": 2, 
+    "year": 2015
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 183, 
+    "domestic_credit_private_sector_banks_per_gdp": 142, 
+    "gdp_current_us_dol": 1209, 
+    "gdp_per_growth_annual": 3, 
+    "year": 2016
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 176, 
+    "domestic_credit_private_sector_banks_per_gdp": 140, 
+    "gdp_current_us_dol": 1330, 
+    "gdp_per_growth_annual": 2, 
+    "year": 2017
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 177, 
+    "domestic_credit_private_sector_banks_per_gdp": 139, 
+    "gdp_current_us_dol": 1434, 
+    "gdp_per_growth_annual": 3, 
+    "year": 2018
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": null, 
+    "domestic_credit_private_sector_banks_per_gdp": null, 
+    "gdp_current_us_dol": null, 
+    "gdp_per_growth_annual": null, 
+    "year": 2019
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 42, 
+    "domestic_credit_private_sector_banks_per_gdp": 19, 
+    "gdp_current_us_dol": 19, 
+    "gdp_per_growth_annual": null, 
+    "year": 1960
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 41, 
+    "domestic_credit_private_sector_banks_per_gdp": 17, 
+    "gdp_current_us_dol": 20, 
+    "gdp_per_growth_annual": 2, 
+    "year": 1961
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 43, 
+    "domestic_credit_private_sector_banks_per_gdp": 19, 
+    "gdp_current_us_dol": 20, 
+    "gdp_per_growth_annual": 1, 
+    "year": 1962
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 43, 
+    "domestic_credit_private_sector_banks_per_gdp": 19, 
+    "gdp_current_us_dol": 22, 
+    "gdp_per_growth_annual": 6, 
+    "year": 1963
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 44, 
+    "domestic_credit_private_sector_banks_per_gdp": 20, 
+    "gdp_current_us_dol": 24, 
+    "gdp_per_growth_annual": 7, 
+    "year": 1964
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 44, 
+    "domestic_credit_private_sector_banks_per_gdp": 21, 
+    "gdp_current_us_dol": 26, 
+    "gdp_per_growth_annual": 6, 
+    "year": 1965
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 45, 
+    "domestic_credit_private_sector_banks_per_gdp": 22, 
+    "gdp_current_us_dol": 27, 
+    "gdp_per_growth_annual": 2, 
+    "year": 1966
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 45, 
+    "domestic_credit_private_sector_banks_per_gdp": 22, 
+    "gdp_current_us_dol": 30, 
+    "gdp_per_growth_annual": 6, 
+    "year": 1967
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 45, 
+    "domestic_credit_private_sector_banks_per_gdp": 24, 
+    "gdp_current_us_dol": 33, 
+    "gdp_per_growth_annual": 5, 
+    "year": 1968
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 45, 
+    "domestic_credit_private_sector_banks_per_gdp": 24, 
+    "gdp_current_us_dol": 37, 
+    "gdp_per_growth_annual": 7, 
+    "year": 1969
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 42, 
+    "domestic_credit_private_sector_banks_per_gdp": 22, 
+    "gdp_current_us_dol": 41, 
+    "gdp_per_growth_annual": 7, 
+    "year": 1970
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 40, 
+    "domestic_credit_private_sector_banks_per_gdp": 23, 
+    "gdp_current_us_dol": 45, 
+    "gdp_per_growth_annual": 4, 
+    "year": 1971
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 42, 
+    "domestic_credit_private_sector_banks_per_gdp": 24, 
+    "gdp_current_us_dol": 52, 
+    "gdp_per_growth_annual": 4, 
+    "year": 1972
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 45, 
+    "domestic_credit_private_sector_banks_per_gdp": 28, 
+    "gdp_current_us_dol": 64, 
+    "gdp_per_growth_annual": 3, 
+    "year": 1973
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 43, 
+    "domestic_credit_private_sector_banks_per_gdp": 28, 
+    "gdp_current_us_dol": 89, 
+    "gdp_per_growth_annual": 4, 
+    "year": 1974
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 46, 
+    "domestic_credit_private_sector_banks_per_gdp": 27, 
+    "gdp_current_us_dol": 97, 
+    "gdp_per_growth_annual": 1, 
+    "year": 1975
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 46, 
+    "domestic_credit_private_sector_banks_per_gdp": 28, 
+    "gdp_current_us_dol": 105, 
+    "gdp_per_growth_annual": 3, 
+    "year": 1976
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 43, 
+    "domestic_credit_private_sector_banks_per_gdp": 27, 
+    "gdp_current_us_dol": 110, 
+    "gdp_per_growth_annual": 4, 
+    "year": 1977
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 43, 
+    "domestic_credit_private_sector_banks_per_gdp": 28, 
+    "gdp_current_us_dol": 118, 
+    "gdp_per_growth_annual": 1, 
+    "year": 1978
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 44, 
+    "domestic_credit_private_sector_banks_per_gdp": 29, 
+    "gdp_current_us_dol": 135, 
+    "gdp_per_growth_annual": 4, 
+    "year": 1979
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 44, 
+    "domestic_credit_private_sector_banks_per_gdp": 28, 
+    "gdp_current_us_dol": 150, 
+    "gdp_per_growth_annual": 3, 
+    "year": 1980
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 43, 
+    "domestic_credit_private_sector_banks_per_gdp": 28, 
+    "gdp_current_us_dol": 177, 
+    "gdp_per_growth_annual": 3, 
+    "year": 1981
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 39, 
+    "domestic_credit_private_sector_banks_per_gdp": 27, 
+    "gdp_current_us_dol": 194, 
+    "gdp_per_growth_annual": 3, 
+    "year": 1982
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 41, 
+    "domestic_credit_private_sector_banks_per_gdp": 29, 
+    "gdp_current_us_dol": 177, 
+    "gdp_per_growth_annual": -2, 
+    "year": 1983
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 42, 
+    "domestic_credit_private_sector_banks_per_gdp": 30, 
+    "gdp_current_us_dol": 193, 
+    "gdp_per_growth_annual": 5, 
+    "year": 1984
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 50, 
+    "domestic_credit_private_sector_banks_per_gdp": 37, 
+    "gdp_current_us_dol": 180, 
+    "gdp_per_growth_annual": 5, 
+    "year": 1985
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 53, 
+    "domestic_credit_private_sector_banks_per_gdp": 40, 
+    "gdp_current_us_dol": 182, 
+    "gdp_per_growth_annual": 4, 
+    "year": 1986
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 55, 
+    "domestic_credit_private_sector_banks_per_gdp": 43, 
+    "gdp_current_us_dol": 189, 
+    "gdp_per_growth_annual": 3, 
+    "year": 1987
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 57, 
+    "domestic_credit_private_sector_banks_per_gdp": 47, 
+    "gdp_current_us_dol": 236, 
+    "gdp_per_growth_annual": 6, 
+    "year": 1988
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 71, 
+    "domestic_credit_private_sector_banks_per_gdp": 59, 
+    "gdp_current_us_dol": 299, 
+    "gdp_per_growth_annual": 4, 
+    "year": 1989
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 70, 
+    "domestic_credit_private_sector_banks_per_gdp": 61, 
+    "gdp_current_us_dol": 311, 
+    "gdp_per_growth_annual": 4, 
+    "year": 1990
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 71, 
+    "domestic_credit_private_sector_banks_per_gdp": 60, 
+    "gdp_current_us_dol": 325, 
+    "gdp_per_growth_annual": 0, 
+    "year": 1991
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 75, 
+    "domestic_credit_private_sector_banks_per_gdp": 62, 
+    "gdp_current_us_dol": 325, 
+    "gdp_per_growth_annual": 0, 
+    "year": 1992
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 75, 
+    "domestic_credit_private_sector_banks_per_gdp": 63, 
+    "gdp_current_us_dol": 312, 
+    "gdp_per_growth_annual": 4, 
+    "year": 1993
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 78, 
+    "domestic_credit_private_sector_banks_per_gdp": 67, 
+    "gdp_current_us_dol": 322, 
+    "gdp_per_growth_annual": 4, 
+    "year": 1994
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 80, 
+    "domestic_credit_private_sector_banks_per_gdp": 70, 
+    "gdp_current_us_dol": 367, 
+    "gdp_per_growth_annual": 4, 
+    "year": 1995
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 84, 
+    "domestic_credit_private_sector_banks_per_gdp": 72, 
+    "gdp_current_us_dol": 400, 
+    "gdp_per_growth_annual": 4, 
+    "year": 1996
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 84, 
+    "domestic_credit_private_sector_banks_per_gdp": 76, 
+    "gdp_current_us_dol": 435, 
+    "gdp_per_growth_annual": 4, 
+    "year": 1997
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 88, 
+    "domestic_credit_private_sector_banks_per_gdp": 79, 
+    "gdp_current_us_dol": 399, 
+    "gdp_per_growth_annual": 5, 
+    "year": 1998
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 91, 
+    "domestic_credit_private_sector_banks_per_gdp": 84, 
+    "gdp_current_us_dol": 389, 
+    "gdp_per_growth_annual": 5, 
+    "year": 1999
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 93, 
+    "domestic_credit_private_sector_banks_per_gdp": 88, 
+    "gdp_current_us_dol": 415, 
+    "gdp_per_growth_annual": 4, 
+    "year": 2000
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 92, 
+    "domestic_credit_private_sector_banks_per_gdp": 89, 
+    "gdp_current_us_dol": 378, 
+    "gdp_per_growth_annual": 2, 
+    "year": 2001
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 99, 
+    "domestic_credit_private_sector_banks_per_gdp": 91, 
+    "gdp_current_us_dol": 395, 
+    "gdp_per_growth_annual": 4, 
+    "year": 2002
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 104, 
+    "domestic_credit_private_sector_banks_per_gdp": 99, 
+    "gdp_current_us_dol": 466, 
+    "gdp_per_growth_annual": 3, 
+    "year": 2003
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 108, 
+    "domestic_credit_private_sector_banks_per_gdp": 103, 
+    "gdp_current_us_dol": 612, 
+    "gdp_per_growth_annual": 4, 
+    "year": 2004
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 113, 
+    "domestic_credit_private_sector_banks_per_gdp": 109, 
+    "gdp_current_us_dol": 693, 
+    "gdp_per_growth_annual": 3, 
+    "year": 2005
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 118, 
+    "domestic_credit_private_sector_banks_per_gdp": 114, 
+    "gdp_current_us_dol": 746, 
+    "gdp_per_growth_annual": 3, 
+    "year": 2006
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 146, 
+    "domestic_credit_private_sector_banks_per_gdp": 121, 
+    "gdp_current_us_dol": 853, 
+    "gdp_per_growth_annual": 4, 
+    "year": 2007
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 159, 
+    "domestic_credit_private_sector_banks_per_gdp": 122, 
+    "gdp_current_us_dol": 1054, 
+    "gdp_per_growth_annual": 4, 
+    "year": 2008
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 151, 
+    "domestic_credit_private_sector_banks_per_gdp": 123, 
+    "gdp_current_us_dol": 928, 
+    "gdp_per_growth_annual": 2, 
+    "year": 2009
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 154, 
+    "domestic_credit_private_sector_banks_per_gdp": 126, 
+    "gdp_current_us_dol": 1146, 
+    "gdp_per_growth_annual": 2, 
+    "year": 2010
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 151, 
+    "domestic_credit_private_sector_banks_per_gdp": 122, 
+    "gdp_current_us_dol": 1397, 
+    "gdp_per_growth_annual": 2, 
+    "year": 2011
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 150, 
+    "domestic_credit_private_sector_banks_per_gdp": 121, 
+    "gdp_current_us_dol": 1546, 
+    "gdp_per_growth_annual": 4, 
+    "year": 2012
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 155, 
+    "domestic_credit_private_sector_banks_per_gdp": 125, 
+    "gdp_current_us_dol": 1576, 
+    "gdp_per_growth_annual": 3, 
+    "year": 2013
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 164, 
+    "domestic_credit_private_sector_banks_per_gdp": 129, 
+    "gdp_current_us_dol": 1467, 
+    "gdp_per_growth_annual": 3, 
+    "year": 2014
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 176, 
+    "domestic_credit_private_sector_banks_per_gdp": 136, 
+    "gdp_current_us_dol": 1352, 
+    "gdp_per_growth_annual": 2, 
+    "year": 2015
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 183, 
+    "domestic_credit_private_sector_banks_per_gdp": 142, 
+    "gdp_current_us_dol": 1209, 
+    "gdp_per_growth_annual": 3, 
+    "year": 2016
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 176, 
+    "domestic_credit_private_sector_banks_per_gdp": 140, 
+    "gdp_current_us_dol": 1330, 
+    "gdp_per_growth_annual": 2, 
+    "year": 2017
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": 177, 
+    "domestic_credit_private_sector_banks_per_gdp": 139, 
+    "gdp_current_us_dol": 1434, 
+    "gdp_per_growth_annual": 3, 
+    "year": 2018
+  }, 
+  {
+    "domestic_credit_financial_sector_per_gdp": null, 
+    "domestic_credit_private_sector_banks_per_gdp": null, 
+    "gdp_current_us_dol": null, 
+    "gdp_per_growth_annual": null, 
+    "year": 2019
+  }
+]
