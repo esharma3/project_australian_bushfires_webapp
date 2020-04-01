@@ -337,7 +337,7 @@ def index():
 #                     Australia Fire Locations  		                #
 #####################################################################
 
-@app.route("/fire-maps.html")
+@app.route("/fire-maps")
 def load_aus_fire_locations():
     return render_template("fire-maps.html")
 
