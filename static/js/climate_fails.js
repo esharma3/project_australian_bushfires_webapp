@@ -24,7 +24,6 @@ function buildComparisonPlot(combinedData) {
 			}
 		}
 
-		// console.log("LOOK", totalData.map(e => e.queensland_total_fires).slice(18, 36))
 		let trace3 = {
 			x: xValue,
 			y: totalData.map(e => e.victoria_total_fires / 10000).slice(36, 55),
@@ -71,24 +70,24 @@ function buildComparisonPlot(combinedData) {
 				title: "Max Temperature/ Rainfall/ Fire Count"
 			},
 			height: 300,
-			width: 1500,
+			width: 1600,
 		}
 
 		Plotly.newPlot("climate_first", plotData, layout)
 
 		para = "The extreme heat in Australia is not just a fluke. There are unique patterns in rain and temperature that converge to scorch the continent. " +
-		"Australia is deep in the throes of the accelerating climate crisis, facing not just extreme heat but changes in rainfall patterns. These shifts in " +
-		"turn stand to worsen problems like drought and wildfires. Taken together, Australia serves as a microcosm of all the complicated ways that climate " +
-		"variables interact making climate as one of the dominent catalyst responsible for the significant increase in the Australian bushfires. " +
-		"The year 2019 shows a drastic increase in maximum tempearture and a significant drop in annual rainfall that together served as a catalyst " +
-		"causing a surge in number of bushfires across Australia specially is New South Wales and Victoria."
+			"Australia is deep in the throes of the accelerating climate crisis, facing not just extreme heat but changes in rainfall patterns. These shifts in " +
+			"turn stand to worsen problems like drought and wildfires. Taken together, Australia serves as a microcosm of all the complicated ways that climate " +
+			"variables interact making climate as one of the dominent catalyst responsible for the significant increase in the Australian bushfires. " +
+			"The year 2019 shows a drastic increase in maximum tempearture and a significant drop in annual rainfall that together served as a catalyst " +
+			"causing a surge in number of bushfires across Australia specially is New South Wales and Victoria."
 
 		d3.select("p").text("")
 		d3.select("p").append("text").text(para)
 	})
 }
 
-function buildPollutantPlot(airData) {
+function buildPollutantPlot(combinedData) {
 
 	d3.json("/annual_total_fire_counts").then((totalData) => {
 
@@ -123,11 +122,11 @@ function buildPollutantPlot(airData) {
 				color: "brown"
 			}
 		}
-		// console.log("MY", airData.map(e => e.air_pollutant_year).slice(19, 37))
+		
 		let trace4 = {
 
-			x: airData.map(e => e.air_pollutant_year).slice(19, 37),
-			y: airData.map(e => e.CO2_ppm / 10).slice(19, 37),
+			x: combinedData.map(e => e.air_pollutant_year).slice(939, 956),
+			y: combinedData.map(e => e.CO2_ppm / 10).slice(939, 956),
 			width: 0.7,
 			name: "CO2 (ppm) / 10 (scaled)",
 			type: 'scatter',
@@ -138,8 +137,8 @@ function buildPollutantPlot(airData) {
 
 		let trace5 = {
 
-			x: airData.map(e => e.air_pollutant_year).slice(19, 37),
-			y: airData.map(e => e.CH4_ppb / 100).slice(19, 37),
+			x: combinedData.map(e => e.air_pollutant_year).slice(939, 956),
+			y: combinedData.map(e => e.CH4_ppb / 100).slice(939, 956),
 			width: 0.7,
 			name: "CH4 (ppb)/100 (scaled)",
 			type: 'scatter',
@@ -150,8 +149,8 @@ function buildPollutantPlot(airData) {
 
 		let trace6 = {
 
-			x: airData.map(e => e.air_pollutant_year).slice(19, 37),
-			y: airData.map(e => e.N2O_ppb / 10).slice(19, 37),
+			x: combinedData.map(e => e.air_pollutant_year).slice(939, 956),
+			y: combinedData.map(e => e.N2O_ppb / 10).slice(939, 956),
 			width: 0.7,
 			name: "N2O (ppb)/10 (scaled)",
 			type: 'scatter',
@@ -175,33 +174,30 @@ function buildPollutantPlot(airData) {
 				title: "Gas (ppm/ppb)/ Fire Count"
 			},
 			height: 300,
-			width: 1500,
+			width: 1600,
 		}
 
 		Plotly.newPlot("climate_first", plotData, layout)
 	})
 
 	para = "The bushfires have not only been made more likely and intense by climate change, they also add to it. " +
-	"Fires contribute to Australia's greenhouse gas emissions. Australia has one of the highest per capita emissions of carbon dioxide in the " +
-	"world. Wildfires also release air pollutants like carbon monoxide and nitrous oxide, which can harm the health of residents nearby and " +
-	"firefighters on the front lines. Until the 2019–2020 Australian bushfire season, the forests in Australia were thought " +
-	"to reabsorb all the carbon released in bushfires across the country. This would mean the forests " +
-	"achieved net zero emissions. However, global warming is making bushfires burn more intensely and frequently and the 2019–2020 bushfires " +
-	"emitted 400 megatonnes of carbon dioxide into the atmosphere in its first quarter itself. " +
-	"This has increased Australia’s annual greenhouse gas emissions, " +
-	"contributing to global warming, and heighten the likelihood of recurring megafires that will release yet more emissions creating a deeply concerning " +
-	"climate feedback loop."
+		"Fires contribute to Australia's greenhouse gas emissions. Australia has one of the highest per capita emissions of carbon dioxide in the " +
+		"world. Wildfires also release air pollutants like carbon monoxide and nitrous oxide, which can harm the health of residents nearby and " +
+		"firefighters on the front lines. Until the 2019–2020 Australian bushfire season, the forests in Australia were thought " +
+		"to reabsorb all the carbon released in bushfires across the country. This would mean the forests " +
+		"achieved net zero emissions. However, global warming is making bushfires burn more intensely and frequently and the 2019–2020 bushfires " +
+		"emitted 400 megatonnes of carbon dioxide into the atmosphere in its first quarter itself. " +
+		"This has increased Australia’s annual greenhouse gas emissions, " +
+		"contributing to global warming, and heighten the likelihood of recurring megafires that will release yet more emissions creating a deeply concerning " +
+		"climate feedback loop."
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
 }
 
 
-
-
 function buildMaxTempPlot(combinedData) {
 
-	console.log(combinedData)
 	let xValue = combinedData.map(e => e.max_temp_anomaly_year)
 	let yValue = combinedData.map(e => e.max_temp_anomaly_celcius)
 
@@ -233,16 +229,16 @@ function buildMaxTempPlot(combinedData) {
 			title: "Temperature Anomaly (Celsius)"
 		},
 		height: 300,
-		width: 1500,
+		width: 1600,
 	}
 
 	Plotly.newPlot("climate_first", plotData, layout)
 
-	para = "Australia’s climate is notorious for its volatility, but the summer of 2019 showed the highest change in the maximum temperature anomaly " + 
-	"as seen in last several years. The year 2019 shows the highest increase of 2.09 degree Celsius in Australia’s overall " +
-	"Maximum temperature since 1910. Since 2013, there is almost constant increase in maximum temperature anomaly. " + 
-	"The above graph also shows the gradual increase in the country’s maximum temperature with first half of the 20th century being a lot cooler than the second " +
-	"half of the century. The 21st century marks the beginning of significant and persistent increased anomaly in maximum temperature."
+	para = "Australia’s climate is notorious for its volatility, but the summer of 2019 showed the highest change in the maximum temperature anomaly " +
+		"as seen in last several years. The year 2019 shows the highest increase of 2.09 degree Celsius in Australia’s overall " +
+		"Maximum temperature since 1910. Since 2013, there is almost constant increase in maximum temperature anomaly. " +
+		"The above graph also shows the gradual increase in the country’s maximum temperature with first half of the 20th century being a lot cooler than the second " +
+		"half of the century. The 21st century marks the beginning of significant and persistent increased anomaly in maximum temperature."
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
@@ -250,7 +246,6 @@ function buildMaxTempPlot(combinedData) {
 
 function buildMinTempPlot(combinedData) {
 
-	console.log(combinedData)
 	let xValue = combinedData.map(e => e.min_temp_anomaly_year)
 	let yValue = combinedData.map(e => e.min_temp_anomaly_celcius)
 
@@ -283,16 +278,16 @@ function buildMinTempPlot(combinedData) {
 			title: "Temperature Anomaly (Celsius)"
 		},
 		height: 300,
-		width: 1500,
+		width: 1600,
 	}
 
 	Plotly.newPlot("climate_first", plotData, layout)
 
 	para = "Australia’s climate shows an accelerating anomaly in not just the maximum temperature but the minimum tempearture too. " +
-	"There has been an almost persistent increase in the minimum teperature anomaly since 1980. The year 1998 shows the highest anomaly of 1.26 degree " +
-	" Celsisus. " +
-	"The above graph also shows the gradual increase in the country’s minimum temperature anomaly with first half of the 20th century being a lot cooler than the second " +
-	"half of the century. The 21st century marks the beginning of significant and persistent increased anomaly in minimum temperature."
+		"There has been an almost persistent increase in the minimum teperature anomaly since 1980. The year 1998 shows the highest anomaly of 1.26 degree " +
+		" Celsisus. " +
+		"The above graph also shows the gradual increase in the country’s minimum temperature anomaly with first half of the 20th century being a lot cooler than the second " +
+		"half of the century. The 21st century marks the beginning of significant and persistent increased anomaly in minimum temperature."
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
@@ -300,7 +295,6 @@ function buildMinTempPlot(combinedData) {
 
 function buildMeanTempPlot(combinedData) {
 
-	console.log(combinedData)
 	let xValue = combinedData.map(e => e.mean_temp_anomaly_year)
 	let yValue = combinedData.map(e => e.mean_temp_anomaly_celcius)
 
@@ -333,7 +327,7 @@ function buildMeanTempPlot(combinedData) {
 			title: "Temperature Anomaly (Celsius)"
 		},
 		height: 300,
-		width: 1500,
+		width: 1600,
 	}
 
 	Plotly.newPlot("climate_first", plotData, layout)
@@ -341,7 +335,6 @@ function buildMeanTempPlot(combinedData) {
 
 function buildAnnualRainPlot(combinedData) {
 
-	console.log(combinedData)
 	let xValue = combinedData.map(e => e.annual_rainfall_year)
 	let yValue = combinedData.map(e => e.annual_rainfall_mm)
 
@@ -373,13 +366,13 @@ function buildAnnualRainPlot(combinedData) {
 			title: "Annual Rainfall (mm)"
 		},
 		height: 300,
-		width: 1500,
+		width: 1600,
 	}
 
 	Plotly.newPlot("climate_first", plotData, layout)
 
 	para = "Australia had its driest ever year in 2019, with rainfall 40% lower than average, based on records going back to 1900. " +
-	"The year 2019 recorded an annual average rainfall of 277.72 mm, the lowest since 1900." 
+		"The year 2019 recorded an annual average rainfall of 277.72 mm, the lowest since 1900."
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
@@ -387,7 +380,6 @@ function buildAnnualRainPlot(combinedData) {
 
 function buildRainAnomalyPlot(combinedData) {
 
-	console.log(combinedData)
 	let xValue = combinedData.map(e => e.annual_rainfall_anomaly_year)
 	let yValue = combinedData.map(e => e.annual_rainfall_anomaly_mm)
 
@@ -420,14 +412,14 @@ function buildRainAnomalyPlot(combinedData) {
 			title: "Rainfall Anomaly (mm)"
 		},
 		height: 300,
-		width: 1500,
+		width: 1600,
 	}
 
 	Plotly.newPlot("climate_first", plotData, layout)
 
 	para = "Australia had its driest ever year in 2019, with the highest ever drop of -187.47 mm in annual rainfall since 1900." +
-	"The graph shows more negative anomaly than positive in last 120 years indicating that for the country, that faces drought " +
-	"there has been more decrease in rainfall than increase."
+		"The graph shows more negative anomaly than positive in last 120 years indicating that for the country, that faces drought " +
+		"there has been more decrease in rainfall than increase."
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
@@ -435,7 +427,6 @@ function buildRainAnomalyPlot(combinedData) {
 
 function buildSSTPlot(combinedData) {
 
-	console.log(combinedData)
 	let xValue = combinedData.map(e => e.sea_surface_temp_anomaly_year)
 	let yValue = combinedData.map(e => e.sea_surface_temp_anomaly_celcius)
 
@@ -468,25 +459,25 @@ function buildSSTPlot(combinedData) {
 			title: "Temperature Anomaly (Celsius)"
 		},
 		height: 300,
-		width: 1500,
+		width: 1600,
 	}
 
 	Plotly.newPlot("climate_first", plotData, layout)
 
 	para = "Australia is facing constant increase in its Sea Surface Temperature since 1995. The year 2016 reported the highest anomaly " +
-	" of 0.78 degree Celsius. From 1900 till 1970, the country had cooler Sea Surface Temperature with persistent negative anomalies but post 1970 " +
-	" the country started having high positive anomalies indicating higher Sea Surface Temperatures." 
+		" of 0.78 degree Celsius. From 1900 till 1970, the country had cooler Sea Surface Temperature with persistent negative anomalies but post 1970 " +
+		" the country started having high positive anomalies indicating higher Sea Surface Temperatures."
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
 }
 
-function buildCO2Plot(airData) {
+function buildCO2Plot(combinedData) {
 
 	let trace1 = {
 
-		x: airData.map(e => e.air_pollutant_year),
-		y: airData.map(e => e.CO2_ppm),
+		x: combinedData.map(e => e.air_pollutant_year),
+		y: combinedData.map(e => e.CO2_ppm),
 		width: 0.7,
 		name: "2002/2003",
 		type: 'scatter',
@@ -511,25 +502,25 @@ function buildCO2Plot(airData) {
 			title: "Carbon Dioxide (ppm)"
 		},
 		height: 300,
-		width: 1500,
+		width: 1600,
 	}
 
 	Plotly.newPlot("climate_first", plotData, layout)
 
 	para = "The historic wildfires in Australia likely unleashed about 900 million tons of carbon dioxide into the atmosphere, " +
-	"equivalent to nearly double the country's total yearly fossil fuel emissions. The graph shows a continuos increase in the " +
-	"Carbon Dioxide level each year with 2019 reporting about 407 parts-per-million Carbon Dioxide level in the country." 
+		"equivalent to nearly double the country's total yearly fossil fuel emissions. The graph shows a continuos increase in the " +
+		"Carbon Dioxide level each year with 2019 reporting about 407 parts-per-million Carbon Dioxide level in the country."
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
 }
 
-function buildCH4Plot(airData) {
+function buildCH4Plot(combinedData) {
 
 	let trace1 = {
 
-		x: airData.map(e => e.air_pollutant_year),
-		y: airData.map(e => e.CH4_ppb),
+		x: combinedData.map(e => e.air_pollutant_year),
+		y: combinedData.map(e => e.CH4_ppb),
 		width: 0.5,
 		name: "2002/2003",
 		type: 'scatter',
@@ -555,25 +546,25 @@ function buildCH4Plot(airData) {
 			title: "CH4 (Methane) (ppb)"
 		},
 		height: 300,
-		width: 1500,
+		width: 1600,
 	}
 
 	Plotly.newPlot("climate_first", plotData, layout)
 
 	para = "Methane (CH4) is 85% of natural gas, leaks, and has a Global Warming Potential (GWP) 105 times that of the same mass of carbon dioxide " +
-	"(CO2) on a 20 year time frame with aerosol impacts included. Like Carbon Dioxide, there is a continuos increase in reported levels of Methane " +
-	"in the atmosphere with the year 2019 showing approximately 1817 parts-per-billion Methane levels."
+		"(CO2) on a 20 year time frame with aerosol impacts included. Like Carbon Dioxide, there is a continuos increase in reported levels of Methane " +
+		"in the atmosphere with the year 2019 showing approximately 1817 parts-per-billion Methane levels."
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
 }
 
-function buildN2OPlot(airData) {
+function buildN2OPlot(combinedData) {
 
 	let trace1 = {
 
-		x: airData.map(e => e.air_pollutant_year),
-		y: airData.map(e => e.N2O_ppb),
+		x: combinedData.map(e => e.air_pollutant_year),
+		y: combinedData.map(e => e.N2O_ppb),
 		width: 0.7,
 		name: "2002/2003",
 		type: 'scatter',
@@ -599,33 +590,88 @@ function buildN2OPlot(airData) {
 			title: "Nitrous Oxide N2O (ppb)"
 		},
 		height: 300,
-		width: 1500,
+		width: 1600,
 	}
 
 	Plotly.newPlot("climate_first", plotData, layout)
 
 	para = "The graph shows a continuos increase in the emitted Nitrous Oxide levels with the year 2019 reporting Nitrous Oxide level of 330 parts-per-billion.  " +
-	"Nitrous oxide has an atmospheric lifetime of 110 years. The process that removes nitrous oxide from the atmosphere also depletes ozone. " + 
-	"So nitrous oxide is not only a greenhouse gas, but also an ozone destroyer. Emissions of nitrous oxide — a greenhouse gas 300 times more potent " +
-	"than carbon dioxide — are going up faster and each molecule of nitrous oxide in the atmosphere can capture 300 times more heat than a " +
-	"molecule of carbon dioxide."
+		"Nitrous oxide has an atmospheric lifetime of 110 years. The process that removes nitrous oxide from the atmosphere also depletes ozone. " +
+		"So nitrous oxide is not only a greenhouse gas, but also an ozone destroyer. Emissions of nitrous oxide — a greenhouse gas 300 times more potent " +
+		"than carbon dioxide — are going up faster and each molecule of nitrous oxide in the atmosphere can capture 300 times more heat than a " +
+		"molecule of carbon dioxide."
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
 }
 
+function buildOnLoadPlot(combinedData) {
+	
+	let trace1 = {
+		x: combinedData.map(e => e.max_temp_decile10_year),
+		y: combinedData.map(e => e.maxtemp_total_land_area_percentage),
+		// text: xValue1,
+		name: "Annual Max Temperature (Celsius) Decile 10",
+		fill: 'tozeroy',
+		type: 'scatter',
+		// mode: "markers",
+		marker: {color: "red"}
+	};
+
+	let trace2 = {
+		x: combinedData.map(e => e.annual_rainfall_decile10_year).slice(810,), 
+		y: combinedData.map(e => e.rainfall_total_land_area_percentage).slice(810,),
+		// text: xValue1,
+		name: "Annual Rainfall Decile 10",
+		// fill: 'tozeroy',
+		type: 'bar',
+		// mode: "markers",
+		marker: {color: "blue"}
+	};
+
+	
+	let plotData = [trace1, trace2]
+
+	let layout = {
+		title: "Australia - Annual Maximum Temperature & Rainfall Area in decile 10 (1910-2019)",
+		margin: {
+			t: 40,
+			b: 40
+		},
+		xaxis: {
+			type: 'category',
+		},
+		yaxis: {
+			title: "Percentage of Total Land Area (%)",
+		},
+		height: 350,
+		width: 1600,
+	}
+
+	Plotly.newPlot("climate_first", plotData, layout)
+
+	para = "Climate change is influencing the frequency and severity of dangerous bushfire conditions in Australia through influencing temperature, "+
+	"environmental moisture, weather patterns and fuel conditions. There have been significant changes observed in recent decades towards more "+
+	"dangerous bushfire weather conditions for various regions of Australia. "+
+	"Bushfire weather conditions in future years are projected to increase in severity for many regions of Australia due to more "+
+	"extreme heat events, with the rate and magnitude of change increasing with greenhouse gas concentrations (and emissions)."
+
+	d3.select("p").text("")
+	d3.select("p").append("text").text(para)
+}
+
+
 function init() {
 
-	// let newpage = window.open("climate-fails.html");
-    // newpage.onload = function()
-
 	d3.json("/climate_data").then((combinedData) => {
-		
-		// alert(window.onload)
-		window.onload = buildComparisonPlot(combinedData)
-		
+
+		window.onload = buildOnLoadPlot(combinedData)
+
 		d3.select("#main1-btn").on("click", function () {
-			// console.log("heyyyyyyyyyy")
+			buildOnLoadPlot(combinedData)
+		})
+
+		d3.select("#main2-btn").on("click", function () {
 			buildComparisonPlot(combinedData)
 		})
 
@@ -653,32 +699,24 @@ function init() {
 			buildSSTPlot(combinedData)
 		})
 
-	})
-
-	d3.json("/air_pollutant_data").then((airData) => {
-
-		d3.select("#main2-btn").on("click", function () {
-			buildPollutantPlot(airData)
+		d3.select("#main3-btn").on("click", function () {
+			buildPollutantPlot(combinedData)
 		})
 
 		d3.select("#co2-btn").on("click", function () {
-			buildCO2Plot(airData)
+			buildCO2Plot(combinedData)
 		})
 
 		d3.select("#ch4-btn").on("click", function () {
-			buildCH4Plot(airData)
+			buildCH4Plot(combinedData)
 		})
 
 		d3.select("#n2o-btn").on("click", function () {
-			buildN2OPlot(airData)
+			buildN2OPlot(combinedData)
 		})
 
 	})
+
 }
 
-
-// window.onLoad = function () {
-// 	console.log("I AM WORKING")
-// 	// buildComparisonPlot(combinedData)
-// }
 init();
