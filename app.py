@@ -232,6 +232,15 @@ class aus_fire_history(db.Model, DictMixIn):
     month = db.Column(db.Integer())
     year = db.Column(db.Integer())
 
+class agg_fire_maps(db.Model, DictMixIn):
+    __tablename__ = "agg_fire_maps"
+
+    index = db.Column(db.Integer(), primary_key=True)
+    latitude = db.Column(db.Float())
+    longitude = db.Column(db.Float())
+    count = db.Column(db.Integer())
+    year = db.Column(db.Integer())
+
 
 #####################################################################
 #           Classes for Protected Species Impact Table              #
@@ -337,10 +346,10 @@ def load_aus_fire_locations():
     return render_template("fire-maps.html")
 
 
-@app.route("/aus_fire_history")
+@app.route("/aus_fire_map")
 def load_aus_fire_locations_data():
 
-    fire_archives = aus_fire_history.query.all()
+    fire_archives = agg_fire_maps.query.all()
     return jsonify([e.to_dict() for e in fire_archives])
   
 

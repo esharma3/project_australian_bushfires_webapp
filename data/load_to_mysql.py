@@ -528,3 +528,13 @@ df = pd.read_csv("aus_fire_locations/australia_rounded.csv").to_sql(
     dtype = {'year' : sqlalchemy.types.INTEGER(),'month': sqlalchemy.types.INTEGER()})
 
 engine.execute(f"ALTER TABLE {AUS_FIRES} ADD PRIMARY KEY (`index`)")
+
+AUS_FIRES2 = "agg_fire_maps" 
+engine.execute(f"DROP TABLE IF EXISTS {AUS_FIRES2}")
+
+df = pd.read_csv("aus_fire_locations/agg_fire_maps.csv").to_sql(
+    name = AUS_FIRES2,
+    con = engine,
+    dtype = {'year' : sqlalchemy.types.INTEGER(),'count': sqlalchemy.types.INTEGER()})
+
+engine.execute(f"ALTER TABLE {AUS_FIRES2} ADD PRIMARY KEY (`index`)")

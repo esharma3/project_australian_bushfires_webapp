@@ -4,11 +4,10 @@ function buildAUSmap(totalData) {
 	let trace1 = {
 	    lat: totalData.map(e => e.latitude),
         lon: totalData.map(e => e.longitude),
-        hovertemplate: 'Location: (%{lat},%{lon})' + '<br>' +
-        'Brightness: %{text}' + '<br>', 
-	    type: "scattermapbox",
-	   	marker: {color: "red", size: 7}
-	};
+        z: totalData.map(e => e.count),
+        hovertemplate: 'Location: (%{lat},%{lon})' + '<br>' + 'Number of Fires: %{count}',
+	    type: "densitymapbox"
+    };
 
     let plotData = [trace1]
 
@@ -16,23 +15,11 @@ function buildAUSmap(totalData) {
         hovermode:'closest',
         dragmode: "zoom",      
         mapbox: {
-            style: "white-bg",
-            layers: [
-                {
-                    sourcetype: "raster",
-                    source: ["https://basemap.nationalmap.gov/arcgis/rest/services/USGSImageryOnly/MapServer/tile/{z}/{y}/{x}"],
-                    below: "traces"
-                }
-            ],
+            style: 'stamen-terrain',
             center: { lat: -24.2, lon: 135 },
             zoom: 3
         },
-        hoverlabel: {
-            bgcolor: "black",
-            bordercolor: "black",
-            font: {color: 'white'}
-        },
-        margin: { r: 0, t: 0, b: 0, l: 0 }
+        margin: { r: 0, t: 60, b: 0, l: 120 }
     };
 
     Plotly.newPlot("plot", plotData, layout)
@@ -45,7 +32,7 @@ function init() {
 	console.log("hello")
 
     // Contains the JSON version of data
-	d3.json("/aus_fire_history").then((data) => {
+	d3.json("/aus_fire_map").then((data) => {
 
 		console.log("hello again")
         buildAUSmap(data)
