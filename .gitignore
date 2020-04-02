@@ -1,2 +1,6 @@
 .DS_Store
 config.py
+.env
+fd_2017.csv
+fd_2018.csv
+fd_2019.csv
