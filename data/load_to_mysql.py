@@ -4,7 +4,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.exc import ProgrammingError
 import warnings
 import sqlalchemy
-from config import Pass_w
+from config.py import Pass_w
 import numpy as np
 
 # Importing dependencies for scraping
@@ -499,3 +499,4 @@ engine.execute(f"ALTER TABLE {GLOBAL_FIRES_2017} ADD PRIMARY KEY (`index`)")
 ###~~~~~~END             *Austin*               END~~~~~~###
 ###     Table for Global Fire Map (2019 through 2017)    ###
 ############################################################
+
