@@ -7,7 +7,9 @@ const input = d3.select("input");
 	function animalImpactDonut(obj) {
 
 		// Resetting output
-		document.getElementById("donut").innerHTML = "";
+		document.getElementById("donut").innerHTML = "";	
+		document.getElementById("roo-img").innerHTML = "";
+		document.getElementById("roo-text").innerHTML = "";
 
 		let plotData = [{
 			type: "pie",
@@ -39,6 +41,8 @@ function animalImpactMap(obj) {
 
 	// Resetting output
 	document.getElementById("map").innerHTML = "";
+	document.getElementById("roo-img").innerHTML = "";
+	document.getElementById("roo-text").innerHTML = "";
 
 	d3.select("#map")
 		.append("iframe")
@@ -55,6 +59,8 @@ function animalImpactTable(obj) {
 	
 	// Resetting output
 	document.getElementById("table").innerHTML = "";
+	document.getElementById("roo-img").innerHTML = "";
+	document.getElementById("roo-text").innerHTML = "";
 
 	// Getting my variables ready
 	const table = d3.select("#table")
@@ -83,6 +89,28 @@ function animalImpactTable(obj) {
 	row5.append("td").text("Protected Status:")
 	row5.append("td").text(obj['protected_status'])
 
+	let row6 = tbody.append("tr")
+	row6.append("td").text("Taxonomy ID:")
+	row6.append("td").text(obj['taxon_id'])
+
+}
+
+function concernedRoo() {
+
+	// Resetting output
+	document.getElementById("donut").innerHTML = "";
+	document.getElementById("map").innerHTML = "";
+	document.getElementById("table").innerHTML = "";
+	document.getElementById("roo-img").innerHTML = "";
+	document.getElementById("roo-text").innerHTML = "";
+
+	d3.select('#roo-img')
+	  .append("img")
+	  .attr("src", 'https://pngimg.com/uploads/kangaroo/kangaroo_PNG4.png')
+	  .attr("width", 350, "height", "auto")
+
+	d3.select('#roo-text')
+	  .append("h3").text("Are you lost, buddy? try another search!")
 }
 
 // Handler function
@@ -97,13 +125,19 @@ function handleSearchButtonClick(data) {
 	let filteredData = data
 	let index = null
 	
-	if (userInput) {
+	// Checks for user input to match common name
+	if (isNaN(userInput)) {
 		index = filteredData.map(e => e.common_name.toLowerCase()).indexOf(userInput.toLowerCase());
 		// Testing index
+		console.log(index) 
+		if (index === -1) {
+			index = filteredData.map(e => e.scientific_name.toLowerCase()).indexOf(userInput.toLowerCase());
+		} 
+	// checks for user input to match taxonomy id
+	} else {
+		index = filteredData.map(e => String(e.taxon_id)).indexOf(userInput);
+		// Testing index
 		console.log(index)
-	}
-	else {
-		filteredData = null 
 	}
 
 	// This should be an object of that index
@@ -112,9 +146,13 @@ function handleSearchButtonClick(data) {
 	// Testing filtered data
 	console.log(filteredData)
 
-	animalImpactDonut(filteredData)
-	animalImpactMap(filteredData)
-	animalImpactTable(filteredData)
+	if (filteredData != null) {
+		animalImpactDonut(filteredData)
+		animalImpactMap(filteredData)
+		animalImpactTable(filteredData)
+	} else {
+		concernedRoo()
+	}
 }
 
 // Init function to load promise and pass the data to handleSearchButtonClick
