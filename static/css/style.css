@@ -209,3 +209,15 @@ footer {
   padding: 10px;
   margin-bottom: 5px;
 }
+
+
+/*#####################################################################*/
+                      /*Styling for Impact Page                       #*/
+/*#####################################################################*/
+
+#roo {
+  position: relative;
+  width: 500px;
+  height: auto;
+  vertical-align: middle;
+}
