@@ -165,7 +165,6 @@ footer {
 }
 
 #climate_header {
-  height: 130px;
   background: rgb(61, 61, 92);
   text-align: center;
   margin-bottom: 10px;
@@ -187,8 +186,7 @@ footer {
 
 .btn {
   background-color: black;
-  width: 16%;
-  height: 50px;
+  width: 270px;
   color: white;
   margin: 4px;
 }
