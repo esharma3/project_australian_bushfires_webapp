@@ -1,43 +1,24 @@
 function buildNswTotalPlot(totalData) {
 
+	console.log(totalData)
+
 	const values = totalData.map(e => e.nsw_total_fires)
-	const sortedValues = values.sort((x, y) =>
-		y - x)
+	const sortedValues = values.sort((x, y) => y - x)
 	let max = sortedValues[0]
-	
-	let barColor = "black"
-
-	function setBarColor(values) {
-		for (i in values) {
-			if (values[i] === max) {
-				barColor = "red"
-			} else {
-				barColor = "black"
-			}
-
-			return barColor
-		}
-	}
-
-
-	let xValue = totalData.map(e => e.nsw_fire_year)
-	let yValue = totalData.map(e => e.nsw_total_fires)
 
 	let trace1 = {
 
-		x: xValue,
-		y: yValue,
+		x: totalData.map(e => e.nsw_fire_year),
+		y: totalData.map(e => e.nsw_total_fires),
 		width: 0.5,
 		name: "2002/2003",
-		// type: 'bar',
-		// mode: 'markers', 
-		type: 'bar',
-		marker: {
-			// color: setBarColor(yValue)
-			color: "grey",
-			// opacity: 0.4
-		}
+		type: "bar",
+		marker: {}
 	};
+
+	trace1.marker.color = trace1.y.map(function (v) {
+		return v === max ? "orange" : "grey"
+	});
 
 	let plotData = [trace1]
 
@@ -48,27 +29,31 @@ function buildNswTotalPlot(totalData) {
 		},
 		yaxis: {
 			title: "Number of Fires"
-		},
-		//  	height: 350,
-		// width: 400,
+		}
 	}
 
 	Plotly.newPlot("first", plotData, layout)
-}
+};
 
 
 function buildQueenslandTotalPlot(totalData) {
+
+	const values = totalData.map(e => e.queensland_total_fires)
+	const sortedValues = values.sort((x, y) => y - x)
+	let max = sortedValues[0]
 
 	let trace1 = {
 		x: totalData.map(e => e.queensland_fire_year),
 		y: totalData.map(e => e.queensland_total_fires),
 		width: 0.5,
 		name: "2002/2003",
-		type: 'bar',
-		marker: {
-			color: "grey"
-		}
+		type: "bar",
+		marker: {}
 	};
+
+	trace1.marker.color = trace1.y.map(function (v) {
+		return v === max ? "orange" : "grey"
+	});
 
 	let plotData = [trace1]
 
@@ -79,24 +64,31 @@ function buildQueenslandTotalPlot(totalData) {
 		},
 		yaxis: {
 			title: "Number of Fires"
-		}
-	}
+		},
+	};
 
 	Plotly.newPlot("second", plotData, layout)
-}
+};
+
 
 function buildVictoriaTotalPlot(totalData) {
+
+	const values = totalData.map(e => e.victoria_total_fires)
+	const sortedValues = values.sort((x, y) => y - x)
+	let max = sortedValues[0]
 
 	let trace1 = {
 		x: totalData.map(e => e.victoria_fire_year),
 		y: totalData.map(e => e.victoria_total_fires),
 		width: 0.5,
 		name: "2002/2003",
-		type: 'bar',
-		marker: {
-			color: "grey"
-		}
+		type: "bar",
+		marker: {}
 	};
+
+	trace1.marker.color = trace1.y.map(function (v) {
+		return v === max ? "orange" : "grey"
+	});
 
 	let plotData = [trace1]
 
@@ -108,18 +100,18 @@ function buildVictoriaTotalPlot(totalData) {
 		yaxis: {
 			title: "Number of Fires"
 		}
-	}
+	};
 
 	Plotly.newPlot("third", plotData, layout)
-}
+};
+
 
 function buildStateStatisticsPlot(totalData) {
 
 	let trace1 = {
 		values: [totalData[17]["nsw_total_fires"], totalData[35]["queensland_total_fires"], totalData[53]["victoria_total_fires"]],
 		labels: ["New South Wales", "Queensland", "Victoria"],
-		// textinfo: "label+percent",
-		// hole: .2,
+		textinfo: "label+percent+value",
 		type: "pie",
 		marker: {
 			colors: [
@@ -133,12 +125,12 @@ function buildStateStatisticsPlot(totalData) {
 	let plotData = [trace1]
 
 	let layout = {
-		//  	height: 470,
-		// width: 470,
-	}
+		hovermode: false,
+		showlegend: false
+	};
 
 	Plotly.newPlot("fourth", plotData, layout)
-}
+};
 
 
 function buildTotalFirePlot(totalData) {
@@ -155,17 +147,17 @@ function buildTotalFirePlot(totalData) {
 	let nswTotal = 0
 	for (let i = 0; i < nswListLength; i++) {
 		nswTotal += nswDataList[i]["nsw_total_fires"]
-	}
+	};
 
 	let queenslandTotal = 0
 	for (let i = 0; i < queenslandListLength; i++) {
 		queenslandTotal += queenslandDataList[i]["queensland_total_fires"]
-	}
+	};
 
 	let victoriaTotal = 0
 	for (let i = 0; i < victoriaLength; i++) {
 		victoriaTotal += victoriaDataList[i]["victoria_total_fires"]
-	}
+	};
 
 	let trace1 = {
 		values: [nswTotal],
@@ -219,16 +211,16 @@ function buildTotalFirePlot(totalData) {
 
 	let layout = {
 		showlegend: false,
-		//  	height: 700,
-		// width: 700,
+		hovermode: false,
 		grid: {
 			rows: 1,
 			columns: 3
 		}
-	}
+	};
 
 	Plotly.newPlot("fifth", plotData, layout)
-}
+};
+
 
 function buildNswPlot(data) {
 
@@ -236,109 +228,109 @@ function buildNswPlot(data) {
 		x: data.map(e => e.nsw_DOY),
 		y: data.map(e => e.nsw_2002_2003),
 		name: "2002/2003",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace2 = {
 		x: data.map(e => e.nsw_DOY),
 		y: data.map(e => e.nsw_2003_2004),
 		name: "2003/2004",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace3 = {
 		x: data.map(e => e.nsw_DOY),
 		y: data.map(e => e.nsw_2004_2005),
 		name: "2004/2005",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace4 = {
 		x: data.map(e => e.nsw_DOY),
 		y: data.map(e => e.nsw_2005_2006),
 		name: "2005/2006",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace5 = {
 		x: data.map(e => e.nsw_DOY),
 		y: data.map(e => e.nsw_2006_2007),
 		name: "2006/2007",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace6 = {
 		x: data.map(e => e.nsw_DOY),
 		y: data.map(e => e.nsw_2007_2008),
 		name: "2007/2008",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace7 = {
 		x: data.map(e => e.nsw_DOY),
 		y: data.map(e => e.nsw_2008_2009),
 		name: "2008/2009",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace8 = {
 		x: data.map(e => e.nsw_DOY),
 		y: data.map(e => e.nsw_2009_2010),
 		name: "2009/2010",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace9 = {
 		x: data.map(e => e.nsw_DOY),
 		y: data.map(e => e.nsw_2010_2011),
 		name: "2010/2011",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace10 = {
 		x: data.map(e => e.nsw_DOY),
 		y: data.map(e => e.nsw_2011_2012),
 		name: "2011/2012",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace11 = {
 		x: data.map(e => e.nsw_DOY),
 		y: data.map(e => e.nsw_2012_2013),
 		name: "2012/2013",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace12 = {
 		x: data.map(e => e.nsw_DOY),
 		y: data.map(e => e.nsw_2013_2014),
 		name: "2013/2014",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace13 = {
 		x: data.map(e => e.nsw_DOY),
 		y: data.map(e => e.nsw_2014_2015),
 		name: "2014/2015",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace14 = {
 		x: data.map(e => e.nsw_DOY),
 		y: data.map(e => e.nsw_2015_2016),
 		name: "2015/2016",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace15 = {
 		x: data.map(e => e.nsw_DOY),
 		y: data.map(e => e.nsw_2016_2017),
 		name: "2016/2017",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace16 = {
 		x: data.map(e => e.nsw_DOY),
 		y: data.map(e => e.nsw_2017_2018),
 		name: "2017/2018",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace17 = {
 		x: data.map(e => e.nsw_DOY),
 		y: data.map(e => e.nsw_2018_2019),
 		name: "2018/2019",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace18 = {
 		x: data.map(e => e.nsw_DOY),
 		y: data.map(e => e.nsw_2019_2020),
 		name: "2019/2020",
-		type: 'scatter'
+		type: "scatter"
 	};
 
 	let plotData = [trace1, trace2, trace3, trace4, trace5, trace6, trace7, trace8, trace9, trace10, trace11, trace12, trace13, trace14, trace15, trace16, trace17, trace18]
@@ -356,11 +348,10 @@ function buildNswPlot(data) {
 		yaxis: {
 			title: "Number of Fires"
 		}
-	}
+	};
 
 	Plotly.newPlot("seventh", plotData, layout)
-
-}
+};
 
 
 function buildQueenslandPlot(data) {
@@ -371,55 +362,55 @@ function buildQueenslandPlot(data) {
 		x: data.map(e => e.queensland_DOY),
 		y: data.map(e => e.queensland_2002_2003),
 		name: "2002/2003",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace2 = {
 		x: data.map(e => e.queensland_DOY),
 		y: data.map(e => e.queensland_2003_2004),
 		name: "2003/2004",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace3 = {
 		x: data.map(e => e.queensland_DOY),
 		y: data.map(e => e.queensland_2004_2005),
 		name: "2004/2005",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace4 = {
 		x: data.map(e => e.queensland_DOY),
 		y: data.map(e => e.queensland_2005_2006),
 		name: "2005/2006",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace5 = {
 		x: data.map(e => e.queensland_DOY),
 		y: data.map(e => e.queensland_2006_2007),
 		name: "2006/2007",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace6 = {
 		x: data.map(e => e.queensland_DOY),
 		y: data.map(e => e.queensland_2007_2008),
 		name: "2007/2008",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace7 = {
 		x: data.map(e => e.queensland_DOY),
 		y: data.map(e => e.queensland_2008_2009),
 		name: "2008/2009",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace8 = {
 		x: data.map(e => e.queensland_DOY),
 		y: data.map(e => e.queensland_2009_2010),
 		name: "2009/2010",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace9 = {
 		x: data.map(e => e.queensland_DOY),
 		y: data.map(e => e.queensland_2010_2011),
 		name: "2010/2011",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace10 = {
 		x: data.map(e => e.queensland_DOY),
@@ -431,49 +422,49 @@ function buildQueenslandPlot(data) {
 		x: data.map(e => e.queensland_DOY),
 		y: data.map(e => e.queensland_2012_2013),
 		name: "2012/2013",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace12 = {
 		x: data.map(e => e.queensland_DOY),
 		y: data.map(e => e.queensland_2013_2014),
 		name: "2013/2014",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace13 = {
 		x: data.map(e => e.queensland_DOY),
 		y: data.map(e => e.queensland_2014_2015),
 		name: "2014/2015",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace14 = {
 		x: data.map(e => e.queensland_DOY),
 		y: data.map(e => e.queensland_2015_2016),
 		name: "2015/2016",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace15 = {
 		x: data.map(e => e.queensland_DOY),
 		y: data.map(e => e.queensland_2016_2017),
 		name: "2016/2017",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace16 = {
 		x: data.map(e => e.queensland_DOY),
 		y: data.map(e => e.queensland_2017_2018),
 		name: "2017/2018",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace17 = {
 		x: data.map(e => e.queensland_DOY),
 		y: data.map(e => e.queensland_2018_2019),
 		name: "2018/2019",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace18 = {
 		x: data.map(e => e.queensland_DOY),
 		y: data.map(e => e.queensland_2019_2020),
 		name: "2019/2020",
-		type: 'scatter'
+		type: "scatter"
 	};
 
 
@@ -492,11 +483,10 @@ function buildQueenslandPlot(data) {
 		yaxis: {
 			title: "Number of Fires"
 		},
-	}
+	};
 
 	Plotly.newPlot("eighth", plotData, layout)
-
-}
+};
 
 
 function buildVictoriaPlot(data) {
@@ -505,109 +495,109 @@ function buildVictoriaPlot(data) {
 		x: data.map(e => e.victoria_DOY),
 		y: data.map(e => e.victoria_2002_2003),
 		name: "2002/2003",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace2 = {
 		x: data.map(e => e.victoria_DOY),
 		y: data.map(e => e.victoria_2003_2004),
 		name: "2003/2004",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace3 = {
 		x: data.map(e => e.victoria_DOY),
 		y: data.map(e => e.victoria_2004_2005),
 		name: "2004/2005",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace4 = {
 		x: data.map(e => e.victoria_DOY),
 		y: data.map(e => e.victoria_2005_2006),
 		name: "2005/2006",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace5 = {
 		x: data.map(e => e.victoria_DOY),
 		y: data.map(e => e.victoria_2006_2007),
 		name: "2006/2007",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace6 = {
 		x: data.map(e => e.victoria_DOY),
 		y: data.map(e => e.victoria_2007_2008),
 		name: "2007/2008",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace7 = {
 		x: data.map(e => e.victoria_DOY),
 		y: data.map(e => e.victoria_2008_2009),
 		name: "2008/2009",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace8 = {
 		x: data.map(e => e.victoria_DOY),
 		y: data.map(e => e.victoria_2009_2010),
 		name: "2009/2010",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace9 = {
 		x: data.map(e => e.victoria_DOY),
 		y: data.map(e => e.victoria_2010_2011),
 		name: "2010/2011",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace10 = {
 		x: data.map(e => e.victoria_DOY),
 		y: data.map(e => e.victoria_2011_2012),
 		name: "2011/2012",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace11 = {
 		x: data.map(e => e.victoria_DOY),
 		y: data.map(e => e.victoria_2012_2013),
 		name: "2012/2013",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace12 = {
 		x: data.map(e => e.victoria_DOY),
 		y: data.map(e => e.victoria_2013_2014),
 		name: "2013/2014",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace13 = {
 		x: data.map(e => e.victoria_DOY),
 		y: data.map(e => e.victoria_2014_2015),
 		name: "2014/2015",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace14 = {
 		x: data.map(e => e.victoria_DOY),
 		y: data.map(e => e.victoria_2015_2016),
 		name: "2015/2016",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace15 = {
 		x: data.map(e => e.victoria_DOY),
 		y: data.map(e => e.victoria_2016_2017),
 		name: "2016/2017",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace16 = {
 		x: data.map(e => e.victoria_DOY),
 		y: data.map(e => e.victoria_2017_2018),
 		name: "2017/2018",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace17 = {
 		x: data.map(e => e.victoria_DOY),
 		y: data.map(e => e.victoria_2018_2019),
 		name: "2018/2019",
-		type: 'scatter'
+		type: "scatter"
 	};
 	let trace18 = {
 		x: data.map(e => e.victoria_DOY),
 		y: data.map(e => e.victoria_2019_2020),
 		name: "2019/2020",
-		type: 'scatter'
+		type: "scatter"
 	};
 
 
@@ -626,12 +616,12 @@ function buildVictoriaPlot(data) {
 		yaxis: {
 			title: "Number of Fires"
 		}
-	}
+	};
 
 	Plotly.newPlot("nineth", plotData, layout)
-}
+};
 
-
+// main - function that gets initiated when the page is loaded
 function init() {
 
 	d3.json("/annual_total_fire_counts").then((totalData) => {
@@ -642,13 +632,14 @@ function init() {
 		buildTotalFirePlot(totalData)
 	})
 
-	d3.json("/fire_count").then((data) => {
+	d3.json("/fire_count_data").then((data) => {
 
 		buildNswPlot(data)
 		buildQueenslandPlot(data)
 		buildVictoriaPlot(data)
 	})
 
-}
+};
 
+// calling the init function when page is loaded
 init();

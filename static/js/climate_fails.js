@@ -38,7 +38,7 @@ function buildComparisonPlot(combinedData) {
 
 			x: combinedData.map(e => e.max_temp_anomaly_year).slice(92, 110),
 			y: combinedData.map(e => e.max_temp_anomaly_celcius).slice(92, 110),
-			name: "Annual Max Temp Anomaly in Celsius",
+			name: "Annual Max Temp Anomaly in °Celsius",
 			type: 'scatter',
 			marker: {
 				color: "black"
@@ -87,6 +87,7 @@ function buildComparisonPlot(combinedData) {
 	})
 }
 
+
 function buildPollutantPlot(combinedData) {
 
 	d3.json("/annual_total_fire_counts").then((totalData) => {
@@ -122,7 +123,7 @@ function buildPollutantPlot(combinedData) {
 				color: "brown"
 			}
 		}
-		
+
 		let trace4 = {
 
 			x: combinedData.map(e => e.air_pollutant_year).slice(939, 956),
@@ -216,7 +217,7 @@ function buildMaxTempPlot(combinedData) {
 	let plotData = [trace1]
 
 	let layout = {
-		title: "Australia Maximum Temperature Anomaly in Celsius (1910 - 2019)",
+		title: "Australia Maximum Temperature Anomaly in °Celsius (1910 - 2019)",
 		margin: {
 			t: 30,
 			b: 50,
@@ -226,7 +227,7 @@ function buildMaxTempPlot(combinedData) {
 			type: 'category',
 		},
 		yaxis: {
-			title: "Temperature Anomaly (Celsius)"
+			title: "Temperature Anomaly (°Celsius)"
 		},
 		height: 300,
 		width: 1600,
@@ -235,14 +236,15 @@ function buildMaxTempPlot(combinedData) {
 	Plotly.newPlot("climate_first", plotData, layout)
 
 	para = "Australia’s climate is notorious for its volatility, but the summer of 2019 showed the highest change in the maximum temperature anomaly " +
-		"as seen in last several years. The year 2019 shows the highest increase of 2.09 degree Celsius in Australia’s overall " +
+		"as seen in last several years. The year 2019 shows the highest increase of 2.09° Celsius in Australia’s overall " +
 		"Maximum temperature since 1910. Since 2013, there is almost constant increase in maximum temperature anomaly. " +
-		"The above graph also shows the gradual increase in the country’s maximum temperature with first half of the 20th century being a lot cooler than the second " +
+		"The graph above also shows the gradual increase in the country’s maximum temperature with first half of the 20th century being a lot cooler than the second " +
 		"half of the century. The 21st century marks the beginning of significant and persistent increased anomaly in maximum temperature."
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
 }
+
 
 function buildMinTempPlot(combinedData) {
 
@@ -265,7 +267,7 @@ function buildMinTempPlot(combinedData) {
 	let plotData = [trace1]
 
 	let layout = {
-		title: "Australia Minimum Temperature Anomaly in Celsius (1910 - 2019)",
+		title: "Australia Minimum Temperature Anomaly in °Celsius (1910 - 2019)",
 		margin: {
 			t: 30,
 			b: 50,
@@ -275,7 +277,7 @@ function buildMinTempPlot(combinedData) {
 			type: 'category',
 		},
 		yaxis: {
-			title: "Temperature Anomaly (Celsius)"
+			title: "Temperature Anomaly (°Celsius)"
 		},
 		height: 300,
 		width: 1600,
@@ -284,7 +286,7 @@ function buildMinTempPlot(combinedData) {
 	Plotly.newPlot("climate_first", plotData, layout)
 
 	para = "Australia’s climate shows an accelerating anomaly in not just the maximum temperature but the minimum tempearture too. " +
-		"There has been an almost persistent increase in the minimum teperature anomaly since 1980. The year 1998 shows the highest anomaly of 1.26 degree " +
+		"There has been an almost persistent increase in the minimum teperature anomaly since 1980. The year 1998 shows the highest anomaly of 1.26° " +
 		" Celsisus. " +
 		"The above graph also shows the gradual increase in the country’s minimum temperature anomaly with first half of the 20th century being a lot cooler than the second " +
 		"half of the century. The 21st century marks the beginning of significant and persistent increased anomaly in minimum temperature."
@@ -292,6 +294,7 @@ function buildMinTempPlot(combinedData) {
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
 }
+
 
 function buildMeanTempPlot(combinedData) {
 
@@ -314,7 +317,7 @@ function buildMeanTempPlot(combinedData) {
 	let plotData = [trace1]
 
 	let layout = {
-		title: "Australia Mean Temperature Anomaly in Celsius (1910 - 2019)",
+		title: "Australia Mean Temperature Anomaly in °Celsius (1910 - 2019)",
 		margin: {
 			t: 30,
 			b: 50,
@@ -324,14 +327,22 @@ function buildMeanTempPlot(combinedData) {
 			type: 'category',
 		},
 		yaxis: {
-			title: "Temperature Anomaly (Celsius)"
+			title: "Temperature Anomaly (°Celsius)"
 		},
 		height: 300,
 		width: 1600,
 	}
 
 	Plotly.newPlot("climate_first", plotData, layout)
+
+	para = "Australia experienced the hottest year on record in 2019, which had a mean temperature of 1.52° Celsius above the mean calculated for 1961 to 1990. " +
+		"The year that delivered crippling drought, heatwaves, temperature records and devastating bushfires was 0.19°C hotter than 2013, the previous " +
+		"record holder. The second hottest year was 2013, followed by 2005, 2018 and 2017." +
+	
+	d3.select("p").text("")
+	d3.select("p").append("text").text(para)
 }
+
 
 function buildAnnualRainPlot(combinedData) {
 
@@ -378,6 +389,7 @@ function buildAnnualRainPlot(combinedData) {
 	d3.select("p").append("text").text(para)
 }
 
+
 function buildRainAnomalyPlot(combinedData) {
 
 	let xValue = combinedData.map(e => e.annual_rainfall_anomaly_year)
@@ -417,13 +429,14 @@ function buildRainAnomalyPlot(combinedData) {
 
 	Plotly.newPlot("climate_first", plotData, layout)
 
-	para = "Australia had its driest ever year in 2019, with the highest ever drop of -187.47 mm in annual rainfall since 1900." +
-		"The graph shows more negative anomaly than positive in last 120 years indicating that for the country, that faces drought " +
+	para = "Australia had its driest ever year in 2019, with the highest ever drop of 187.47 mm in annual rainfall since 1900. " +
+		"The graph shows more negative anomaly than positive in last 120 years indicating that for the country, that faces drought, " +
 		"there has been more decrease in rainfall than increase."
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
 }
+
 
 function buildSSTPlot(combinedData) {
 
@@ -446,7 +459,7 @@ function buildSSTPlot(combinedData) {
 	let plotData = [trace1]
 
 	let layout = {
-		title: "Australia Sea Surface Temperature Anomaly in Celsius (1900-2019)",
+		title: "Australia Sea Surface Temperature Anomaly in °Celsius (1900-2019)",
 		margin: {
 			t: 30,
 			b: 50,
@@ -456,7 +469,7 @@ function buildSSTPlot(combinedData) {
 			type: 'category',
 		},
 		yaxis: {
-			title: "Temperature Anomaly (Celsius)"
+			title: "Temperature Anomaly (°Celsius)"
 		},
 		height: 300,
 		width: 1600,
@@ -465,12 +478,13 @@ function buildSSTPlot(combinedData) {
 	Plotly.newPlot("climate_first", plotData, layout)
 
 	para = "Australia is facing constant increase in its Sea Surface Temperature since 1995. The year 2016 reported the highest anomaly " +
-		" of 0.78 degree Celsius. From 1900 till 1970, the country had cooler Sea Surface Temperature with persistent negative anomalies but post 1970 " +
+		" of 0.78° Celsius. From 1900 till 1970, the country had cooler Sea Surface Temperature with persistent negative anomalies but post 1970 " +
 		" the country started having high positive anomalies indicating higher Sea Surface Temperatures."
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
 }
+
 
 function buildCO2Plot(combinedData) {
 
@@ -515,6 +529,7 @@ function buildCO2Plot(combinedData) {
 	d3.select("p").append("text").text(para)
 }
 
+
 function buildCH4Plot(combinedData) {
 
 	let trace1 = {
@@ -528,7 +543,6 @@ function buildCH4Plot(combinedData) {
 			color: "black"
 		}
 	};
-
 
 	let plotData = [trace1]
 
@@ -559,6 +573,7 @@ function buildCH4Plot(combinedData) {
 	d3.select("p").append("text").text(para)
 }
 
+
 function buildN2OPlot(combinedData) {
 
 	let trace1 = {
@@ -572,7 +587,6 @@ function buildN2OPlot(combinedData) {
 			color: "blue"
 		}
 	};
-
 
 	let plotData = [trace1]
 
@@ -605,31 +619,36 @@ function buildN2OPlot(combinedData) {
 	d3.select("p").append("text").text(para)
 }
 
+
 function buildOnLoadPlot(combinedData) {
-	
+
 	let trace1 = {
 		x: combinedData.map(e => e.max_temp_decile10_year),
 		y: combinedData.map(e => e.maxtemp_total_land_area_percentage),
 		// text: xValue1,
-		name: "Annual Max Temperature (Celsius) Decile 10",
+		name: "Annual Max Temperature (°Celsius) Decile 10",
 		fill: 'tozeroy',
 		type: 'scatter',
 		// mode: "markers",
-		marker: {color: "red"}
+		marker: {
+			color: "red"
+		}
 	};
 
 	let trace2 = {
-		x: combinedData.map(e => e.annual_rainfall_decile10_year).slice(810,), 
-		y: combinedData.map(e => e.rainfall_total_land_area_percentage).slice(810,),
+		x: combinedData.map(e => e.annual_rainfall_decile10_year).slice(810, ),
+		y: combinedData.map(e => e.rainfall_total_land_area_percentage).slice(810, ),
 		// text: xValue1,
 		name: "Annual Rainfall Decile 10",
 		// fill: 'tozeroy',
 		type: 'bar',
 		// mode: "markers",
-		marker: {color: "blue"}
+		marker: {
+			color: "blue"
+		}
 	};
 
-	
+
 	let plotData = [trace1, trace2]
 
 	let layout = {
@@ -645,22 +664,23 @@ function buildOnLoadPlot(combinedData) {
 			title: "Percentage of Total Land Area (%)",
 		},
 		height: 350,
-		width: 1600,
+		width: 1620,
 	}
 
 	Plotly.newPlot("climate_first", plotData, layout)
 
-	para = "Climate change is influencing the frequency and severity of dangerous bushfire conditions in Australia through influencing temperature, "+
-	"environmental moisture, weather patterns and fuel conditions. There have been significant changes observed in recent decades towards more "+
-	"dangerous bushfire weather conditions for various regions of Australia. "+
-	"Bushfire weather conditions in future years are projected to increase in severity for many regions of Australia due to more "+
-	"extreme heat events, with the rate and magnitude of change increasing with greenhouse gas concentrations (and emissions)."
+	para = "Climate change is influencing the frequency and severity of dangerous bushfire conditions in Australia through influencing temperature, " +
+		"environmental moisture and weather patterns. There have been significant changes observed in recent decades towards more " +
+		"dangerous bushfire weather conditions for various regions of Australia. " +
+		"Bushfire weather conditions in future years are projected to increase in severity for many regions of Australia due to more " +
+		"extreme heat events, with the rate and magnitude of change increasing with greenhouse gas concentrations (and emissions)."
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
 }
 
 
+// main - function that gets initiated when the page is loaded
 function init() {
 
 	d3.json("/climate_data").then((combinedData) => {
@@ -719,4 +739,6 @@ function init() {
 
 }
 
+
+// calling the init function when page is loaded
 init();
