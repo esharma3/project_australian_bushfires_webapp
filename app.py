@@ -5,31 +5,30 @@ from sqlalchemy.orm import Session
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, Float, Date
 import datetime, time
-from config import password
+# from config import password
 import os
-
 
 
 # Create an instance of Flask app
 app = Flask(__name__)
 
 #####################################################################
-#                         Database Connection 			            		#
+#                      Database Connection 			         		#
 #####################################################################
 
 # app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DB_CONN")
 # db = SQLAlchemy(app)
 
 USER = "root"
-PASSWORD = password
+PASSWORD = 'password'
 HOST = "127.0.0.1"
 PORT = "3306"
 DATABASE = "bushfires_db"
 
-app.config["SQLALCHEMY_DATABASE_URI"] = f"mysql+pymysql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
+app.config[
+    "SQLALCHEMY_DATABASE_URI"
+] = f"mysql+pymysql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
 db = SQLAlchemy(app)
-
-
 
 
 #####################################################################
@@ -48,7 +47,7 @@ class DictMixIn:
 
 
 #####################################################################
-#                 Classes for Fire Count Tables  		       	      	#
+#                 Classes for Fire Count Tables  		           	#
 #####################################################################
 
 
@@ -232,6 +231,7 @@ class aus_fire_history(db.Model, DictMixIn):
     month = db.Column(db.Integer())
     year = db.Column(db.Integer())
 
+
 class agg_fire_maps(db.Model, DictMixIn):
     __tablename__ = "agg_fire_maps"
 
@@ -269,7 +269,8 @@ class ProtectedSpecies(db.Model, DictMixIn):
 #                 Economic/Fire Impact Table                        #
 #####################################################################
 
-class IMPACT_TABLENAME2(db.Model, DictMixIn):
+
+class Impact_Historic_Fires(db.Model, DictMixIn):   
     __tablename__ = "impact_historic_fires"
 
     number = db.Column(db.Integer(), primary_key=True)
@@ -281,7 +282,8 @@ class IMPACT_TABLENAME2(db.Model, DictMixIn):
     human_fatalities = db.Column(db.Integer())
     homes_destroyed = db.Column(db.Integer())
 
-class IMPACT_TABLENAME3(db.Model, DictMixIn):
+
+class Impact_2019_Fires(db.Model, DictMixIn):
     __tablename__ = "impact_2019_2020_fires"
 
     number = db.Column(db.Integer(), primary_key=True)
@@ -292,7 +294,7 @@ class IMPACT_TABLENAME3(db.Model, DictMixIn):
     hectacres_burned = db.Column(db.BigInteger())
     acres_burned = db.Column(db.BigInteger())
 
-class IMPACT_TABLENAME4(db.Model, DictMixIn):
+class Impact_Economic(db.Model, DictMixIn):
     __tablename__ = "impact_economic"
 
     year = db.Column(db.Integer(), primary_key=True)
@@ -301,7 +303,8 @@ class IMPACT_TABLENAME4(db.Model, DictMixIn):
     domestic_credit_financial_sector_per_gdp = db.Column(db.Integer())
     domestic_credit_private_sector_banks_per_gdp = db.Column(db.Integer())
 
-class IMPACT_TABLENAME5(db.Model, DictMixIn):
+
+class Impact_Economic_cpi(db.Model, DictMixIn):
     __tablename__ = "impact_economic_cip"
 
     number = db.Column(db.Integer(), primary_key=True)
@@ -314,7 +317,6 @@ class IMPACT_TABLENAME5(db.Model, DictMixIn):
     tasmania_cpi = db.Column(db.Integer())
     nothern_territory_cpi = db.Column(db.Integer())
     australian_capital_territory_cpi = db.Column(db.Integer())
-
 
 
 # TEAM: KEEP ADDING YOUR CLASSES HERE:
@@ -332,14 +334,16 @@ db.session.commit()
 #                               Home Page				   	              	#
 #####################################################################
 
+
 @app.route("/")
 def index():
     return render_template("index.html")
 
 
 #####################################################################
-#                     Australia Fire Locations  		                #
+#                    Australia Fire Locations  	   	                #
 #####################################################################
+
 
 @app.route("/fire-maps")
 def load_aus_fire_locations():
@@ -367,11 +371,12 @@ def samples(year):
     else:
         fires_2020 = agg_fire_maps.query.filter_by(year = '2020')
         return jsonify([e.to_dict() for e in fires_2020])
-  
+
 
 #####################################################################
-#                    Fire Counts Page and Route 	              	#
+#                     Fire Counts Page and Route 	                	#
 #####################################################################
+
 
 @app.route("/fire-count")
 def fire_count_page():
@@ -403,6 +408,7 @@ def fire_count():
 #      Ex: http://127.0.0.1:5000/annual_total_fire_counts?state=nsw&year=2002/2003     #
 ########################################################################################
 
+
 @app.route("/annual_total_fire_counts")
 def annual_total_fire_counts():
 
@@ -413,7 +419,6 @@ def annual_total_fire_counts():
     combined_total_fire_list = []
     data = []
 
-
     try:
         nsw_results = NSW_Annual_Total_Fire_Counts.query.all()
         for result in nsw_results:
@@ -453,49 +458,6 @@ def annual_total_fire_counts():
                         data.append(row.to_dict())
             else:
                 return ""
-
-
-
-    try:
-        nsw_results = NSW_Annual_Total_Fire_Counts.query.all()
-        for result in nsw_results:
-            combined_total_fire_list.append(result.to_dict())
-
-        queensland_results = Queensland_Annual_Total_Fire_Counts.query.all()
-        for result in queensland_results:
-            combined_total_fire_list.append(result.to_dict())
-
-        victoria_results = Victoria_Annual_Total_Fire_Counts.query.all()
-        for result in victoria_results:
-            combined_total_fire_list.append(result.to_dict())
-
-        # if no search parameter is entered then return entire fire-count dataset
-        if (not request_state) and (not request_year):
-            return jsonify(combined_total_fire_list)
-
-        # if search parameter (endpoint) is entered then use the state and year filters to return the results
-        if request_state and request_year:
-
-            if (
-                request_state.lower() == "nsw"
-                or request_state.lower() == "new south wales"
-            ):
-                for row in nsw_results:
-                    if request_year == row.to_dict()["nsw_fire_year"]:
-                        data.append(row.to_dict())
-
-            elif request_state.lower() == "queensland":
-                for row in queensland_results:
-                    if request_year == row.to_dict()["queensland_fire_year"]:
-                        data.append(row.to_dict())
-
-            elif request_state.lower() == "victoria":
-                for row in victoria_results:
-                    if request_year == row.to_dict()["victoria_fire_year"]:
-                        data.append(row.to_dict())
-            else:
-                return ""
-
 
             return jsonify(data)
 
@@ -539,35 +501,43 @@ def annual_total_fire_counts():
 #                          Impact Route                             #
 #####################################################################
 
+
 @app.route("/impact")
 def impact():
     data = ProtectedSpecies.query.all()
     impact_list = [e.to_dict() for e in data]
     return render_template("impact.html", data=impact_list)
+
+
 @app.route("/impact-data")
 def impact_data():
     data = ProtectedSpecies.query.all()
     impact_list = [e.to_dict() for e in data]
     return jsonify(impact_list)
+
+
 @app.route("/econ-impact")
 def econ_impact():
     human_econ_impact = []
-    impact_historic_fires = IMPACT_TABLENAME2.query.all()
+    impact_historic_fires = Impact_Historic_Fires.query.all()
     for result in impact_historic_fires:
         human_econ_impact.append(result.to_dict())
-    impact_2019_fires = IMPACT_TABLENAME3.query.all()
+    impact_2019_fires = Impact_2019_Fires.query.all()
     for result in impact_2019_fires:
         human_econ_impact.append(result.to_dict())
-    impact_economic = IMPACT_TABLENAME4.query.all()
+    impact_economic = Impact_Economic.query.all()
     for result in impact_economic:
         human_econ_impact.append(result.to_dict())
-    impact_consumer = IMPACT_TABLENAME5.query.all()
+    impact_consumer = Impact_Economic_cpi.query.all()
     for result in impact_economic:
         human_econ_impact.append(result.to_dict())
     return jsonify(human_econ_impact)
+
+
 #####################################################################
-#                      Climate Fails Page 		                      #
+#                      Climate Fails Page 		                    #
 #####################################################################
+
 
 @app.route("/climate-fails")
 def climate_fails():
@@ -578,6 +548,7 @@ def climate_fails():
 #            API search string for climate and greenhouse gases/air data               #
 #             Ex: http://127.0.0.1:5000/climate_data?category=max-temp                 #
 ########################################################################################
+
 
 @app.route("/climate_data")
 def climate_data():
@@ -686,10 +657,9 @@ def climate_data():
         return jsonify({"status": "failure", "error": str(e)})
 
 
-
 #####################################################################
-#                                 Main		     			            		#
+#                                 Main		     			        #
 #####################################################################
 
 if __name__ == "__main__":
-    app.run(debug = True)
+    app.run(debug=True)
