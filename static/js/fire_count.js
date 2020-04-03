@@ -29,10 +29,12 @@ function buildNswTotalPlot(totalData) {
 		},
 		yaxis: {
 			title: "Number of Fires"
-		}
+		},
+		autosize: true
 	}
 
 	Plotly.newPlot("first", plotData, layout)
+
 };
 
 
@@ -65,9 +67,11 @@ function buildQueenslandTotalPlot(totalData) {
 		yaxis: {
 			title: "Number of Fires"
 		},
+		autosize: true
 	};
 
 	Plotly.newPlot("second", plotData, layout)
+
 };
 
 
@@ -99,10 +103,12 @@ function buildVictoriaTotalPlot(totalData) {
 		},
 		yaxis: {
 			title: "Number of Fires"
-		}
+		},
+		autosize: true
 	};
 
 	Plotly.newPlot("third", plotData, layout)
+
 };
 
 
@@ -126,10 +132,12 @@ function buildStateStatisticsPlot(totalData) {
 
 	let layout = {
 		hovermode: false,
-		showlegend: false
+		showlegend: false,
+		autosize: true
 	};
 
 	Plotly.newPlot("fourth", plotData, layout)
+
 };
 
 
@@ -215,10 +223,12 @@ function buildTotalFirePlot(totalData) {
 		grid: {
 			rows: 1,
 			columns: 3
-		}
+		},
+		autosize: true
 	};
 
 	Plotly.newPlot("fifth", plotData, layout)
+
 };
 
 
@@ -347,10 +357,12 @@ function buildNswPlot(data) {
 		},
 		yaxis: {
 			title: "Number of Fires"
-		}
+		},
+		autosize: true
 	};
 
 	Plotly.newPlot("seventh", plotData, layout)
+
 };
 
 
@@ -483,9 +495,11 @@ function buildQueenslandPlot(data) {
 		yaxis: {
 			title: "Number of Fires"
 		},
+		autosize: true
 	};
 
 	Plotly.newPlot("eighth", plotData, layout)
+
 };
 
 
@@ -615,10 +629,12 @@ function buildVictoriaPlot(data) {
 		},
 		yaxis: {
 			title: "Number of Fires"
-		}
+		},
+		autosize: true
 	};
 
 	Plotly.newPlot("nineth", plotData, layout)
+
 };
 
 // main - function that gets initiated when the page is loaded
@@ -638,6 +654,32 @@ function init() {
 		buildQueenslandPlot(data)
 		buildVictoriaPlot(data)
 	})
+
+	// update the layout to resize when the window is resized
+	window.addEventListener('resize', function() { 
+		Plotly.Plots.resize("first"); 
+	});
+	window.addEventListener('resize', function() { 
+		Plotly.Plots.resize("second"); 
+	});
+	window.addEventListener('resize', function() { 
+		Plotly.Plots.resize("third"); 
+	});
+	window.addEventListener('resize', function() { 
+		Plotly.Plots.resize("fourth"); 
+	});
+	window.addEventListener('resize', function() { 
+		Plotly.Plots.resize("fifth"); 
+	});
+	window.addEventListener('resize', function() { 
+		Plotly.Plots.resize("seventh"); 
+	});
+	window.addEventListener('resize', function() { 
+		Plotly.Plots.resize("eighth"); 
+	});
+	window.addEventListener('resize', function() { 
+		Plotly.Plots.resize("nineth"); 
+	});
 
 };
 
