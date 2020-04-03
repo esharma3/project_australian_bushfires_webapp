@@ -104,28 +104,18 @@ footer {
   padding: 60px;
 }
 
-#fire_count .col-md-4,
-#fire_count .col-md-5,
-#fire_count .col-md-7,
- {
-  height: 100%;
-}
-
 #first_row {
   text-align: center;
-  height: 100%;
 }
 
 #second_row {
   align-content: center;
-  height: 100%;
   padding-top: 30px;
   text-align: center;
 }
 
 #third_row {
   text-align: center;
-  height: 100%;
   align-items: center;
   padding-top: 30px;
 }
@@ -135,7 +125,6 @@ footer {
 }
 
 #fire_count_header {
-  height: 100px;
   background: rgb(61, 61, 92);
   text-align: center;
   margin-bottom: 20px;
