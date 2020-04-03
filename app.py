@@ -270,7 +270,11 @@ class ProtectedSpecies(db.Model, DictMixIn):
 #####################################################################
 
 
+<<<<<<< HEAD
 class Impact_Historic_Fires(db.Model, DictMixIn):   
+=======
+class IMPACT_TABLENAME2(db.Model, DictMixIn):
+>>>>>>> e4ca6f2d3c4a081f7ab371e46fed05ff18447b42
     __tablename__ = "impact_historic_fires"
 
     number = db.Column(db.Integer(), primary_key=True)
@@ -282,7 +286,12 @@ class Impact_Historic_Fires(db.Model, DictMixIn):
     human_fatalities = db.Column(db.Integer())
     homes_destroyed = db.Column(db.Integer())
 
+<<<<<<< HEAD
 class Impact_2019_Fires(db.Model, DictMixIn):
+=======
+
+class IMPACT_TABLENAME3(db.Model, DictMixIn):
+>>>>>>> e4ca6f2d3c4a081f7ab371e46fed05ff18447b42
     __tablename__ = "impact_2019_2020_fires"
 
     number = db.Column(db.Integer(), primary_key=True)
@@ -293,7 +302,12 @@ class Impact_2019_Fires(db.Model, DictMixIn):
     hectacres_burned = db.Column(db.BigInteger())
     acres_burned = db.Column(db.BigInteger())
 
+<<<<<<< HEAD
 class Impact_Economic(db.Model, DictMixIn):
+=======
+
+class IMPACT_TABLENAME4(db.Model, DictMixIn):
+>>>>>>> e4ca6f2d3c4a081f7ab371e46fed05ff18447b42
     __tablename__ = "impact_economic"
 
     year = db.Column(db.Integer(), primary_key=True)
@@ -302,7 +316,12 @@ class Impact_Economic(db.Model, DictMixIn):
     domestic_credit_financial_sector_per_gdp = db.Column(db.Integer())
     domestic_credit_private_sector_banks_per_gdp = db.Column(db.Integer())
 
+<<<<<<< HEAD
 class Impact_Economic_cpi(db.Model, DictMixIn):
+=======
+
+class IMPACT_TABLENAME5(db.Model, DictMixIn):
+>>>>>>> e4ca6f2d3c4a081f7ab371e46fed05ff18447b42
     __tablename__ = "impact_economic_cip"
 
     number = db.Column(db.Integer(), primary_key=True)

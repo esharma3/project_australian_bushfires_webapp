@@ -12,7 +12,7 @@ function buildComparisonPlot(combinedData) {
 			marker: {
 				color: "red"
 			}
-		}
+		};
 
 		let trace2 = {
 			x: xValue,
@@ -22,7 +22,7 @@ function buildComparisonPlot(combinedData) {
 			marker: {
 				color: "orange"
 			}
-		}
+		};
 
 		let trace3 = {
 			x: xValue,
@@ -32,13 +32,13 @@ function buildComparisonPlot(combinedData) {
 			marker: {
 				color: "brown"
 			}
-		}
+		};
 
 		let trace4 = {
 
 			x: combinedData.map(e => e.max_temp_anomaly_year).slice(92, 110),
 			y: combinedData.map(e => e.max_temp_anomaly_celcius).slice(92, 110),
-			name: "Annual Max Temp Anomaly in Celsius",
+			name: "Annual Max Temp Anomaly in °Celsius",
 			type: 'scatter',
 			marker: {
 				color: "black"
@@ -58,20 +58,15 @@ function buildComparisonPlot(combinedData) {
 		let plotData = [trace1, trace2, trace3, trace4, trace5]
 
 		let layout = {
+			autosize: true,
 			title: "Australian Bushfires & Temperature/Rainfall Anomaly Pattern (2002-2020)",
-			margin: {
-				t: 30,
-				b: 30
-			},
 			xaxis: {
 				type: 'category',
 			},
 			yaxis: {
 				title: "Max Temperature/ Rainfall/ Fire Count"
-			},
-			height: 300,
-			width: 1600,
-		}
+			}
+		};
 
 		Plotly.newPlot("climate_first", plotData, layout)
 
@@ -84,8 +79,10 @@ function buildComparisonPlot(combinedData) {
 
 		d3.select("p").text("")
 		d3.select("p").append("text").text(para)
-	})
-}
+	});
+
+};
+
 
 function buildPollutantPlot(combinedData) {
 
@@ -101,7 +98,7 @@ function buildPollutantPlot(combinedData) {
 			marker: {
 				color: "red"
 			}
-		}
+		};
 
 		let trace2 = {
 			x: xValue,
@@ -111,7 +108,7 @@ function buildPollutantPlot(combinedData) {
 			marker: {
 				color: "orange"
 			}
-		}
+		};
 
 		let trace3 = {
 			x: xValue,
@@ -121,8 +118,8 @@ function buildPollutantPlot(combinedData) {
 			marker: {
 				color: "brown"
 			}
-		}
-		
+		};
+
 		let trace4 = {
 
 			x: combinedData.map(e => e.air_pollutant_year).slice(939, 956),
@@ -133,7 +130,7 @@ function buildPollutantPlot(combinedData) {
 			marker: {
 				color: "black"
 			}
-		}
+		};
 
 		let trace5 = {
 
@@ -145,7 +142,7 @@ function buildPollutantPlot(combinedData) {
 			marker: {
 				color: "grey"
 			}
-		}
+		};
 
 		let trace6 = {
 
@@ -157,43 +154,40 @@ function buildPollutantPlot(combinedData) {
 			marker: {
 				color: "blue"
 			}
-		}
+		};
 
 		let plotData = [trace1, trace2, trace3, trace4, trace5, trace6]
 
 		let layout = {
 			title: "Australian Bushfires & Greenhouse Gases (2002-2020)",
-			margin: {
-				t: 30,
-				b: 30
-			},
 			xaxis: {
 				type: 'category',
 			},
 			yaxis: {
 				title: "Gas (ppm/ppb)/ Fire Count"
 			},
-			height: 300,
-			width: 1600,
-		}
+			autosize: true
+		};
 
 		Plotly.newPlot("climate_first", plotData, layout)
-	})
 
-	para = "The bushfires have not only been made more likely and intense by climate change, they also add to it. " +
-		"Fires contribute to Australia's greenhouse gas emissions. Australia has one of the highest per capita emissions of carbon dioxide in the " +
-		"world. Wildfires also release air pollutants like carbon monoxide and nitrous oxide, which can harm the health of residents nearby and " +
-		"firefighters on the front lines. Until the 2019–2020 Australian bushfire season, the forests in Australia were thought " +
-		"to reabsorb all the carbon released in bushfires across the country. This would mean the forests " +
-		"achieved net zero emissions. However, global warming is making bushfires burn more intensely and frequently and the 2019–2020 bushfires " +
-		"emitted 400 megatonnes of carbon dioxide into the atmosphere in its first quarter itself. " +
-		"This has increased Australia’s annual greenhouse gas emissions, " +
-		"contributing to global warming, and heighten the likelihood of recurring megafires that will release yet more emissions creating a deeply concerning " +
-		"climate feedback loop."
+  	para = "The bushfires have not only been made more likely and intense by climate change, they also add to it. " +
+  		"Fires contribute to Australia's greenhouse gas emissions. Australia has one of the highest per capita emissions of carbon dioxide in the " +
+  		"world. Wildfires also release air pollutants like carbon monoxide and nitrous oxide, which can harm the health of residents nearby and " +
+  		"firefighters on the front lines. Until the 2019–2020 Australian bushfire season, the forests in Australia were thought " +
+  		"to reabsorb all the carbon released in bushfires across the country. This would mean the forests " +
+  		"achieved net zero emissions. However, global warming is making bushfires burn more intensely and frequently and the 2019–2020 bushfires " +
+  		"emitted 400 megatonnes of carbon dioxide into the atmosphere in its first quarter itself. " +
+  		"This has increased Australia’s annual greenhouse gas emissions, " +
+  		"contributing to global warming, and heighten the likelihood of recurring megafires that will release yet more emissions creating a deeply concerning " +
+  		"climate feedback loop."
 
-	d3.select("p").text("")
-	d3.select("p").append("text").text(para)
-}
+  	d3.select("p").text("")
+  	d3.select("p").append("text").text(para)
+
+});
+
+};
 
 
 function buildMaxTempPlot(combinedData) {
@@ -216,33 +210,29 @@ function buildMaxTempPlot(combinedData) {
 	let plotData = [trace1]
 
 	let layout = {
-		title: "Australia Maximum Temperature Anomaly in Celsius (1910 - 2019)",
-		margin: {
-			t: 30,
-			b: 50,
-			l: 100
-		},
+		title: "Australia Maximum Temperature Anomaly in °Celsius (1910 - 2019)",
 		xaxis: {
 			type: 'category',
 		},
 		yaxis: {
-			title: "Temperature Anomaly (Celsius)"
+			title: "Temperature Anomaly (°Celsius)"
 		},
-		height: 300,
-		width: 1600,
-	}
+		autosize: true
+	};
 
 	Plotly.newPlot("climate_first", plotData, layout)
 
 	para = "Australia’s climate is notorious for its volatility, but the summer of 2019 showed the highest change in the maximum temperature anomaly " +
-		"as seen in last several years. The year 2019 shows the highest increase of 2.09 degree Celsius in Australia’s overall " +
+		"as seen in last several years. The year 2019 shows the highest increase of 2.09° Celsius in Australia’s overall " +
 		"Maximum temperature since 1910. Since 2013, there is almost constant increase in maximum temperature anomaly. " +
-		"The above graph also shows the gradual increase in the country’s maximum temperature with first half of the 20th century being a lot cooler than the second " +
+		"The graph above also shows the gradual increase in the country’s maximum temperature with first half of the 20th century being a lot cooler than the second " +
 		"half of the century. The 21st century marks the beginning of significant and persistent increased anomaly in maximum temperature."
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
-}
+
+};
+
 
 function buildMinTempPlot(combinedData) {
 
@@ -265,33 +255,29 @@ function buildMinTempPlot(combinedData) {
 	let plotData = [trace1]
 
 	let layout = {
-		title: "Australia Minimum Temperature Anomaly in Celsius (1910 - 2019)",
-		margin: {
-			t: 30,
-			b: 50,
-			l: 100
-		},
+		title: "Australia Minimum Temperature Anomaly in °Celsius (1910 - 2019)",
 		xaxis: {
 			type: 'category',
 		},
 		yaxis: {
-			title: "Temperature Anomaly (Celsius)"
+			title: "Temperature Anomaly (°Celsius)"
 		},
-		height: 300,
-		width: 1600,
-	}
+		autosize: true
+	};
 
 	Plotly.newPlot("climate_first", plotData, layout)
 
 	para = "Australia’s climate shows an accelerating anomaly in not just the maximum temperature but the minimum tempearture too. " +
-		"There has been an almost persistent increase in the minimum teperature anomaly since 1980. The year 1998 shows the highest anomaly of 1.26 degree " +
+		"There has been an almost persistent increase in the minimum teperature anomaly since 1980. The year 1998 shows the highest anomaly of 1.26° " +
 		" Celsisus. " +
 		"The above graph also shows the gradual increase in the country’s minimum temperature anomaly with first half of the 20th century being a lot cooler than the second " +
 		"half of the century. The 21st century marks the beginning of significant and persistent increased anomaly in minimum temperature."
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
-}
+
+};
+
 
 function buildMeanTempPlot(combinedData) {
 
@@ -314,24 +300,27 @@ function buildMeanTempPlot(combinedData) {
 	let plotData = [trace1]
 
 	let layout = {
-		title: "Australia Mean Temperature Anomaly in Celsius (1910 - 2019)",
-		margin: {
-			t: 30,
-			b: 50,
-			l: 100
-		},
+		title: "Australia Mean Temperature Anomaly in °Celsius (1910 - 2019)",
 		xaxis: {
 			type: 'category',
 		},
 		yaxis: {
-			title: "Temperature Anomaly (Celsius)"
+			title: "Temperature Anomaly (°Celsius)"
 		},
-		height: 300,
-		width: 1600,
-	}
+		autosize: true
+	};
 
 	Plotly.newPlot("climate_first", plotData, layout)
-}
+
+	para = "Australia experienced the hottest year on record in 2019, which had a mean temperature of 1.52° Celsius above the mean calculated for 1961 to 1990. " +
+		"The year that delivered crippling drought, heatwaves, temperature records and devastating bushfires was 0.19°C hotter than 2013, the previous " +
+		"record holder. The second hottest year was 2013, followed by 2005, 2018 and 2017." +
+
+		d3.select("p").text("")
+	d3.select("p").append("text").text(para)
+
+};
+
 
 function buildAnnualRainPlot(combinedData) {
 
@@ -354,20 +343,14 @@ function buildAnnualRainPlot(combinedData) {
 
 	let layout = {
 		title: "Australia Annual Rainfall in Millimetre (1900 - 2019)",
-		margin: {
-			t: 30,
-			b: 50,
-			l: 100
-		},
 		xaxis: {
 			type: 'category',
 		},
 		yaxis: {
 			title: "Annual Rainfall (mm)"
 		},
-		height: 300,
-		width: 1600,
-	}
+		autosize: true
+	};
 
 	Plotly.newPlot("climate_first", plotData, layout)
 
@@ -376,7 +359,9 @@ function buildAnnualRainPlot(combinedData) {
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
-}
+
+};
+
 
 function buildRainAnomalyPlot(combinedData) {
 
@@ -400,30 +385,26 @@ function buildRainAnomalyPlot(combinedData) {
 
 	let layout = {
 		title: "Australia Annual Rainfall Anomaly in Millimetre (1900 - 2019)",
-		margin: {
-			t: 30,
-			b: 50,
-			l: 100
-		},
 		xaxis: {
 			type: 'category',
 		},
 		yaxis: {
 			title: "Rainfall Anomaly (mm)"
 		},
-		height: 300,
-		width: 1600,
+		autosize: true
 	}
 
 	Plotly.newPlot("climate_first", plotData, layout)
 
-	para = "Australia had its driest ever year in 2019, with the highest ever drop of -187.47 mm in annual rainfall since 1900." +
-		"The graph shows more negative anomaly than positive in last 120 years indicating that for the country, that faces drought " +
+	para = "Australia had its driest ever year in 2019, with the highest ever drop of 187.47 mm in annual rainfall since 1900. " +
+		"The graph shows more negative anomaly than positive in last 120 years indicating that for the country, that faces drought, " +
 		"there has been more decrease in rainfall than increase."
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
-}
+
+};
+
 
 function buildSSTPlot(combinedData) {
 
@@ -446,31 +427,27 @@ function buildSSTPlot(combinedData) {
 	let plotData = [trace1]
 
 	let layout = {
-		title: "Australia Sea Surface Temperature Anomaly in Celsius (1900-2019)",
-		margin: {
-			t: 30,
-			b: 50,
-			l: 100
-		},
+		title: "Australia Sea Surface Temperature Anomaly in °Celsius (1900-2019)",
 		xaxis: {
 			type: 'category',
 		},
 		yaxis: {
-			title: "Temperature Anomaly (Celsius)"
+			title: "Temperature Anomaly (°Celsius)"
 		},
-		height: 300,
-		width: 1600,
-	}
+		autosize: true
+	};
 
 	Plotly.newPlot("climate_first", plotData, layout)
 
 	para = "Australia is facing constant increase in its Sea Surface Temperature since 1995. The year 2016 reported the highest anomaly " +
-		" of 0.78 degree Celsius. From 1900 till 1970, the country had cooler Sea Surface Temperature with persistent negative anomalies but post 1970 " +
+		" of 0.78° Celsius. From 1900 till 1970, the country had cooler Sea Surface Temperature with persistent negative anomalies but post 1970 " +
 		" the country started having high positive anomalies indicating higher Sea Surface Temperatures."
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
-}
+
+};
+
 
 function buildCO2Plot(combinedData) {
 
@@ -490,20 +467,14 @@ function buildCO2Plot(combinedData) {
 
 	let layout = {
 		title: "Australia Carbon Dioxide Level in Parts-Per-Million (1978-2019)",
-		margin: {
-			t: 30,
-			b: 30,
-			l: 100
-		},
 		xaxis: {
 			type: 'category',
 		},
 		yaxis: {
 			title: "Carbon Dioxide (ppm)"
 		},
-		height: 300,
-		width: 1600,
-	}
+		autosize: true
+	};
 
 	Plotly.newPlot("climate_first", plotData, layout)
 
@@ -513,7 +484,9 @@ function buildCO2Plot(combinedData) {
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
-}
+
+};
+
 
 function buildCH4Plot(combinedData) {
 
@@ -529,25 +502,18 @@ function buildCH4Plot(combinedData) {
 		}
 	};
 
-
 	let plotData = [trace1]
 
 	let layout = {
 		title: "Australia Methane (CH4) Level in Parts-Per-Billion (1978-2019)",
-		margin: {
-			t: 30,
-			b: 30,
-			l: 100
-		},
 		xaxis: {
 			type: 'category',
 		},
 		yaxis: {
 			title: "CH4 (Methane) (ppb)"
 		},
-		height: 300,
-		width: 1600,
-	}
+		autosize: true
+	};
 
 	Plotly.newPlot("climate_first", plotData, layout)
 
@@ -557,7 +523,8 @@ function buildCH4Plot(combinedData) {
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
-}
+};
+
 
 function buildN2OPlot(combinedData) {
 
@@ -573,25 +540,18 @@ function buildN2OPlot(combinedData) {
 		}
 	};
 
-
 	let plotData = [trace1]
 
 	let layout = {
 		title: "Australia Nitrous Oxide (N2O) Level in Parts-Per-Billion (1978-2019)",
-		margin: {
-			t: 30,
-			b: 30,
-			l: 100
-		},
 		xaxis: {
 			type: 'category',
 		},
 		yaxis: {
 			title: "Nitrous Oxide N2O (ppb)"
 		},
-		height: 300,
-		width: 1600,
-	}
+		autosize: true
+	};
 
 	Plotly.newPlot("climate_first", plotData, layout)
 
@@ -603,64 +563,62 @@ function buildN2OPlot(combinedData) {
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
-}
+  
+};
+
 
 function buildOnLoadPlot(combinedData) {
-	
+
 	let trace1 = {
 		x: combinedData.map(e => e.max_temp_decile10_year),
 		y: combinedData.map(e => e.maxtemp_total_land_area_percentage),
-		// text: xValue1,
-		name: "Annual Max Temperature (Celsius) Decile 10",
+		name: "Annual Max Temperature (°Celsius) Decile 10",
 		fill: 'tozeroy',
 		type: 'scatter',
-		// mode: "markers",
-		marker: {color: "red"}
+		marker: {
+			color: "red"
+		}
 	};
 
 	let trace2 = {
-		x: combinedData.map(e => e.annual_rainfall_decile10_year).slice(810,), 
-		y: combinedData.map(e => e.rainfall_total_land_area_percentage).slice(810,),
-		// text: xValue1,
+		x: combinedData.map(e => e.annual_rainfall_decile10_year).slice(810, ),
+		y: combinedData.map(e => e.rainfall_total_land_area_percentage).slice(810, ),
 		name: "Annual Rainfall Decile 10",
-		// fill: 'tozeroy',
 		type: 'bar',
-		// mode: "markers",
-		marker: {color: "blue"}
+		marker: {
+			color: "blue"
+		}
 	};
 
-	
+
 	let plotData = [trace1, trace2]
 
 	let layout = {
 		title: "Australia - Annual Maximum Temperature & Rainfall Area in decile 10 (1910-2019)",
-		margin: {
-			t: 40,
-			b: 40
-		},
 		xaxis: {
 			type: 'category',
 		},
 		yaxis: {
 			title: "Percentage of Total Land Area (%)",
 		},
-		height: 350,
-		width: 1600,
-	}
+		autosize: true
+	};
 
 	Plotly.newPlot("climate_first", plotData, layout)
 
-	para = "Climate change is influencing the frequency and severity of dangerous bushfire conditions in Australia through influencing temperature, "+
-	"environmental moisture, weather patterns and fuel conditions. There have been significant changes observed in recent decades towards more "+
-	"dangerous bushfire weather conditions for various regions of Australia. "+
-	"Bushfire weather conditions in future years are projected to increase in severity for many regions of Australia due to more "+
-	"extreme heat events, with the rate and magnitude of change increasing with greenhouse gas concentrations (and emissions)."
+	para = "Climate change is influencing the frequency and severity of dangerous bushfire conditions in Australia through influencing temperature, " +
+		"environmental moisture and weather patterns. There have been significant changes observed in recent decades towards more " +
+		"dangerous bushfire weather conditions for various regions of Australia. " +
+		"Bushfire weather conditions in future years are projected to increase in severity for many regions of Australia due to more " +
+		"extreme heat events, with the rate and magnitude of change increasing with greenhouse gas concentrations (and emissions)."
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
-}
+
+};
 
 
+// main - function that gets initiated when the page is loaded
 function init() {
 
 	d3.json("/climate_data").then((combinedData) => {
@@ -669,54 +627,64 @@ function init() {
 
 		d3.select("#main1-btn").on("click", function () {
 			buildOnLoadPlot(combinedData)
-		})
+		});
 
 		d3.select("#main2-btn").on("click", function () {
 			buildComparisonPlot(combinedData)
-		})
+		});
 
 		d3.select("#max-temp-btn").on("click", function () {
 			buildMaxTempPlot(combinedData)
-		})
+		});
 
 		d3.select("#min-temp-btn").on("click", function () {
 			buildMinTempPlot(combinedData)
-		})
+		});
 
 		d3.select("#mean-temp-btn").on("click", function () {
 			buildMeanTempPlot(combinedData)
-		})
+		});
 
 		d3.select("#rain-btn").on("click", function () {
 			buildAnnualRainPlot(combinedData)
-		})
+		});
 
 		d3.select("#rain-anomaly-btn").on("click", function () {
 			buildRainAnomalyPlot(combinedData)
-		})
+		});
 
 		d3.select("#sst-btn").on("click", function () {
 			buildSSTPlot(combinedData)
-		})
+		});
 
 		d3.select("#main3-btn").on("click", function () {
 			buildPollutantPlot(combinedData)
-		})
+		});
 
 		d3.select("#co2-btn").on("click", function () {
 			buildCO2Plot(combinedData)
-		})
+		});
 
 		d3.select("#ch4-btn").on("click", function () {
 			buildCH4Plot(combinedData)
-		})
+		});
 
 		d3.select("#n2o-btn").on("click", function () {
 			buildN2OPlot(combinedData)
+		});
+
+	});
+
+	// update the layout to resize when the window is resized
+	window.onresize = function () {
+		Plotly.relayout('climate_first', {
+			'xaxis.autorange': true,
+			'yaxis.autorange': true
 		})
+	};
 
-	})
+};
 
-}
 
+// calling the init function when page is loaded
 init();
