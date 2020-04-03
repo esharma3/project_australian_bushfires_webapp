@@ -2,8 +2,13 @@
 const button = d3.select("button");
 const input = d3.select("input");
 
+
 // Functions for all visuals
 	function animalImpactDonut(obj) {
+
+		// Resetting output
+		document.getElementById("donut").innerHTML = "";
+
 		let plotData = [{
 			type: "pie",
 			hole: .8,
@@ -31,6 +36,10 @@ const input = d3.select("input");
 }
 
 function animalImpactMap(obj) {
+
+	// Resetting output
+	document.getElementById("map").innerHTML = "";
+
 	d3.select("#map")
 		.append("iframe")
 		.attr("src", obj['distribution_map'])
@@ -43,6 +52,9 @@ function animalImpactMap(obj) {
 }
 
 function animalImpactTable(obj) {
+	
+	// Resetting output
+	document.getElementById("table").innerHTML = "";
 
 	// Getting my variables ready
 	const table = d3.select("#table")
