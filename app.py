@@ -338,7 +338,7 @@ def fire_count():
 #      Ex: http://127.0.0.1:5000/annual_total_fire_counts?state=nsw&year=2002/2003     #
 ########################################################################################
 
-@app.route("/annual_total_fire_count")
+@app.route("/annual_total_fire_counts")
 def annual_total_fire_counts():
 
     # search type parameters - state and/or year
