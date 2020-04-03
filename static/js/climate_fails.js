@@ -58,19 +58,14 @@ function buildComparisonPlot(combinedData) {
 		let plotData = [trace1, trace2, trace3, trace4, trace5]
 
 		let layout = {
+			autosize: true,
 			title: "Australian Bushfires & Temperature/Rainfall Anomaly Pattern (2002-2020)",
-			margin: {
-				t: 30,
-				b: 30
-			},
 			xaxis: {
 				type: 'category',
 			},
 			yaxis: {
 				title: "Max Temperature/ Rainfall/ Fire Count"
-			},
-			height: 300,
-			width: 1600,
+			}
 		}
 
 		Plotly.newPlot("climate_first", plotData, layout)
@@ -164,18 +159,13 @@ function buildPollutantPlot(combinedData) {
 
 		let layout = {
 			title: "Australian Bushfires & Greenhouse Gases (2002-2020)",
-			margin: {
-				t: 30,
-				b: 30
-			},
 			xaxis: {
 				type: 'category',
 			},
 			yaxis: {
 				title: "Gas (ppm/ppb)/ Fire Count"
 			},
-			height: 300,
-			width: 1600,
+			autosize: true
 		}
 
 		Plotly.newPlot("climate_first", plotData, layout)
@@ -218,19 +208,13 @@ function buildMaxTempPlot(combinedData) {
 
 	let layout = {
 		title: "Australia Maximum Temperature Anomaly in °Celsius (1910 - 2019)",
-		margin: {
-			t: 30,
-			b: 50,
-			l: 100
-		},
 		xaxis: {
 			type: 'category',
 		},
 		yaxis: {
 			title: "Temperature Anomaly (°Celsius)"
 		},
-		height: 300,
-		width: 1600,
+		autosize: true
 	}
 
 	Plotly.newPlot("climate_first", plotData, layout)
@@ -268,19 +252,13 @@ function buildMinTempPlot(combinedData) {
 
 	let layout = {
 		title: "Australia Minimum Temperature Anomaly in °Celsius (1910 - 2019)",
-		margin: {
-			t: 30,
-			b: 50,
-			l: 100
-		},
 		xaxis: {
 			type: 'category',
 		},
 		yaxis: {
 			title: "Temperature Anomaly (°Celsius)"
 		},
-		height: 300,
-		width: 1600,
+		autosize: true
 	}
 
 	Plotly.newPlot("climate_first", plotData, layout)
@@ -318,19 +296,13 @@ function buildMeanTempPlot(combinedData) {
 
 	let layout = {
 		title: "Australia Mean Temperature Anomaly in °Celsius (1910 - 2019)",
-		margin: {
-			t: 30,
-			b: 50,
-			l: 100
-		},
 		xaxis: {
 			type: 'category',
 		},
 		yaxis: {
 			title: "Temperature Anomaly (°Celsius)"
 		},
-		height: 300,
-		width: 1600,
+		autosize: true
 	}
 
 	Plotly.newPlot("climate_first", plotData, layout)
@@ -338,8 +310,8 @@ function buildMeanTempPlot(combinedData) {
 	para = "Australia experienced the hottest year on record in 2019, which had a mean temperature of 1.52° Celsius above the mean calculated for 1961 to 1990. " +
 		"The year that delivered crippling drought, heatwaves, temperature records and devastating bushfires was 0.19°C hotter than 2013, the previous " +
 		"record holder. The second hottest year was 2013, followed by 2005, 2018 and 2017." +
-	
-	d3.select("p").text("")
+
+		d3.select("p").text("")
 	d3.select("p").append("text").text(para)
 }
 
@@ -365,19 +337,13 @@ function buildAnnualRainPlot(combinedData) {
 
 	let layout = {
 		title: "Australia Annual Rainfall in Millimetre (1900 - 2019)",
-		margin: {
-			t: 30,
-			b: 50,
-			l: 100
-		},
 		xaxis: {
 			type: 'category',
 		},
 		yaxis: {
 			title: "Annual Rainfall (mm)"
 		},
-		height: 300,
-		width: 1600,
+		autosize: true
 	}
 
 	Plotly.newPlot("climate_first", plotData, layout)
@@ -412,19 +378,13 @@ function buildRainAnomalyPlot(combinedData) {
 
 	let layout = {
 		title: "Australia Annual Rainfall Anomaly in Millimetre (1900 - 2019)",
-		margin: {
-			t: 30,
-			b: 50,
-			l: 100
-		},
 		xaxis: {
 			type: 'category',
 		},
 		yaxis: {
 			title: "Rainfall Anomaly (mm)"
 		},
-		height: 300,
-		width: 1600,
+		autosize: true
 	}
 
 	Plotly.newPlot("climate_first", plotData, layout)
@@ -460,19 +420,13 @@ function buildSSTPlot(combinedData) {
 
 	let layout = {
 		title: "Australia Sea Surface Temperature Anomaly in °Celsius (1900-2019)",
-		margin: {
-			t: 30,
-			b: 50,
-			l: 100
-		},
 		xaxis: {
 			type: 'category',
 		},
 		yaxis: {
 			title: "Temperature Anomaly (°Celsius)"
 		},
-		height: 300,
-		width: 1600,
+		autosize: true
 	}
 
 	Plotly.newPlot("climate_first", plotData, layout)
@@ -504,19 +458,13 @@ function buildCO2Plot(combinedData) {
 
 	let layout = {
 		title: "Australia Carbon Dioxide Level in Parts-Per-Million (1978-2019)",
-		margin: {
-			t: 30,
-			b: 30,
-			l: 100
-		},
 		xaxis: {
 			type: 'category',
 		},
 		yaxis: {
 			title: "Carbon Dioxide (ppm)"
 		},
-		height: 300,
-		width: 1600,
+		autosize: true
 	}
 
 	Plotly.newPlot("climate_first", plotData, layout)
@@ -548,19 +496,13 @@ function buildCH4Plot(combinedData) {
 
 	let layout = {
 		title: "Australia Methane (CH4) Level in Parts-Per-Billion (1978-2019)",
-		margin: {
-			t: 30,
-			b: 30,
-			l: 100
-		},
 		xaxis: {
 			type: 'category',
 		},
 		yaxis: {
 			title: "CH4 (Methane) (ppb)"
 		},
-		height: 300,
-		width: 1600,
+		autosize: true
 	}
 
 	Plotly.newPlot("climate_first", plotData, layout)
@@ -592,19 +534,13 @@ function buildN2OPlot(combinedData) {
 
 	let layout = {
 		title: "Australia Nitrous Oxide (N2O) Level in Parts-Per-Billion (1978-2019)",
-		margin: {
-			t: 30,
-			b: 30,
-			l: 100
-		},
 		xaxis: {
 			type: 'category',
 		},
 		yaxis: {
 			title: "Nitrous Oxide N2O (ppb)"
 		},
-		height: 300,
-		width: 1600,
+		autosize: true
 	}
 
 	Plotly.newPlot("climate_first", plotData, layout)
@@ -625,11 +561,9 @@ function buildOnLoadPlot(combinedData) {
 	let trace1 = {
 		x: combinedData.map(e => e.max_temp_decile10_year),
 		y: combinedData.map(e => e.maxtemp_total_land_area_percentage),
-		// text: xValue1,
 		name: "Annual Max Temperature (°Celsius) Decile 10",
 		fill: 'tozeroy',
 		type: 'scatter',
-		// mode: "markers",
 		marker: {
 			color: "red"
 		}
@@ -638,11 +572,8 @@ function buildOnLoadPlot(combinedData) {
 	let trace2 = {
 		x: combinedData.map(e => e.annual_rainfall_decile10_year).slice(810, ),
 		y: combinedData.map(e => e.rainfall_total_land_area_percentage).slice(810, ),
-		// text: xValue1,
 		name: "Annual Rainfall Decile 10",
-		// fill: 'tozeroy',
 		type: 'bar',
-		// mode: "markers",
 		marker: {
 			color: "blue"
 		}
@@ -653,18 +584,13 @@ function buildOnLoadPlot(combinedData) {
 
 	let layout = {
 		title: "Australia - Annual Maximum Temperature & Rainfall Area in decile 10 (1910-2019)",
-		margin: {
-			t: 40,
-			b: 40
-		},
 		xaxis: {
 			type: 'category',
 		},
 		yaxis: {
 			title: "Percentage of Total Land Area (%)",
 		},
-		height: 350,
-		width: 1620,
+		autosize: true
 	}
 
 	Plotly.newPlot("climate_first", plotData, layout)
@@ -677,6 +603,7 @@ function buildOnLoadPlot(combinedData) {
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
+
 }
 
 
@@ -736,6 +663,14 @@ function init() {
 		})
 
 	})
+
+	// update the layout to resize when the window is resized
+	window.onresize = function () {
+		Plotly.relayout('climate_first', {
+			'xaxis.autorange': true,
+			'yaxis.autorange': true
+		})
+	}
 
 }
 
