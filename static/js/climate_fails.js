@@ -12,7 +12,7 @@ function buildComparisonPlot(combinedData) {
 			marker: {
 				color: "red"
 			}
-		}
+		};
 
 		let trace2 = {
 			x: xValue,
@@ -22,7 +22,7 @@ function buildComparisonPlot(combinedData) {
 			marker: {
 				color: "orange"
 			}
-		}
+		};
 
 		let trace3 = {
 			x: xValue,
@@ -32,7 +32,7 @@ function buildComparisonPlot(combinedData) {
 			marker: {
 				color: "brown"
 			}
-		}
+		};
 
 		let trace4 = {
 
@@ -66,7 +66,7 @@ function buildComparisonPlot(combinedData) {
 			yaxis: {
 				title: "Max Temperature/ Rainfall/ Fire Count"
 			}
-		}
+		};
 
 		Plotly.newPlot("climate_first", plotData, layout)
 
@@ -79,8 +79,9 @@ function buildComparisonPlot(combinedData) {
 
 		d3.select("p").text("")
 		d3.select("p").append("text").text(para)
-	})
-}
+	});
+
+};
 
 
 function buildPollutantPlot(combinedData) {
@@ -97,7 +98,7 @@ function buildPollutantPlot(combinedData) {
 			marker: {
 				color: "red"
 			}
-		}
+		};
 
 		let trace2 = {
 			x: xValue,
@@ -107,7 +108,7 @@ function buildPollutantPlot(combinedData) {
 			marker: {
 				color: "orange"
 			}
-		}
+		};
 
 		let trace3 = {
 			x: xValue,
@@ -117,7 +118,7 @@ function buildPollutantPlot(combinedData) {
 			marker: {
 				color: "brown"
 			}
-		}
+		};
 
 		let trace4 = {
 
@@ -129,7 +130,7 @@ function buildPollutantPlot(combinedData) {
 			marker: {
 				color: "black"
 			}
-		}
+		};
 
 		let trace5 = {
 
@@ -141,7 +142,7 @@ function buildPollutantPlot(combinedData) {
 			marker: {
 				color: "grey"
 			}
-		}
+		};
 
 		let trace6 = {
 
@@ -153,7 +154,7 @@ function buildPollutantPlot(combinedData) {
 			marker: {
 				color: "blue"
 			}
-		}
+		};
 
 		let plotData = [trace1, trace2, trace3, trace4, trace5, trace6]
 
@@ -166,25 +167,27 @@ function buildPollutantPlot(combinedData) {
 				title: "Gas (ppm/ppb)/ Fire Count"
 			},
 			autosize: true
-		}
+		};
 
 		Plotly.newPlot("climate_first", plotData, layout)
-	})
 
-	para = "The bushfires have not only been made more likely and intense by climate change, they also add to it. " +
-		"Fires contribute to Australia's greenhouse gas emissions. Australia has one of the highest per capita emissions of carbon dioxide in the " +
-		"world. Wildfires also release air pollutants like carbon monoxide and nitrous oxide, which can harm the health of residents nearby and " +
-		"firefighters on the front lines. Until the 2019–2020 Australian bushfire season, the forests in Australia were thought " +
-		"to reabsorb all the carbon released in bushfires across the country. This would mean the forests " +
-		"achieved net zero emissions. However, global warming is making bushfires burn more intensely and frequently and the 2019–2020 bushfires " +
-		"emitted 400 megatonnes of carbon dioxide into the atmosphere in its first quarter itself. " +
-		"This has increased Australia’s annual greenhouse gas emissions, " +
-		"contributing to global warming, and heighten the likelihood of recurring megafires that will release yet more emissions creating a deeply concerning " +
-		"climate feedback loop."
+  	para = "The bushfires have not only been made more likely and intense by climate change, they also add to it. " +
+  		"Fires contribute to Australia's greenhouse gas emissions. Australia has one of the highest per capita emissions of carbon dioxide in the " +
+  		"world. Wildfires also release air pollutants like carbon monoxide and nitrous oxide, which can harm the health of residents nearby and " +
+  		"firefighters on the front lines. Until the 2019–2020 Australian bushfire season, the forests in Australia were thought " +
+  		"to reabsorb all the carbon released in bushfires across the country. This would mean the forests " +
+  		"achieved net zero emissions. However, global warming is making bushfires burn more intensely and frequently and the 2019–2020 bushfires " +
+  		"emitted 400 megatonnes of carbon dioxide into the atmosphere in its first quarter itself. " +
+  		"This has increased Australia’s annual greenhouse gas emissions, " +
+  		"contributing to global warming, and heighten the likelihood of recurring megafires that will release yet more emissions creating a deeply concerning " +
+  		"climate feedback loop."
 
-	d3.select("p").text("")
-	d3.select("p").append("text").text(para)
-}
+  	d3.select("p").text("")
+  	d3.select("p").append("text").text(para)
+
+});
+
+};
 
 
 function buildMaxTempPlot(combinedData) {
@@ -215,7 +218,7 @@ function buildMaxTempPlot(combinedData) {
 			title: "Temperature Anomaly (°Celsius)"
 		},
 		autosize: true
-	}
+	};
 
 	Plotly.newPlot("climate_first", plotData, layout)
 
@@ -227,7 +230,8 @@ function buildMaxTempPlot(combinedData) {
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
-}
+
+};
 
 
 function buildMinTempPlot(combinedData) {
@@ -259,7 +263,7 @@ function buildMinTempPlot(combinedData) {
 			title: "Temperature Anomaly (°Celsius)"
 		},
 		autosize: true
-	}
+	};
 
 	Plotly.newPlot("climate_first", plotData, layout)
 
@@ -271,7 +275,8 @@ function buildMinTempPlot(combinedData) {
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
-}
+
+};
 
 
 function buildMeanTempPlot(combinedData) {
@@ -303,7 +308,7 @@ function buildMeanTempPlot(combinedData) {
 			title: "Temperature Anomaly (°Celsius)"
 		},
 		autosize: true
-	}
+	};
 
 	Plotly.newPlot("climate_first", plotData, layout)
 
@@ -313,7 +318,8 @@ function buildMeanTempPlot(combinedData) {
 
 		d3.select("p").text("")
 	d3.select("p").append("text").text(para)
-}
+
+};
 
 
 function buildAnnualRainPlot(combinedData) {
@@ -344,7 +350,7 @@ function buildAnnualRainPlot(combinedData) {
 			title: "Annual Rainfall (mm)"
 		},
 		autosize: true
-	}
+	};
 
 	Plotly.newPlot("climate_first", plotData, layout)
 
@@ -353,7 +359,8 @@ function buildAnnualRainPlot(combinedData) {
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
-}
+
+};
 
 
 function buildRainAnomalyPlot(combinedData) {
@@ -395,7 +402,8 @@ function buildRainAnomalyPlot(combinedData) {
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
-}
+
+};
 
 
 function buildSSTPlot(combinedData) {
@@ -427,7 +435,7 @@ function buildSSTPlot(combinedData) {
 			title: "Temperature Anomaly (°Celsius)"
 		},
 		autosize: true
-	}
+	};
 
 	Plotly.newPlot("climate_first", plotData, layout)
 
@@ -437,7 +445,8 @@ function buildSSTPlot(combinedData) {
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
-}
+
+};
 
 
 function buildCO2Plot(combinedData) {
@@ -465,7 +474,7 @@ function buildCO2Plot(combinedData) {
 			title: "Carbon Dioxide (ppm)"
 		},
 		autosize: true
-	}
+	};
 
 	Plotly.newPlot("climate_first", plotData, layout)
 
@@ -475,7 +484,8 @@ function buildCO2Plot(combinedData) {
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
-}
+
+};
 
 
 function buildCH4Plot(combinedData) {
@@ -503,7 +513,7 @@ function buildCH4Plot(combinedData) {
 			title: "CH4 (Methane) (ppb)"
 		},
 		autosize: true
-	}
+	};
 
 	Plotly.newPlot("climate_first", plotData, layout)
 
@@ -513,7 +523,7 @@ function buildCH4Plot(combinedData) {
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
-}
+};
 
 
 function buildN2OPlot(combinedData) {
@@ -541,7 +551,7 @@ function buildN2OPlot(combinedData) {
 			title: "Nitrous Oxide N2O (ppb)"
 		},
 		autosize: true
-	}
+	};
 
 	Plotly.newPlot("climate_first", plotData, layout)
 
@@ -553,7 +563,8 @@ function buildN2OPlot(combinedData) {
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
-}
+  
+};
 
 
 function buildOnLoadPlot(combinedData) {
@@ -591,7 +602,7 @@ function buildOnLoadPlot(combinedData) {
 			title: "Percentage of Total Land Area (%)",
 		},
 		autosize: true
-	}
+	};
 
 	Plotly.newPlot("climate_first", plotData, layout)
 
@@ -604,7 +615,7 @@ function buildOnLoadPlot(combinedData) {
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
 
-}
+};
 
 
 // main - function that gets initiated when the page is loaded
@@ -616,53 +627,53 @@ function init() {
 
 		d3.select("#main1-btn").on("click", function () {
 			buildOnLoadPlot(combinedData)
-		})
+		});
 
 		d3.select("#main2-btn").on("click", function () {
 			buildComparisonPlot(combinedData)
-		})
+		});
 
 		d3.select("#max-temp-btn").on("click", function () {
 			buildMaxTempPlot(combinedData)
-		})
+		});
 
 		d3.select("#min-temp-btn").on("click", function () {
 			buildMinTempPlot(combinedData)
-		})
+		});
 
 		d3.select("#mean-temp-btn").on("click", function () {
 			buildMeanTempPlot(combinedData)
-		})
+		});
 
 		d3.select("#rain-btn").on("click", function () {
 			buildAnnualRainPlot(combinedData)
-		})
+		});
 
 		d3.select("#rain-anomaly-btn").on("click", function () {
 			buildRainAnomalyPlot(combinedData)
-		})
+		});
 
 		d3.select("#sst-btn").on("click", function () {
 			buildSSTPlot(combinedData)
-		})
+		});
 
 		d3.select("#main3-btn").on("click", function () {
 			buildPollutantPlot(combinedData)
-		})
+		});
 
 		d3.select("#co2-btn").on("click", function () {
 			buildCO2Plot(combinedData)
-		})
+		});
 
 		d3.select("#ch4-btn").on("click", function () {
 			buildCH4Plot(combinedData)
-		})
+		});
 
 		d3.select("#n2o-btn").on("click", function () {
 			buildN2OPlot(combinedData)
-		})
+		});
 
-	})
+	});
 
 	// update the layout to resize when the window is resized
 	window.onresize = function () {
@@ -670,9 +681,9 @@ function init() {
 			'xaxis.autorange': true,
 			'yaxis.autorange': true
 		})
-	}
+	};
 
-}
+};
 
 
 // calling the init function when page is loaded
