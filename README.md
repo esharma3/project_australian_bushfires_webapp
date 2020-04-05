@@ -12,9 +12,9 @@ Bushfires in Australia are a widespread and regular occurrence that have contrib
 
 ### Additional Highlights:
 
-Feedback section on the Home Page that lets user post comments
-Access to the project data using API requests 
-Fun 404 page 
+*   Feedback section on the Home Page that lets user post comments
+*   Access to the project data using API requests 
+*   Fun 404 page 
 
 ### Technologies Used:
 
