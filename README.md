@@ -1,7 +1,7 @@
 # AUS' BUSHFIRE CENTRAL (WebApp) - Group Project
 University of Texas at Austin, Data Bootcamp 2019-2020
 
-![Project Requirements](Project II_Requirements.docx)
+![Project Requirements](Project_II_Requirements.docx)
 
 ![AUS Bushfire Central](static/images/koala-bg.jpg)
 
