@@ -563,11 +563,13 @@ function buildN2OPlot(combinedData) {
 
 	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
-  
+
 };
 
 
 function buildOnLoadPlot(combinedData) {
+
+  document.getElementById("main1-btn").focus();
 
 	let trace1 = {
 		x: combinedData.map(e => e.max_temp_decile10_year),
@@ -623,7 +625,7 @@ function init() {
 
 	d3.json("/climate_data").then((combinedData) => {
 
-		window.onload = buildOnLoadPlot(combinedData)
+		window.onload = buildOnLoadPlot(combinedData);
 
 		d3.select("#main1-btn").on("click", function () {
 			buildOnLoadPlot(combinedData)
