@@ -1,9 +1,9 @@
 # AUS' BUSHFIRE CENTRAL (WebApp) - Group Project
 University of Texas at Austin, Data Bootcamp 2019-2020
 
-Project Requirements: (Project II_Requirements.docx)
+![Project Requirements](Project II_Requirements.docx)
 
-(static/images/koala-bg.jpg)
+![AUS Bushfire Central](static/images/koala-bg.jpg)
 
 ### Objective: 
 
@@ -18,22 +18,23 @@ Fun 404 page
 
 ### Technologies Used:
 
-•	APP – Python, Flask, Flask-SQLAlchemy
-•	Database – MySQL on GCP. Script created using SQL.
-•	Templates – HTML, CSS, Bootstrap
-•	Interactive Features – JavaScript, Plotly
-•	Visualizations – Plotly map, bar graph, pie chart, line graph, scatter plot
-•	Web Scraping – Request 
+*   APP – Python, Flask, Flask-SQLAlchemy
+*	Database – MySQL on GCP. Script created using SQL.
+*   Templates – HTML, CSS, Bootstrap
+*   Interactive Features – JavaScript, Plotly
+*   Visualizations – Plotly map, bar graph, pie chart, line graph, scatter plot
+*	Web Scraping – Requests
+*   Deployment - GCP
 
 ### Data Sources:
 
-•	Australia and Global Fire Locations – NASA, Fire Information for Resource Management System (FIRMS)
-•	Protected Species Impact - Australian Government, Department of Agriculture, Water and the Environment
-•	Socio - Economic Impact – Wikipedia Economy of Australia
-	Bushfire Season – Wikipedia 2019–20 Australian bushfire season
-	Major Bushfires – Wikipedia, List of major bushfires in Australia
-	The World Bank Data, Country Australia
-•	Climate Data – Australian Government Bureau of Meteorology
-•	Greenhouse Gases – CSIRO 
-•	Fire Counts – GFED (Global Fire Emissions Database)
+*   Australia and Global Fire Locations – NASA, Fire Information for Resource Management System (FIRMS)
+*   Protected Species Impact - Australian Government, Department of Agriculture, Water and the Environment
+*   Socio - Economic Impact – Wikipedia Economy of Australia
+    *   Bushfire Season – Wikipedia 2019–20 Australian bushfire season
+    *   Major Bushfires – Wikipedia, List of major bushfires in Australia
+    *   The World Bank Data, Country Australia
+*   Climate Data – Australian Government Bureau of Meteorology
+*   Greenhouse Gases – CSIRO 
+*   Fire Counts – GFED (Global Fire Emissions Database)
 
