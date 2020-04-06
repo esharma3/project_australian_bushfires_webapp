@@ -1,3 +1,9 @@
+// Selecting event handlers
+const button_17 = d3.select("#aus-17");
+const button_18 = d3.select("#aus-18");
+const button_19 = d3.select("#aus-19");
+const button_20 = d3.select("#aus-20");
+
 // This function will build the Australia Map and display locations of fires
 function buildAUSmap(totalData) {
 
@@ -5,7 +11,7 @@ function buildAUSmap(totalData) {
 	    lat: totalData.map(e => e.latitude),
         lon: totalData.map(e => e.longitude),
         z: totalData.map(e => e.count),
-        hovertemplate: 'Location: (%{lat},%{lon})' + '<br>' + 'Number of Fires: %{count}',
+        hovertemplate: 'Location: (%{lat},%{lon})' + '<br>' + 'Total Fires: %{z} per 11.1km radius',
 	    type: "densitymapbox"
     };
 
@@ -23,21 +29,56 @@ function buildAUSmap(totalData) {
     };
 
     Plotly.newPlot("plot", plotData, layout)
-}
+};
 
-// This function will take the data generated from the html route
+// These functions will take the data generated from the html/json route
 // plug it into the above function and plot as desired
-function init() {
+function init_2017() {
 
-	console.log("hello")
+	console.log("hello 2017")
 
     // Contains the JSON version of data
-	d3.json("/aus_fire_map").then((data) => {
-
-		console.log("hello again")
+	d3.json("/aus_fire_map/2017").then((data) => {
+		console.log("hello again 2017")
         buildAUSmap(data)
     })
+};
 
-}
+function init_2018() {
 
-init();
+	console.log("hello 2018")
+
+    // Contains the JSON version of data
+	d3.json("/aus_fire_map/2018").then((data) => {
+		console.log("hello again 2018")
+        buildAUSmap(data)
+    })
+};
+
+function init_2019() {
+
+	console.log("hello 2019")
+
+    // Contains the JSON version of data
+	d3.json("/aus_fire_map/2019").then((data) => {
+		console.log("hello again 2019")
+        buildAUSmap(data)
+    })
+};
+
+function init_2020() {
+
+	console.log("hello 2020")
+
+    // Contains the JSON version of data
+	d3.json("/aus_fire_map/2020").then((data) => {
+		console.log("hello again 2020")
+        buildAUSmap(data)
+    })
+};
+
+init_2019();
+button_17.on("click", init_2017);
+button_18.on("click", init_2018);
+button_19.on("click", init_2019);
+button_20.on("click", init_2020);

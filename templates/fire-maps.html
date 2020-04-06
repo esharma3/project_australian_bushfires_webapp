@@ -67,17 +67,17 @@
     </div>
   </nav>
 
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12">
-      </div>
-    </div>
-  </div>
+  <!-- Added spacer to push map out from underneath nav -->
+  <div id="spacer" style="width:100%;height:200;"></div>
 
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
         <div id="plot"></div>
+        <button id="aus-17" class="btn btn-default">2017</button>
+        <button id="aus-18" class="btn btn-default">2018</button>
+        <button id="aus-19" class="btn btn-default">2019</button>
+        <button id="aus-20" class="btn btn-default">2020</button>
       </div>
     </div>
   </div>
@@ -90,6 +90,8 @@
     </div>
   </div>
 
+  <script src="{{ url_for('static', filename='js/fire-maps.js') }}"></script>
+
   <!-- Footer -->
 
   <footer class="page-footer font-small blue">
@@ -97,7 +99,6 @@
       <a href="index.html">UT Data Bootcamp</a>
     </div>
   </footer>
-  <script src="{{ url_for('static', filename='js/fire-maps.js') }}"></script>
 </body>
 
 </html>
