@@ -13,7 +13,7 @@ import os
 app = Flask(__name__)
 
 #####################################################################
-#                      Database Connection 			         		#
+#                       Database Connection 			              		#
 #####################################################################
 
 # app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DB_CONN")
@@ -47,7 +47,7 @@ class DictMixIn:
 
 
 #####################################################################
-#                 Classes for Fire Count Tables  		           	#
+#                 Classes for Fire Count Tables  		              	#
 #####################################################################
 
 
@@ -356,6 +356,7 @@ def load_aus_fire_locations_data():
     fire_archives = agg_fire_maps.query.all()
     return jsonify([e.to_dict() for e in fire_archives])
 
+
 @app.route("/aus_fire_map/<year>")
 def samples(year):
     """Return `latitude`, `longitude`,and `count`."""
@@ -371,7 +372,7 @@ def samples(year):
     else:
         fires_2020 = agg_fire_maps.query.filter_by(year = '2020')
         return jsonify([e.to_dict() for e in fires_2020])
-
+      
 
 #####################################################################
 #                     Fire Counts Page and Route 	                	#
