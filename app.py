@@ -5,7 +5,7 @@ from sqlalchemy.orm import Session
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, Float, Date
 import datetime, time
-# from config import password
+from config import password
 import os
 
 
@@ -20,7 +20,7 @@ app = Flask(__name__)
 # db = SQLAlchemy(app)
 
 USER = "root"
-PASSWORD = 'password'
+PASSWORD = password
 HOST = "127.0.0.1"
 PORT = "3306"
 DATABASE = "bushfires_db"
