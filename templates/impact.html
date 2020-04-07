@@ -121,13 +121,22 @@
     <div class="row" id="roo-text"></div>
   </div>
 
+
+  <div id='Historic-Bushfires-Acres-Burned'><!-- Plotly chart will be drawn inside this DIV --></div>
+  <div id='Historic-Bushfires-Homes-Lives-Lost'><!-- Plotly chart will be drawn inside this DIV --></div>
+  <div id='Historic-Bushfires-GDP'><!-- Plotly chart will be drawn inside this DIV --></div>
+
 </section>
 
 
 <!-- No touch! -->
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-<script src="{{ url_for('static', filename='js/impact_script.js') }}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.15.0/d3.js"></script>
+    
+<script src="https://d3js.org/d3.v5.min.js"></script>
 
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<!-- <script src="{{ url_for('static', filename='js/impact_script.js') }}"></script> -->
+<script src="{{ url_for('static', filename='js/impact_econ_vis.js') }}"></script>
 </body>
 
 
