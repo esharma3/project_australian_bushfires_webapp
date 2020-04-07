@@ -19,10 +19,11 @@ import warnings
 import sqlalchemy
 from config import Pass_w
 import numpy as np
+import pymysql.cursors
 
 # Importing dependencies for scraping
-import requests
-from bs4 import BeautifulSoup
+# import requests
+# from bs4 import BeautifulSoup
 
 USER = "root"
 PASSWORD = Pass_w
