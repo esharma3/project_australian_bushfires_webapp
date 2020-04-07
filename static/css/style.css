@@ -1,3 +1,8 @@
+
+/*#####################################################################*/
+/*               Styling for navbar and index page                     */
+/*#####################################################################*/
+
 html {
   scroll-behavior: smooth;
 }
@@ -97,7 +102,7 @@ footer {
 }
 
 /*#####################################################################*/
-                /*Styling for fire count template                     #*/
+/*                 Styling for fire count template                     */
 /*#####################################################################*/
 
 #fire_count {
@@ -145,7 +150,7 @@ footer {
 }
 
 /*#####################################################################*/
-                /*Styling for Climate Fails template                  #*/
+/*                Styling for Climate Fails template                   */
 /*#####################################################################*/
 
 #climate_fails {
@@ -177,18 +182,25 @@ footer {
   background-color: black;
   width: 270px;
   color: white;
-  margin: 4px;
+  margin: 3px;
 }
 
 .btn:hover {
     color: orange;
-  }
+}
 
 .btn:focus{
     background: rgb(92, 92, 138);
 }
 
-#buttons,
+#buttons {
+  background: rgb(41, 41, 61);
+  padding: 10px;
+  margin-bottom: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
 #climate_first_row,
 #climate_second_row
 {
@@ -199,3 +211,6 @@ footer {
 
 
 
+/*#####################################################################*/
+/*                          Stylesheet End                             */
+/*#####################################################################*/
