@@ -679,9 +679,9 @@ function init() {
 
 	// update the layout to resize when the window is resized
 	window.onresize = function () {
-		Plotly.relayout('climate_first', {
-			'xaxis.autorange': true,
-			'yaxis.autorange': true
+		Plotly.relayout("climate_first", {
+			"xaxis.autorange": true,
+			"yaxis.autorange": true
 		})
 	};
 
