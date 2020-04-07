@@ -13,7 +13,7 @@ import os
 app = Flask(__name__)
 
 #####################################################################
-#                         Database Connection 			            		#
+#                         Database Connection 			       		#
 #####################################################################
 
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DB_CONN")
@@ -36,7 +36,7 @@ class DictMixIn:
 
 
 #####################################################################
-#                 Classes for Fire Count Tables  		       	      	#
+#                 Classes for Fire Count Tables  		   	      	#
 #####################################################################
 
 
@@ -585,10 +585,15 @@ def climate_data():
         return jsonify({"status": "failure", "error": str(e)})
 
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
 
 #####################################################################
-#                                 Main		     			            		#
+#                                 Main		     			   		#
 #####################################################################
 
 if __name__ == "__main__":
     app.run(debug=True)
+    # app.run()
