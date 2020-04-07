@@ -23,8 +23,7 @@
 </head>
 
 
-<!--  -->
-
+<!-- Body -->
 <body>
 <!-- This is the nav bar. Paste on every page at the top of the body-->
 <nav class="navbar fixed-top navbar-expand-lg navbar-light">
@@ -72,7 +71,7 @@
 
 
 <!-- This is a blank white with double paragraphs and a route item-->
-<section class="route-white">
+<section class="route-white" id="animal-impact">
   <br/>
   <div class="container">
       <div class="row">
@@ -83,8 +82,8 @@
               <div class="form-group">
                 <ul class="list-group" id="filters">
                   <li class="filter list-group-item">
-                    <label for="specie">Enter a Species Name</label>
-                    <input class="form-control" id="datetime" type="text" placeholder="E.g. Koala, Velvet Boronia, Greater Glider, etc.">
+                    <label for="specie">Enter Common Name, Scientific Name or Taxonomy ID</label>
+                    <input class="form-control" id="form" type="text" placeholder="E.g. Koala, Velvet Boronia, Greater Glider, etc.">
                   </li>
                 </ul>
               </div>
@@ -103,53 +102,9 @@
     <div class="row">
 
       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" id="table">
-        
-        <!-- <table class="table table-striped">
-          <thead>
-            <th scope="col">Category</th>
-            <th scope="col">Result</th>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <p> Thumbnail </p>
-              </td>
-              <td>
-                <img src="{{ data[0]['thumbnail']}}"/>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p> Scientific Name </p>
-              </td>
-              <td>
-                <p> {{ data[0]['scientific_name'] }} </p>
-              </td>
-            </tr>
-             <tr>
-              <td>
-                <p> Common Name </p>
-              </td>
-              <td>
-                <p> {{ data[0]['common_name'] }} </p>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                <p> Protected Status </p>
-              </td>
-              <td>
-                <p> {{ data[0]['protected_status'] }} </p>
-              </td>
-            </tr>    
-            
-          </tbody>
-        </table> -->
       </div>
 
       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" id="map">
-
-        <!-- <iframe src="{{ data[0]['distribution_map'] }}" width="400" height="400" frameborder="0" style="border:0" allowfullscreen="" scrolling="no"></iframe> -->
       </div>
 
       <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12" id="donut">
@@ -159,22 +114,25 @@
 
 
   </div> 
+
+  <div class="container-fluid" id="roo">
+    <div class="row" id="roo-img"></div>
+    <br>
+    <div class="row" id="roo-text"></div>
+  </div>
+
 </section>
 
 
 <!-- No touch! -->
-
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script src="{{ url_for('static', filename='js/impact_script.js') }}"></script>
 
-
-<!-- <section>{{ data }}</section> -->
 </body>
 
 
-<!--  -->
 
-
+<!-- Footer -->
 <footer class="page-footer font-small blue">
   <div class="footer-copyright text-center py-3">© 2020 Copyright:
     <a href="index.html">UT Data Bootcamp</a>

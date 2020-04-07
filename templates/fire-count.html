@@ -1,110 +1,113 @@
 <!doctype html>
 <html lang="en">
-   <head>
-      <meta charset="utf-8">
-      <title>Australian Bushfires Webapp</title>
-      <!-- Bootstrap CSS -->
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-     <!-- TURN BACK ON-->
-      <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
-      <!-- ERASE LINE 11 AFTER DONE-->
-    <link rel="stylesheet" href="../static/css/style.css">
-      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-   </head>
-   <body>
-      <nav class="navbar fixed-top navbar-expand-lg navbar-light">
-         <a class="navbar-brand" href="/">HOME</a>
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-         <span class="navbar-toggler-icon"></span>
-         </button>
-         <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+<head>
+    <meta charset="utf-8">
+    <title>Australian Bushfires Webapp</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="/">HOME</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-auto">
-               <li class="nav-item">
-                  <a class="nav-link" href="fire-maps">Fire Maps</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="fire-count">Fire Count</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="impact">Impact</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="climate-fails">Climate Fails</a>
-               </li>
-               <li class="nav-item">
-                  <a class="nav-link" href="about">About</a>
-               </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="fire-maps">Fire Maps</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="fire-count">Fire Count</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="impact">Impact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="climate-fails">Climate Fails</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about">About</a>
+                </li>
             </ul>
-         </div>
-      </nav>
+        </div>
+    </nav>
 
-      <div class="container-fluid" id="fire_count">
-         <div class="row">
-            <div class="col-md-12" id="fire_count_header">
-               <h1>Australian Bushfires Count (2002 - 2020) </h1>
-               <h6>New South Wales, Queensland, Victoria</h6>
+    <div class="container-fluid" id="fire_count">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="fire_count_header">
+                <h1>Australian Bushfires Count (2002 - 2020) </h1>
+                <h6>New South Wales, Queensland, Victoria</h6>
             </div>
-         </div>
-         <div class="row" id="first_row">
-            <p>Data Source: NASA MODIS Cumulative Active Fire Detection Data <br>
-               For New South Wales, Victoria, and Queensland, summed per ‘fire year’ running from July 1st to June 30th in the following year. The 2019 - 2020 fire year numbers are based on data collected till January 2020. <br><br>
-               This fire year (July 2019 to Jan 2020), fire detections in New South Wales are more than four times higher than the previous record year (the 2002-03 fire season). In Victoria, fires are above average at this point in 2019-2020 but have not yet surpassed previous extreme fire years in 2002-2003 and 2006-2007. In Queensland, fire counts were consistent with previous years, despite large wildfires in southern Queensland, since total fire activity in this state is dominated by savanna fires in northern Queensland, a natural part of these ecosystems.  
+        </div>
+        <div class="row" id="first_row">
+            <p>Data Source: NASA MODIS Cumulative Active Fire Detection Data
+                <br> For New South Wales, Victoria, and Queensland, summed per ‘fire year’ running from July 1st to June 30th in the following year. The 2019 - 2020 fire year numbers are based on data collected till January 2020.
+                <br>
+                <br> This fire year (July 2019 to Jan 2020), fire detections in New South Wales are significantly higher than the previous record year (the 2002-03 fire season). In Victoria, fires are above average at this point in 2019-2020 but have not yet surpassed previous extreme fire years in 2002-2003 and 2006-2007. In Queensland, fire counts were consistent with previous years, despite large wildfires in southern Queensland, since total fire activity in this state is dominated by savanna fires in northern Queensland, a natural part of these ecosystems.
             </p>
-            <div class="col-md-4">
-               <h6> New South Wales Total Fire Counts Per Year 2002 - 2020 </h6>
-               <div id="first" align="center"></div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <h6> New South Wales Total Fire Counts Per Year 2002 - 2020 </h6>
+                <div id="first" align="center"></div>
             </div>
-            <div class="col-md-4">
-               <h6> Queensland Total Fire Counts Per Year 2002 - 2020 </h6>
-               <div id="second" align="center"></div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <h6> Queensland Total Fire Counts Per Year 2002 - 2020 </h6>
+                <div id="second" align="center"></div>
             </div>
-            <div class="col-md-4">
-               <h6> Victoria Total Fire Counts Per Year 2002 - 2020 </h6>
-               <div id="third" align="center"></div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <h6> Victoria Total Fire Counts Per Year 2002 - 2020 </h6>
+                <div id="third" align="center"></div>
             </div>
-         </div>
+        </div>
 
-         <div class="row" id="second_row">
-            <div class="col-md-5">
-               <h6> Year 2019 - 2020 Bushfire Count at a glance </h6>
-               <div id="fourth" align="center"></div>
-               <p> New South Wales was imapcted the most from 2019-2020 fire year bushfires. Out of New South Wales, Queensland and Victoria, New South Wales had about 60% of bushfires, with Queensland having about 33% and Victoria having about 6% of bushfire incidents.</p>
+        <div class="row" id="second_row">
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                <h6> Year 2019 - 2020 Bushfires at a glance </h6>
+                <div id="fourth" align="center"></div>
+                <p> New South Wales was impacted the most from 2019-2020 fire year bushfires. Out of New South Wales, Queensland and Victoria, New South Wales had about 60% of bushfires, with Queensland having about 33% and Victoria having about 6% of bushfire incidents.</p>
             </div>
-            <div class="col-md-1">
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
             </div>
-            <div class="col-md-6">
-               <h6> Cumulative Fire Count 2002 - 2020 </h6>
-               <div id="fifth" align="center"></div>
-               <p> A cumulative fire count of bushfire incidents from 2002 till 2020 shows that Queensland has had a significantly high number of bushfires - 1,115,302. New South Wales has had 315,022 bushfire incidents and Victoria has had 125,881 bushfire incidents during this period.</p>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <h6> Cumulative Fire Count 2002 - 2020 </h6>
+                <div id="fifth" align="center"></div>
+                <p> A cumulative fire count of bushfire incidents from 2002 till 2020 shows that Queensland has had a significantly high number of bushfires - 1,115,302. New South Wales has had 315,022 bushfire incidents and Victoria has had 125,881 bushfire incidents during this period.</p>
             </div>
-         </div>
+        </div>
 
-         <div class="row" id="third_row">
-            <div class="col-md-4">
-               <h6> New South Wales Cumulative Daily Fire Count 2002 - 2020 </h6>
-               <div id="seventh" align="center"></div>
+        <div class="row" id="third_row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <h6> New South Wales Cumulative Daily Fire Count 2002 - 2020 </h6>
+                <div id="seventh" align="center"></div>
             </div>
-            <div class="col-md-4">
-               <h6> Queensland Cumulative Daily Fire Count 2002 - 2020 </h6>
-               <div id="eighth" align="center"></div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <h6> Queensland Cumulative Daily Fire Count 2002 - 2020 </h6>
+                <div id="eighth" align="center"></div>
             </div>
-            <div class="col-md-4">
-               <h6> Victoria Cumulative Daily Fire Count 2002 - 2020 </h6>
-               <div id="nineth" align="center"></div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+                <h6> Victoria Cumulative Daily Fire Count 2002 - 2020 </h6>
+                <div id="nineth" align="center"></div>
             </div>
-            <p> From September 2019 to March 2020, fires heavily impacted various regions of the state of New South Wales. In eastern and north-eastern Victoria large areas of forest burnt out of control for four weeks before the fires emerged from the forests in late December.</p>
-         </div>
-      </div>
+            <p> The graphs are based on the fire-year in Australia that begins from July 1st of every year and goes on till June 30th of the next year. The month of July shows almost none to very small number of fires but as the days progress the number of daily fires starts increasing. Based on these graphs, these fires show a sudden significant increase during the summer months from November till February before they become nearly constant and then start declining towards the end of the fire year.</p>
+        </div>
+    </div>
 
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.15.0/d3.js"></script>
-      <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>     
-      <script src="{{ url_for('static', filename='js/fire_count.js') }}"></script>
-   </body>
-   <footer class="page-footer font-small blue">
-      <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.15.0/d3.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="{{ url_for('static', filename='js/fire_count.js') }}"></script>
+
+</body>
+
+<footer class="page-footer font-small blue">
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
         <a href="index.html">UT Data Bootcamp</a>
-      </div>
-   </footer>
+    </div>
+</footer>
+
 </html>
