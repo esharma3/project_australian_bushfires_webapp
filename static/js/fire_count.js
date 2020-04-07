@@ -23,8 +23,9 @@ function buildNswTotalPlot(totalData) {
 	let plotData = [trace1]
 
 	let layout = {
+		title: "New South Wales Total Fire Counts Per Year 2002 - 2020",
 		margin: {
-			t: 30,
+			t: 50,
 			b: 100
 		},
 		yaxis: {
@@ -60,8 +61,9 @@ function buildQueenslandTotalPlot(totalData) {
 	let plotData = [trace1]
 
 	let layout = {
+		title: "Queensland Total Fire Counts Per Year 2002 - 2020",
 		margin: {
-			t: 30,
+			t: 50,
 			b: 100
 		},
 		yaxis: {
@@ -97,8 +99,9 @@ function buildVictoriaTotalPlot(totalData) {
 	let plotData = [trace1]
 
 	let layout = {
+		title: "Victoria Total Fire Counts Per Year 2002 - 2020",
 		margin: {
-			t: 30,
+			t: 50,
 			b: 100
 		},
 		yaxis: {
@@ -131,6 +134,11 @@ function buildStateStatisticsPlot(totalData) {
 	let plotData = [trace1]
 
 	let layout = {
+		title: "Year 2019 - 2020 Bushfires at a glance",
+		margin: {
+			t: 50,
+			b: 100
+		},
 		hovermode: false,
 		showlegend: false,
 		autosize: true
@@ -171,26 +179,11 @@ function buildTotalFirePlot(totalData) {
 		values: [nswTotal],
 		labels: ["New South Wales"],
 		textinfo: "label+value",
+		textposition: 'inside',
 		type: "pie",
 		marker: {
 			colors: [
-				"rgb(82, 82, 122)"
-			]
-		},
-		domain: {
-			row: 0,
-			column: 0
-		},
-	};
-
-	let trace2 = {
-		values: [queenslandTotal],
-		labels: ["Queensland"],
-		textinfo: "label+value",
-		type: "pie",
-		marker: {
-			colors: [
-				"rgb(41, 41, 61)"
+				"rgb(255,165,0)"
 			]
 		},
 		domain: {
@@ -199,14 +192,32 @@ function buildTotalFirePlot(totalData) {
 		},
 	};
 
+	let trace2 = {
+		values: [queenslandTotal],
+		labels: ["Queensland"],
+		textinfo: "label+value",
+		textposition: 'inside',
+		type: "pie",
+		marker: {
+			colors: [
+				"rgb(255,140,0)"
+			]
+		},
+		domain: {
+			row: 0,
+			column: 0
+		},
+	};
+
 	let trace3 = {
 		values: [victoriaTotal],
 		labels: ["Victoria"],
 		textinfo: "label+value",
+		textposition: 'inside',
 		type: "pie",
 		marker: {
 			colors: [
-				"rgb(148, 148, 184)"
+				"rgb(255,215,0)"
 			]
 		},
 		domain: {
@@ -218,6 +229,11 @@ function buildTotalFirePlot(totalData) {
 	let plotData = [trace1, trace2, trace3]
 
 	let layout = {
+		margin: {
+			t: 50,
+			b: 100
+		},
+		title: "Cumulative Fire Count 2002 - 2020",
 		showlegend: false,
 		hovermode: false,
 		grid: {
@@ -346,8 +362,9 @@ function buildNswPlot(data) {
 	let plotData = [trace1, trace2, trace3, trace4, trace5, trace6, trace7, trace8, trace9, trace10, trace11, trace12, trace13, trace14, trace15, trace16, trace17, trace18]
 
 	let layout = {
+		title: "New South Wales Cumulative Daily Fire Count 2002 - 2020",
 		margin: {
-			t: 30,
+			t: 70,
 			b: 100
 		},
 		xaxis: {
@@ -483,8 +500,9 @@ function buildQueenslandPlot(data) {
 	let plotData = [trace1, trace2, trace3, trace4, trace5, trace6, trace7, trace8, trace9, trace10, trace11, trace12, trace13, trace14, trace15, trace16, trace17, trace18]
 
 	let layout = {
+		title: "Queensland Cumulative Daily Fire Count 2002 - 2020",
 		margin: {
-			t: 30,
+			t: 70,
 			b: 100
 		},
 		xaxis: {
@@ -618,8 +636,9 @@ function buildVictoriaPlot(data) {
 	let plotData = [trace1, trace2, trace3, trace4, trace5, trace6, trace7, trace8, trace9, trace10, trace11, trace12, trace13, trace14, trace15, trace16, trace17, trace18]
 
 	let layout = {
+		title: "Victoria Cumulative Daily Fire Count 2002 - 2020",
 		margin: {
-			t: 30,
+			t: 70,
 			b: 100
 		},
 		xaxis: {

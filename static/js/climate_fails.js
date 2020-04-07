@@ -70,11 +70,11 @@ function buildComparisonPlot(combinedData) {
 
 		Plotly.newPlot("climate_first", plotData, layout)
 
-		para = "The extreme heat in Australia is not just a fluke. There are unique patterns in rain and temperature that converge to scorch the continent. " +
+		para ="The extreme heat in Australia is not just a fluke. There are unique patterns in rain and temperature that converge to scorch the continent. " +
 			"Australia is deep in the throes of the accelerating climate crisis, facing not just extreme heat but changes in rainfall patterns. These shifts in " +
 			"turn stand to worsen problems like drought and wildfires. Taken together, Australia serves as a microcosm of all the complicated ways that climate " +
-			"variables interact making climate as one of the dominent catalyst responsible for the significant increase in the Australian bushfires. " +
-			"The year 2019 shows a drastic increase in maximum tempearture and a significant drop in annual rainfall that together served as a catalyst " +
+			"variables interact making climate as one of the dominant catalyst responsible for the significant increase in the Australian bushfires. " +
+			"The year 2019 shows a drastic increase in maximum temperature and a significant drop in annual rainfall that together served as a catalyst " +
 			"causing a surge in number of bushfires across Australia specially is New South Wales and Victoria."
 
 		d3.select("p").text("")
@@ -177,7 +177,7 @@ function buildPollutantPlot(combinedData) {
   		"firefighters on the front lines. Until the 2019–2020 Australian bushfire season, the forests in Australia were thought " +
   		"to reabsorb all the carbon released in bushfires across the country. This would mean the forests " +
   		"achieved net zero emissions. However, global warming is making bushfires burn more intensely and frequently and the 2019–2020 bushfires " +
-  		"emitted 400 megatonnes of carbon dioxide into the atmosphere in its first quarter itself. " +
+  		"emitted 400 megatones of carbon dioxide into the atmosphere in its first quarter itself. " +
   		"This has increased Australia’s annual greenhouse gas emissions, " +
   		"contributing to global warming, and heighten the likelihood of recurring megafires that will release yet more emissions creating a deeply concerning " +
   		"climate feedback loop."
@@ -267,9 +267,9 @@ function buildMinTempPlot(combinedData) {
 
 	Plotly.newPlot("climate_first", plotData, layout)
 
-	para = "Australia’s climate shows an accelerating anomaly in not just the maximum temperature but the minimum tempearture too. " +
-		"There has been an almost persistent increase in the minimum teperature anomaly since 1980. The year 1998 shows the highest anomaly of 1.26° " +
-		" Celsisus. " +
+	para = "Australia’s climate shows an accelerating anomaly in not just the maximum temperature but the minimum temperature too. " +
+		"There has been an almost persistent increase in the minimum temperature anomaly since 1980. The year 1998 shows the highest anomaly of 1.26° " +
+		" Celsius. " +
 		"The above graph also shows the gradual increase in the country’s minimum temperature anomaly with first half of the 20th century being a lot cooler than the second " +
 		"half of the century. The 21st century marks the beginning of significant and persistent increased anomaly in minimum temperature."
 
@@ -314,9 +314,9 @@ function buildMeanTempPlot(combinedData) {
 
 	para = "Australia experienced the hottest year on record in 2019, which had a mean temperature of 1.52° Celsius above the mean calculated for 1961 to 1990. " +
 		"The year that delivered crippling drought, heatwaves, temperature records and devastating bushfires was 0.19°C hotter than 2013, the previous " +
-		"record holder. The second hottest year was 2013, followed by 2005, 2018 and 2017." +
+		"record holder. The second hottest year was 2013, followed by 2005, 2018 and 2017." 
 
-		d3.select("p").text("")
+	d3.select("p").text("")
 	d3.select("p").append("text").text(para)
 
 };
@@ -479,7 +479,7 @@ function buildCO2Plot(combinedData) {
 	Plotly.newPlot("climate_first", plotData, layout)
 
 	para = "The historic wildfires in Australia likely unleashed about 900 million tons of carbon dioxide into the atmosphere, " +
-		"equivalent to nearly double the country's total yearly fossil fuel emissions. The graph shows a continuos increase in the " +
+		"equivalent to nearly double the country's total yearly fossil fuel emissions. The graph shows a continuous increase in the " +
 		"Carbon Dioxide level each year with 2019 reporting about 407 parts-per-million Carbon Dioxide level in the country."
 
 	d3.select("p").text("")
@@ -518,7 +518,7 @@ function buildCH4Plot(combinedData) {
 	Plotly.newPlot("climate_first", plotData, layout)
 
 	para = "Methane (CH4) is 85% of natural gas, leaks, and has a Global Warming Potential (GWP) 105 times that of the same mass of carbon dioxide " +
-		"(CO2) on a 20 year time frame with aerosol impacts included. Like Carbon Dioxide, there is a continuos increase in reported levels of Methane " +
+		"(CO2) on a 20 year time frame with aerosol impacts included. Like Carbon Dioxide, there is a continuous increase in reported levels of Methane " +
 		"in the atmosphere with the year 2019 showing approximately 1817 parts-per-billion Methane levels."
 
 	d3.select("p").text("")
@@ -555,7 +555,7 @@ function buildN2OPlot(combinedData) {
 
 	Plotly.newPlot("climate_first", plotData, layout)
 
-	para = "The graph shows a continuos increase in the emitted Nitrous Oxide levels with the year 2019 reporting Nitrous Oxide level of 330 parts-per-billion.  " +
+	para = "The graph shows a continuous increase in the emitted Nitrous Oxide levels with the year 2019 reporting Nitrous Oxide level of 330 parts-per-billion.  " +
 		"Nitrous oxide has an atmospheric lifetime of 110 years. The process that removes nitrous oxide from the atmosphere also depletes ozone. " +
 		"So nitrous oxide is not only a greenhouse gas, but also an ozone destroyer. Emissions of nitrous oxide — a greenhouse gas 300 times more potent " +
 		"than carbon dioxide — are going up faster and each molecule of nitrous oxide in the atmosphere can capture 300 times more heat than a " +
