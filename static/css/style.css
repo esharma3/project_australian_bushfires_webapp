@@ -226,10 +226,10 @@ footer {
 }
 
 #header-404 h1 {
-  /*font-size: 35px;*/
-  /*font-weight: bold;*/
+  font-size: 35px;
+  font-weight: bold;
   padding: 40px;
-  /*position: absolute;*/
+  position: absolute;
 }
 
 .bgimage-404 {
@@ -246,17 +246,6 @@ footer {
   font-size: 40px;
   padding-bottom: 40px;
   text-align: center;
-}
-
-/*#####################################################################*/
-                      /*Styling for Impact Page                       #*/
-/*#####################################################################*/
-
-#roo {
-  position: relative;
-  width: 500px;
-  height: auto;
-  vertical-align: middle;
 }
 
 
