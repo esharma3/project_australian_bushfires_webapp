@@ -1,5 +1,6 @@
 # Import dependencies
 from flask import Flask, render_template, jsonify, request, redirect
+import sqlalchemy
 from sqlalchemy.orm import Session
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, Float, Date
@@ -19,7 +20,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DB_CONN")
 db = SQLAlchemy(app)
 
 # USER = "root"
-# PASSWORD = my_password
+# PASSWORD = password
 # HOST = "127.0.0.1"
 # PORT = "3306"
 # DATABASE = "bushfires_db"
@@ -303,7 +304,7 @@ class Impact_Economic(db.Model, DictMixIn):
     domestic_credit_private_sector_banks_per_gdp = db.Column(db.Integer())
 
 
-class impact_economic_cip(db.Model, DictMixIn):
+class Impact_Economic_cpi(db.Model, DictMixIn):
     __tablename__ = "impact_economic_cip"
 
     number = db.Column(db.Integer(), primary_key=True)
@@ -503,12 +504,9 @@ def annual_total_fire_counts():
 #####################################################################
 
 
-
 @app.route("/impact")
 def impact():
-    data = ProtectedSpecies.query.all()
-    impact_list = [e.to_dict() for e in data]
-    return render_template("impact.html", data=impact_list)
+    return render_template("impact.html")
 
 
 @app.route("/impact-data")
@@ -530,15 +528,15 @@ def econ_impact():
     impact_economic = Impact_Economic.query.all()
     for result in impact_economic:
         human_econ_impact.append(result.to_dict())
-    # impact_consumer = Impact_Economic_cip.query.all()
-    # for result in impact_economic:
+    impact_consumer = Impact_Economic_cpi.query.all()
+    for result in impact_economic:
         human_econ_impact.append(result.to_dict())
     return jsonify(human_econ_impact)
 
 
-####################################################################
-                     Climate Fails Page 		                    #
-####################################################################
+#####################################################################
+#                      Climate Fails Page 		                    #
+#####################################################################
 
 
 @app.route("/climate-fails")
@@ -669,9 +667,9 @@ def page_not_found(e):
     return render_template('404.html'), 404
 
 
-####################################################################
-                                Main		     			   		#
-####################################################################
+#####################################################################
+#                                 Main		     			   		#
+#####################################################################
 
 if __name__ == "__main__":
     app.run(debug=True)
