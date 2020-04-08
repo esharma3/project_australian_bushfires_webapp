@@ -139,7 +139,7 @@ function buildGlobalmap(totalData) {
         margin: { r: 0, t: 60, b: 0, l: 120 }
     };
 
-    Plotly.newPlot("plot", plotData, layout)
+    Plotly.newPlot("global_plot", plotData, layout)
 };
 
 // Global Fires Event Handlers
@@ -148,7 +148,7 @@ function start_2017() {
 	console.log("Bring it back to 2017...")
 
     // Contains the JSON version of data
-	d3.json("/aus_fire_map/2017").then((data) => {
+	d3.json("/g_fire_map/2017").then((data) => {
 		console.log("Bring it back to 2017-S2")
         buildGlobalmap(data)
     })
@@ -159,7 +159,7 @@ function start_2018() {
 	console.log("bring it back to 2018...")
 
     // Contains the JSON version of data
-	d3.json("/aus_fire_map/2018").then((data) => {
+	d3.json("/g_fire_map/2018").then((data) => {
 		console.log("hello again 2018-S2")
         buildGlobalmap(data)
     })
@@ -170,7 +170,7 @@ function start_2019() {
 	console.log("Bring it back to 2019...")
 
     // Contains the JSON version of data
-	d3.json("/aus_fire_map/2019").then((data) => {
+	d3.json("/g_fire_map/2019").then((data) => {
 		console.log("hello again 2019-S2")
         buildGlobalmap(data)
     })
@@ -181,7 +181,7 @@ function start_2020() {
 	console.log("Welcome to 2020...")
 
     // Contains the JSON version of data
-	d3.json("/aus_fire_map/2020").then((data) => {
+	d3.json("/g_fire_map/2020").then((data) => {
 		console.log("hello again 2020-S2")
         buildGlobalmap(data)
     })
