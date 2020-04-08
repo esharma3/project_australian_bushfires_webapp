@@ -434,10 +434,10 @@ engine.execute(f"ALTER TABLE {IMPACT_TABLENAME1} ADD PRIMARY KEY (`taxon_id`)")
 ############################################################
 ### Fire Human/Economic Impacts table begins here ###
 ############################################################
-IMPACT_TABLENAME2 = "impact_historic_fires"
+IMPACT_TABLENAME2 = "impact_data/impact_historic_fires"
 engine.execute(f"DROP TABLE IF EXISTS {IMPACT_TABLENAME2}")
 
-df = pd.read_csv("df_hist_fires.csv").to_sql(
+df = pd.read_csv("impact_data/df_hist_fires.csv").to_sql(
     name=IMPACT_TABLENAME2,
     con=engine,
     index=False,
@@ -453,7 +453,7 @@ df = pd.read_csv("df_hist_fires.csv").to_sql(
 engine.execute(f"ALTER TABLE {IMPACT_TABLENAME2} ADD PRIMARY KEY (`number`)"
 )
 
-IMPACT_TABLENAME3 = "impact_2019_2020_fires"
+IMPACT_TABLENAME3 = "impact_data/impact_2019_2020_fires"
 engine.execute(f"DROP TABLE IF EXISTS {IMPACT_TABLENAME3}")
 
 df = pd.read_csv("df_2019_2020_fires.csv").to_sql(
@@ -471,7 +471,7 @@ df = pd.read_csv("df_2019_2020_fires.csv").to_sql(
 engine.execute(
     f"ALTER TABLE {IMPACT_TABLENAME3} ADD PRIMARY KEY (`number`)")
 
-IMPACT_TABLENAME4 = "impact_economic"
+IMPACT_TABLENAME4 = "impact_data/impact_economic"
 engine.execute(f"DROP TABLE IF EXISTS {IMPACT_TABLENAME4}")
 
 df = pd.read_csv("aus_economic_data.csv").to_sql(
@@ -488,7 +488,7 @@ df = pd.read_csv("aus_economic_data.csv").to_sql(
 engine.execute(
     f"ALTER TABLE {IMPACT_TABLENAME4} ADD PRIMARY KEY (`number`)")
 
-IMPACT_TABLENAME5 = "impact_economic_cip"
+IMPACT_TABLENAME5 = "impact_data/impact_economic_cip"
 engine.execute(f"DROP TABLE IF EXISTS {IMPACT_TABLENAME5}")
 
 df = pd.read_csv("aus_cip_data.csv").to_sql(
