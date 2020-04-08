@@ -400,8 +400,8 @@ def index():
 @app.route("/g_fire_map")
 def load_g_fire_locations_data():
 
-    g_fire_archives = agg_g_fires.query.all()
-    return jsonify([e.to_dict() for e in g_fire_archives])
+    g_fires_arch = agg_g_fires.query.all()
+    return jsonify([e.to_dict() for e in g_fire_arch])
 
 
 @app.route("/g_fire_map/<year>")
@@ -409,16 +409,16 @@ def year_filter(year):
     """Return `latitude`, `longitude`,and `count`."""
     if year == '2017':
         global_fires_2017 = agg_g_fires.query.filter_by(year = '2017')
-        return jsonify([e.to_dict() for e in fires_2017])
+        return jsonify([e.to_dict() for e in global_fires_2017])
     elif year == '2018':
         global_fires_2018 = agg_g_fires.query.filter_by(year = '2018')
-        return jsonify([e.to_dict() for e in fires_2018])
+        return jsonify([e.to_dict() for e in global_fires_2018])
     elif year == '2019':
         global_fires_2019 = agg_g_fires.query.filter_by(year = '2019')
-        return jsonify([e.to_dict() for e in fires_2019])
+        return jsonify([e.to_dict() for e in global_fires_2019])
     else:
         global_fires_2020 = agg_g_fires.query.filter_by(year = '2020')
-        return jsonify([e.to_dict() for e in fires_2020])
+        return jsonify([e.to_dict() for e in global_fires_2020])
 
 
 
