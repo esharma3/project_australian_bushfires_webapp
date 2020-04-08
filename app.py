@@ -6,7 +6,7 @@ from sqlalchemy import Column, Integer, String, Float, Date
 import datetime, time
 from config import password
 import os
-my_password = "Bakken11"
+
 
 # Create an instance of Flask app
 app = Flask(__name__)
@@ -15,19 +15,19 @@ app = Flask(__name__)
 #                         Database Connection 			       		#
 #####################################################################
 
-# app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DB_CONN")
-# db = SQLAlchemy(app)
-
-USER = "root"
-PASSWORD = my_password
-HOST = "127.0.0.1"
-PORT = "3306"
-DATABASE = "bushfires_db"
-
-app.config[
-    "SQLALCHEMY_DATABASE_URI"
-] = f"mysql+pymysql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
+app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DB_CONN")
 db = SQLAlchemy(app)
+
+# USER = "root"
+# PASSWORD = my_password
+# HOST = "127.0.0.1"
+# PORT = "3306"
+# DATABASE = "bushfires_db"
+
+# app.config[
+#     "SQLALCHEMY_DATABASE_URI"
+# ] = f"mysql+pymysql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
+# db = SQLAlchemy(app)
 
 
 #####################################################################
@@ -506,16 +506,16 @@ def annual_total_fire_counts():
 
 @app.route("/impact")
 def impact():
-    # data = ProtectedSpecies.query.all()
-    # impact_list = [e.to_dict() for e in data]
-    return render_template("impact.html") #, data=impact_list)
+    data = ProtectedSpecies.query.all()
+    impact_list = [e.to_dict() for e in data]
+    return render_template("impact.html", data=impact_list)
 
 
-# @app.route("/impact-data")
-# def impact_data():
-#     data = ProtectedSpecies.query.all()
-#     impact_list = [e.to_dict() for e in data]
-#     return jsonify(impact_list)
+@app.route("/impact-data")
+def impact_data():
+    data = ProtectedSpecies.query.all()
+    impact_list = [e.to_dict() for e in data]
+    return jsonify(impact_list)
 
 
 @app.route("/econ-impact")
@@ -536,142 +536,142 @@ def econ_impact():
     return jsonify(human_econ_impact)
 
 
-#####################################################################
-#                      Climate Fails Page 		                    #
-#####################################################################
+####################################################################
+                     Climate Fails Page 		                    #
+####################################################################
 
 
-# @app.route("/climate-fails")
-# def climate_fails():
-#     return render_template("climate-fails.html")
+@app.route("/climate-fails")
+def climate_fails():
+    return render_template("climate-fails.html")
 
 
-# ########################################################################################
-# #            API search string for climate and greenhouse gases/air data               #
-# #             Ex: http://127.0.0.1:5000/climate_data?category=max-temp                 #
-# ########################################################################################
+########################################################################################
+#            API search string for climate and greenhouse gases/air data               #
+#             Ex: http://127.0.0.1:5000/climate_data?category=max-temp                 #
+########################################################################################
 
 
-# @app.route("/climate_data")
-# def climate_data():
+@app.route("/climate_data")
+def climate_data():
 
-#     # search type parameter - weather type. Refer the API documentation on About Page for more on weather parameters.
-#     request_weather_type = request.args.get("category")
+    # search type parameter - weather type. Refer the API documentation on About Page for more on weather parameters.
+    request_weather_type = request.args.get("category")
 
-#     combined_climate_list = []
-#     combined_climate_list_default = []
+    combined_climate_list = []
+    combined_climate_list_default = []
 
-#     try:
-#         # if no search criteria is entered then return the entire climate & gases dataset
-#         if not request_weather_type:
+    try:
+        # if no search criteria is entered then return the entire climate & gases dataset
+        if not request_weather_type:
 
-#             max_temp_results = AUS_Max_Temp_Anomaly_Data.query.all()
-#             for result in max_temp_results:
-#                 combined_climate_list_default.append(result.to_dict())
+            max_temp_results = AUS_Max_Temp_Anomaly_Data.query.all()
+            for result in max_temp_results:
+                combined_climate_list_default.append(result.to_dict())
 
-#             min_temp_results = AUS_Min_Temp_Anomaly_Data.query.all()
-#             for result in min_temp_results:
-#                 combined_climate_list_default.append(result.to_dict())
+            min_temp_results = AUS_Min_Temp_Anomaly_Data.query.all()
+            for result in min_temp_results:
+                combined_climate_list_default.append(result.to_dict())
 
-#             mean_temp_results = AUS_Mean_Temp_Anomaly_Data.query.all()
-#             for result in mean_temp_results:
-#                 combined_climate_list_default.append(result.to_dict())
+            mean_temp_results = AUS_Mean_Temp_Anomaly_Data.query.all()
+            for result in mean_temp_results:
+                combined_climate_list_default.append(result.to_dict())
 
-#             annual_rainfall_results = AUS_Annual_Rainfall_Data.query.all()
-#             for result in annual_rainfall_results:
-#                 combined_climate_list_default.append(result.to_dict())
+            annual_rainfall_results = AUS_Annual_Rainfall_Data.query.all()
+            for result in annual_rainfall_results:
+                combined_climate_list_default.append(result.to_dict())
 
-#             rainfall_anomaly_results = AUS_Annual_Rainfall_Anomaly_Data.query.all()
-#             for result in rainfall_anomaly_results:
-#                 combined_climate_list_default.append(result.to_dict())
+            rainfall_anomaly_results = AUS_Annual_Rainfall_Anomaly_Data.query.all()
+            for result in rainfall_anomaly_results:
+                combined_climate_list_default.append(result.to_dict())
 
-#             sst_anomaly_results = AUS_Sea_Surface_Temp_Anomaly_Data.query.all()
-#             for result in sst_anomaly_results:
-#                 combined_climate_list_default.append(result.to_dict())
+            sst_anomaly_results = AUS_Sea_Surface_Temp_Anomaly_Data.query.all()
+            for result in sst_anomaly_results:
+                combined_climate_list_default.append(result.to_dict())
 
-#             max_temp_decile10_area_results = AUS_Max_Temp_Area_Decile10.query.all()
-#             for result in max_temp_decile10_area_results:
-#                 combined_climate_list_default.append(result.to_dict())
+            max_temp_decile10_area_results = AUS_Max_Temp_Area_Decile10.query.all()
+            for result in max_temp_decile10_area_results:
+                combined_climate_list_default.append(result.to_dict())
 
-#             annual_rainfall_area_decile10 = (
-#                 AUS_Annual_Rainfall_Area_Decile10.query.all()
-#             )
-#             for result in annual_rainfall_area_decile10:
-#                 combined_climate_list_default.append(result.to_dict())
+            annual_rainfall_area_decile10 = (
+                AUS_Annual_Rainfall_Area_Decile10.query.all()
+            )
+            for result in annual_rainfall_area_decile10:
+                combined_climate_list_default.append(result.to_dict())
 
-#             air_pollutant_results = AUS_Air_Pollutants_Combined_Data.query.all()
-#             for result in air_pollutant_results:
-#                 combined_climate_list_default.append(result.to_dict())
+            air_pollutant_results = AUS_Air_Pollutants_Combined_Data.query.all()
+            for result in air_pollutant_results:
+                combined_climate_list_default.append(result.to_dict())
 
-#             return jsonify(combined_climate_list_default)
+            return jsonify(combined_climate_list_default)
 
-#         # if search criteria (endpoint) is entered then use the search criteria as a filter to return the results
-#         if request_weather_type.lower() == "max-temp-anomaly":
-#             max_temp_results = AUS_Max_Temp_Anomaly_Data.query.all()
-#             for result in max_temp_results:
-#                 combined_climate_list.append(result.to_dict())
+        # if search criteria (endpoint) is entered then use the search criteria as a filter to return the results
+        if request_weather_type.lower() == "max-temp-anomaly":
+            max_temp_results = AUS_Max_Temp_Anomaly_Data.query.all()
+            for result in max_temp_results:
+                combined_climate_list.append(result.to_dict())
 
-#         elif request_weather_type.lower() == "min-temp-anomaly":
-#             min_temp_results = AUS_Min_Temp_Anomaly_Data.query.all()
-#             for result in min_temp_results:
-#                 combined_climate_list.append(result.to_dict())
+        elif request_weather_type.lower() == "min-temp-anomaly":
+            min_temp_results = AUS_Min_Temp_Anomaly_Data.query.all()
+            for result in min_temp_results:
+                combined_climate_list.append(result.to_dict())
 
-#         elif request_weather_type.lower() == "mean-temp-anomaly":
-#             mean_temp_results = AUS_Mean_Temp_Anomaly_Data.query.all()
-#             for result in mean_temp_results:
-#                 combined_climate_list.append(result.to_dict())
+        elif request_weather_type.lower() == "mean-temp-anomaly":
+            mean_temp_results = AUS_Mean_Temp_Anomaly_Data.query.all()
+            for result in mean_temp_results:
+                combined_climate_list.append(result.to_dict())
 
-#         elif request_weather_type.lower() == "annual-rainfall":
-#             annual_rainfall_results = AUS_Annual_Rainfall_Data.query.all()
-#             for result in annual_rainfall_results:
-#                 combined_climate_list.append(result.to_dict())
+        elif request_weather_type.lower() == "annual-rainfall":
+            annual_rainfall_results = AUS_Annual_Rainfall_Data.query.all()
+            for result in annual_rainfall_results:
+                combined_climate_list.append(result.to_dict())
 
-#         elif request_weather_type.lower() == "rainfall-anomaly":
-#             rainfall_anomaly_results = AUS_Annual_Rainfall_Anomaly_Data.query.all()
-#             for result in rainfall_anomaly_results:
-#                 combined_climate_list.append(result.to_dict())
+        elif request_weather_type.lower() == "rainfall-anomaly":
+            rainfall_anomaly_results = AUS_Annual_Rainfall_Anomaly_Data.query.all()
+            for result in rainfall_anomaly_results:
+                combined_climate_list.append(result.to_dict())
 
-#         elif request_weather_type.lower() == "sst-anomaly":
-#             sst_anomaly_results = AUS_Sea_Surface_Temp_Anomaly_Data.query.all()
-#             for result in sst_anomaly_results:
-#                 combined_climate_list.append(result.to_dict())
+        elif request_weather_type.lower() == "sst-anomaly":
+            sst_anomaly_results = AUS_Sea_Surface_Temp_Anomaly_Data.query.all()
+            for result in sst_anomaly_results:
+                combined_climate_list.append(result.to_dict())
 
-#         elif request_weather_type.lower() == "max-temp-decile10":
-#             max_temp_decile10_area_results = AUS_Max_Temp_Area_Decile10.query.all()
-#             for result in max_temp_decile10_area_results:
-#                 combined_climate_list.append(result.to_dict())
+        elif request_weather_type.lower() == "max-temp-decile10":
+            max_temp_decile10_area_results = AUS_Max_Temp_Area_Decile10.query.all()
+            for result in max_temp_decile10_area_results:
+                combined_climate_list.append(result.to_dict())
 
-#         elif request_weather_type.lower() == "annual-rainfall-decile10":
-#             annual_rainfall_area_decile10 = (
-#                 AUS_Annual_Rainfall_Area_Decile10.query.all()
-#             )
-#             for result in annual_rainfall_area_decile10:
-#                 combined_climate_list.append(result.to_dict())
+        elif request_weather_type.lower() == "annual-rainfall-decile10":
+            annual_rainfall_area_decile10 = (
+                AUS_Annual_Rainfall_Area_Decile10.query.all()
+            )
+            for result in annual_rainfall_area_decile10:
+                combined_climate_list.append(result.to_dict())
 
-#         elif request_weather_type.lower() == "gases":
-#             air_pollutant_results = AUS_Air_Pollutants_Combined_Data.query.all()
-#             for result in air_pollutant_results:
-#                 combined_climate_list.append(result.to_dict())
+        elif request_weather_type.lower() == "gases":
+            air_pollutant_results = AUS_Air_Pollutants_Combined_Data.query.all()
+            for result in air_pollutant_results:
+                combined_climate_list.append(result.to_dict())
 
-#         return jsonify(combined_climate_list)
+        return jsonify(combined_climate_list)
 
-#     except Exception as e:
-#         return jsonify({"status": "failure", "error": str(e)})
+    except Exception as e:
+        return jsonify({"status": "failure", "error": str(e)})
 
-
-
-# #####################################################################
-# #                       Custom 404 Page                             #
-# #####################################################################
-
-# @app.errorhandler(404)
-# def page_not_found(e):
-#     return render_template('404.html'), 404
 
 
 #####################################################################
-#                                 Main		     			   		#
+#                       Custom 404 Page                             #
 #####################################################################
+
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+
+####################################################################
+                                Main		     			   		#
+####################################################################
 
 if __name__ == "__main__":
     app.run(debug=True)
