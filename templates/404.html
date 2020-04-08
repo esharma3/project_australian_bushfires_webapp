@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Australian Bushfires Webapp</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light" id="header-404">
+        <h1>Oh My!!! The page you're looking for isn't here!</h1>
+    </nav>
+
+    <!-- </section> -->
+    <section class="bgimage-404">
+        <div class="container-fluid"></div>
+    </section>
+
+    <section class="cards-404" id="main-404">
+        <div class="container">
+
+            <div class="row">
+
+                <h1>Here are other things that were lost during Australia's bushfires!</h1>
+
+                <div class="card-deck">
+
+                    <div class="card mb-14 ">
+                        <a href="fire-maps.html">
+                            <img class="card-img-top img-fluid" src="../static/images/fire_maps_icon.svg" alt="Card image cap">
+                        </a>
+                        <div class="card-body">
+                            <h4 class="card-title">Fire Maps</h4>
+                            <p class="card-text">Nisi chicharrones next level, crucifix mustache lumbersexual blog direct trade artisan nostrud... <a href="fire-maps.html">read more</a></p>
+                            <p class="card-text"><small class="text-muted">Last updated 5 mins ago</small></p>
+                        </div>
+                    </div>
+
+                    <div class="card mb-4">
+                        <a href="fire-count.html">
+                            <img class="card-img-top img-fluid" src="../static/images/fire_count_icon.svg" alt="Card image cap">
+                        </a>
+                        <div class="card-body">
+                            <h4 class="card-title">Fire Count</h4>
+                            <p class="card-text">Nisi chicharrones next level, crucifix mustache lumbersexual blog direct trade artisan nostrud... <a href="fire-count.html">read more</a></p>
+                            <p class="card-text"><small class="text-muted">Last updated 4 mins ago</small></p>
+                        </div>
+                    </div>
+
+                    <div class="w-100 d-none d-sm-block d-md-none">
+                        <!-- wrap every 2 on sm-->
+                    </div>
+                    <div class="card mb-4">
+                        <a href="impact.html">
+                            <img class="card-img-top img-fluid" src="../static/images/impact_icon.svg" alt="Card image cap">
+                        </a>
+                        <div class="card-body">
+                            <h4 class="card-title">Impact</h4>
+                            <p class="card-text">Nisi chicharrones next level, crucifix mustache lumbersexual blog direct trade artisan nostrud... <a href="impact.html">read more</a></p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+
+                    <div class="w-100 d-none d-md-block d-lg-none">
+                        <!-- wrap every 3 on md-->
+                    </div>
+                    <div class="card mb-4">
+                        <a href="climate-fails.html">
+                            <img class="card-img-top img-fluid" src="../static/images/climate_fails_icon.svg" alt="Card image cap">
+                        </a>
+                        <div class="card-body">
+                            <h4 class="card-title">Climate Fails</h4>
+                            <p class="card-text">Nisi chicharrones next level, crucifix mustache lumbersexual blog direct trade artisan nostrud... <a href="climate-fails.html">read more</a></p>
+                            <p class="card-text"><small class="text-muted">Last updated 2 min ago</small></p>
+                        </div>
+                    </div>
+
+                    <div class="w-100 d-none d-md-block d-lg-none">
+                        <!-- wrap every 3 on md-->
+                    </div>
+                    <div class="card mb-4">
+                        <a href="about.html">
+                            <img class="card-img-top img-fluid" src="../static/images/about_icon.svg" alt="Card image cap">
+                        </a>
+                        <div class="card-body">
+                            <h4 class="card-title">About</h4>
+                            <p class="card-text">Nisi chicharrones next level, crucifix mustache lumbersexual blog direct trade artisan nostrud... <a href="about.html">read more</a></p>
+                            <p class="card-text"><small class="text-muted">Last updated 1 min ago</small></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    <!-- </section> -->
+    </section>
+    <!-- </div>
+    </section> -->
+
+</body>
+
+<footer class="page-footer font-small blue">
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="index.html">UT Data Bootcamp</a>
+    </div>
+</footer>
+
+</html>
