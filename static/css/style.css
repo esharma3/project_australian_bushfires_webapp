@@ -1,3 +1,8 @@
+
+/*#####################################################################*/
+/*               Styling for navbar and index page                     */
+/*#####################################################################*/
+
 html {
   scroll-behavior: smooth;
 }
@@ -97,7 +102,7 @@ footer {
 }
 
 /*#####################################################################*/
-                /*Styling for fire count template                     #*/
+/*                 Styling for fire count template                     */
 /*#####################################################################*/
 
 #fire_count {
@@ -145,7 +150,7 @@ footer {
 }
 
 /*#####################################################################*/
-                /*Styling for Climate Fails template                  #*/
+/*                Styling for Climate Fails template                   */
 /*#####################################################################*/
 
 #climate_fails {
@@ -177,18 +182,25 @@ footer {
   background-color: black;
   width: 270px;
   color: white;
-  margin: 4px;
+  margin: 3px;
 }
 
 .btn:hover {
     color: orange;
-  }
+}
 
 .btn:focus{
     background: rgb(92, 92, 138);
 }
 
-#buttons,
+#buttons {
+  background: rgb(41, 41, 61);
+  padding: 10px;
+  margin-bottom: 5px;
+  justify-content: center;
+  align-items: center;
+}
+
 #climate_first_row,
 #climate_second_row
 {
@@ -197,14 +209,46 @@ footer {
   margin-bottom: 5px;
 }
 
-
 /*#####################################################################*/
-                      /*Styling for Impact Page                       #*/
+/*                Styling for custom 404 template                      */
 /*#####################################################################*/
 
-#roo {
-  position: relative;
-  width: 500px;
-  height: auto;
-  vertical-align: middle;
+#header-404 {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 50px;
+  background-color: #00a087;
+  justify-content: center;
+  align-items: center;
 }
+
+#header-404 h1 {
+  font-size: 35px;
+  font-weight: bold;
+  padding: 40px;
+  position: absolute;
+}
+
+.bgimage-404 {
+  width: 100%;
+  height: 100%;
+  margin-top: 50px;
+  margin-bottom: 10px;
+  background: url('../images/concerned-roo.jpg');
+  background-repeat: no-repeat;
+  background-size:cover;
+}
+
+#main-404 h1 {
+  font-size: 40px;
+  padding-bottom: 40px;
+  text-align: center;
+}
+
+
+/*#####################################################################*/
+/*                          Stylesheet End                             */
+/*#####################################################################*/

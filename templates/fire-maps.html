@@ -10,8 +10,8 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
     integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
-  <!-- Jinja2 reference to our css file -->
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <!-- Jinja2 reference to our css file TURN BACK ON-->
+  <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
 
   <!-- D3 CDN -->
   <script src="https://d3js.org/d3.v5.min.js"></script>
@@ -19,8 +19,8 @@
   <!-- Plotly CDN -->
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
-  <!-- Only uncomment the following line if you need a reference to our css outside of flask -->
-  <!-- <link rel="stylesheet" href="../static/css/style.css"> -->
+  <!-- Only uncomment the following line if you need a reference to our css outside of flask -- TURN BACK OFF--> 
+  <link rel="stylesheet" href="../static/css/style.css">
 
   <!-- Bootstrap JS files -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
@@ -68,7 +68,7 @@
   </nav>
 
   <!-- Added spacer to push map out from underneath nav -->
-  <div id="spacer" style="width:100%;height:200;"></div>
+  <div id = "spacer" style = "width:100%;height:200;"></div>
 
   <div class="container-fluid">
     <div class="row">
@@ -100,6 +100,12 @@
   </div>
 
   <script src="{{ url_for('static', filename='js/fire-maps.js') }}"></script>
+
+<!-- begin wwww.htmlcommentbox.com -->
+<div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
+<link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+<script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%24djX4zEE4DBBaYwmJDqyvv1"+"&opts=16862&num=10&ts=1585408487282");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+<!-- end www.htmlcommentbox.com -->
 
   <!-- Footer -->
 

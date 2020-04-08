@@ -31,15 +31,15 @@ except ProgrammingError:
     pass
 engine.execute(f"USE {DATABASE}")
 
-#########################################################################################
-#  Adding Tables to MySQL DB.  If a table already exists, it is dropped and re-added.   #
-#########################################################################################
+########################################################################################
+ Adding Tables to MySQL DB.  If a table already exists, it is dropped and re-added.   #
+########################################################################################
 
-#####################################################################
-#                         Fire Count Tables                         #
-#####################################################################
+####################################################################
+                        Fire Count Tables                         #
+####################################################################
 
-# New South Wales
+New South Wales
 FIRE_COUNT_TABLENAME1 = "nsw_fire_counts"
 engine.execute(f"DROP TABLE IF EXISTS {FIRE_COUNT_TABLENAME1}")
 
@@ -431,13 +431,13 @@ df.to_sql(name=IMPACT_TABLENAME1,
 # Adding primary key to table
 engine.execute(f"ALTER TABLE {IMPACT_TABLENAME1} ADD PRIMARY KEY (`taxon_id`)")
 
-# ### End of animal impact table ###
+## End of animal impact table ###
 
 
 IMPACT_TABLENAME2 = "impact_historic_fires"
 engine.execute(f"DROP TABLE IF EXISTS {IMPACT_TABLENAME2}")
 
-df = pd.read_csv("df_hist_fires.csv").to_sql(
+df = pd.read_csv("df_hist_fires1.csv").to_sql(
     name=IMPACT_TABLENAME2,
     con=engine,
     index=False,
@@ -511,10 +511,9 @@ engine.execute(
 
 
 
-
-############################################################
-###     Australia Fire Archives table begins here        ###
-############################################################
+###########################################################
+##     Australia Fire Archives table begins here        ###
+###########################################################
 
 AUS_FIRES = "aus_fire_history" 
 engine.execute(f"DROP TABLE IF EXISTS {AUS_FIRES}")
@@ -643,7 +642,6 @@ del j
 
 engine.execute(f"ALTER TABLE {GLOBAL_FIRES_2020_2017} ADD PRIMARY KEY (`index`)")
 
-############################################################
-###~~~~~~END             *Austin*               END~~~~~~###
-###     Table for Global Fire Map (2019 through 2017)    ###
-############################################################
+##################################################################
+###    End of Tables for Global Fire Map (2019 through 2017)   ###
+##################################################################
