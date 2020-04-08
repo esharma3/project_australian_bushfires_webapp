@@ -10,15 +10,18 @@ import os
 # Importing dependencies for scraping
 import requests
 from bs4 import BeautifulSoup
+my_password = "Bakken11"
 
+USER = "root"
+PASSWORD = my_password
+HOST = "127.0.0.1"
+PORT = "3306"
 DATABASE = "bushfires_db"
 
 ###################################################################
 #                 Database Connection to MySQL                    #
 ###################################################################
-
-engine = create_engine(os.getenv("DB_CONN"))
-
+engine = create_engine(f"mysql+pymysql://{USER}:{PASSWORD}@{HOST}:{PORT}")
 try:
     engine.execute(f"CREATE DATABASE {DATABASE}")
 except ProgrammingError:
@@ -26,18 +29,17 @@ except ProgrammingError:
         f"Could not create database {DATABASE}. Database {DATABASE} may already exist."
     )
     pass
-
 engine.execute(f"USE {DATABASE}")
 
-#########################################################################################
-#  Adding Tables to MySQL DB.  If a table already exists, it is dropped and re-added.   #
-#########################################################################################
+########################################################################################
+ Adding Tables to MySQL DB.  If a table already exists, it is dropped and re-added.   #
+########################################################################################
 
-#####################################################################
-#                         Fire Count Tables                         #
-#####################################################################
+####################################################################
+                        Fire Count Tables                         #
+####################################################################
 
-# New South Wales
+New South Wales
 FIRE_COUNT_TABLENAME1 = "nsw_fire_counts"
 engine.execute(f"DROP TABLE IF EXISTS {FIRE_COUNT_TABLENAME1}")
 
@@ -429,15 +431,13 @@ df.to_sql(name=IMPACT_TABLENAME1,
 # Adding primary key to table
 engine.execute(f"ALTER TABLE {IMPACT_TABLENAME1} ADD PRIMARY KEY (`taxon_id`)")
 
-### End of animal impact table ###
+## End of animal impact table ###
 
-############################################################
-### Fire Human/Economic Impacts table begins here ###
-############################################################
-IMPACT_TABLENAME2 = "impact_data/impact_historic_fires"
+
+IMPACT_TABLENAME2 = "impact_historic_fires"
 engine.execute(f"DROP TABLE IF EXISTS {IMPACT_TABLENAME2}")
 
-df = pd.read_csv("impact_data/df_hist_fires.csv").to_sql(
+df = pd.read_csv("df_hist_fires1.csv").to_sql(
     name=IMPACT_TABLENAME2,
     con=engine,
     index=False,
@@ -453,7 +453,7 @@ df = pd.read_csv("impact_data/df_hist_fires.csv").to_sql(
 engine.execute(f"ALTER TABLE {IMPACT_TABLENAME2} ADD PRIMARY KEY (`number`)"
 )
 
-IMPACT_TABLENAME3 = "impact_data/impact_2019_2020_fires"
+IMPACT_TABLENAME3 = "impact_2019_2020_fires"
 engine.execute(f"DROP TABLE IF EXISTS {IMPACT_TABLENAME3}")
 
 df = pd.read_csv("df_2019_2020_fires.csv").to_sql(
@@ -471,7 +471,7 @@ df = pd.read_csv("df_2019_2020_fires.csv").to_sql(
 engine.execute(
     f"ALTER TABLE {IMPACT_TABLENAME3} ADD PRIMARY KEY (`number`)")
 
-IMPACT_TABLENAME4 = "impact_data/impact_economic"
+IMPACT_TABLENAME4 = "impact_economic"
 engine.execute(f"DROP TABLE IF EXISTS {IMPACT_TABLENAME4}")
 
 df = pd.read_csv("aus_economic_data.csv").to_sql(
@@ -488,7 +488,7 @@ df = pd.read_csv("aus_economic_data.csv").to_sql(
 engine.execute(
     f"ALTER TABLE {IMPACT_TABLENAME4} ADD PRIMARY KEY (`number`)")
 
-IMPACT_TABLENAME5 = "impact_data/impact_economic_cip"
+IMPACT_TABLENAME5 = "impact_economic_cip"
 engine.execute(f"DROP TABLE IF EXISTS {IMPACT_TABLENAME5}")
 
 df = pd.read_csv("aus_cip_data.csv").to_sql(
@@ -509,15 +509,12 @@ df = pd.read_csv("aus_cip_data.csv").to_sql(
 engine.execute(
     f"ALTER TABLE {IMPACT_TABLENAME5} ADD PRIMARY KEY (`year`)")
    
-############################################################
-### Fire Impacts table ends here ###
-############################################################
 
 
 
-############################################################
-###     Australia Fire Archives table begins here        ###
-############################################################
+###########################################################
+##     Australia Fire Archives table begins here        ###
+###########################################################
 
 AUS_FIRES = "aus_fire_history" 
 engine.execute(f"DROP TABLE IF EXISTS {AUS_FIRES}")
