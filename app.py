@@ -13,22 +13,22 @@ import os
 app = Flask(__name__)
 
 #####################################################################
-#                       Database Connection 			              		#
+#                         Database Connection 			       		#
 #####################################################################
 
-# app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DB_CONN")
-# db = SQLAlchemy(app)
-
-USER = "root"
-PASSWORD = password
-HOST = "127.0.0.1"
-PORT = "3306"
-DATABASE = "bushfires_db"
-
-app.config[
-    "SQLALCHEMY_DATABASE_URI"
-] = f"mysql+pymysql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
+app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DB_CONN")
 db = SQLAlchemy(app)
+
+# USER = "root"
+# PASSWORD = password
+# HOST = "127.0.0.1"
+# PORT = "3306"
+# DATABASE = "bushfires_db"
+
+# app.config[
+#     "SQLALCHEMY_DATABASE_URI"
+# ] = f"mysql+pymysql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
+# db = SQLAlchemy(app)
 
 
 #####################################################################
@@ -47,7 +47,7 @@ class DictMixIn:
 
 
 #####################################################################
-#                 Classes for Fire Count Tables  		              	#
+#                 Classes for Fire Count Tables  		   	      	#
 #####################################################################
 
 
@@ -331,7 +331,7 @@ db.session.commit()
 
 
 #####################################################################
-#                               Home Page				   	              	#
+#                               Home Page		   	              	#
 #####################################################################
 
 
@@ -374,8 +374,9 @@ def samples(year):
         return jsonify([e.to_dict() for e in fires_2020])
       
 
+
 #####################################################################
-#                     Fire Counts Page and Route 	                	#
+#                     Fire Counts Page and Route 	               	#
 #####################################################################
 
 
@@ -658,9 +659,20 @@ def climate_data():
         return jsonify({"status": "failure", "error": str(e)})
 
 
+
 #####################################################################
-#                                 Main		     			        #
+#                       Custom 404 Page                             #
+#####################################################################
+
+# @app.errorhandler(404)
+# def page_not_found(e):
+#     return render_template('404.html'), 404
+
+
+#####################################################################
+#                                 Main		     			   		#
 #####################################################################
 
 if __name__ == "__main__":
     app.run(debug=True)
+    
