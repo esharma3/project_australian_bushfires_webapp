@@ -1,0 +1,68 @@
+﻿number,name,state,hectacres_burned,acres_burned,other_damage,year,human_fatalities,homes_destroyed
+1,Black Thursday bushfires ,Victoria ,5000000,12000000,1 million sheep thousands of cattle ,1851,12,null
+2,Red Tuesday bushfires ,Victoria ,260000,640000,0,1898,12,null
+3,1926 bushfires ,Victoria ,390000,960000,0,1926,60,1000
+5,Black Friday bushfires ,Victoria ,2000000,4900000,0,1938,71,3700
+6,1944 Victorian bushfires ,Victoria ,1000000,2500000,0,1944,15,500
+7,1944 Blue Mountains bushfire ,New South Wales ,null,null,0,1944,null,40
+8,1951 bushfires ,Victoria ,4000000,9900000,0,1951,11,null
+9,Black Sunday bushfires ,South Australia ,39000160000,96000395000,0,1955,2,40
+10,1957 Grose Valley bushfire Blue Mountains ,New South Wales ,null,null,0,1957,4,null
+11,1957 Leura bushfire Blue Mountains ,New South Wales ,null,null,0,1957,null,170
+12,1961 Western Australian bushfires ,Western Australia ,1800000,4400000,0,1961,null,160
+13,1962 Victorian bushfires ,Victoria ,null,null,0,1962,32,450
+14,1965 Gippsland bushfires ,Victoria ,315000,780000,4000 livestock ,1965,null,20
+15,Southern Highlands bushfires ,New South Wales ,251000,620000,0,1965,3,59
+16,Black Tuesday bushfires ,Tasmania ,264000,650000,0,1967,62,1293
+17,1968-69 Killarney Top Springs bushfires ,Northern Territory ,40000000,99000000,0,1968,null,null
+18,1968 Blue Mountains Bushfire ,New South Wales ,null,null,0,1968,4,120
+19,1969 bushfires ,Victoria ,null,null,0,1969,23,230
+20,1969-70 Dry River-Victoria River fire ,Northern Territory ,45000000,110000000,0,1969,null,null
+21,1974-75 Australian bushfire season,Nationwide,117000000,290000000,15% of Australia was burnt. The damage was mostly in central Australia and so it did not impact many communities. 57000 farm animalsapproximately 10200 kilometres (6300 mi) of fencing ,1974,6,null
+22,Western Districts bushfires ,Victoria ,103000,250000,0,1977,4,116
+23,Blue Mountains Fires 1977 ,New South Wales ,54000,130000,0,1977,2,49
+24,1978 Western Australian bushfires ,Western Australia ,114000,280000,0,1978,2,null
+25,1979 Sydney bushfires ,New South Wales ,null,null,0,1979,5,28
+26,1980 Waterfall bushfire ,New South Wales ,1000000,2500000,0,1980,5,14
+27,Grays Point bushfire ,New South Wales ,null,null,0,1983,3,null
+28,Ash Wednesday bushfires , South Australia Victoria  ,418000,1030000,0,1983,75,2400
+29,1984 Western New South Wales grasslands bushfires ,New South Wales ,500000,1200000,40000 livestock $40 million damages ,1984,null,null
+30,1985 Cobar bushfire ,New South Wales ,516000,1280000,0,1985,null,23
+31,1984 - 85 New South Wales bushfires ,New South Wales ,3500000,8600000,0,1984,5,20
+32,Central Victoria bushfires ,Victoria ,50800,126000,0,1985,3,180
+33,1994 Eastern seaboard fires ,New South Wales ,400000,990000,0,1993,4,225
+34,Wooroloo bushfire ,Western Australia ,10500,26000,0,1997,null,16
+35,Dandenongs bushfire ,Victoria ,400,990,0,1997,3,41
+36,Lithgow bushfire ,New South Wales ,null,null,0,1997,2,null
+37,Menai bushfire ,New South Wales ,null,null,0,1997,1,11
+38,Perth and South-West Region bushfires ,Western Australia ,23000,57000,0,1997,2,1
+39,Linton bushfire ,Victoria ,null,null,0,1998,5,null
+40,Black Christmas bushfires ,New South Wales ,753314,1861480,0,2001,null,121
+41,2002 NT bushfires ,Northern Territory ,38000000,94000000,0,2002,null,null
+42,2003 Canberra bushfires ,Australian Capital Territory ,160000,400000,0,2003,4,500
+43,2003 Eastern Victorian alpine bushfires ,Victoria ,1300000,3200000,10000 livestock ,2003,null,41
+44,Tenterden ,Western Australia ,2110000,5200000,0,2003,2,null
+45,2005 Eyre Peninsula bushfire ,South Australia ,77964,192650,0,2005,9,93
+46,Jail Break Inn Fire Junee ,New South Wales ,30000,74000,20000 livestock  headers1500 kilometres (930 mi) of fencing ,2006,null,7
+47,2005 Victorian bushfires ,Victoria ,160000,400000,65000 livestock ,2005,4,57
+48,Grampians bushfire ,Victoria ,184000,450000,0,2006,2,null
+49,Pulletop bushfire Wagga Wagga ,New South Wales ,9000,22000,2500 livestock vehicles50 kilometres (31 mi) of fencing ,2006,null,null
+50,The Great Divides bushfire ,Victoria ,1048000,2590000,0,2006,1,51
+51,2207-2008 Australian bushfire season ,Nationwide,1360000,3400000,0,2006,5,83
+52,Dwellingup bushfire ,Western Australia ,12000,30000,0,2007,null,16
+53,2007 Kangaroo Island bushfires ,South Australia ,95000,230000,0,2007,1,null
+54,Boorabbin National Park ,Western Australia ,40000,99000,PowerlinesGreat Eastern Highway was closed for 2 weeks ,2007,3,null
+55,Black Saturday bushfires ,Victoria ,450000,1100000,0,2009,173,2029
+56,Tasmanian bushfires ,Tasmania ,20000,49000,0,2013,1,null
+57,Warrumbungle bushfire ,New South Wales ,54000,130000,Agricultural machinery and livestock Infrastructure at Siding Spring Observatory ,2013,null,53
+58,2013 New South Wales bushfires ,New South Wales ,100000,250000,0,2013,1,208
+59,Carnarvon bushfire complex ,Western Australia ,800000,2000000,11 pastoral stations(fences watering systems water points stock feed) ,2011,null,null
+60,2015 Sampson Flat bushfires ,South Australia ,20000,49000,0,2015,null,27
+61,2015 O'Sullivan bushfire (Northcliffe  Windy Harbour) ,Western Australia ,98923,244440,Thousands of hectares of production forests (karri and jarrah) or national parks ,2015,null,2
+62,2015 Lower Hotham bushfire (Boddington) ,Western Australia ,52373,129420,1 bridgeThousands of hectares of production forest (jarrah) or national parks ,2015,null,1
+63,2015 Esperance bushfires ,Western Australia ,200000,490000,15000 livestock Nature ReservesMost of Cape Arid National Park ,2015,4,10
+64,Perth Hills bushfire complex  Solus Group ,Western Australia ,10016,24750,Jarrah production forest and Conservation Park ,2015,null,null
+65,2015 Pinery bushfire ,South Australia ,85000,210000,0,2015,2,91
+66,2016 Murray Road bushfire (Waroona and Harvey) ,Western Australia ,69165,170910,Thousands of hectares of Lane Poole ReserveProduction forest (jarrah) ,2016,2,181
+67,2017 New South Wales bushfires ,New South Wales ,52000,130000,0,2017,null,35
+69,null,Nationwide ,18626000,46030000,0,2019,34,2600
