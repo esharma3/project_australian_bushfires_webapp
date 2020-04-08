@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+
+<!--  NOT TOUCHY TOUCH, just copy/paste -->
+
+<head>
+  <meta charset="utf-8">
+  <title>Australian Bushfires Webapp</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <!-- Jinja2 reference to our css file -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <!-- D3 CDN -->
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+
+  <!-- Plotly CDN -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+  <!-- Only uncomment the following line if you need a reference to our css outside of flask -->
+  <!-- <link rel="stylesheet" href="../static/css/style.css"> -->
+
+  <!-- Bootstrap JS files -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+</head>
+
+
+<!--  -->
+
+<body>
+  <!-- This is the nav bar. Paste on every page at the top of the body-->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="/">HOME</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+      aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="fire-maps">Fire Maps</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/fire_count_page">Fire Count</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="impact">Impact</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/climate_fails_page">Climate Fails</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="about">About</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Added spacer to push map out from underneath nav -->
+  <div id = "spacer" style = "width:100%;height:200;"></div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div id="plot"></div>
+          <div align = "center">
+          <button id = "aus-17" class = "btn btn-default">2017</button>
+          <button id = "aus-18" class = "btn btn-default">2018</button>
+          <button id = "aus-19" class = "btn btn-default">2019</button>
+          <button id = "aus-20" class = "btn btn-default">2020</button>
+          </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div id="global_plot"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/fire-maps.js') }}"></script>
+
+  <!-- Footer -->
+
+  <footer class="page-footer font-small blue">
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+      <a href="index.html">UT Data Bootcamp</a>
+    </div>
+  </footer>
+</body>
+
+</html>
