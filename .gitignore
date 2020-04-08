@@ -2,3 +2,7 @@
 config.py
 .env
 dotenv
+fd_2020.csv
+fd_2019.csv
+fd_2018.csv
+fd_2017.csv
