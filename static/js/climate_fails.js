@@ -466,7 +466,7 @@ function buildCO2Plot(combinedData) {
 	let plotData = [trace1]
 
 	let layout = {
-		title: "Australia Carbon Dioxide Level in Parts-Per-Million (1978-2019)",
+		title: "Australia Carbon Dioxide (CO2) Level in Parts-Per-Million (1978-2019)",
 		xaxis: {
 			type: 'category',
 		},
