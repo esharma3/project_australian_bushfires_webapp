@@ -6,7 +6,7 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <!-- Jinja2 CSS reference to our css file -->
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> TURN BACK ON
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <!-- Bootstrap JS files -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
@@ -18,7 +18,8 @@
 
 <!-- Body -->
 <body>
-<!-- This is the nav bar. Paste on every page at the top of the body-->
+
+<!-- Nav bar -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-light">
   <a class="navbar-brand" href="/">HOME</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,20 +48,34 @@
 </nav>
 
 
+
+
 <section class="header-subpage">
   <br/>
   <div class="container-fluid">
       <div class="row">
           <div class="col-lg-12">
-          <h1>Impact</h1>
-          <h4>Animal and economic</h4>
+          <h1>Bushfire Impact</h1>
           <p>Details of impacts caused by the Australian bushfires. Based on current data, this page is divided into sections: one for impact on protected wildlife and one for impact on the economy. <a href="#animal-impact"> Click to learn more »</a></p>
           </div> 
       </div>
   </div>
 </section>
 
-<hr>
+
+<!-- Banner section-->
+<section class="banner3">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h1 class="banner-title" data-direction="up" data-speed="0.25">Impact</h1>
+        <br/>
+        <p class="banner-subtitle" data-direction="up" data-speed="0.35">Animal and economic</p>
+      </div>
+        
+      </div>
+    </div>
+</section>
 
 <!-- Animal Impact -->
 <section class="basic-white" id="animal-impact">
@@ -136,6 +151,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.15.0/d3.js"></script>
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="{{ url_for('static', filename='js/parallax.js') }}"></script>
 <script src="{{ url_for('static', filename='js/impact_script.js') }}"></script>
 <script src="{{ url_for('static', filename='js/impact_econ_vis33.js') }}"></script>
 </body>

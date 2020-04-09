@@ -44,8 +44,7 @@
     <div class="container-fluid" id="climate_fails">
         <div class="row">
             <div class="col-lg-12">
-            <h1> Climate Fails Australia </h1>
-            <h4>A Visualization Tale</h4>
+            <h1> Climate Fails </h1>
             <p>A study showing climate's contribution in causing Australian Bushfires. <br>
                 ** Anomaly data based on a 30 year climatology (1961 - 1990) used by Australian Bureau of Meteorology. <a href="#buttons"> Click to learn more »</a></p>
             </div> 
@@ -53,7 +52,19 @@
     </div>
 </section>
 
-<hr>
+<!-- Banner section-->
+<section class="banner4">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <h1 class="banner-title" data-direction="up" data-speed="0.25">Australia climate Fails</h1>
+          <br/>
+          <p class="banner-subtitle" data-direction="up" data-speed="0.35">Visualizations</p>
+        </div>
+          
+        </div>
+      </div>
+  </section>
 
 <section class="basic-white">
     <div class="container-fluid">
@@ -103,6 +114,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.15.0/d3.js"></script>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 <script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="{{ url_for('static', filename='js/parallax.js') }}"></script>
 <script src="{{ url_for('static', filename='js/climate_fails.js') }}"></script>
 </body>
 

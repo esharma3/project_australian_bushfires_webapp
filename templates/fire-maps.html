@@ -60,15 +60,26 @@
   <div class="container-fluid">
       <div class="row">
           <div class="col-lg-12">
-          <h1> Fire Maps </h1>
-          <h4>Australia vs. ROW maps</h4>
+          <h1> Australia vs. the World Fire Maps </h1>
           <p>Curious to know how fires stack up in Australia vs. the rest of the world? Navigate this page to see compatisson maps between fire locations (current and historical) in Australia vs. fire locations in the rest of the world. <a href="#global_plot"> Click to learn more »</a></p>
           </div> 
       </div>
   </div>
 </section>
 
-<hr>
+<!-- Banner section-->
+<section class="banner1">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h1 class="banner-title" data-direction="up" data-speed="0.25">Fire Maps</h1>
+        <br/>
+        <p class="banner-subtitle" data-direction="up" data-speed="0.35">Where the fires are happening</p>
+      </div>
+        
+      </div>
+    </div>
+</section>
 
 <section class="basic-white">
   <div class="container-fluid">
@@ -112,6 +123,7 @@
 </section>
 
 <script src="{{ url_for('static', filename='js/fire-maps.js') }}"></script>
+<script src="{{ url_for('static', filename='js/parallax.js') }}"></script>
 </body>
 
 <!-- Footer -->
