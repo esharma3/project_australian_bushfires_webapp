@@ -1,217 +1,190 @@
 <!doctype html>
 <html lang="en">
 
-<!--  NOT TOUCHY TOUCH, just copy/paste -->
 <head>
-  <meta charset="utf-8">
-  <title>Australian Bushfires Webapp</title>
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
-  <!-- Jinja2 reference to our css file -->
-  <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
-
-  <!-- Only uncomment the following line if you need a reference to our css outside of flask TURN BACK OFF-->
-  <link rel="stylesheet" href="../static/css/style.css">
-
-  <!-- Bootstrap JS files -->
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <meta charset="utf-8">
+    <title>Australian Bushfires Webapp</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <!-- Bootstrap JS files -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </head>
-
 
 <!--  -->
 
 <body>
 
-<nav class="navbar fixed-top navbar-expand-lg navbar-light">
-  <a class="navbar-brand" href="/">HOME</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="/">HOME</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">o
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="fire-maps">Fire Maps</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/fire-count">Fire Count</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="impact">Impact</a>
-      </li> 
-      <li class="nav-item">
-        <a class="nav-link" href="/climate-fails">Climate Fails</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="about">About</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">o
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="fire-maps">Fire Maps</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="fire-count">Fire Count</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="impact">Impact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="climate-fails">Climate Fails</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="about">About</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
+    <!-- Hero Section, mainly for the homepage -->
+    <section class="bgimage">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <h1 class="font-weight-light">OUR PROJECT</h1>
+                    <br/>
+                    <p class="lead">Bushfires in Australia are a widespread and regular occurrence that have contributed significantly to moulding the nature of the continent over millions of years. Bushfires have killed approximately 800 people in Australia since 1851, and billions of animals. The purpose of this project is to dig deeper into the roots of current and historical bushfires in Australia and present our findings and analysis results in theform of a web based Flask app with routes for - Australian bushfire locations, global bushfire locations, current and historical fire counts, impact caused by bushfires and climate’s role in causing the bushfires.</p>
+                    <p><a href="#main" class="btn btn-primary btn-large">Learn more »</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<!-- Hero Section, mainly for the homepage -->
-<section class="bgimage">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <h1 class="font-weight-light">OUR PROJECT</h1>
-        <br/>
-        <p class="lead">Bushfires in Australia are a widespread and regular occurrence that have contributed significantly to moulding the 
-          nature of the continent over millions of years. Bushfires have killed approximately 800 people in Australia since 1851, and billions 
-          of animals. The purpose of this project is to dig deeper into the roots of current and historical bushfires in Australia and present 
-          our findings and analysis results in theform of a web based Flask app with routes for - Australian bushfire locations, 
-          global bushfire locations, current and historical fire counts, impact caused by bushfires and climate’s role in causing the bushfires.</p>
-        <p><a href="#main" class="btn btn-primary btn-large">Learn more »</a></p>
-      </div>  
-      </div>
+    <div>
+        <div>
+            <p></p>
+        </div>
     </div>
-</section>
 
+    <!-- This section will be Bios-->
 
-<div>
-  <div>
-    <p></p>
-  </div>
-</div>
-
-<!-- This section will be Bios-->
-  <div class="col">
-<div class="card mb-3" style="max-width: 540px;">
-    <div class="row no-gutters">
-      <div class="col-md-4">
-        <img src="..." class="card-img1" alt="...">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">David Altuve</h5>
-          <p class="card-text">Nerdy extrovert that gets a kick out of working in tech. Born & raised in Venezuela but have 
-            spent most of his adult life in the US. International marketer by day, musician by night. CrossFitter if time allows. 
-            It’s 5 o’clock somewhere so cheers to you!</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-  <div class="col">
-<div class="card mb-3" style="max-width: 540px;">
-    <div class="row no-gutters">
-      <div class="col-md-4">
-        <img src="..." class="card-img2" alt="...">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">James Durnan</h5>
-          <p class="card-text">James is a geologist who moved to Texas from his home state of Wyoming to work in the oil and 
-            gas industry. His interests in data analytics began in the last few years and he decided to pursue formal training 
-            in the field to better understand data manipulation and management to hopefully gain efficiencies in his everyday work. 
-            He had a personal tie to this project, in that he and his family have lived in Australia and were heartbroken to see 
-            such a beautiful and unique country be devastated by these fires.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-  <div class="col">
-<div class="card mb-3" style="max-width: 540px;">
-    <div class="row no-gutters">
-      <div class="col-md-4">
-        <img src="..." class="card-img3" alt="...">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">Catherine Gomes</h5>
-          <p class="card-text">She's an analytical professional with experience designing and creating templates for a 
-            fast-growing biotech. Her role in the australian-bushfire-central project included backend and front development 
-            to visualize the number of fires in Australia over the years. In her free time, she enjoys challenging hikes 
-            and experiencing new flavor profiles.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-  <div class="col">
-<div class="card mb-3" style="max-width: 540px;">
-    <div class="row no-gutters">
-      <div class="col-md-4">
-        <img src="..." class="card-img4" alt="...">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h5 class="card-title">Claudia Ibarra</h5>
-          <p class="card-text">She's a financial report analyst / 401(k) specialist - likes to balance things out with cooking, 
-            happy hours, and kayaking. Born and raised in Texas, answers everyone ending with a ma'am or sir - she's just 
-            Southern like that. An aspiring data analyst - loves providiing detail though visualizations.</p>
-          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="col">
-  <div class="card mb-3" style="max-width: 540px;">
-      <div class="row no-gutters">
-        <div class="col-md-4">
-          <img src="..." class="card-img5" alt="...">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">Ekta Sharma</h5>
-            <p class="card-text">She's an aspiring data scientist with previous experience in consulting and banking industry 
-              - passionate about coding and solving challenging business problems. She's a novice story teller who 
-              loves to wrestle with data and apply machine learning to find stories and solutions. In her free time, she enjoys 
-              listening to music, painting, going out for long walks, and spending time with her family.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
     <div class="col">
-  <div class="card mb-3" style="max-width: 540px;">
-      <div class="row no-gutters">
-        <div class="col-md-4">
-          <img src="..." class="card-img6" alt="...">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img class="card-img" src="{{ url_for('static', filename='images/austin.jpg') }}" alt="Austin SpaceK">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Austin Spacek</h5>
+                        <p class="card-text">Austin Spacek is a recent Texas A&M graduate with a B.S. in political science. He has experience in geopolitical analysis and elections forecasting/analysis. On this project, Austin's role was to work on the front and back end to create a robust plotly visualization with global fire data from NASA. Austin's goal is to continue working on projects and learning from field experts to advance his career in data analytics and data science.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">Austin Spacek</h5>
-            <p class="card-text">This is about what you are up to, what you are interested in... 
-                something about why you find this project interesting. About 4 short lines.</p>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
 
-<!-- This is a blank white with double paragraphs and a route item-->
-<section class="route-white">
-<br/>
-<div class="container">
-    <div class="row">
+    <div class="col">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row no-gutters">
 
-      <div class="col-lg-6">
-      </div> 
+                <div class="col-md-4">
+                    <img class="card-img" src="{{ url_for('static', filename='images/david.jpg') }}" alt="David Altuve">
+                </div>
 
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">David Altuve</h5>
+                        <p class="card-text">Nerdy extrovert that gets a kick out of working in tech. Born & raised in Venezuela but have spent most of his adult life in the US. International marketer by day, musician by night. CrossFitter if time allows. It’s 5 o’clock somewhere so cheers to you!</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<!-- <script src="{{ url_for('static', filename='js/script.js') }}"></script> -->
+    <div class="col">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img class="card-img" src="{{ url_for('static', filename='images/catherine.jpeg') }}" alt="Catherine Gomes">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Catherine Gomes</h5>
+                        <p class="card-text">She's an analytical professional with experience designing and creating templates for a fast-growing biotech. Her role in the australian-bushfire-central project included backend and front development to visualize the number of fires in Australia over the years. In her free time, she enjoys challenging hikes and experiencing new flavor profiles.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img class="card-img" src="{{ url_for('static', filename='images/claudia.jpg') }}" alt="Claudia Ibarra">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Claudia Ibarra</h5>
+                        <p class="card-text">She's a financial report analyst / 401(k) specialist - likes to balance things out with cooking, happy hours, and kayaking. Born and raised in Texas, answers everyone ending with a ma'am or sir - she's just Southern like that. An aspiring data analyst - loves providiing detail though visualizations.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img class="card-img" src="{{ url_for('static', filename='images/ekta.png') }}" alt="Ekta Sharma">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Ekta Sharma</h5>
+                        <p class="card-text">She's an aspiring data scientist with previous experience in consulting and banking industry - passionate about coding and solving challenging business problems. She's a novice story teller who loves to wrestle with data and apply machine learning to find stories and solutions. In her free time, she enjoys listening to music, painting, going out for long walks, and spending time with her family.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col">
+        <div class="card mb-3" style="max-width: 540px;">
+            <div class="row no-gutters">
+                <div class="col-md-4">
+                    <img class="card-img" src="{{ url_for('static', filename='images/james.jpg') }}" alt="James Durnan">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">James Durnan</h5>
+                        <p class="card-text">James is a geologist who moved to Texas from his home state of Wyoming to work in the oil and gas industry. His interests in data analytics began in the last few years and he decided to pursue formal training in the field to better understand data manipulation and management to hopefully gain efficiencies in his everyday work. He had a personal tie to this project, in that he and his family have lived in Australia and were heartbroken to see such a beautiful and unique country be devastated by these fires.</p>
+                        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- This is a blank white with double paragraphs and a route item-->
+    <section class="route-white">
+        <br/>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-6">
+                </div>
+
 </body>
-
 
 <!--  -->
 
-
 <footer class="page-footer font-small blue">
-  <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="index.html">UT Data Bootcamp</a>
-  </div>
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="index.html">UT Data Bootcamp</a>
+    </div>
 </footer>
 
 </html>
