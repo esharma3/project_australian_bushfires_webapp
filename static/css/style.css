@@ -159,10 +159,6 @@ footer {
 /*                 Styling for fire count template                     */
 /*#####################################################################*/
 
-#fire_count {
-  padding: 60px;
-}
-
 #first_row {
   text-align: center;
 }
@@ -179,30 +175,6 @@ footer {
   padding-top: 30px;
 }
 
-#fire_count h6 {
-  font-weight: bold;
-}
-
-#fire_count_header {
-  background: rgb(61, 61, 92);
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-#fire_count_header h1 {
-  padding-top: 10px;
-  color: white;
-}
-
-#fire_count_header h6 {
-  color: white;
-}
-
-#fire_count p {
-  padding-bottom: 30px;
-  text-align: justify;
-}
-
 /*#####################################################################*/
 /*                Styling for Climate Fails template                   */
 /*#####################################################################*/
@@ -212,31 +184,15 @@ footer {
   margin-top: 35px;
 }
 
-#climate_header {
-  background: rgb(61, 61, 92);
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-#climate_header h1 {
-  padding-top: 10px;
-  color: white;
-}
-
-#climate_header h4, h6 {
-  color: white;
-}
-
-.card {
-  width: 100%;
-  height: 100%;
+#climate-cards
+{
+  border-radius:.75rem!important
 }
 
 #climate_first_row,
 #climate_second_row
 {
-  background: rgb(41, 41, 61);
-  padding: 10px;
+  padding: 5px;
   margin-bottom: 5px;
 }
 
