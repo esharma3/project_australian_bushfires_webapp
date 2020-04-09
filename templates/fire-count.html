@@ -44,17 +44,28 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12">
-            <h1> Australian Bushfires Count (2002 - 2020) </h1>
-            <h4>New South Wales, Queensland, Victoria</h4>
-            <p>This page will show the current and historical fire counts for the major Australian states (in the form of a graph and/or table). Data Source: NASA MODIS Cumulative Active Fire Detection Data.<a href="#first"> Click to learn more »</a></p>
+            <h1> Australia Bushfire Counts (2002 - 2020) </h1>
+            <p>This page will show the current and historical fire counts for the major Australian states (in the form of a graph and/or table). Data Source: NASA MODIS Cumulative Active Fire Detection Data.<a href="#plots-section"> Click to learn more »</a></p>
             </div> 
         </div>
     </div>
 </section>
       
-<hr>
+<!-- Banner section-->
+<section class="banner2">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <h1 class="banner-title" data-direction="up" data-speed="0.25">Fire Count</h1>
+          <br/>
+          <p class="banner-subtitle" data-direction="up" data-speed="0.35">New South Wales, Queensland, Victoria</p>
+        </div>
+          
+        </div>
+      </div>
+  </section>
 
-<section class="basic-white">
+<section class="basic-white" id="plots-section">
     <p class="font-weight-light">For New South Wales, Victoria, and Queensland, summed per ‘fire year’ running from July 1st to June 30th in the following year. The 2019 - 2020 fire year numbers are based on data collected till January 2020. This fire year (2019-2020), fire detections in New South Wales are significantly higher than the previous record year (the 2002-03 fire season). In Victoria, fires are above average at this point in 2019-2020 but have not yet surpassed previous extreme fire years in 2002-2003 and 2006-2007. In Queensland, fire counts were consistent with previous years, despite large wildfires in southern Queensland, since total fire activity in this state is dominated by savanna fires in northern Queensland, a natural part of these ecosystems.</p>
     <br>
     <hr>
@@ -101,6 +112,7 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.15.0/d3.js"></script>
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="{{ url_for('static', filename='js/parallax.js') }}"></script>
 <script src="{{ url_for('static', filename='js/fire_count.js') }}"></script>
 </body>
 
