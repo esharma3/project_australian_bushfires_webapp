@@ -345,11 +345,6 @@ def index():
 #####################################################################
 
 
-@app.route("/fire-maps")
-def load_aus_fire_locations():
-    return render_template("fire-maps.html")
-
-
 @app.route("/aus_fire_map")
 def load_aus_fire_locations_data():
 
@@ -709,4 +704,3 @@ def page_not_found(e):
 
 if __name__ == "__main__":
     app.run(debug=True)
-    
