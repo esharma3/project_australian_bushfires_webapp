@@ -38,16 +38,24 @@
             </ul>
         </div>
     </nav>
+
+<section class="header-subpage">
+<br/>
     <div class="container-fluid" id="climate_fails">
-
         <div class="row">
-            <div class="col-md-12" id="climate_header">
-                <h1>Climate Fails Australia </h1>
-                <h4>A visualizations based study showing climate's contribution in causing Australian Bushfires</h4>
-                <h6> ** Anomaly data based on a 30 year climatology (1961 - 1990) used by Australian Bureau of Meteorology. </h6>
-            </div>
+            <div class="col-lg-12">
+            <h1> Climate Fails Australia </h1>
+            <h4>A visualization tale</h4>
+            <p>Based study showing climate's contribution in causing Australian Bushfires. ** Anomaly data based on a 30 year climatology (1961 - 1990) used by Australian Bureau of Meteorology. <a href="#climate_first_rows"> Click to learn more »</a></p>
+            </div> 
         </div>
+    </div>
+</section>
 
+<hr>
+
+<section class="basic-white">
+    <div class="container-fluid">
         <div class="row" id="buttons">
             <button id="main1-btn" class="btn btn-default">Home - Decile 10</button>
             <button id="main2-btn" class="btn btn-default">Bushfires & Weather</button>
@@ -62,7 +70,7 @@
             <button id="ch4-btn" class="btn btn-default">Methane</button>
             <button id="n2o-btn" class="btn btn-default">Nitrous Oxide</button>
         </div>
-
+        <br>
         <div class="row" id="climate_first_row">
 
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -87,11 +95,17 @@
 
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.15.0/d3.js"></script>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="https://d3js.org/d3.v5.min.js"></script>
-    <script src="{{ url_for('static', filename='js/climate_fails.js') }}"></script>
+</div>
+</section>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.15.0/d3.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<script src="{{ url_for('static', filename='js/climate_fails.js') }}"></script>
 </body>
+
+
 <footer class="page-footer font-small blue">
     <div class="footer-copyright text-center py-3">© 2020 Copyright:
         <a href="index.html">UT Data Bootcamp</a>

@@ -535,12 +535,12 @@ df = pd.read_csv("aus_fire_locations/agg_fire_maps.csv").to_sql(
 
 engine.execute(f"ALTER TABLE {AUS_FIRES2} ADD PRIMARY KEY (`index`)")
 
-############################################################
-###                      *Austin*                        ###
-###    Table for Global Fire Map (2019 through 2017)     ###
-############################################################
+###########################################################
+##                      *Austin*                        ###
+##    Table for Global Fire Map (2019 through 2017)     ###
+###########################################################
 
-# Creating the MySQL table with each of the cleaned datasets (March 5th, 2020 - > Jan 1st, 2017)
+Creating the MySQL table with each of the cleaned datasets (March 5th, 2020 - > Jan 1st, 2017)
 GLOBAL_FIRES_2020_2017 = "g_fires" 
 engine.execute(f"DROP TABLE IF EXISTS {GLOBAL_FIRES_2020_2017}")
 
@@ -642,6 +642,6 @@ del j
 
 engine.execute(f"ALTER TABLE {GLOBAL_FIRES_2020_2017} ADD PRIMARY KEY (`index`)")
 
-##################################################################
-###    End of Tables for Global Fire Map (2019 through 2017)   ###
-##################################################################
+#################################################################
+##    End of Tables for Global Fire Map (2019 through 2017)   ###
+#################################################################

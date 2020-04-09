@@ -9,7 +9,15 @@ html {
 
 h1 {
   padding-top: 40px;
+
 }
+
+h4 {
+  color: #666666;
+  font-size: 18px;
+  font-weight: lighter;
+}
+
 
 nav {
   background-color: rgba(255, 255, 255, 0.85)!important;
@@ -25,6 +33,17 @@ section {
   min-height: 800px;
 }
 
+.basic-white {
+  min-height: auto;
+}
+
+.timeline-item {
+  margin: 50px;
+}
+
+#HCB_comment_box {
+
+}
 
 /* This is all that badass hero image section*/
 .bgimage {
@@ -94,6 +113,41 @@ section {
   padding-bottom: 20;
   padding-right: 20px;
   padding-left: 20px;
+}
+
+
+/* Buttons for all sections */
+.btn {
+  color: #666666 !important;
+  text-align: middle;
+  vertical-align: middle;
+  background: #ffffff;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 30px;
+  padding-left: 30px;
+  margin: 5px;
+  border: 1px solid #999999 !important;
+  border-radius: 12px;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+  }
+
+.btn:hover {
+  color: #BF0000 !important;
+  border-radius: 50px;
+  border-color: #494949 !important;
+  transition: all 0.3s ease 0s;
+  }
+
+/* For all pages intro, except home page */
+.header-subpage {
+  min-height: auto;
+}
+.header-subpage p {
+  background-color: #fafafa;
+  padding:20px;
+  font
 }
 
 
@@ -178,29 +232,6 @@ footer {
   height: 100%;
 }
 
-.btn {
-  background-color: black;
-  width: 270px;
-  color: white;
-  margin: 3px;
-}
-
-.btn:hover {
-    color: orange;
-}
-
-.btn:focus{
-    background: rgb(92, 92, 138);
-}
-
-#buttons {
-  background: rgb(41, 41, 61);
-  padding: 10px;
-  margin-bottom: 5px;
-  justify-content: center;
-  align-items: center;
-}
-
 #climate_first_row,
 #climate_second_row
 {
@@ -237,7 +268,7 @@ footer {
   height: 100%;
   margin-top: 50px;
   margin-bottom: 10px;
-  background: url('../images/concerned-roo.jpg');
+  background: url('../images/concerned-roo-meme.jpg');
   background-repeat: no-repeat;
   background-size:cover;
 }

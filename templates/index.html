@@ -5,14 +5,11 @@
 <head>
   <meta charset="utf-8">
   <title>Australian Bushfires Webapp</title>
-  <!-- Bootstrap CSS -->
+  <!-- External CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+  
   <!-- Jinja2 reference to our css file -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-
-  <!-- Only uncomment the following line if you need a reference to our css outside of flask -->
-  <!-- <link rel="stylesheet" href="../static/css/style.css"> -->
 
   <!-- Bootstrap JS files -->
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
@@ -37,13 +34,13 @@
         <a class="nav-link" href="fire-maps">Fire Maps</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/fire_count_page">Fire Count</a>
+        <a class="nav-link" href="/fire-count">Fire Count</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="impact">Impact</a>
       </li> 
       <li class="nav-item">
-        <a class="nav-link" href="/climate_fails_page">Climate Fails</a>
+        <a class="nav-link" href="/climate-fails">Climate Fails</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="about">About</a>
@@ -61,7 +58,7 @@
         <h1 class="font-weight-light">AUSTRALIA BUSHFIRE CENTRAL</h1>
         <br/>
         <p class="lead">Australia's deadly bushfires sparked in September 2019. A prolonged drought that began in 2017 made this year's bushfire season more devastating than ever.</p>
-        <p><a href="#main" class="btn btn-primary btn-large">Learn more »</a></p>
+        <p><a href="#main" class="btn">Learn more »</a></p>
       </div>
         
       </div>
@@ -97,59 +94,59 @@
     <div class="card-deck">
 
         <div class="card mb-4">
-            <a href="fire-maps.html">
+            <a href="/fire-maps">
               <img class="card-img-top img-fluid" src="../static/images/fire_maps_icon.svg" alt="Card image cap">
             </a>
             <div class="card-body">
                 <h4 class="card-title">Fire Maps</h4>
-                <p class="card-text">It’s worth mentioning that Australia’s northern savannah regions frequently experience large fires; these fires are very different in scale to the bushfires in the southern regions...<a href="fire-maps.html">read more</a></p>
+                <p class="card-text">It’s worth mentioning that Australia’s northern savannah regions frequently experience large fires; these fires are very different in scale to the bushfires in the southern regions...<a href="/fire-maps">read more</a></p>
                 <p class="card-text"><small class="text-muted">Last updated April 4, 2020</small></p>
             </div>
         </div>
 
         <div class="card mb-4">
-          <a href="fire-count.html">
+          <a href="/fire-count">
             <img class="card-img-top img-fluid" src="../static/images/fire_count_icon.svg" alt="Card image cap">
           </a>
             <div class="card-body">
                 <h4 class="card-title">Fire Count</h4>
-                <p class="card-text">We have updated this map to include figures for the fires burning in Victoria, South Australia, NSW, Queensland and Western Australia... <a href="fire-count.html">read more</a></p>
-                <p class="card-text"><small class="text-muted">Last updated April 4, 2020</small></p>
+                <p class="card-text">We have updated this map to include figures for the fires burning in Victoria, South Australia, NSW, Queensland and Western Australia... <a href="/fire-count">read more</a></p>
+                <p class="card-text"><small class="text-muted">Last updated April 5, 2020</small></p>
             </div>
         </div>
 
         <div class="w-100 d-none d-sm-block d-md-none"><!-- wrap every 2 on sm--></div>
         <div class="card mb-4">
-          <a href="impact.html">
+          <a href="/impact">
             <img class="card-img-top img-fluid" src="../static/images/impact_icon.svg" alt="Card image cap">
           </a>
             <div class="card-body">
                 <h4 class="card-title">Impact</h4>
-                <p class="card-text">Over 18 million hectares (that's 44,478,969 acres) have burned in the Australian bushfire season 2019–2020 as of mid-January according to reports... <a href="impact.html">read more</a></p>
-                <p class="card-text"><small class="text-muted">Last updated April 4, 2020</small></p>
+                <p class="card-text">Over 18 million hectares (that's 44,478,969 acres) have burned in the Australian bushfire season 2019–2020 as of mid-January according to reports... <a href="/impact">read more</a></p>
+                <p class="card-text"><small class="text-muted">Last updated April 6, 2020</small></p>
             </div>
         </div>
 
         <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
         <div class="card mb-4">
-          <a href="climate-fails.html">
+          <a href="/climate-fails">
             <img class="card-img-top img-fluid" src="../static/images/climate_fails_icon.svg" alt="Card image cap">
           </a>
             <div class="card-body">
                 <h4 class="card-title">Climate Fails</h4>
-                <p class="card-text">We know it’s sometimes hard to explain the link between bushfires and climate change with your family / friends / neighbors / comrades / that one guy on the subway. This should help... <a href="climate-fails.html">read more</a></p>
+                <p class="card-text">We know it’s sometimes hard to explain the link between bushfires and climate change with your family / friends / neighbors / comrades / that one guy on the subway. This should help... <a href="/climate-fails">read more</a></p>
                 <p class="card-text"><small class="text-muted">Last updated 2 min ago</small></p>
             </div>
         </div>
 
         <div class="w-100 d-none d-md-block d-lg-none"><!-- wrap every 3 on md--></div>
         <div class="card mb-4">
-          <a href="about.html">
+          <a href="/about">
             <img class="card-img-top img-fluid" src="../static/images/about_icon.svg" alt="Card image cap">
           </a>
             <div class="card-body">
                 <h4 class="card-title">About</h4>
-                <p class="card-text">We are super proud of the work / information gathered on this website. Meet the team... <a href="about.html">read more</a></p>
+                <p class="card-text">We are super proud of the work / information gathered on this website. Meet the team... <a href="/about">read more</a></p>
                 <p class="card-text"><small class="text-muted">Last updated 1 min ago</small></p>
             </div>
         </div>
@@ -168,8 +165,78 @@
     <div class="row">
         <div class="col-lg-12">
         <h2>Public Health</h2>
+        <hr>
         <p>As a result of intense smoke and air pollution stemming from the fires, in January 2020 reports indicated that Canberra (capital of Australia) measured the worst air quality index of any major city in the world. Wildfires produce harmful smoke which can cause fatalities. Wildfires produce fine particle air pollution, which is directly threatens human health even during relatively short exposures. Close to the fires, smoke is a health risk because it contains a mixture of hazardous gases and particles that can irritate the eyes and the respiratory system. The effects of smoke exposure and inhalation range from eye and respiratory tract irritation to more serious disorders, including reduced lung function, bronchitis, exacerbated asthma and premature death. Exposure to particulate matter is the main public health threat from short-term exposure to wildfire smoke. According to the World Health Organization, older people, people with cardiorespiratory diseases or chronic illnesses, children, and people who work outdoors are particularly vulnerable.</p>
-    </div> 
+        <br><hr>
+        <h2> Timeline of key events: </h2>
+        <br>
+        <!-- <div class="row"> -->
+          <!-- <div class="col-lg-15 mx-auto"> -->
+              
+              <!-- Timeline -->
+              <ul class="timeline">
+                  <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                      <div class="timeline-arrow"></div>
+                      <h2 class="h5 mb-0">September 2018</h2><span class="small text-gray"><i class="fa fa-clock-o mr-1"></i></span>
+                      <p class="text-small mt-2 font-weight-light"> Eastern Australia experiences its driest September ever amid a prolonged drought that began 
+                          in 2017.</p>
+                  </li>
+                  <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                      <div class="timeline-arrow"></div>
+                      <h2 class="h5 mb-0">September 2019</h2><span class="small text-gray"><i class="fa fa-clock-o mr-1"></i></span>
+                      <p class="text-small mt-2 font-weight-light">Australia's Weather Bureu predicts at least three more months of drought as fires begin 
+                          to spark.</p>
+                  </li>
+                  <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                      <div class="timeline-arrow"></div>
+                      <h2 class="h5 mb-0">September - November 2019</h2><span class="small text-gray"><i class="fa fa-clock-o mr-1"></i></span>
+                      <p class="text-small mt-2 font-weight-light">Australia experiences its driest Spring on record.</p>
+                  </li>
+                  <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                      <div class="timeline-arrow"></div>
+                      <h2 class="h5 mb-0">October 2019</h2><span class="small text-gray"><i class="fa fa-clock-o mr-1"></i></span>
+                      <p class="text-small mt-2 font-weight-light">Australia's annual bushfire season officially begins. The prolonged drought causes 
+                          embers from fires to spread, leading to more intense fires in the 2019 season. On October 26th, lightning bolt starts a mega fire 
+                          in Gospers Mountain, NSW. It became the epicentre of the biggest forest fire to have started from a single ignition point that 
+                          Australia has ever known, with 444,000 hectares destroyed. A bushfire in Port Macquarie, NSW, starts due to dry electrical storm.</p>
+                  </li>        
+                  <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                      <div class="timeline-arrow"></div>
+                      <h2 class="h5 mb-0">December 2019</h2><span class="small text-gray"><i class="fa fa-clock-o mr-1"></i></span>
+                      <p class="text-small mt-2 font-weight-light">On December 26th lightning sparks fire in the Sterling Ranges, WA, tearing through more 
+                          than 40,000 hectares of parkland. Thousands are told to evacuate East Gippsland as the fire danger zone spreads on December 
+                          28th.</p>
+                  </li>
+                  <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                      <div class="timeline-arrow"></div>
+                      <h2 class="h5 mb-0">December 2019 / January 2020</h2><span class="small text-gray"><i class="fa fa-clock-o mr-1"></i></span>
+                      <p class="text-small mt-2 font-weight-light">Major roads close in East Gippsland 48 hours later, reportedly trapping the residents and visitors 
+                          who didn't evacuate earlier. The fires continue to worsen. The fires have killed a total of at least 16 people by December 31st. 
+                          By the next day, Australia opens 15 South Coast bushfire evacuation centers.</p>
+                  </li>
+                  <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                      <div class="timeline-arrow"></div>
+                      <h2 class="h5 mb-0">January 2020</h2><span class="small text-gray"><i class="fa fa-clock-o mr-1"></i></span>
+                      <p class="text-small mt-2 font-weight-light">New South Wales Premier Gladys Berejiklian declares a state of emergency and Victorian Premier 
+                          Daniel Andrews declares a state of disaster January 2nd. By January 23rd, the Snowy Mountains area is ablaze as the fires continue to 
+                          spread south. The total number if firefighter deaths this bushfire season to eight.</p>
+                  </li>
+                  <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
+                          <div class="timeline-arrow"></div>
+                          <h2 class="h5 mb-0">February 2020</h2><span class="small text-gray"><i class="fa fa-clock-o mr-1"></i></span>
+                          <p class="text-small mt-2 font-weight-light">The fires in New South Wales, the state most affected, were finally declared “contained” on 
+                              February 13th. The relief came after torrential rains marked the wettest week in the region in three decades. Per the Bureau of 
+                              Meteorology, NSW, preliminary information indicated that over 4 days 391.6 mm of rain fell - the wettest since 414.2mm fell from 
+                              February 2nd to 5th in 1990.</p>
+                      </li>
+              </ul><!-- End -->
+  
+          <!-- </div> -->
+      <!-- </div> -->
+  </div>
+
+
+      </div> 
     </div>
   </div>
 </section>
@@ -192,76 +259,15 @@
     </div>
 </section>
 
+<section>
 <!-- begin wwww.htmlcommentbox.com -->
 <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
 <link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
 <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%24djX4zEE4DBBaYwmJDqyvv1"+"&opts=16862&num=10&ts=1585408487282");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
 <!-- end www.htmlcommentbox.com -->
+</section>
 
-<div class="row">
-        <div class="col-lg-15 mx-auto">
-            
-            <!-- Timeline -->
-            <ul class="timeline">
-                <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
-                    <div class="timeline-arrow"></div>
-                    <h2 class="h5 mb-0">September 2018</h2><span class="small text-gray"><i class="fa fa-clock-o mr-1"></i></span>
-                    <p class="text-small mt-2 font-weight-light"> Eastern Australia experiences its driest September ever amid a prolonged drought that began 
-                        in 2017.</p>
-                </li>
-                <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
-                    <div class="timeline-arrow"></div>
-                    <h2 class="h5 mb-0">September 2019</h2><span class="small text-gray"><i class="fa fa-clock-o mr-1"></i></span>
-                    <p class="text-small mt-2 font-weight-light">Australia's Weather Bureu predicts at least three more months of drought as fires begin 
-                        to spark.</p>
-                </li>
-                <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
-                    <div class="timeline-arrow"></div>
-                    <h2 class="h5 mb-0">September - November 2019</h2><span class="small text-gray"><i class="fa fa-clock-o mr-1"></i></span>
-                    <p class="text-small mt-2 font-weight-light">Australia experiences its driest Spring on record.</p>
-                </li>
-                <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
-                    <div class="timeline-arrow"></div>
-                    <h2 class="h5 mb-0">October 2019</h2><span class="small text-gray"><i class="fa fa-clock-o mr-1"></i></span>
-                    <p class="text-small mt-2 font-weight-light">Australia's annual bushfire season officially begins. The prolonged drought causes 
-                        embers from fires to spread, leading to more intense fires in the 2019 season. On October 26th, lightning bolt starts a mega fire 
-                        in Gospers Mountain, NSW. It became the epicentre of the biggest forest fire to have started from a single ignition point that 
-                        Australia has ever known, with 444,000 hectares destroyed. A bushfire in Port Macquarie, NSW, starts due to dry electrical storm.</p>
-                </li>        
-                <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
-                    <div class="timeline-arrow"></div>
-                    <h2 class="h5 mb-0">December 2019</h2><span class="small text-gray"><i class="fa fa-clock-o mr-1"></i></span>
-                    <p class="text-small mt-2 font-weight-light">On December 26th lightning sparks fire in the Sterling Ranges, WA, tearing through more 
-                        than 40,000 hectares of parkland. Thousands are told to evacuate East Gippsland as the fire danger zone spreads on December 
-                        28th.</p>
-                </li>
-                <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
-                    <div class="timeline-arrow"></div>
-                    <h2 class="h5 mb-0">December 2019 / January 2020</h2><span class="small text-gray"><i class="fa fa-clock-o mr-1"></i></span>
-                    <p class="text-small mt-2 font-weight-light">Major roads close in East Gippsland 48 hours later, reportedly trapping the residents and visitors 
-                        who didn't evacuate earlier. The fires continue to worsen. The fires have killed a total of at least 16 people by December 31st. 
-                        By the next day, Australia opens 15 South Coast bushfire evacuation centers.</p>
-                </li>
-                <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
-                    <div class="timeline-arrow"></div>
-                    <h2 class="h5 mb-0">January 2020</h2><span class="small text-gray"><i class="fa fa-clock-o mr-1"></i></span>
-                    <p class="text-small mt-2 font-weight-light">New South Wales Premier Gladys Berejiklian declares a state of emergency and Victorian Premier 
-                        Daniel Andrews declares a state of disaster January 2nd. By January 23rd, the Snowy Mountains area is ablaze as the fires continue to 
-                        spread south. The total number if firefighter deaths this bushfire season to eight.</p>
-                </li>
-                <li class="timeline-item bg-white rounded ml-3 p-4 shadow">
-                        <div class="timeline-arrow"></div>
-                        <h2 class="h5 mb-0">February 2020</h2><span class="small text-gray"><i class="fa fa-clock-o mr-1"></i></span>
-                        <p class="text-small mt-2 font-weight-light">The fires in New South Wales, the state most affected, were finally declared “contained” on 
-                            February 13th. The relief came after torrential rains marked the wettest week in the region in three decades. Per the Bureau of 
-                            Meteorology, NSW, preliminary information indicated that over 4 days 391.6 mm of rain fell - the wettest since 414.2mm fell from 
-                            February 2nd to 5th in 1990.</p>
-                    </li>
-            </ul><!-- End -->
-
-        </div>
-    </div>
-</div>
+</body>
 
 <footer class="page-footer font-small blue">
   <div class="footer-copyright text-center py-3">© 2020 Copyright:
