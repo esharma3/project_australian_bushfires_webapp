@@ -24,7 +24,6 @@ xlrd = "*"
 flask-sqlalchemy = "*"
 python-dotenv = "*"
 gunicorn = "*"
-uvicorn = "*"
 
 [requires]
 python_version = "3.7"
