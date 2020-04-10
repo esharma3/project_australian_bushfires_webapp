@@ -2,8 +2,8 @@ d3.json("/econ-impact").then((fireData) => {
     console.log(fireData)
     
 var trace1 = {
-    x: fireData.map(e => e.year).slice(1,66),
-    y: fireData.map(e => e.acres_burned).slice(1,66),
+    x: fireData.map(e => e.year).slice(1,67),
+    y: fireData.map(e => e.acres_burned).slice(1,67),
     mode: 'markers',
     type: 'scatter',
     name: 'Acres Burned',
