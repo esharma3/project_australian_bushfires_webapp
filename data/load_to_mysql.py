@@ -508,7 +508,6 @@ df = pd.read_csv("aus_cip_data.csv").to_sql(
         "australian_capital_territory_cpi": sqlalchemy.types.FLOAT(),},)
 engine.execute(
     f"ALTER TABLE {IMPACT_TABLENAME5} ADD PRIMARY KEY (`year`)")
-   
 
 
 
@@ -535,3 +534,114 @@ df = pd.read_csv("aus_fire_locations/agg_fire_maps.csv").to_sql(
     dtype = {'year' : sqlalchemy.types.INTEGER(),'count': sqlalchemy.types.INTEGER()})
 
 engine.execute(f"ALTER TABLE {AUS_FIRES2} ADD PRIMARY KEY (`index`)")
+
+###########################################################
+##                      *Austin*                        ###
+##    Table for Global Fire Map (2019 through 2017)     ###
+###########################################################
+
+Creating the MySQL table with each of the cleaned datasets (March 5th, 2020 - > Jan 1st, 2017)
+GLOBAL_FIRES_2020_2017 = "g_fires" 
+engine.execute(f"DROP TABLE IF EXISTS {GLOBAL_FIRES_2020_2017}")
+
+#2020
+chunks = 10000
+i = 0
+j = 0
+
+for df in pd.read_csv("fd_2020.csv", chunksize=chunks, iterator=True):
+    df = df.rename(columns = {c: c.replace(' ', '') for c in df.columns})
+    df.index += j
+
+    df.to_sql(
+        name = GLOBAL_FIRES_2020_2017,
+        con = engine,
+        if_exists = 'append'
+    )
+    
+    j = df.index[-1]+1
+
+    print('BUILDING DATA: 2019 (3/5/2019) -> 2020 (3/5/2020) | index: {}'.format(j))
+
+del df
+del chunks
+del i
+del j
+
+# 2019
+chunks = 10000
+i = 0
+j = 0
+
+for df in pd.read_csv("fd_2019.csv", chunksize=chunks, iterator=True):
+    df = df.rename(columns = {c: c.replace(' ', '') for c in df.columns})
+    df.index += j
+
+    df.to_sql(
+        name = GLOBAL_FIRES_2020_2017,
+        con = engine,
+        if_exists = 'append'
+    )
+    
+    j = df.index[-1]+1
+
+    print('BUILDING DATA: 2018 (3/5/2018) -> 2019 (3/4/2019) | index: {}'.format(j))
+
+del df
+del chunks
+del i
+del j
+
+# 2018
+chunks = 10000
+i = 0
+j = 0
+
+for df in pd.read_csv("fd_2018.csv", chunksize=chunks, iterator=True):
+    df = df.rename(columns = {c: c.replace(' ', '') for c in df.columns})
+    df.index += j
+
+    df.to_sql(
+        name = GLOBAL_FIRES_2020_2017,
+        con = engine,
+        if_exists = 'append'
+    )
+    
+    j = df.index[-1]+1
+
+    print('BUILDING DATA: 2017 (3/5/2017) -> 2018 (3/4/2018) | index: {}'.format(j))
+
+del df
+del chunks
+del i
+del j
+
+#2017
+chunks = 10000
+i = 0
+j = 0
+
+for df in pd.read_csv("fd_2017.csv", chunksize=chunks, iterator=True):
+    df = df.rename(columns = {c: c.replace(' ', '') for c in df.columns})
+    df.index += j
+
+    df.to_sql(
+        name = GLOBAL_FIRES_2020_2017,
+        con = engine,
+        if_exists = 'append'
+    )
+    
+    j = df.index[-1]+1
+
+    print('BUILDING DATA: 2017 (1/1/2017) -> 2017 (3/4/2017) | index: {}'.format(j))
+
+del df
+del chunks
+del i
+del j
+
+engine.execute(f"ALTER TABLE {GLOBAL_FIRES_2020_2017} ADD PRIMARY KEY (`index`)")
+
+#################################################################
+##    End of Tables for Global Fire Map (2019 through 2017)   ###
+#################################################################

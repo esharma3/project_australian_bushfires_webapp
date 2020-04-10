@@ -39,66 +39,82 @@
         </div>
     </nav>
 
-    <div class="container-fluid" id="fire_count">
+<section class="header-subpage">
+    <br/>
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="fire_count_header">
-                <h1>Australian Bushfires Count (2002 - 2020) </h1>
-                <h6>New South Wales, Queensland, Victoria</h6>
-            </div>
-        </div>
-        <div class="row" id="first_row">
-            <p>Data Source: NASA MODIS Cumulative Active Fire Detection Data
-                <br> For New South Wales, Victoria, and Queensland, summed per ‘fire year’ running from July 1st to June 30th in the following year. The 2019 - 2020 fire year numbers are based on data collected till January 2020.
-                <br>
-                <br> This fire year (2019-2020), fire detections in New South Wales are significantly higher than the previous record year (the 2002-03 fire season). In Victoria, fires are above average at this point in 2019-2020 but have not yet surpassed previous extreme fire years in 2002-2003 and 2006-2007. In Queensland, fire counts were consistent with previous years, despite large wildfires in southern Queensland, since total fire activity in this state is dominated by savanna fires in northern Queensland, a natural part of these ecosystems.
-            </p>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                <div id="first" align="center"></div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                <div id="second" align="center"></div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                <div id="third" align="center"></div>
-            </div>
-        </div>
-
-        <div class="row" id="second_row">
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                <div id="fourth" align="center"></div>
-                <p> New South Wales was impacted the most from 2019-2020 bushfires. Out of New South Wales, Queensland and Victoria, New South Wales had about 60% of bushfires, with Queensland having about 33% and Victoria having about 6% of bushfire incidents.</p>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                <div id="fifth" align="center"></div>
-                <p> A cumulative fire count of bushfire incidents for the 21st century shows that Queensland has had over a million devastating bushfires. Although Queensland is typically a state that sustains greater losses from cyclones and floods than from bushfires, it has experienced several devastating bushfires that have resulted in loss of life and property as well as very large areas that were burned without extensive loss of life or property.</p>
-            </div>
-        </div>
-
-        <div class="row" id="third_row">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                <div id="seventh" align="center"></div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                <div id="eighth" align="center"></div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-                <div id="nineth" align="center"></div>
-            </div>
-            <p> The graphs are based on the fire-year in Australia that begins from July 1st of every year and goes on till June 30th of the next year. The month of July shows almost none to very small number of fires but as the days progress the number of daily fires starts increasing. Based on these graphs, these fires show a sudden significant increase during the summer months from November till February before they become nearly constant and then start declining towards the end of the fire year.</p>
+            <div class="col-lg-12">
+            <h1> Australia Bushfire Counts (2002 - 2020) </h1>
+            <p>This page will show the current and historical fire counts for the major Australian states (in the form of a graph and/or table). Data Source: NASA MODIS Cumulative Active Fire Detection Data.<a href="#plots-section"> Click to learn more »</a></p>
+            </div> 
         </div>
     </div>
+</section>
+      
+<!-- Banner section-->
+<section class="banner2">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <h1 class="banner-title" data-direction="up" data-speed="0.25">Fire Count</h1>
+          <br/>
+          <p class="banner-subtitle" data-direction="up" data-speed="0.35">New South Wales, Queensland, Victoria</p>
+        </div>
+          
+        </div>
+      </div>
+  </section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.15.0/d3.js"></script>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="{{ url_for('static', filename='js/fire_count.js') }}"></script>
+<section class="basic-white" id="plots-section">
+    <p class="font-weight-light">For New South Wales, Victoria, and Queensland, summed per ‘fire year’ running from July 1st to June 30th in the following year. The 2019 - 2020 fire year numbers are based on data collected till January 2020. This fire year (2019-2020), fire detections in New South Wales are significantly higher than the previous record year (the 2002-03 fire season). In Victoria, fires are above average at this point in 2019-2020 but have not yet surpassed previous extreme fire years in 2002-2003 and 2006-2007. In Queensland, fire counts were consistent with previous years, despite large wildfires in southern Queensland, since total fire activity in this state is dominated by savanna fires in northern Queensland, a natural part of these ecosystems.</p>
+    <br>
+    <hr>
+    <div class="row" id="first_row">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div id="first" align="center"></div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div id="second" align="center"></div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div id="third" align="center"></div>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <div class="row" id="second_row">
+         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div id="fourth" align="center"></div>
+                <p class="font-weight-light"> New South Wales was impacted the most from 2019-2020 bushfires. Out of New South Wales, Queensland and Victoria, New South Wales had about 60% of bushfires, with Queensland having about 33% and Victoria having about 6% of bushfire incidents.</p>
+            </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            <div id="fifth" align="center"></div>
+                <p class="font-weight-light"> A cumulative fire count of bushfire incidents for the 21st century shows that Queensland has had over a million devastating bushfires. Although Queensland is typically a state that sustains greater losses from cyclones and floods than from bushfires, it has experienced several devastating bushfires that have resulted in loss of life and property as well as very large areas that were burned without extensive loss of life or property.</p>
+        </div>
+    </div>
+    <br>
+    <hr>
+    <div class="row" id="third_row">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div id="seventh" align="center"></div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div id="eighth" align="center"></div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+            <div id="nineth" align="center"></div>
+            
+        </div>
+        <small class="text-muted"> *The graphs are based on the fire-year in Australia that begins from July 1st of every year and goes on till June 30th of the next year. The month of July shows almost none to very small number of fires but as the days progress the number of daily fires starts increasing. Based on these graphs, these fires show a sudden significant increase during the summer months from November till February before they become nearly constant and then start declining towards the end of the fire year.</small>
+    </div>
 
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.15.0/d3.js"></script>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="{{ url_for('static', filename='js/parallax.js') }}"></script>
+<script src="{{ url_for('static', filename='js/fire_count.js') }}"></script>
 </body>
-
-<!-- begin wwww.htmlcommentbox.com -->
-<div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">HTML Comment Box</a> is loading comments...</div>
-<link rel="stylesheet" type="text/css" href="https://www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
-<script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="https://www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&mod=%241%24wq1rdBcg%24djX4zEE4DBBaYwmJDqyvv1"+"&opts=16862&num=10&ts=1585408487282");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
-<!-- end www.htmlcommentbox.com -->
 
 <footer class="page-footer font-small blue">
     <div class="footer-copyright text-center py-3">© 2020 Copyright:

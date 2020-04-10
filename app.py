@@ -1,10 +1,10 @@
 # Import dependencies
 from flask import Flask, render_template, jsonify, request, redirect
+import sqlalchemy
 from sqlalchemy.orm import Session
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, Float, Date
 import datetime, time
-from config import password
 import os
 
 
@@ -12,22 +12,11 @@ import os
 app = Flask(__name__)
 
 #####################################################################
-#                         Database Connection 			       		#
+#                         Database Connection 			            		#
 #####################################################################
 
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DB_CONN")
 db = SQLAlchemy(app)
-
-# USER = "root"
-# PASSWORD = my_password
-# HOST = "127.0.0.1"
-# PORT = "3306"
-# DATABASE = "bushfires_db"
-
-# app.config[
-#     "SQLALCHEMY_DATABASE_URI"
-# ] = f"mysql+pymysql://{USER}:{PASSWORD}@{HOST}:{PORT}/{DATABASE}"
-# db = SQLAlchemy(app)
 
 
 #####################################################################
@@ -46,7 +35,7 @@ class DictMixIn:
 
 
 #####################################################################
-#                 Classes for Fire Count Tables  		   	      	#
+#                  Classes for Fire Count Tables  		   	        	#
 #####################################################################
 
 
@@ -303,7 +292,7 @@ class Impact_Economic(db.Model, DictMixIn):
     domestic_credit_private_sector_banks_per_gdp = db.Column(db.Integer())
 
 
-class impact_economic_cip(db.Model, DictMixIn):
+class Impact_Economic_cpi(db.Model, DictMixIn):
     __tablename__ = "impact_economic_cip"
 
     number = db.Column(db.Integer(), primary_key=True)
@@ -317,10 +306,22 @@ class impact_economic_cip(db.Model, DictMixIn):
     nothern_territory_cpi = db.Column(db.Integer())
     australian_capital_territory_cpi = db.Column(db.Integer())
 
+############################################################
+### START: Table for Global Fire Map (2019 through 2017) ###
+############################################################
 
-# TEAM: KEEP ADDING YOUR CLASSES HERE:
+class agg_g_fires(db.Model, DictMixIn):
+    __tablename__ = "agg_g_fires"
 
-# NO TOUCH
+    index = db.Column(db.Integer(), primary_key=True)
+    latitude = db.Column(db.Float())
+    longitude = db.Column(db.Float())
+    count = db.Column(db.Integer())
+    year = db.Column(db.Integer())
+
+
+
+
 db.session.commit()
 
 
@@ -330,7 +331,7 @@ db.session.commit()
 
 
 #####################################################################
-#                               Home Page		   	              	#
+#                               Home Page		   	               	#
 #####################################################################
 
 
@@ -342,11 +343,6 @@ def index():
 #####################################################################
 #                    Australia Fire Locations  	   	                #
 #####################################################################
-
-
-@app.route("/fire-maps")
-def load_aus_fire_locations():
-    return render_template("fire-maps.html")
 
 
 @app.route("/aus_fire_map")
@@ -371,11 +367,47 @@ def samples(year):
     else:
         fires_2020 = agg_fire_maps.query.filter_by(year = '2020')
         return jsonify([e.to_dict() for e in fires_2020])
-      
+
 
 
 #####################################################################
-#                     Fire Counts Page and Route 	               	#
+#                      Global Fire Locations  	   	                #
+#####################################################################
+
+
+@app.route("/fire-maps")
+def load_aus_fire_locations():
+    return render_template("fire-maps.html")
+
+
+@app.route("/g_fires_map")
+def load_g_fires_locations_data():
+
+    g_fires_arch = agg_g_fires.query.all()
+    return jsonify([e.to_dict() for e in g_fires_arch])
+
+
+@app.route("/g_fires_map/<year>")
+def year_filter(year):
+    """Return `latitude`, `longitude`,and `count`."""
+    if year == '2017':
+        global_fires_2017 = agg_g_fires.query.filter_by(year = '2017')
+        return jsonify([e.to_dict() for e in global_fires_2017])
+    elif year == '2018':
+        global_fires_2018 = agg_g_fires.query.filter_by(year = '2018')
+        return jsonify([e.to_dict() for e in global_fires_2018])
+    elif year == '2019':
+        global_fires_2019 = agg_g_fires.query.filter_by(year = '2019')
+        return jsonify([e.to_dict() for e in global_fires_2019])
+    else:
+        global_fires_2020 = agg_g_fires.query.filter_by(year = '2020')
+        return jsonify([e.to_dict() for e in global_fires_2020])
+
+
+
+
+#####################################################################
+#                     Fire Counts Page and Route 	                	#
 #####################################################################
 
 
@@ -503,12 +535,9 @@ def annual_total_fire_counts():
 #####################################################################
 
 
-
 @app.route("/impact")
 def impact():
-    data = ProtectedSpecies.query.all()
-    impact_list = [e.to_dict() for e in data]
-    return render_template("impact.html", data=impact_list)
+    return render_template("impact.html")
 
 
 @app.route("/impact-data")
@@ -530,15 +559,15 @@ def econ_impact():
     impact_economic = Impact_Economic.query.all()
     for result in impact_economic:
         human_econ_impact.append(result.to_dict())
-    # impact_consumer = Impact_Economic_cip.query.all()
-    # for result in impact_economic:
+    impact_consumer = Impact_Economic_cpi.query.all()
+    for result in impact_economic:
         human_econ_impact.append(result.to_dict())
     return jsonify(human_econ_impact)
 
 
-####################################################################
-                     Climate Fails Page 		                    #
-####################################################################
+#####################################################################
+#                      Climate Fails Page 		                    #
+#####################################################################
 
 
 @app.route("/climate-fails")
@@ -661,6 +690,17 @@ def climate_data():
 
 
 #####################################################################
+#                            About Page                             #
+#####################################################################
+
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+
+
+#####################################################################
 #                       Custom 404 Page                             #
 #####################################################################
 
@@ -669,10 +709,9 @@ def page_not_found(e):
     return render_template('404.html'), 404
 
 
-####################################################################
-                                Main		     			   		#
-####################################################################
+#####################################################################
+#                                 Main		     			   		#
+#####################################################################
 
 if __name__ == "__main__":
     app.run(debug=True)
-    

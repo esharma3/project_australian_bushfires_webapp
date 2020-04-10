@@ -82,3 +82,91 @@ button_17.on("click", init_2017);
 button_18.on("click", init_2018);
 button_19.on("click", init_2019);
 button_20.on("click", init_2020);
+
+// GLOBAL FIRES SECTION
+// January 1st, 2017 ----> March 5th, 2020
+
+// Global Fires Buttons
+const button_2017 = d3.select("#global-2017");
+const button_2018 = d3.select("#global-2018");
+const button_2019 = d3.select("#global-2019");
+const button_2020 = d3.select("#global-2020");
+
+// Global Fires Map Generator
+function buildGlobalmap(totalData) {
+
+	let trace1 = {
+	    lat: totalData.map(e => e.latitude),
+        lon: totalData.map(e => e.longitude),
+        z: totalData.map(e => e.count),
+        hovertemplate: 'Location: (%{lat},%{lon})' + '<br>' + 'Total Fires: %{z} per 11.1km radius',
+	    type: "densitymapbox"
+    };
+
+    let plotData = [trace1]
+
+    let layout = {
+        hovermode:'closest',
+        dragmode: "zoom",      
+        mapbox: {
+            style: 'stamen-terrain',
+            center: { lat: -24.2, lon: 135 },
+            zoom: 3
+        },
+        margin: { r: 0, t: 60, b: 0, l: 120 }
+    };
+
+    Plotly.newPlot("global_plot", plotData, layout)
+};
+
+// Global Fires Event Handlers
+function start_2017() {
+
+	console.log("Bring it back to 2017...")
+
+    // 2017 JSON Global Fires Data
+	d3.json("/g_fires_map/2017").then((data) => {
+		console.log("Bring it back to 2017-S2")
+        buildGlobalmap(data)
+    })
+};
+
+function start_2018() {
+
+	console.log("bring it back to 2018...")
+
+    // 2018 JSON Global Fires Data
+	d3.json("/g_fires_map/2018").then((data) => {
+		console.log("Bring it back to 2018-S2")
+        buildGlobalmap(data)
+    })
+};
+
+function start_2019() {
+
+	console.log("Bring it back to 2019...")
+
+    // 2019 JSON Global Fires Data
+	d3.json("/g_fires_map/2019").then((data) => {
+		console.log("Bring it back to 2019-S2")
+        buildGlobalmap(data)
+    })
+};
+
+function start_2020() {
+
+	console.log("Welcome to 2020...")
+
+    // 2020 JSON Global Fires Data
+	d3.json("/g_fires_map/2020").then((data) => {
+		console.log("Welcome to 2020-S2")
+        buildGlobalmap(data)
+    })
+};
+
+start_2019();
+button_2017.on("click", start_2017);
+button_2018.on("click", start_2018);
+button_2019.on("click", start_2019);
+button_2020.on("click", start_2020);
+
