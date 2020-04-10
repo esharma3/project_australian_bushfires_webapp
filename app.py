@@ -241,7 +241,7 @@ class ProtectedSpecies(db.Model, DictMixIn):
     taxon_id = db.Column(db.Integer(), primary_key=True)
     scientific_name = db.Column(db.String())
     common_name = db.Column(db.String())
-    afected_area = db.Column(db.String())
+    affected_area = db.Column(db.String())
     area_min = db.Column(db.Integer())
     area_max = db.Column(db.Integer())
     type = db.Column(db.String())
