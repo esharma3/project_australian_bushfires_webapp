@@ -1,9 +1,12 @@
-# AUS' BUSHFIRE CENTRAL (WebApp) - Group Project
+# AUSTRALIA BUSHFIRE CENTRAL (WebApp) - Group Project
+
 University of Texas at Austin, Data Bootcamp 2019-2020
 
-[Project Requirements](Project_II_Requirements.docx)
+Group Members - Ekta Sharma | David Altuve | James Durnan | Catherine Gomes | Claudia Ibarra | Austin SpaceK
 
-![AUS Bushfire Central](static/images/koala-bg.jpg)
+[Project Requirements](project_documents/Project_II_Requirements.docx)
+
+![AUS Bushfire Central](static/images/readme_image.gif)
 
 ### Objective: 
 
@@ -12,19 +15,19 @@ Bushfires in Australia are a widespread and regular occurrence that have contrib
 
 ### Additional Highlights:
 
-*   Feedback section on the Home Page that lets user post comments
 *   Access to the project data using API requests 
 *   Fun 404 page 
+*   Feedback section on the Home Page that lets user post comments
 
 ### Technologies Used:
 
-*   APP – Python, Flask, Flask-SQLAlchemy
-*	Database – MySQL on GCP. Script created using SQL.
+*   APP – Flask, Flask-SQLAlchemy, Python
+*	Database – MySQL on GCP. Script created using SQL
 *   Templates – HTML, CSS, Bootstrap
 *   Interactive Features – JavaScript, Plotly
 *   Visualizations – Plotly map, bar graph, pie chart, line graph, scatter plot
-*	Web Scraping – Requests
-*   Deployment - GCP
+*	Web Scraping – Requests, Beautiful Soup
+*   Deployment - GCP (Google Cloud Platform)
 
 ### Data Sources:
 
@@ -38,3 +41,17 @@ Bushfires in Australia are a widespread and regular occurrence that have contrib
 *   Greenhouse Gases – CSIRO 
 *   Fire Counts – GFED (Global Fire Emissions Database)
 
+### Project Data Routes:
+
+*   https://australia-bushfire-central-ak7h3hm6ya-uc.a.run.app/annual_total_fire_counts?state=&year=
+*   https://australia-bushfire-central-ak7h3hm6ya-uc.a.run.app/climate_data?category=
+*   https://australia-bushfire-central-ak7h3hm6ya-uc.a.run.app/impact-data
+*   https://australia-bushfire-central-ak7h3hm6ya-uc.a.run.app/econ-impact
+*   https://australia-bushfire-central-ak7h3hm6ya-uc.a.run.app/aus_fire_map/<year>
+
+### Project API Documentation:
+
+https://documenter.getpostman.com/view/10893300/SzYXVdtw
+
+
+© 2020 Copyright: University of Texas, Data Bootcamp
