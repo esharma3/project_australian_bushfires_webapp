@@ -23,6 +23,7 @@ selenium = "*"
 xlrd = "*"
 flask-sqlalchemy = "*"
 python-dotenv = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.7"
