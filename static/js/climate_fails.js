@@ -574,7 +574,7 @@ function buildOnLoadPlot(combinedData) {
 	let trace1 = {
 		x: combinedData.map(e => e.max_temp_decile10_year),
 		y: combinedData.map(e => e.maxtemp_total_land_area_percentage),
-		name: "Annual Max Temperature (°Celsius) Decile 10",
+		name: "Decile 10 Max Temperature Percentage Area",
 		fill: 'tozeroy',
 		type: 'scatter',
 		marker: {
@@ -585,7 +585,7 @@ function buildOnLoadPlot(combinedData) {
 	let trace2 = {
 		x: combinedData.map(e => e.annual_rainfall_decile10_year).slice(810, ),
 		y: combinedData.map(e => e.rainfall_total_land_area_percentage).slice(810, ),
-		name: "Annual Rainfall Decile 10",
+		name: "Decile 10 Annual Rainfall Percentage Area",
 		type: 'bar',
 		marker: {
 			color: "blue"
