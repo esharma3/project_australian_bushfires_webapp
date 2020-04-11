@@ -77,8 +77,8 @@ function buildComparisonPlot(combinedData) {
 			"The year 2019 shows a drastic increase in maximum temperature and a significant drop in annual rainfall that together served as a catalyst " +
 			"causing a surge in number of bushfires across Australia specially is New South Wales and Victoria."
 
-		d3.select("p").text("")
-		d3.select("p").append("text").text(para)
+		d3.select(".card-text").text("")
+		d3.select(".card-text").append("text").text(para)
 	});
 
 };
@@ -182,8 +182,8 @@ function buildPollutantPlot(combinedData) {
   		"contributing to global warming, and heighten the likelihood of recurring megafires that will release yet more emissions creating a deeply concerning " +
   		"climate feedback loop."
 
-  	d3.select("p").text("")
-  	d3.select("p").append("text").text(para)
+  	d3.select(".card-text").text("")
+  	d3.select(".card-text").append("text").text(para)
 
 });
 
@@ -228,8 +228,8 @@ function buildMaxTempPlot(combinedData) {
 		"The graph above also shows the gradual increase in the country’s maximum temperature with first half of the 20th century being a lot cooler than the second " +
 		"half of the century. The 21st century marks the beginning of significant and persistent increased anomaly in maximum temperature."
 
-	d3.select("p").text("")
-	d3.select("p").append("text").text(para)
+	d3.select(".card-text").text("")
+	d3.select(".card-text").append("text").text(para)
 
 };
 
@@ -273,8 +273,8 @@ function buildMinTempPlot(combinedData) {
 		"The above graph also shows the gradual increase in the country’s minimum temperature anomaly with first half of the 20th century being a lot cooler than the second " +
 		"half of the century. The 21st century marks the beginning of significant and persistent increased anomaly in minimum temperature."
 
-	d3.select("p").text("")
-	d3.select("p").append("text").text(para)
+	d3.select(".card-text").text("")
+	d3.select(".card-text").append("text").text(para)
 
 };
 
@@ -316,8 +316,8 @@ function buildMeanTempPlot(combinedData) {
 		"The year that delivered crippling drought, heatwaves, temperature records and devastating bushfires was 0.19°C hotter than 2013, the previous " +
 		"record holder. The second hottest year was 2013, followed by 2005, 2018 and 2017." 
 
-	d3.select("p").text("")
-	d3.select("p").append("text").text(para)
+	d3.select(".card-text").text("")
+	d3.select(".card-text").append("text").text(para)
 
 };
 
@@ -357,8 +357,8 @@ function buildAnnualRainPlot(combinedData) {
 	para = "Australia had its driest ever year in 2019, with rainfall 40% lower than average, based on records going back to 1900. " +
 		"The year 2019 recorded an annual average rainfall of 277.72 mm, the lowest since 1900."
 
-	d3.select("p").text("")
-	d3.select("p").append("text").text(para)
+	d3.select(".card-text").text("")
+	d3.select(".card-text").append("text").text(para)
 
 };
 
@@ -400,8 +400,8 @@ function buildRainAnomalyPlot(combinedData) {
 		"The graph shows more negative anomaly than positive in last 120 years indicating that for the country, that faces drought, " +
 		"there has been more decrease in rainfall than increase."
 
-	d3.select("p").text("")
-	d3.select("p").append("text").text(para)
+	d3.select(".card-text").text("")
+	d3.select(".card-text").append("text").text(para)
 
 };
 
@@ -443,8 +443,8 @@ function buildSSTPlot(combinedData) {
 		" of 0.78° Celsius. From 1900 till 1970, the country had cooler Sea Surface Temperature with persistent negative anomalies but post 1970 " +
 		" the country started having high positive anomalies indicating higher Sea Surface Temperatures."
 
-	d3.select("p").text("")
-	d3.select("p").append("text").text(para)
+	d3.select(".card-text").text("")
+	d3.select(".card-text").append("text").text(para)
 
 };
 
@@ -466,7 +466,7 @@ function buildCO2Plot(combinedData) {
 	let plotData = [trace1]
 
 	let layout = {
-		title: "Australia Carbon Dioxide Level in Parts-Per-Million (1978-2019)",
+		title: "Australia Carbon Dioxide (CO2) Level in Parts-Per-Million (1978-2019)",
 		xaxis: {
 			type: 'category',
 		},
@@ -482,8 +482,8 @@ function buildCO2Plot(combinedData) {
 		"equivalent to nearly double the country's total yearly fossil fuel emissions. The graph shows a continuous increase in the " +
 		"Carbon Dioxide level each year with 2019 reporting about 407 parts-per-million Carbon Dioxide level in the country."
 
-	d3.select("p").text("")
-	d3.select("p").append("text").text(para)
+	d3.select(".card-text").text("")
+	d3.select(".card-text").append("text").text(para)
 
 };
 
@@ -521,8 +521,8 @@ function buildCH4Plot(combinedData) {
 		"(CO2) on a 20 year time frame with aerosol impacts included. Like Carbon Dioxide, there is a continuous increase in reported levels of Methane " +
 		"in the atmosphere with the year 2019 showing approximately 1817 parts-per-billion Methane levels."
 
-	d3.select("p").text("")
-	d3.select("p").append("text").text(para)
+	d3.select(".card-text").text("")
+	d3.select(".card-text").append("text").text(para)
 };
 
 
@@ -561,8 +561,8 @@ function buildN2OPlot(combinedData) {
 		"than carbon dioxide — are going up faster and each molecule of nitrous oxide in the atmosphere can capture 300 times more heat than a " +
 		"molecule of carbon dioxide."
 
-	d3.select("p").text("")
-	d3.select("p").append("text").text(para)
+	d3.select(".card-text").text("")
+	d3.select(".card-text").append("text").text(para)
 
 };
 
@@ -614,8 +614,8 @@ function buildOnLoadPlot(combinedData) {
 		"Bushfire weather conditions in future years are projected to increase in severity for many regions of Australia due to more " +
 		"extreme heat events, with the rate and magnitude of change increasing with greenhouse gas concentrations (and emissions)."
 
-	d3.select("p").text("")
-	d3.select("p").append("text").text(para)
+	d3.select(".card-text").text("")
+	d3.select(".card-text").append("text").text(para)
 
 };
 

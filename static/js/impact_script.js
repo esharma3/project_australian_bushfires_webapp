@@ -27,6 +27,17 @@ const input = d3.select("input");
 		let layout = {
 			height: 400,
 			width: 400,
+			title: {
+				text:'Affected Habitat %',
+				font: {
+					family:"Helvetica Neue",
+					// BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif
+					size: "30px", 
+					color: "#999999",
+					weight: "light"
+					
+				}
+			},
 			margin: {
 			"t": 0,
 			"b": 0,
@@ -43,6 +54,7 @@ function animalImpactMap(obj) {
 	document.getElementById("map").innerHTML = "";
 	document.getElementById("roo-img").innerHTML = "";
 	document.getElementById("roo-text").innerHTML = "";
+	d3.select("#map").append("h4").text("Species habitat").attr("align", "center");
 
 	d3.select("#map")
 		.append("iframe")
@@ -61,6 +73,8 @@ function animalImpactTable(obj) {
 	document.getElementById("table").innerHTML = "";
 	document.getElementById("roo-img").innerHTML = "";
 	document.getElementById("roo-text").innerHTML = "";
+
+	d3.select("#table").append("h4").text("Species deets").attr("align", "center");
 
 	// Getting my variables ready
 	const table = d3.select("#table")
@@ -108,9 +122,10 @@ function concernedRoo() {
 	  .append("img")
 	  .attr("src", 'https://pngimg.com/uploads/kangaroo/kangaroo_PNG4.png')
 	  .attr("width", 350, "height", "auto")
+	  .attr("vertical-lign", "center")
 
 	d3.select('#roo-text')
-	  .append("h3").text("Are you lost, buddy? try another search!")
+	  .append("h3").text("You lost, mate? try searching again. G'day!")
 }
 
 // Handler function

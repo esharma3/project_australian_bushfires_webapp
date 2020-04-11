@@ -373,16 +373,16 @@ engine.execute(f"DROP TABLE IF EXISTS {IMPACT_TABLENAME1}")
 # Initial csv loading > df
 df = pd.read_csv("protected_species_impact.csv")\
        .fillna('N/A')\
-       .rename(columns = {"Percentage of the species modelled likely and known distribution within fire affected areas": "Afected Area", 
+       .rename(columns = {"Percentage of the species modelled likely and known distribution within fire affected areas": "Affected Area", 
                           "EPBC Act listed Threatened Status": "Protected Status", 
                           "EPBC Act listed Migratory Status": "Migratory Status", 
                           "Range states and territories": "Location",
                           "SPRAT ID": "taxon_id"})\
-       .replace({'Afected Area': '≥80%'}, '>80%')
+       .replace({'Affected Area': '≥80%'}, '>80%')
 
 # Breaking "Affected Area" by Min and Max ranges
-min_range = [df["Afected Area"][e][:3].strip("%|<|>| ") for e in df["Afected Area"].index]
-max_range = [df["Afected Area"][e][5:-1].strip("%|<|>| ") for e in df["Afected Area"].index]
+min_range = [df["Affected Area"][e][:3].strip("%|<|>| ") for e in df["Affected Area"].index]
+max_range = [df["Affected Area"][e][5:-1].strip("%|<|>| ") for e in df["Affected Area"].index]
 
 # Adding coverage maps
 distro_map = ['http://www.environment.gov.au/webgis-framework/apps/species-discovery/sd.html?map_taxon_id=' + str(df["taxon_id"][e]) for e in df["taxon_id"].index]
@@ -402,14 +402,14 @@ df.insert(column='Thumbnail', value=thumbnail_url, loc=4)
 
 # Cleaning some data and rearranging columns
 df = df.replace(r'^\s*$', np.NaN, regex=True)
-df = df[['taxon_id','Scientific Name','Common Name','Afected Area', 'Area Min', 'Area Max', 'Type', 'Protected Status', 'Migratory Status', 'Location', 'URL', 'Distribution Map', 'Thumbnail']]
+df = df[['taxon_id','Scientific Name','Common Name','Affected Area', 'Area Min', 'Area Max', 'Type', 'Protected Status', 'Migratory Status', 'Location', 'URL', 'Distribution Map', 'Thumbnail']]
 df.columns = map(str.lower, df.columns.str.replace(" ", "_"))
 
 # Creating schema for SQL table
 schema = {"taxon_id": sqlalchemy.types.INTEGER,
           "scientific_name": sqlalchemy.types.String(length=300),
           "common_name": sqlalchemy.types.String(length=300),
-          "afected_area": sqlalchemy.types.String(length=50),
+          "affected_area": sqlalchemy.types.String(length=50),
           "area_min": sqlalchemy.types.INTEGER,
           "area_max": sqlalchemy.types.INTEGER,
           "type": sqlalchemy.types.String(length=50),
@@ -535,8 +535,9 @@ df = pd.read_csv("aus_fire_locations/agg_fire_maps.csv").to_sql(
 
 engine.execute(f"ALTER TABLE {AUS_FIRES2} ADD PRIMARY KEY (`index`)")
 
+
 ###########################################################
-##    Table for Global Fire Map (2017 through 2020)     ###
+##    Table for Global Fire Map (2017 through 2020)      ##
 ###########################################################
 
 # Creating the MySQL table with the cleaned data set
@@ -569,5 +570,5 @@ del j
 engine.execute(f"ALTER TABLE {GLOBAL_FIRES_2020_2017} ADD PRIMARY KEY (`index`)")
 
 #################################################################
-##    End of Table for Global Fire Map (2017 through 2020)   ###
+##    End of Table for Global Fire Map (2017 through 2020)    ###
 #################################################################

@@ -9,6 +9,32 @@ html {
 
 h1 {
   padding-top: 40px;
+  color: #333333;
+
+}
+
+h4 {
+  color: #666666;
+  font-size: 18px;
+  font-weight: lighter;
+}
+
+/* General section styling*/
+section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-right: 25px;
+  padding-left: 25px;
+  min-height: 800px;
+}
+
+.basic-white {
+  min-height: auto;
+  background-color: #FFFFFF;
+}
+
+.timeline-item {
+  margin: 50px;
 }
 
 nav {
@@ -22,9 +48,20 @@ section {
   padding-bottom: 50px;
   padding-right: 25px;
   padding-left: 25px;
-  min-height: 800px;
 }
 
+.basic-white {
+  min-height: auto;
+  background-color: #FFFFFF;
+}
+
+.timeline-item {
+  margin: 50px;
+}
+
+#HCB_comment_box {
+
+}
 
 /* This is all that badass hero image section*/
 .bgimage {
@@ -97,6 +134,209 @@ section {
 }
 
 
+/* Buttons for all sections */
+.btn {
+  color: #666666 !important;
+  text-align: middle;
+  vertical-align: middle;
+  background: #ffffff;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 30px;
+  padding-left: 30px;
+  margin: 5px;
+  border: 1px solid #999999 !important;
+  border-radius: 12px;
+  display: inline-block;
+  transition: all 0.3s ease 0s;
+  }
+
+.btn:hover {
+  color: #BF0000 !important;
+  border-radius: 50px;
+  border-color: #494949 !important;
+  transition: all 0.3s ease 0s;
+  }
+
+/* For all pages intro, except home page */
+.header-subpage {
+  min-height: auto;
+}
+.header-subpage p {
+  background-color: #fafafa;
+  padding:20px;
+}
+
+
+/* Banner sections */
+
+.banner1 {
+  width:100%;
+  height:300px;
+  padding: 50px 50px;
+  background: url('../images/fire-maps.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  padding: 5px 15px;
+}
+
+.banner1 h1 {
+  color: white;
+  text-shadow: 1px 1px #333;
+  text-align: center;
+  font-weight: bold;
+  font-size: 100px;
+  
+}
+
+.banner1 h2 {
+  color: white;
+  text-shadow: 1px 1px #333;
+  text-align: center;
+  font-weight: bold;
+}
+
+.banner1 p {
+  color: white;
+  text-shadow: 1px 1px #333;
+  font-size: 50px;
+  text-align: center; 
+  top-margin: 50%;
+}
+
+.banner2 {
+  width:100%;
+  height:300px;
+  padding: 50px 50px;
+  background: url('../images/fire-count.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  padding: 5px 15px;
+}
+
+.banner2 h1 {
+  color: white;
+  text-shadow: 1px 1px #333;
+  text-align: center;
+  font-weight: bold;
+  font-size: 100px;
+  
+}
+
+.banner2 h2 {
+  color: white;
+  text-shadow: 1px 1px #333;
+  text-align: center;
+  font-weight: bold;
+}
+
+.banner2 p {
+  color: white;
+  text-shadow: 1px 1px #333;
+  font-size: 50px;
+  text-align: center; 
+  top-margin: 50%;
+}
+
+
+.banner3 {
+  width:100%;
+  height:300px;
+  padding: 50px 50px;
+  background: url('../images/impact.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  padding: 5px 15px;
+}
+
+.banner3 h1 {
+  color: white;
+  text-shadow: 1px 1px #333;
+  text-align: center;
+  font-weight: bold;
+  font-size: 100px;
+  
+}
+
+.banner3 h2 {
+  color: white;
+  text-shadow: 1px 1px #333;
+  text-align: center;
+  font-weight: bold;
+}
+
+.banner3 p {
+  color: white;
+  text-shadow: 1px 1px #333;
+  font-size: 50px;
+  text-align: center; 
+  top-margin: 50%;
+}
+
+.banner4 {
+  width:100%;
+  height:300px;
+  padding: 50px 50px;
+  background: url('../images/climate-fails.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size:cover;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  padding: 5px 15px;
+}
+
+.banner4 h1 {
+  color: white;
+  text-shadow: 1px 1px #333;
+  text-align: center;
+  font-weight: bold;
+  font-size: 100px;
+  
+}
+
+.banner4 h2 {
+  color: white;
+  text-shadow: 1px 1px #333;
+  text-align: center;
+  font-weight: bold;
+}
+
+.banner4 p {
+  color: white;
+  text-shadow: 1px 1px #333;
+  font-size: 50px;
+  text-align: center; 
+  top-margin: 50%;
+}
+
+/* footer */
+
 footer {
   padding-top: 50px;
 }
@@ -104,10 +344,6 @@ footer {
 /*#####################################################################*/
 /*                 Styling for fire count template                     */
 /*#####################################################################*/
-
-#fire_count {
-  padding: 60px;
-}
 
 #first_row {
   text-align: center;
@@ -125,30 +361,6 @@ footer {
   padding-top: 30px;
 }
 
-#fire_count h6 {
-  font-weight: bold;
-}
-
-#fire_count_header {
-  background: rgb(61, 61, 92);
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-#fire_count_header h1 {
-  padding-top: 10px;
-  color: white;
-}
-
-#fire_count_header h6 {
-  color: white;
-}
-
-#fire_count p {
-  padding-bottom: 30px;
-  text-align: justify;
-}
-
 /*#####################################################################*/
 /*                Styling for Climate Fails template                   */
 /*#####################################################################*/
@@ -158,54 +370,15 @@ footer {
   margin-top: 35px;
 }
 
-#climate_header {
-  background: rgb(61, 61, 92);
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-#climate_header h1 {
-  padding-top: 10px;
-  color: white;
-}
-
-#climate_header h4, h6 {
-  color: white;
-}
-
-.card {
-  width: 100%;
-  height: 100%;
-}
-
-.btn {
-  background-color: black;
-  width: 270px;
-  color: white;
-  margin: 3px;
-}
-
-.btn:hover {
-    color: orange;
-}
-
-.btn:focus{
-    background: rgb(92, 92, 138);
-}
-
-#buttons {
-  background: rgb(41, 41, 61);
-  padding: 10px;
-  margin-bottom: 5px;
-  justify-content: center;
-  align-items: center;
+#climate-cards
+{
+  border-radius:.75rem!important
 }
 
 #climate_first_row,
 #climate_second_row
 {
-  background: rgb(41, 41, 61);
-  padding: 10px;
+  padding: 5px;
   margin-bottom: 5px;
 }
 
@@ -237,7 +410,7 @@ footer {
   height: 100%;
   margin-top: 50px;
   margin-bottom: 10px;
-  background: url('../images/concerned-roo.jpg');
+  background: url('../images/concerned-roo-meme.jpg');
   background-repeat: no-repeat;
   background-size:cover;
 }
@@ -247,6 +420,57 @@ footer {
   padding-bottom: 40px;
   text-align: center;
 }
+
+
+
+/*#####################################################################*/
+/*                  Styling for about template                         */
+/*#####################################################################*/
+
+.bios h1 p {
+  vertical-align: middle;
+}
+
+.bios p {
+  vertical-align: middle;
+}
+
+.bios .card-img {
+  height:200px;
+  width: auto;
+  padding-left: 50px;
+  padding-right: 50px;
+  vertical-align: middle;
+  margin: 20px;
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  filter: grayscale(100%);
+  filter: gray; 
+  -webkit-animation: fadein 3s; /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 3s; /* Firefox < 16 */
+  animation: fadein 3s;
+}
+
+.bios .card-img:hover {
+  -webkit-filter: none;
+  -moz-filter: none;
+  -ms-filter: none;
+  filter: none;
+}
+
+
+@keyframes fadein {
+from { opacity: 0; }
+to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 
 
 /*#####################################################################*/

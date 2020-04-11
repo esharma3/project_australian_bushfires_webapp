@@ -241,7 +241,7 @@ class ProtectedSpecies(db.Model, DictMixIn):
     taxon_id = db.Column(db.Integer(), primary_key=True)
     scientific_name = db.Column(db.String())
     common_name = db.Column(db.String())
-    afected_area = db.Column(db.String())
+    affected_area = db.Column(db.String())
     area_min = db.Column(db.Integer())
     area_max = db.Column(db.Integer())
     type = db.Column(db.String())
@@ -331,7 +331,7 @@ db.session.commit()
 
 
 #####################################################################
-#                               Home Page		   	                  	#
+#                               Home Page		   	               	#
 #####################################################################
 
 
@@ -343,11 +343,6 @@ def index():
 #####################################################################
 #                    Australia Fire Locations  	   	                #
 #####################################################################
-
-
-@app.route("/fire-maps")
-def load_aus_fire_locations():
-    return render_template("fire-maps.html")
 
 
 @app.route("/aus_fire_map")
@@ -695,6 +690,17 @@ def climate_data():
 
 
 #####################################################################
+#                            About Page                             #
+#####################################################################
+
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+
+
+#####################################################################
 #                       Custom 404 Page                             #
 #####################################################################
 
@@ -709,4 +715,3 @@ def page_not_found(e):
 
 if __name__ == "__main__":
     app.run(debug=True)
-    
